@@ -1,0 +1,99 @@
+#navigator {
+	margin: 0px;
+	padding: 0px;
+	background-color: White;
+	font-family: Tahoma, Verdana, Arial, Helvetica, serif;
+	font-size: small;
+}
+
+#navigator a {
+	font-family: Tahoma, Verdana, Arial, Helvetica, serif;
+	font-size: small;
+}
+
+#rootMenuList {
+	padding: 0px 0px 3px 0;
+	margin-left: 0;
+	border-bottom: 2px solid #307D1F;
+}
+
+#rootMenuList li {
+	list-style: none;
+	margin-left: 5px;
+	display: inline;
+	padding: 3px 0.5em;
+	border: 1px solid #307D1F;
+	border-bottom: none;
+	background: #F2F7EE;
+
+}
+
+#rootMenuList li a {
+	font-weight: bolder;
+	color: #136391;
+	text-decoration: none;
+}
+
+#rootMenuList li.inSelection {
+	font-weight: bolder;
+	color : White;
+	background: #96CC54;
+	border-bottom: 2px solid #96CC54;
+}
+
+
+#rootMenuList li.inSelection a {
+	color : White;
+}
+
+#rootMenuList li.inSelection ul li a {
+	color: #136391;
+}
+
+#rootMenuList li.shortcuts {
+	margin-left: 0px 5px;
+	padding: 0px 0.5em;
+	border: none;
+	background: White;
+}
+
+#rootMenuList li.shortcuts a {
+	color: #B22222;
+	text-decoration: underline;
+}
+
+#secondLevelMenuList {
+	margin: 0px;
+	margin-top: 0px;
+	padding: 0px;
+	list-style-type: none;
+	white-space: nowrap;
+	float:left;
+	background-color: #96CC54;
+	width: 100%
+}
+
+#secondLevelMenuList li {
+	float: left;
+	margin: 2;
+	padding: 3px;
+	border: 0px;
+	background-color: #96CC54;
+}
+
+#secondLevelMenuList li a {
+	color: #136391;
+	font-weight: normal;
+	text-decoration: none;	
+}
+
+#rootMenuList li.inSelection ul li.inSelection a {
+	color : White;
+}
+
+
+li > ul#secondLevelMenuList {
+	margin-top: 5px;
+}
+
+

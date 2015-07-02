@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: spring-web
+Bundle-SymbolicName: spring-web
+Bundle-Version: 1.0.0.qualifier
+Export-Package: net.frank.springweb.core,
+ net.frank.springweb.home,
+ net.frank.springweb.home.form,
+ net.frank.springweb.initial

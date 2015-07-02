@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+	
+	<bean id="wsRenderProvider" class="net.frank.framework.ws.WsRenderProvider">
+		<property name="wsRenderMap">
+			<map>
+				<entry key="java.lang.String" value-ref="defaultWsRender" />
+				<entry key="java.lang.Integer" value-ref="integerWsRender" />
+				<entry key="java.lang.Byte" value-ref="byteWsRender" />
+				<entry key="java.math.BigDecimal" value-ref="bigDecimalWsRender" />
+				<entry key="java.lang.Boolean" value-ref="booleanWsRender" />
+				<entry key="java.util.Date" value-ref="timeWsRender" />
+				<entry key="java.lang.Long" value-ref="longWsRender" />
+				<entry key="[C" value-ref="clobWsRender" />
+				<entry key="[B" value-ref="blobWsRender" />
+				<entry key="net.frank.framework.thin.Condition" value-ref="conditionRender" />
+				<entry key="net.frank.framework.thin.OrderBy" value-ref="orderByRender" />
+				<entry key="net.frank.framework.thin.SimpleQueryPage" value-ref="queryPageRender" />
+				<entry key="net.frank.dede.bean.DedeFlink" value-ref="dedeFlinkRender" />
+				<entry key="net.frank.dede.bean.DedeMemberGuestbook" value-ref="dedeMemberGuestbookRender" />
+				<entry key="net.frank.dede.bean.DedeSysEnum" value-ref="dedeSysEnumRender" />
+				<entry key="net.frank.dede.bean.DedeMyad" value-ref="dedeMyadRender" />
+				<entry key="net.frank.dede.bean.DedeChanneltype" value-ref="dedeChanneltypeRender" />
+				<entry key="net.frank.dede.bean.DedeMtypes" value-ref="dedeMtypesRender" />
+				<entry key="net.frank.dede.bean.DedeMemberTj" value-ref="dedeMemberTjRender" />
+				<entry key="net.frank.dede.bean.DedeArea" value-ref="dedeAreaRender" />
+				<entry key="net.frank.dede.bean.DedeMemberPerson" value-ref="dedeMemberPersonRender" />
+				<entry key="net.frank.dede.bean.DedeMemberOperation" value-ref="dedeMemberOperationRender" />
+				<entry key="net.frank.dede.bean.DedeSysModule" value-ref="dedeSysModuleRender" />
+				<entry key="net.frank.dede.bean.DedeMemberVhistory" value-ref="dedeMemberVhistoryRender" />
+				<entry key="net.frank.dede.bean.DedeVote" value-ref="dedeVoteRender" />
+				<entry key="net.frank.dede.bean.DedeDlLog" value-ref="dedeDlLogRender" />
+				<entry key="net.frank.dede.bean.DedeSysconfig" value-ref="dedeSysconfigRender" />
+				<entry key="net.frank.dede.bean.DedeTaglist" value-ref="dedeTaglistRender" />
+				<entry key="net.frank.dede.bean.DedePayment" value-ref="dedePaymentRender" />
+				<entry key="net.frank.dede.bean.DedeAddonshop" value-ref="dedeAddonshopRender" />
+				<entry key="net.frank.dede.bean.DedeErradd" value-ref="dedeErraddRender" />
+				<entry key="net.frank.dede.bean.DedeMember" value-ref="dedeMemberRender" />
+				<entry key="net.frank.dede.bean.DedeShopsProducts" value-ref="dedeShopsProductsRender" />
+				<entry key="net.frank.dede.bean.DedeHomepageset" value-ref="dedeHomepagesetRender" />
+				<entry key="net.frank.dede.bean.DedeCoUrls" value-ref="dedeCoUrlsRender" />
+				<entry key="net.frank.dede.bean.DedeSphinx" value-ref="dedeSphinxRender" />
+				<entry key="net.frank.dede.bean.DedeShopsOrders" value-ref="dedeShopsOrdersRender" />
+				<entry key="net.frank.dede.bean.DedeScores" value-ref="dedeScoresRender" />
+				<entry key="net.frank.dede.bean.DedeAdmintype" value-ref="dedeAdmintypeRender" />
+				<entry key="net.frank.dede.bean.DedeMemberCompany" value-ref="dedeMemberCompanyRender" />
+				<entry key="net.frank.dede.bean.DedeSysSet" value-ref="dedeSysSetRender" />
+				<entry key="net.frank.dede.bean.DedeArcatt" value-ref="dedeArcattRender" />
+				<entry key="net.frank.dede.bean.DedeFreelist" value-ref="dedeFreelistRender" />
+				<entry key="net.frank.dede.bean.DedeArchives" value-ref="dedeArchivesRender" />
+				<entry key="net.frank.dede.bean.DedeArcrank" value-ref="dedeArcrankRender" />
+				<entry key="net.frank.dede.bean.DedeAddonsoft" value-ref="dedeAddonsoftRender" />
+				<entry key="net.frank.dede.bean.DedeShopsDelivery" value-ref="dedeShopsDeliveryRender" />
+				<entry key="net.frank.dede.bean.DedeMyadtype" value-ref="dedeMyadtypeRender" />
+				<entry key="net.frank.dede.bean.DedeMemberType" value-ref="dedeMemberTypeRender" />
+				<entry key="net.frank.dede.bean.DedeFeedback" value-ref="dedeFeedbackRender" />
+				<entry key="net.frank.dede.bean.DedeMemberModel" value-ref="dedeMemberModelRender" />
+				<entry key="net.frank.dede.bean.DedeTagindex" value-ref="dedeTagindexRender" />
+				<entry key="net.frank.dede.bean.DedeMemberGroup" value-ref="dedeMemberGroupRender" />
+				<entry key="net.frank.dede.bean.DedeMemberSpace" value-ref="dedeMemberSpaceRender" />
+				<entry key="net.frank.dede.bean.DedeVerifies" value-ref="dedeVerifiesRender" />
+				<entry key="net.frank.dede.bean.DedeArctype" value-ref="dedeArctypeRender" />
+				<entry key="net.frank.dede.bean.DedeVoteMember" value-ref="dedeVoteMemberRender" />
+				<entry key="net.frank.dede.bean.DedeAddonarticle" value-ref="dedeAddonarticleRender" />
+				<entry key="net.frank.dede.bean.DedeArcmulti" value-ref="dedeArcmultiRender" />
+				<entry key="net.frank.dede.bean.DedePurview" value-ref="dedePurviewRender" />
+				<entry key="net.frank.dede.bean.DedeSoftconfig" value-ref="dedeSoftconfigRender" />
+				<entry key="net.frank.dede.bean.DedeSgpage" value-ref="dedeSgpageRender" />
+				<entry key="net.frank.dede.bean.DedeMytag" value-ref="dedeMytagRender" />
+				<entry key="net.frank.dede.bean.DedeAddonimages" value-ref="dedeAddonimagesRender" />
+				<entry key="net.frank.dede.bean.DedeAddoninfos" value-ref="dedeAddoninfosRender" />
+				<entry key="net.frank.dede.bean.DedeMemberFeed" value-ref="dedeMemberFeedRender" />
+				<entry key="net.frank.dede.bean.DedePlus" value-ref="dedePlusRender" />
+				<entry key="net.frank.dede.bean.DedeMoneycardRecord" value-ref="dedeMoneycardRecordRender" />
+				<entry key="net.frank.dede.bean.DedeSearchCache" value-ref="dedeSearchCacheRender" />
+				<entry key="net.frank.dede.bean.DedeMemberFriends" value-ref="dedeMemberFriendsRender" />
+				<entry key="net.frank.dede.bean.DedeMultiservConfig" value-ref="dedeMultiservConfigRender" />
+				<entry key="net.frank.dede.bean.DedeCoMediaurls" value-ref="dedeCoMediaurlsRender" />
+				<entry key="net.frank.dede.bean.DedeCoNote" value-ref="dedeCoNoteRender" />
+				<entry key="net.frank.dede.bean.DedeSysTask" value-ref="dedeSysTaskRender" />
+				<entry key="net.frank.dede.bean.DedeCoOnepage" value-ref="dedeCoOnepageRender" />
+				<entry key="net.frank.dede.bean.DedeArccache" value-ref="dedeArccacheRender" />
+				<entry key="net.frank.dede.bean.DedeRatings" value-ref="dedeRatingsRender" />
+				<entry key="net.frank.dede.bean.DedeFlinktype" value-ref="dedeFlinktypeRender" />
+				<entry key="net.frank.dede.bean.DedeMemberStow" value-ref="dedeMemberStowRender" />
+				<entry key="net.frank.dede.bean.DedeMemberMsg" value-ref="dedeMemberMsgRender" />
+				<entry key="net.frank.dede.bean.DedeUploads" value-ref="dedeUploadsRender" />
+				<entry key="net.frank.dede.bean.DedeMemberStowtype" value-ref="dedeMemberStowtypeRender" />
+				<entry key="net.frank.dede.bean.DedeArctiny" value-ref="dedeArctinyRender" />
+				<entry key="net.frank.dede.bean.DedeShopsUserinfo" value-ref="dedeShopsUserinfoRender" />
+				<entry key="net.frank.dede.bean.DedeSearchKeywords" value-ref="dedeSearchKeywordsRender" />
+				<entry key="net.frank.dede.bean.DedeAdvancedsearch" value-ref="dedeAdvancedsearchRender" />
+				<entry key="net.frank.dede.bean.DedeMemberPms" value-ref="dedeMemberPmsRender" />
+				<entry key="net.frank.dede.bean.DedeDiyforms" value-ref="dedeDiyformsRender" />
+				<entry key="net.frank.dede.bean.DedeKeywords" value-ref="dedeKeywordsRender" />
+				<entry key="net.frank.dede.bean.DedeMemberFlink" value-ref="dedeMemberFlinkRender" />
+				<entry key="net.frank.dede.bean.DedeMoneycardType" value-ref="dedeMoneycardTypeRender" />
+				<entry key="net.frank.dede.bean.DedeStepselect" value-ref="dedeStepselectRender" />
+				<entry key="net.frank.dede.bean.DedeAddonspec" value-ref="dedeAddonspecRender" />
+				<entry key="net.frank.dede.bean.DedeAdmin" value-ref="dedeAdminRender" />
+				<entry key="net.frank.dede.bean.DedeCoHtmls" value-ref="dedeCoHtmlsRender" />
+				<entry key="net.frank.dede.bean.DedeDownloads" value-ref="dedeDownloadsRender" />
+				<entry key="net.frank.dede.bean.DedeMemberSnsmsg" value-ref="dedeMemberSnsmsgRender" />
+				<entry key="net.frank.dede.bean.DedePwdTmp" value-ref="dedePwdTmpRender" />
+				<entry key="net.frank.dede.bean.DedeLog" value-ref="dedeLogRender" />
+			</map>
+		</property>
+	</bean>
+	<!-- 
+	<bean id="boXmlUtil" class="net.frank.framework.ws.process.BoXmlUtil" autowire="byName" />
+	 -->
+	<bean id="defaultWsRender" class="net.frank.framework.ws.render.DefaultWsRender" autowire="byName" />
+	
+	<bean id="integerWsRender" class="net.frank.framework.ws.render.type.IntegerTypeRender" autowire="byName"/>
+																	
+	<bean id="bigDecimalWsRender" class="net.frank.framework.ws.render.type.BigDecimalTypeRender" autowire="byName" />
+	
+	<bean id="booleanWsRender" class="net.frank.framework.ws.render.type.BooleanTypeRender" autowire="byName" />
+
+	<bean id="timeWsRender" class="net.frank.framework.ws.render.type.TimestameTypeRender" autowire="byName" />
+	
+	<bean id="longWsRender" class="net.frank.framework.ws.render.type.LongTypeRender" autowire="byName" />
+	
+	<bean id="byteWsRender" class="net.frank.framework.ws.render.type.ByteTypeRender" autowire="byName" />
+	
+	<bean id="clobWsRender" class="net.frank.framework.ws.render.type.ClobTypeRender" autowire="byName" />
+	
+	<bean id="blobWsRender" class="net.frank.framework.ws.render.type.BlobTypeRender" autowire="byName" />
+	
+	<bean id="conditionRender" class="net.frank.framework.thin.render.ConditionTypeRender" autowire="byName"/>
+	
+	<bean id="orderByRender" class="net.frank.framework.thin.render.OrderByTypeRender" autowire="byName"/>
+	
+	<bean id="queryPageRender" class="net.frank.framework.thin.render.SimpleQueryPageTypeRender" autowire="byName"/>
+	
+	<bean id="dedeFlinkRender" class="net.frank.dede.render.DedeFlinkRender" autowire="byName"/>
+
+	<bean id="dedeMemberGuestbookRender" class="net.frank.dede.render.DedeMemberGuestbookRender" autowire="byName"/>
+
+	<bean id="dedeSysEnumRender" class="net.frank.dede.render.DedeSysEnumRender" autowire="byName"/>
+
+	<bean id="dedeMyadRender" class="net.frank.dede.render.DedeMyadRender" autowire="byName"/>
+
+	<bean id="dedeChanneltypeRender" class="net.frank.dede.render.DedeChanneltypeRender" autowire="byName"/>
+
+	<bean id="dedeMtypesRender" class="net.frank.dede.render.DedeMtypesRender" autowire="byName"/>
+
+	<bean id="dedeMemberTjRender" class="net.frank.dede.render.DedeMemberTjRender" autowire="byName"/>
+
+	<bean id="dedeAreaRender" class="net.frank.dede.render.DedeAreaRender" autowire="byName"/>
+
+	<bean id="dedeMemberPersonRender" class="net.frank.dede.render.DedeMemberPersonRender" autowire="byName"/>
+
+	<bean id="dedeMemberOperationRender" class="net.frank.dede.render.DedeMemberOperationRender" autowire="byName"/>
+
+	<bean id="dedeSysModuleRender" class="net.frank.dede.render.DedeSysModuleRender" autowire="byName"/>
+
+	<bean id="dedeMemberVhistoryRender" class="net.frank.dede.render.DedeMemberVhistoryRender" autowire="byName"/>
+
+	<bean id="dedeVoteRender" class="net.frank.dede.render.DedeVoteRender" autowire="byName"/>
+
+	<bean id="dedeDlLogRender" class="net.frank.dede.render.DedeDlLogRender" autowire="byName"/>
+
+	<bean id="dedeSysconfigRender" class="net.frank.dede.render.DedeSysconfigRender" autowire="byName"/>
+
+	<bean id="dedeTaglistRender" class="net.frank.dede.render.DedeTaglistRender" autowire="byName"/>
+
+	<bean id="dedePaymentRender" class="net.frank.dede.render.DedePaymentRender" autowire="byName"/>
+
+	<bean id="dedeAddonshopRender" class="net.frank.dede.render.DedeAddonshopRender" autowire="byName"/>
+
+	<bean id="dedeErraddRender" class="net.frank.dede.render.DedeErraddRender" autowire="byName"/>
+
+	<bean id="dedeMemberRender" class="net.frank.dede.render.DedeMemberRender" autowire="byName"/>
+
+	<bean id="dedeShopsProductsRender" class="net.frank.dede.render.DedeShopsProductsRender" autowire="byName"/>
+
+	<bean id="dedeHomepagesetRender" class="net.frank.dede.render.DedeHomepagesetRender" autowire="byName"/>
+
+	<bean id="dedeCoUrlsRender" class="net.frank.dede.render.DedeCoUrlsRender" autowire="byName"/>
+
+	<bean id="dedeSphinxRender" class="net.frank.dede.render.DedeSphinxRender" autowire="byName"/>
+
+	<bean id="dedeShopsOrdersRender" class="net.frank.dede.render.DedeShopsOrdersRender" autowire="byName"/>
+
+	<bean id="dedeScoresRender" class="net.frank.dede.render.DedeScoresRender" autowire="byName"/>
+
+	<bean id="dedeAdmintypeRender" class="net.frank.dede.render.DedeAdmintypeRender" autowire="byName"/>
+
+	<bean id="dedeMemberCompanyRender" class="net.frank.dede.render.DedeMemberCompanyRender" autowire="byName"/>
+
+	<bean id="dedeSysSetRender" class="net.frank.dede.render.DedeSysSetRender" autowire="byName"/>
+
+	<bean id="dedeArcattRender" class="net.frank.dede.render.DedeArcattRender" autowire="byName"/>
+
+	<bean id="dedeFreelistRender" class="net.frank.dede.render.DedeFreelistRender" autowire="byName"/>
+
+	<bean id="dedeArchivesRender" class="net.frank.dede.render.DedeArchivesRender" autowire="byName"/>
+
+	<bean id="dedeArcrankRender" class="net.frank.dede.render.DedeArcrankRender" autowire="byName"/>
+
+	<bean id="dedeAddonsoftRender" class="net.frank.dede.render.DedeAddonsoftRender" autowire="byName"/>
+
+	<bean id="dedeShopsDeliveryRender" class="net.frank.dede.render.DedeShopsDeliveryRender" autowire="byName"/>
+
+	<bean id="dedeMyadtypeRender" class="net.frank.dede.render.DedeMyadtypeRender" autowire="byName"/>
+
+	<bean id="dedeMemberTypeRender" class="net.frank.dede.render.DedeMemberTypeRender" autowire="byName"/>
+
+	<bean id="dedeFeedbackRender" class="net.frank.dede.render.DedeFeedbackRender" autowire="byName"/>
+
+	<bean id="dedeMemberModelRender" class="net.frank.dede.render.DedeMemberModelRender" autowire="byName"/>
+
+	<bean id="dedeTagindexRender" class="net.frank.dede.render.DedeTagindexRender" autowire="byName"/>
+
+	<bean id="dedeMemberGroupRender" class="net.frank.dede.render.DedeMemberGroupRender" autowire="byName"/>
+
+	<bean id="dedeMemberSpaceRender" class="net.frank.dede.render.DedeMemberSpaceRender" autowire="byName"/>
+
+	<bean id="dedeVerifiesRender" class="net.frank.dede.render.DedeVerifiesRender" autowire="byName"/>
+
+	<bean id="dedeArctypeRender" class="net.frank.dede.render.DedeArctypeRender" autowire="byName"/>
+
+	<bean id="dedeVoteMemberRender" class="net.frank.dede.render.DedeVoteMemberRender" autowire="byName"/>
+
+	<bean id="dedeAddonarticleRender" class="net.frank.dede.render.DedeAddonarticleRender" autowire="byName"/>
+
+	<bean id="dedeArcmultiRender" class="net.frank.dede.render.DedeArcmultiRender" autowire="byName"/>
+
+	<bean id="dedePurviewRender" class="net.frank.dede.render.DedePurviewRender" autowire="byName"/>
+
+	<bean id="dedeSoftconfigRender" class="net.frank.dede.render.DedeSoftconfigRender" autowire="byName"/>
+
+	<bean id="dedeSgpageRender" class="net.frank.dede.render.DedeSgpageRender" autowire="byName"/>
+
+	<bean id="dedeMytagRender" class="net.frank.dede.render.DedeMytagRender" autowire="byName"/>
+
+	<bean id="dedeAddonimagesRender" class="net.frank.dede.render.DedeAddonimagesRender" autowire="byName"/>
+
+	<bean id="dedeAddoninfosRender" class="net.frank.dede.render.DedeAddoninfosRender" autowire="byName"/>
+
+	<bean id="dedeMemberFeedRender" class="net.frank.dede.render.DedeMemberFeedRender" autowire="byName"/>
+
+	<bean id="dedePlusRender" class="net.frank.dede.render.DedePlusRender" autowire="byName"/>
+
+	<bean id="dedeMoneycardRecordRender" class="net.frank.dede.render.DedeMoneycardRecordRender" autowire="byName"/>
+
+	<bean id="dedeSearchCacheRender" class="net.frank.dede.render.DedeSearchCacheRender" autowire="byName"/>
+
+	<bean id="dedeMemberFriendsRender" class="net.frank.dede.render.DedeMemberFriendsRender" autowire="byName"/>
+
+	<bean id="dedeMultiservConfigRender" class="net.frank.dede.render.DedeMultiservConfigRender" autowire="byName"/>
+
+	<bean id="dedeCoMediaurlsRender" class="net.frank.dede.render.DedeCoMediaurlsRender" autowire="byName"/>
+
+	<bean id="dedeCoNoteRender" class="net.frank.dede.render.DedeCoNoteRender" autowire="byName"/>
+
+	<bean id="dedeSysTaskRender" class="net.frank.dede.render.DedeSysTaskRender" autowire="byName"/>
+
+	<bean id="dedeCoOnepageRender" class="net.frank.dede.render.DedeCoOnepageRender" autowire="byName"/>
+
+	<bean id="dedeArccacheRender" class="net.frank.dede.render.DedeArccacheRender" autowire="byName"/>
+
+	<bean id="dedeRatingsRender" class="net.frank.dede.render.DedeRatingsRender" autowire="byName"/>
+
+	<bean id="dedeFlinktypeRender" class="net.frank.dede.render.DedeFlinktypeRender" autowire="byName"/>
+
+	<bean id="dedeMemberStowRender" class="net.frank.dede.render.DedeMemberStowRender" autowire="byName"/>
+
+	<bean id="dedeMemberMsgRender" class="net.frank.dede.render.DedeMemberMsgRender" autowire="byName"/>
+
+	<bean id="dedeUploadsRender" class="net.frank.dede.render.DedeUploadsRender" autowire="byName"/>
+
+	<bean id="dedeMemberStowtypeRender" class="net.frank.dede.render.DedeMemberStowtypeRender" autowire="byName"/>
+
+	<bean id="dedeArctinyRender" class="net.frank.dede.render.DedeArctinyRender" autowire="byName"/>
+
+	<bean id="dedeShopsUserinfoRender" class="net.frank.dede.render.DedeShopsUserinfoRender" autowire="byName"/>
+
+	<bean id="dedeSearchKeywordsRender" class="net.frank.dede.render.DedeSearchKeywordsRender" autowire="byName"/>
+
+	<bean id="dedeAdvancedsearchRender" class="net.frank.dede.render.DedeAdvancedsearchRender" autowire="byName"/>
+
+	<bean id="dedeMemberPmsRender" class="net.frank.dede.render.DedeMemberPmsRender" autowire="byName"/>
+
+	<bean id="dedeDiyformsRender" class="net.frank.dede.render.DedeDiyformsRender" autowire="byName"/>
+
+	<bean id="dedeKeywordsRender" class="net.frank.dede.render.DedeKeywordsRender" autowire="byName"/>
+
+	<bean id="dedeMemberFlinkRender" class="net.frank.dede.render.DedeMemberFlinkRender" autowire="byName"/>
+
+	<bean id="dedeMoneycardTypeRender" class="net.frank.dede.render.DedeMoneycardTypeRender" autowire="byName"/>
+
+	<bean id="dedeStepselectRender" class="net.frank.dede.render.DedeStepselectRender" autowire="byName"/>
+
+	<bean id="dedeAddonspecRender" class="net.frank.dede.render.DedeAddonspecRender" autowire="byName"/>
+
+	<bean id="dedeAdminRender" class="net.frank.dede.render.DedeAdminRender" autowire="byName"/>
+
+	<bean id="dedeCoHtmlsRender" class="net.frank.dede.render.DedeCoHtmlsRender" autowire="byName"/>
+
+	<bean id="dedeDownloadsRender" class="net.frank.dede.render.DedeDownloadsRender" autowire="byName"/>
+
+	<bean id="dedeMemberSnsmsgRender" class="net.frank.dede.render.DedeMemberSnsmsgRender" autowire="byName"/>
+
+	<bean id="dedePwdTmpRender" class="net.frank.dede.render.DedePwdTmpRender" autowire="byName"/>
+
+	<bean id="dedeLogRender" class="net.frank.dede.render.DedeLogRender" autowire="byName"/>
+</beans>

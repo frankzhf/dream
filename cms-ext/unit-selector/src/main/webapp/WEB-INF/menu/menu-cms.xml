@@ -1,0 +1,61 @@
+<MenuRepository>
+    <menu name="self" title="common.menu.self" permission="all">
+		<menu name="myInfo" title="common.menu.my.info"
+			target="body" path="/self/myInfo.do" permission="all" />
+	</menu>
+	<menu name="admin" title="common.menu.admin" permission="all">
+		<menu name="myOrg" title="common.menu.my.org"
+			target="body" path="/admin/myOrg.do" permission="all" />
+	</menu>
+	<menu name="cms" title="common.menu.cms" permission="admin">
+		<menu name="cmsBrower" title="common.menu.cms.brower" target="body"
+			path="/core/cmsBrower.do" permission="admin" />
+		<menu name="resourcePermission" title="common.menu.resource.permission" target="body"
+			path="/core/cmsPermission.do" permission="admin" />
+		<menu name="resourceMove" title="common.menu.resource.move" target="body"
+			path="/core/cmsMove.do" permission="admin" />
+		<menu name="activationAccount" title="common.menu.activation.account" target="body"
+		    path="/core/activationAccount.do" permission="admin" />
+		<menu name="listSession" title="common.menu.list.session" target="body"
+			path="/core/listSession.do" permission="admin"/>
+		<menu name="typeRegistration" title="common.menu.type.registration" target="body"
+			path="/core/typeRegistration.do" permission="admin"/>
+	</menu>
+	<!-- 
+	<menu name="test" title="common.menu.ut" permission="all">
+	    <menu name="tree" title="common.menu.test.tree"
+			target="body" path="/common/selector/unit/testTree.do" permission="all" />
+		<menu name="Read" title="common.menu.test.read"
+			target="body" path="/common/selector/unit/testRead.do" permission="all" />
+	</menu>
+	<menu name="dashboard" title="common.menu.dashboard" permission="admin">
+		<menu name="toDashboard" title="common.menu.dashboard" target="body"
+			path="/dashboard.do" permission="admin" />
+	</menu>
+	
+	<menu name="dashboard" title="common.menu.dashboard" permission="user">
+		<menu name="myDashboard" title="common.menu.d7h.dashboard" target="body"
+			path="/dashboard/myDashboard.do" permission="user" />
+		 -->
+		<!-- 
+		<menu name="myDraft" title="common.menu.dh.draft" target="body"
+			path="/dashboard/myDraft.do" />
+		<menu name="myTask" title="common.menu.dh.task" target="body"
+			path="/dashboard/myTask.do" />
+		<menu name="myTask" title="common.menu.dh.monitorTask" target="body"
+			path="/dashboard/monitorTask.do" />
+		 -->
+		 <!-- 
+	</menu>
+	<menu name="welcome" title="common.menu.welcome" >
+		<menu name="notice" title="common.menu.welcome.notice" target="body"
+			path="/welcome/notice.do" />
+	</menu>
+	 -->
+	<!-- 
+	<menu name="wf" title="common.menu.wf" permission="all">
+		<menu name="dashboard" title="common.menu.wf.dashboard" target="body"
+			path="/wf/dashboard.do" permission="all" />
+	</menu>
+	 -->
+</MenuRepository>

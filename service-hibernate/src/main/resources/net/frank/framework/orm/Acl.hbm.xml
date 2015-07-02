@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Acl" table="TB_ACL">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="resourceId" type="java.lang.Long">
+			<column name="RESOURCE_ID" />
+		</property>
+		<property name="ownId" type="java.lang.Long">
+			<column name="OWN_ID" />
+		</property>
+		<property name="permission" type="java.lang.Byte">
+			<column name="PERMISSION" />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".my.files.repository" extends=".layout.leftRight">
+		<put name="leftHeader" value="repository.layout.title.folder.navigation" />
+		<put name="leftLinker" value="/repository/navigationMyFiles.do" />
+		<put name="rightHeader" value="repository.layout.title.file.list" />
+	</definition>
+	
+	<definition name=".navigation.my.file.repository"
+		extends=".tree.default">
+		<put name="content" value="/pages/repository/navigationMyFiles.jsp" />
+	</definition>
+	
+	<definition name=".my.projects.repository" extends=".layout.leftRight">
+		<put name="leftHeader" value="repository.layout.title.projects.folder.navigation" />
+		<put name="leftLinker" value="/repository/navigationMyProjects.do" />
+		<put name="rightHeader" value="repository.layout.title.file.list" />
+	</definition>
+	
+	<definition name=".navigation.my.projects.repository"
+		extends=".tree.default">
+		<put name="content" value="/pages/repository/navigationMyProjects.jsp" />
+	</definition>
+	
+	<definition name=".list.my.files.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/listFiles.jsp" />
+	</definition>
+	
+	<definition name=".my.received.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/myReceived.jsp" />
+	</definition>
+	
+	<definition name=".pending.unit.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/pendingUnit.jsp" />
+	</definition>
+	<definition name=".archive.unit.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/archiveUnit.jsp" />
+	</definition>
+	
+	<definition name=".list.project.files.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/listProjectFiles.jsp" />
+	</definition>
+	
+	<definition name=".my.recycle.bin.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/myRecycleBin.jsp" />
+	</definition>
+	
+	<definition name=".dialog.my.document.repository" extends=".tree.default">
+		<put name="content" value="/pages/repository/dialog/myDocument.jsp" />
+	</definition>
+	
+	<definition name=".dialog.share.file.repository" extends=".layout.default">
+	    <put name="content" value="/pages/repository/dialog/shareFile.jsp" />
+	</definition>
+	
+	<definition name=".dialog.share.file.project.repository" extends=".page.default">
+	    <put name="content" value="/pages/repository/dialog/shareFileToProject.jsp" />
+	</definition>
+	
+	<definition name=".query.owns.resource.repository" extends=".page.default">
+		<put name="content" value="/pages/repository/dialog/queryAclforResource.jsp" />
+	</definition>
+	
+	<definition name=".dialog.approve.share.repository" extends=".layout.leftRight">
+	    <put name="leftHeader" value="repository.approve.share.move.to" />
+		<put name="leftLinker" value="/repository/dialogMoveTo.do" />
+		<put name="rightHeader" value="repository.approve.share.others" />
+	</definition>
+	
+	<definition name=".dialog.approve.share2.repository" extends=".layout.default">
+	    <put name="content" value="/pages/repository/dialog/otherInfo2.jsp" />
+	</definition>
+	
+	<definition name=".dialog.move.to.repository" extends=".tree.default">
+	    <put name="content" value="/pages/repository/dialog/moveTo.jsp" />
+	</definition>
+	
+	<definition name=".dialog.other.info.repository" path="/pages/repository/dialog/otherInfo.jsp" />
+</tiles-definitions>

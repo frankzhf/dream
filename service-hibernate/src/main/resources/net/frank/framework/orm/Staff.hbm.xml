@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Staff" table="TB_STAFF">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="staffId" type="java.lang.String">
+			<column name="STAFFID" />
+		</property>
+		<property name="startDate" type="java.util.Date">
+			<column name="STARTDATE" />
+		</property>
+		<property name="effectiveDate" type="java.util.Date">
+			<column name="EFFECTIVEDATE" />
+		</property>
+		<property name="inProbation" type="java.lang.Boolean">
+			<column name="INPROBATION" />
+		</property>
+		<property name="probationEnd" type="java.util.Date">
+			<column name="PROBATIONEND" />
+		</property>
+		<property name="sitePhone" type="java.lang.String">
+			<column name="SITEPHONE" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="EMAIL" />
+		</property>
+		<property name="terminationDate" type="java.util.Date">
+			<column name="TERMINATIONDATE" />
+		</property>
+		<property name="serviceAgency" type="java.lang.Boolean">
+			<column name="SERVICEAGENCY" />
+		</property>
+		<property name="temperary" type="java.lang.Boolean">
+			<column name="TEMPERARY" />
+		</property>
+		<property name="expatriate" type="java.lang.Boolean">
+			<column name="EXPATRIATE" />
+		</property>
+		<property name="passportNumber" type="java.lang.String">
+			<column name="PASSPORTNUMBER" />
+		</property>
+		<property name="visaExpire" type="java.util.Date">
+			<column name="VISAEXPIRE" />
+		</property>
+		<property name="nationality" type="java.lang.String">
+			<column name="NATIONALITY" />
+		</property>
+		<many-to-one name="person$15" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="PERSON$18" />
+		</many-to-one>
+		<many-to-one name="context$3" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="context$3" />
+		</many-to-one>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

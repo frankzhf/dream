@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+	    <form-bean name="repositoryForm" type="net.frank.repository.web.forms.RepositoryForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<action parameter=".my.files.repository" path="/myFiles"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action parameter=".my.projects.repository" path="/myProjects"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action parameter=".navigation.my.file.repository" path="/navigationMyFiles"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action parameter=".navigation.my.projects.repository" path="/navigationMyProjects"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action path="/listMyFiles" 
+		    type="net.frank.repository.web.actions.ListFileAction"
+			scope="request" validate="false" name="repositoryForm">
+			<forward name="success" path=".list.my.files.repository" />
+		</action>
+		
+		
+		<action path="/myReceived"
+		    type="net.frank.repository.web.actions.MyReceivedAction"
+			scope="request" validate="false">
+			<forward name="success" path=".my.received.repository" />
+		</action>
+		
+		<action path="/listProjectFiles" 
+		    type="net.frank.repository.web.actions.ListFileAction"
+			scope="request" validate="false" name="repositoryForm">
+			<forward name="success" path=".list.project.files.repository" />
+		</action>
+		
+		<action path="/shareFile"
+		    type="net.frank.repository.web.actions.ShareFileAction"
+			scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".dialog.share.file.repository" />
+		</action>
+		
+		<action path="/shareFileToProject"
+		    type="net.frank.repository.web.actions.ShareFileToProjectAction" 
+		    scope="request" validate="false">
+			<forward name="success" path=".dialog.share.file.project.repository" />
+		</action>
+		
+		<action path="/uploadFile" 
+		    type="net.frank.repository.web.actions.UploadFileAction"
+			scope="request" validate="false" name="repositoryForm">
+			<forward name="success" path="/listMyFiles.do" />
+			<forward name="failure" path="/listMyFiles.do" />
+		</action>
+		<action path="/myRecycleBin" 
+		    type="net.frank.repository.web.actions.NavigationMyRecycleBinAction"
+			scope="request" validate="false">
+			<forward name="success" path=".my.recycle.bin.repository" />
+		</action>
+		<action path="/dialogMyDocumentTree" type="net.frank.framework.struts.action.CommonTreeAction"
+			scope="request" validate="false">
+			<forward name="success" path=".dialog.my.document.repository" />
+		</action>
+		<action path="/queryOwnsForResource" type="net.frank.repository.web.actions.QueryOwnsForResourceAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".query.owns.resource.repository" />
+		</action>
+		
+		
+		<action path="/pendingForUnit" type="net.frank.repository.web.actions.PendingForUnitAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".pending.unit.repository" />
+		</action>
+		
+		<action path="/dialogApproveShare" type="net.frank.repository.web.actions.DialogApproveShareAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".dialog.approve.share.repository" />
+		</action>
+		
+		<action path="/dialogApproveShare2" type="net.frank.repository.web.actions.DialogOtherInfoAction2"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".dialog.approve.share2.repository" />
+		</action>
+		
+		<action path="/dialogMoveTo" type="net.frank.repository.web.actions.DialogMoveToAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".dialog.move.to.repository" />
+		</action>
+		
+		<action path="/dialogOtherInfo" type="net.frank.repository.web.actions.DialogOtherInfoAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".dialog.other.info.repository" />
+		</action>
+		
+		
+		<action path="/archiveForUnit" type="net.frank.repository.web.actions.ArchiveForUnitAction"
+		    scope="request" validate="false" name="repositoryForm">
+		    <forward name="success" path=".archive.unit.repository" />
+		</action>
+		
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+				net.frank.cms.web.MenuResources,
+				net.frank.aa.MessageResources,
+				net.frank.web.MessageResources,
+				net.frank.repository.web.MessageResources" />
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/config/validator-rules.xml,/WEB-INF/config/validation.xml" />
+	</plug-in>
+
+</struts-config>

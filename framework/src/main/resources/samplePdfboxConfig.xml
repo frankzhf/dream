@@ -1,0 +1,7 @@
+<pdfboxConfig charsetName="utf-8">
+	<page seq="0">
+		<region name="name" pointX="" pointY="" width="" height="" />
+		<region name="sex" pointX="" pointY="" width="" height="" />
+		<region name="grade" pointX="" pointY="" width="" height="" />
+	</page>
+</pdfboxConfig>

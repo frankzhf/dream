@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="aaService" class="net.frank.aa.service.impl.DefaultAaServiceImpl"
+		autowire="byName">
+		<property name="authenticatorMap">
+			<map>
+				<entry key="0" value-ref="defaultAuthenticator" />
+				<!-- 
+				<entry key="1" value-ref="ldapAuthenticator" />
+				 -->
+			</map>
+		</property>
+		<property name="authenticatorList">
+			<list>
+				<ref local="defaultAuthenticator"/>
+				<!-- 
+				<ref local="ldapAuthenticator"/>
+				-->
+			</list>
+		</property>
+		<property name="authorizationList">
+			<list>
+				<ref local="groupAuthorization"/>
+				<ref local="privilegeAuthorization"/>
+				<ref local="typeAuthorization"/>
+				<ref local="initUserWorkspaceAuthorization" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="defaultAuthenticator" class="net.frank.aa.service.impl.a11r.DefaultAuthenticator" 
+		autowire="byName" />
+	<!-- 
+	<bean id="ldapAuthenticator" class="net.frank.aa.service.impl.a11r.LdapAuthenticator" 
+		autowire="byName" />
+		 -->
+	<bean id="groupAuthorization" class="net.frank.aa.service.impl.a11n.GroupAuthorization" 
+		autowire="byName" />
+	<bean id="privilegeAuthorization" class="net.frank.aa.service.impl.a11n.PrivilegeAuthorization" 
+		autowire="byName" />
+	<bean id="typeAuthorization" class="net.frank.aa.service.impl.a11n.TypeAuthorization" 
+		autowire="byName" />
+	
+	<bean id="initUserWorkspaceAuthorization" class="net.frank.aa.service.impl.a11n.InitUserWorkspaceAuthorization">
+	    <property name="initialService" ref="initialKnowledgeService" />
+	</bean>
+</beans>

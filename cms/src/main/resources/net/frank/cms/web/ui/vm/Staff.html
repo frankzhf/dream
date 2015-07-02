@@ -1,0 +1,64 @@
+<table style="width:100%">
+	<tr>
+		<td width="15%">&nbsp;</td>
+		<td width="35%">&nbsp;</td>
+		<td width="15%">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td>#properties('net.frank.framework.bo.Staff.effective.date')</td>
+		<td>#render($fieldMap.get('effectiveDate'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.email')</td>
+		<td>#render($fieldMap.get('email'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.expatriate')</td>
+		<td>#render($fieldMap.get('expatriate'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.in.probation')</td>
+		<td>#render($fieldMap.get('inProbation'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.nationality')</td>
+		<td>#render($fieldMap.get('nationality'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.passport.number')</td>
+		<td>#render($fieldMap.get('passportNumber'),$var,$isEdit)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.probation.end')</td>
+		<td>#render($fieldMap.get('probationEnd'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.service.agency')</td>
+		<td>#render($fieldMap.get('serviceAgency'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.site.phone')</td>
+		<td>#render($fieldMap.get('sitePhone'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.staff.id')</td>
+		<td>#render($fieldMap.get('staffId'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.start.date')</td>
+		<td>#render($fieldMap.get('startDate'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.temperary')</td>
+		<td>#render($fieldMap.get('temperary'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Staff.termination.date')</td>
+		<td>#render($fieldMap.get('terminationDate'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Staff.visa.expire')</td>
+		<td>#render($fieldMap.get('visaExpire'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td colspan="4">
+			#renderHidden('id',$var,$isEdit)
+			#renderHidden('context$3',$var,$isEdit)
+			#renderHidden('person$15',$var,$isEdit)
+			#renderResource($var)
+		</td>
+	</tr>
+</table>

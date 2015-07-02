@@ -1,0 +1,20 @@
+<table style="width:100%">
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>#render($fieldMap.get('title'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#render($fieldMap.get('content'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td colspan=1>
+			#renderHidden('id',$var,$isEdit)
+			#renderHidden('context$3',$var,$isEdit)
+			#renderHidden('keyWord',$var,$isEdit)
+			#renderResource($var)
+		</td>
+	</tr>
+</table>

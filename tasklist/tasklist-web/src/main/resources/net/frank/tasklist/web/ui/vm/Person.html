@@ -1,0 +1,73 @@
+<table style="width: 100%">
+	<tr>
+		<td width="15%">&nbsp;</td>
+		<td width="35%">&nbsp;</td>
+		<td width="15%">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="2" rowspan="7">#render($fieldMap.get('photo$11'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Person.anmelden')</td>
+		<td>#render($fieldMap.get('anmelden'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+
+		<td>#properties('net.frank.framework.bo.Person.chinese.name')</td>
+		<td>#render($fieldMap.get('chineseName'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.email')</td>
+		<td>#render($fieldMap.get('email'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.gender')</td>
+		<td>#render($fieldMap.get('gender'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.id.number')</td>
+		<td>#render($fieldMap.get('idNumber'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+
+		<td>#properties('net.frank.framework.bo.Person.nation')</td>
+		<td>#render($fieldMap.get('nation'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.pin.yin')</td>
+		<td>#render($fieldMap.get('pinYin'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.place.of.birth')</td>
+		<td>#render($fieldMap.get('placeOfBirth'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Person.province')</td>
+		<td>#render($fieldMap.get('province'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.zip.code')</td>
+		<td>#render($fieldMap.get('zipCode'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Person.address')</td>
+		<td>#render($fieldMap.get('address'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.birth.day')</td>
+		<td>#render($fieldMap.get('birthDay'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Person.city')</td>
+		<td>#render($fieldMap.get('city'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.english.name')</td>
+		<td>#render($fieldMap.get('englishName'),$var,$isEdit)</td>
+		<td>#properties('net.frank.framework.bo.Person.home.phone')</td>
+		<td>#render($fieldMap.get('homePhone'),$var,$isEdit)</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Person.mobile')</td>
+		<td>#render($fieldMap.get('mobile'),$var,$isEdit)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="4">#renderHidden('id',$var,$isEdit)
+			#renderResource($var)</td>
+	</tr>
+</table>

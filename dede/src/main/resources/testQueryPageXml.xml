@@ -1,0 +1,30 @@
+<simpleQueryPage>
+	<property name="currentPage" class="java.lang.Integer">1</property>
+	<property name="size" class="java.lang.Integer">10</property>
+	<property name="count" class="java.lang.Integer">-1</property>
+	<property name="contitionList" class="java.util.List">
+		<Condition>
+			<property name="relate" class="java.lang.Integer">0</property>
+			<property name="columnName" class="java.lang.String">typeid</property>
+			<property name="columnType" class="java.lang.Integer">0</property>
+			<property name="operate" class="java.lang.Integer">0</property>
+			<property name="value" class="java.lang.String">11</property>
+		</Condition>
+	</property>
+	<property name="orderByList" class="java.util.List">
+		<orderBy>
+			<property name="columnName" class="java.lang.String">aid</property>
+			<property name="orderStatus" class="java.lang.Integer">2</property>
+		</orderBy>
+	</property>
+	<property name="result" class="java.util.List">
+		<BaseEntity class="net.frank.dede.bean.DedeAddonarticle">
+			<property name="aid" class="java.lang.Integer">77</property>
+			<property name="typeid" class="java.lang.Integer">11</property>
+			<property name="body" class="char[]"><![CDATA[<html></html>]]></property>
+			<property name="redirecturl" class="java.lang.String" />
+			<property name="templet" class="java.lang.String" />
+			<property name="userip" class="java.lang.String" />
+		</BaseEntity>
+	</property>
+</simpleQueryPage>

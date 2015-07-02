@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>xcross</artifactId>
+		<groupId>net.frank</groupId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>commons</artifactId>
+	<version>${current.version}</version>
+	<description>
+		Password encode and decode
+	</description>
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<!-- Acegi -->
+		<dependency>
+			<groupId>acegisecurity</groupId>
+			<artifactId>acegi-security</artifactId>
+			<version>0.8.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.1</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,7 @@
+<pdfboxConfig charsetName="utf-8">
+	<page seq="0">
+		<region name="prodName" pointX="60" pointY="50" width="45" height="20" />
+		<region name="version" pointX="60" pointY="95" width="125" height="20" />
+		<region name="os" pointX="202" pointY="95" width="40" height="20" />
+	</page>
+</pdfboxConfig>

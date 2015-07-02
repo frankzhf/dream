@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".my.org.admin" extends=".layout.leftRight">
+	    <put name="leftHeader" value="admin.my.org.title.navigation.department" />
+		<put name="leftLinker" value="/admin/navigationDepartment.do" />
+		<put name="rightHeader" value="admin.my.org.title.department.details" />
+	</definition>
+	<definition name=".navigation.department.admin"
+		extends=".tree.default">
+		<put name="content" value="/pages/admin/navigationDepartment.jsp" />
+	</definition>
+	<definition name=".show.department.details.admin" extends=".page.default">
+		<put name="content" value="/pages/admin/showDepartmentDetails.jsp" />
+	</definition>
+	<definition name=".dialog.add.department.admin" extends=".layout.default">
+		<put name="content" value="/pages/admin/dialogAddDepartment.jsp" />
+	</definition>
+	<definition name=".grant.unit.group.admin" extends=".layout.default">
+	    <put name="content" value="/pages/admin/grantUnitGroup.jsp" />
+	</definition>
+	<definition name=".query.staff.like.name.admin" extends=".page.default">
+		<put name="content" value="/pages/admin/queryStaffLikeName.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

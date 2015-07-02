@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	 xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+	<!-- ========================= GENERAL DEFINITIONS ========================= -->
+	<!-- (in this case, JDBC-related settings for the dataSource definition 
+		below) -->
+	${spring.default.lob.handler}
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+	${data.source.spring.configuration}
+	<!-- <bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.WebLogicNativeJdbcExtractor" 
+		lazy-init="true"/> -->
+
+	<!-- LobHandler for Oracle JDBC drivers -->
+
+	<!-- (refers to the NativeJdbcExtractor above to get access to native OracleConnections) -->
+	<!-- <bean id="oracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler" 
+		lazy-init="true"> <property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/> 
+		</bean> -->
+
+	<!-- LobHandler for well-behaved JDBC drivers -->
+
+	<!-- (simply delegating to corresponding PreparedStatement and ResultSet 
+		methods) -->
+	
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="configLocation">
+			<value>classpath:/hibernate.cfg.xml</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			</props>
+		</property>
+		<property name="lobHandler" ref="defaultLobHandler" />
+	</bean>
+	
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative 
+		to JTA) -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="hibernateConfiguration" factory-bean="&amp;sessionFactory"
+		factory-method="getConfiguration" />
+
+	<!-- Transaction manager that delegates to JTA (for a transactional JNDI 
+		DataSource) -->
+	<!-- <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/> -->
+	
+
+	<!-- <bean id="permissionLoader" class = "net.frank.service.impl.PermissionLoader"> 
+		<property name="configLocation" value="classpath:/permissions.xml"/> </bean> -->
+	<!-- ==================== DAO DEFINITIONS: HIBERNATE IMPLEMENTATIONS ==================== -->
+</beans>

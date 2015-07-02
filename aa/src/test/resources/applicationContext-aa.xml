@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+	
+	<bean id="aaTarget" class="net.frank.aa.service.impl.DefaultAaServiceImpl"
+		autowire="byName">
+		<property name="authenticatorMap">
+			<map>
+				<entry key="0" value-ref="defaultAuthenticator" />
+				<!-- 
+				<entry key="1" value-ref="ldapAuthenticator" />
+				 -->
+			</map>
+		</property>
+		<property name="authenticatorList">
+			<list>
+				<ref local="defaultAuthenticator"/>
+				<!-- 
+				<ref local="ldapAuthenticator"/>
+				 -->
+			</list>
+		</property>
+		<property name="authorizationList">
+			<list>
+				<ref local="groupAuthorization"/>
+				<ref local="privilegeAuthorization"/>
+				<ref local="typeAuthorization"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="defaultAuthenticator" class="net.frank.aa.service.impl.a11r.DefaultAuthenticator" 
+		autowire="byName" />
+	<!-- 
+	<bean id="ldapAuthenticator" class="net.frank.aa.service.impl.a11r.LdapAuthenticator" 
+		autowire="byName" />
+	 -->
+		
+	<bean id="groupAuthorization" class="net.frank.aa.service.impl.a11n.GroupAuthorization" 
+		autowire="byName" />
+	<bean id="privilegeAuthorization" class="net.frank.aa.service.impl.a11n.PrivilegeAuthorization" 
+		autowire="byName" />
+	<bean id="typeAuthorization" class="net.frank.aa.service.impl.a11n.TypeAuthorization" 
+		autowire="byName" />
+	
+	<bean id="aaService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref bean="aaTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+
+</beans>

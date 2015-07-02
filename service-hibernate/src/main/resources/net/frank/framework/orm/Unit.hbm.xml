@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Unit" table="TB_UNIT">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="unitName" type="java.lang.String">
+			<column name="UNIT_NAME" />
+		</property>
+		<property name="unitCode" type="java.lang.String">
+			<column name="UNIT_CODE" />
+		</property>
+		<property name="description" type="java.lang.String" >
+			<column name="DESCRIPTION" />
+		</property>
+		<property name="taskSeqName" type="java.lang.String" >
+			<column name="TASK_SEQ_NAME" />
+		</property>
+		<many-to-one name="manager$16" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="MANAGER" />
+		</many-to-one>
+		<many-to-one name="own$5" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="OWN" />
+		</many-to-one>
+		<many-to-one name="group$6" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_GROUP" />
+		</many-to-one>
+		<many-to-one name="context$3" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="CONTEXT" />
+		</many-to-one>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

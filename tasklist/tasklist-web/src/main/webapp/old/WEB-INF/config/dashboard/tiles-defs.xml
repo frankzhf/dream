@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".my.drafts.dashboard" path="/pages/dashboard/myDrafts.jsp" />
+	<definition name=".pending.tasks.dashboard" path="/pages/dashboard/pendingTasks.jsp" />
+	<definition name=".my.units.dashboard" path="/pages/dashboard/myUnits.jsp" />
+	<definition name=".my.tasks.dashboard" path="/pages/dashboard/myTasks.jsp" />
+</tiles-definitions>

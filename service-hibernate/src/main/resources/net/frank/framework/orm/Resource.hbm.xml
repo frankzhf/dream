@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Resource" table="TB_RESOURCE">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			${resource.genertor}
+		</id>
+		<property name="active" type="java.lang.Boolean">
+			<column name="ACTIVE" />
+		</property>
+		<property name="systemNode" type="java.lang.Boolean">
+			<column name="SYSTEMNODE" />
+		</property>
+		<property name="alias" type="java.lang.String">
+			<column name="ALIAS" />
+		</property>
+		<property name="createdDt" type="java.util.Date">
+			<column name="CREATEDDT" />
+		</property>
+		<property name="lastUpdatedDt" type="java.util.Date">
+			<column name="LASTUPDATEDT" />
+		</property>
+		<property name="currentAccountPermission" type="java.lang.Byte">
+			<column name="CUR_ACC_PER" />
+		</property>
+		<property name="currentGroupPermission" type="java.lang.Byte">
+			<column name="CUR_GRP_PER" />
+		</property>
+		<property name="othersPermission" type="java.lang.Byte">
+			<column name="OTHERS_PER" />
+		</property>
+		<property name="parentId" type="java.lang.Long">
+			<column name="PARENT_ID" />
+		</property>
+		<property name="typeId" type="java.lang.Long">
+			<column name="TYPE_ID" />
+		</property>
+		<property name="ownResourceId" type="java.lang.Long">
+			<column name="OWN_RES_ID" />
+		</property>
+		<property name="ownGroupResourceId" type="java.lang.Long">
+			<column name="OWN_GROUP_RES_ID" />
+		</property>
+		<property name="lastAccountResourceId" type="java.lang.Long">
+			<column name="LAST_ACC_RES_ID" />
+		</property>
+	</class>
+</hibernate-mapping>

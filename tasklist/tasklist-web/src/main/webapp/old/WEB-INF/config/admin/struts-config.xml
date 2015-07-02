@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<!-- This is a blank Struts configuration file with an example welcome action/page 
+	and other commented sample elements. Tiles and the Struts Validator are configured 
+	using the factory defaults and are ready-to-use. NOTE: If you have a generator 
+	tool to create the corresponding Java classes for you, you could include 
+	the details in the "form-bean" declarations. Otherwise, you would only define 
+	the "form-bean" element itself, with the corresponding "name" and "type" 
+	attributes, as shown here. -->
+
+
+<struts-config>
+
+	<!-- ================================================ Form Bean Definitions -->
+
+	<form-beans>
+		<form-bean name="accountForm" type="net.frank.cms.web.admin.forms.AccountForm" />
+
+		<!-- <form-bean name="resourceForm" type="net.frank.web.common.forms.ResourceForm" 
+			/> <form-bean name="staffInformForm" type="net.frank.web.admin.forms.StaffInformForm" 
+			/> -->
+	</form-beans>
+
+	<!-- =========================================== Action Mapping Definitions -->
+
+	<action-mappings>
+		<!-- Default "Welcome" action -->
+		<!-- Forwards to welcome.jsp -->
+		<action path="/manageAccount" name="accountForm" scope="request"
+			type="net.frank.cms.web.admin.actions.ManageAccountAction">
+			<forward name="success" path=".manage.account" />
+		</action>
+
+
+	</action-mappings>
+
+
+	<!-- ============================================= Controller Configuration -->
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ======================================== Message Resources Definitions -->
+
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.web.MessageResources,net.frank.web.admin.MessageResources" />
+
+
+</struts-config>
+

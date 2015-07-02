@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<definition name=".empty.wf" path="/pages/wf/empty.jsp" />
+	<definition name=".dashboard.wf" extends=".page.default">
+		<put name="content" value="/pages/wf/dashboard.jsp" />
+	</definition>
+	<definition name=".my.task.wf" extends=".page.default">
+		<put name="content" value="/pages/wf/myTasklist.jsp" />
+	</definition>
+	<definition name=".my.start.task.wf" extends=".page.default">
+		<put name="content" value="/pages/wf/myStartProcessInstance.jsp" />
+	</definition>
+	
+	<definition name=".process.task.instance.wf" path="/pages/wf/processTaskInstance.jsp" />
+	
+	<definition name=".submit.task.success" path="/pages/wf/submitTaskSuccess.jsp" />
+	
+	<definition name=".list.comments" path="/pages/wf/commentList.jsp" />
+	
+	<definition name=".list.attachments" path="/pages/wf/attachmentList.jsp" />
+	
+</tiles-definitions>

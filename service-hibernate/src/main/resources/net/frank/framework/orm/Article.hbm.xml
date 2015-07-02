@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Article" table="TB_ARTICLE">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="title" type="java.lang.String">
+			<column name="TITLE" />
+		</property>
+		<property name="keyWord" type="java.lang.String">
+			<column name="KEY_WORD" />
+		</property>
+		<property name="content" type="char[]">
+			<column name="CONTENT" sql-type="${clob.type}" />
+		</property>
+		<many-to-one name="context$3" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="CONTEXT" />
+		</many-to-one>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

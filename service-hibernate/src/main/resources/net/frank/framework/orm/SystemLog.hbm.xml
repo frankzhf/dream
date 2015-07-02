@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.SystemLog" table="TB_SYSTEM_LOG">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="action" type="java.lang.String">
+			<column name="ACTION" />
+		</property>
+		<property name="result" type="java.lang.String">
+			<column name="RESULT" />
+		</property>
+		<property name="desc" type="java.lang.String">
+			<column name="DESC_" />
+		</property>
+		<property name="logDate" type="java.util.Date">
+			<column name="LOG_DATE" />
+		</property>
+		<property name="opResoureId" type="java.lang.Long">
+			<column name="OPER_RESOURCE_ID" />
+		</property>
+	</class>
+</hibernate-mapping>

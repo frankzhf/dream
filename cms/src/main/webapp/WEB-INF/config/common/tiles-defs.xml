@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".layout.admin" path="/global/layout/easyui/defaultAdminLayout.jsp">
+		<put name="header" value="common/header.do" />
+		<put name="menu" value="common/menu.do" />
+		<put name="body" value="common/body.do" direct="false" />
+	</definition>
+	
+	<definition name=".layout.normal" path="/global/layout/easyui/defaultLayout.jsp">
+		<put name="header" value="header.do" />
+		<put name="body" value="dashboard.do" direct="false"/>
+	</definition>
+	
+	<definition name=".layout.cms" path="/global/layout/easyui/defaultLayout.jsp">
+		<put name="header" value="cmsheader.do" />
+		<put name="body" value="dashboard.do" direct="false"/>
+	</definition>
+	
+	<definition name=".header.layout.default" path="/global/layout/easyui/header.jsp" />
+	<definition name=".cms.header.layout.default" path="/global/layout/easyui/cmsheader.jsp" />
+	<definition name=".menu.layout.default" path="/global/layout/easyui/menu.jsp" />
+	<definition name=".common.dialog.selector" extends=".tree.default">
+	    <put name="content" value="/pages/common/dialogSelector.jsp" />
+	</definition>
+	<definition name=".common.tree.config" path="/global/jsp/xloadtree2b/webFXTreeConfig.jsp" />
+	
+	<definition name=".page.default" path="/global/layout/Body.jsp">
+		<put name="message" value="/global/layout/Message.jsp" />
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".single.default" path="/global/layout/Single.jsp">
+		<put name="message" value="/global/layout/Message.jsp" />
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".layout.default" path="/global/layout/Single2.jsp">
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	
+	<definition name=".desktop.default" extends=".single.default">
+		<put name="content" value="/pages/desktop.jsp" />
+	</definition>
+	
+	<definition name=".dashboard.default" extends=".page.default">
+		<put name="content" value="/pages/dashboard.jsp" />
+	</definition>
+	
+	<definition name=".tree.default" path="/global/layout/Tree.jsp">
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".tree.dialog" path="/global/layout/dialog/Tree.jsp">
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".layout.leftRight" path="/global/layout/easyui/leftCenter.jsp">
+		<put name="leftHeader" value="" />
+		<put name="leftLinker" value="" />
+		<put name="rightHeader" value="" />
+	</definition>
+	
+	<definition name=".layout.centerRight" path="/global/layout/easyui/centerRight.jsp">
+		<put name="centerHeader" value="" />
+		<put name="rightLinker" value="" />
+		<put name="rightHeader" value="" />
+	</definition>
+	
+	<definition name=".blank.page" path="/global/layout/Blank.jsp">
+		<put name="content" value="" />
+	</definition>
+	
+	<definition name=".default.blank" path="/global/layout/easyui/defaultBlank.jsp">
+		<put name="content" value="" />
+	</definition>
+	
+	<definition name=".default.blank.layout" path="/global/layout/easyui/defaultBlankLayout.jsp">
+		<put name="content" value="" />
+	</definition>
+	
+	<definition name=".default.blank.layout.dialog" path="/global/layout/easyui/defaultBlankLayoutDialog.jsp">
+		<put name="content" value="" />
+	</definition>
+	
+	<definition name=".dialog.leftRight" path="/global/layout/dialog/leftRight.jsp">
+		<put name="leftHeader" value="" />
+		<put name="leftLinker" value="" />
+		<put name="rightHeader" value="" />
+	</definition>
+	
+	
+	<definition name=".common.view.content" extends=".page.default">
+		<put name="content" value="/pages/common/viewContent.jsp" />
+	</definition>
+	
+	<definition name=".common.edit.content" extends=".page.default">
+		<put name="content" value="/pages/common/editContent.jsp" />
+	</definition>
+	
+	
+	<definition name=".edit.image.common" path="/pages/common/editImage.jsp" />
+	
+	<definition name=".dialog.staff.selector.common" extends=".layout.default">
+		<put name="content" value="/pages/common/dialogStaffSelector.jsp" />
+	</definition>
+	
+	<definition name=".view.staff.details.common" extends=".page.default">
+		<put name="content" value="/pages/common/viewStaffDetails.jsp" />
+	</definition>
+	
+	<definition name=".layout.bootstrap" path="/global/layout/bootstrap/defaultLayout.jsp">
+		<put name="menu" value="/global/layout/bootstrap/menu.jsp" />
+		<put name="session" value="/global/layout/bootstrap/session.jsp" />
+	</definition>
+	
+	<definition name=".layout.easyui" path="/global/layout/easyui/layout.jsp" />
+</tiles-definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="tasklist-web">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="commons-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/commons/commons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="framework-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/framework/framework">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="service-hibernate-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/service-hibernate/service-hibernate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="repository-bo-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/repository-bo/repository-bo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="repository-phase-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/repository-phase/repository-phase">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tasklist-phase-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tasklist-phase/tasklist-phase">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tasklist-bo-1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tasklist-bo/tasklist-bo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/net/frank/unit-selector/1.0/unit-selector-1.0.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/prj/cms?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="tasklist-web"/>
+        <property name="java-output-path" value="/tasklist-web/target/classes"/>
+    </wb-module>
+</project-modules>

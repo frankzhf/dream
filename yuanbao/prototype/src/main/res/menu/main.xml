@@ -1,0 +1,44 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item 
+        android:id="@+id/menu_subject"
+        android:title="@string/menu_custom_subject"
+        android:icon="@drawable/add"
+        android:orderInCategory="0"
+        android:alphabeticShortcut="I" />
+    <item 
+        android:id="@+id/menu_sum"
+        android:title="@string/menu_custom_sum"
+        android:icon="@drawable/add"
+        android:orderInCategory="1"
+        android:alphabeticShortcut="U" />
+    <item 
+        android:id="@+id/system_help"
+        android:title="@string/menu_help"
+        android:icon="@drawable/help"
+        android:orderInCategory="2" 
+        android:alphabeticShortcut="H" />
+    <item 
+        android:id="@+id/system_software"
+        android:title="@string/menu_software"
+        android:icon="@drawable/information"
+        android:orderInCategory="3" 
+        android:alphabeticShortcut="S" />
+    <item
+         android:id="@+id/system_quit"
+        android:title="@string/menu_quit"
+        android:icon="@drawable/quit"
+        android:orderInCategory="4"
+        android:alphabeticShortcut="Q"  />
+    <item
+	    android:id="@+id/menu_subject_add"
+		android:title="@string/menu_add"
+		android:icon="@drawable/add"
+		android:orderInCategory="5" 
+		android:alphabeticShortcut="R" />
+	<item
+	    android:id="@+id/system_back"
+		android:title="@string/menu_back"
+		android:icon="@drawable/back"
+		android:orderInCategory="6" 
+		android:alphabeticShortcut="R" />
+</menu>

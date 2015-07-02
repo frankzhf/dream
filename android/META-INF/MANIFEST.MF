@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: android
+Bundle-SymbolicName: android
+Bundle-Version: 1.0.0.qualifier
+Export-Package: net,
+ net.frank,
+ net.frank.android,
+ net.frank.android.activity,
+ net.frank.android.alertdialog,
+ net.frank.android.entity,
+ net.frank.android.handle,
+ net.frank.android.holder,
+ net.frank.android.hook,
+ net.frank.android.pinyin,
+ net.frank.android.util,
+ net.frank.android.view

@@ -1,0 +1,21 @@
+<table style="width:100%">
+	<tr>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Image.content')</td>
+		<td>#render($fieldMap.get('content'),$var,$isEdit)</td>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Image.image.format')</td>
+		<td>#render($fieldMap.get('imageFormat'),$var,$isEdit)</td>
+	<tr>
+		<td>#properties('net.frank.framework.bo.Image.image.name')</td>
+		<td>#render($fieldMap.get('imageName'),$var,$isEdit)</td>
+	<tr>
+		<td colspan=1>
+			#renderHidden('id',$var,$isEdit)
+			#renderResource($var)
+		</td>
+	</tr>
+</table>

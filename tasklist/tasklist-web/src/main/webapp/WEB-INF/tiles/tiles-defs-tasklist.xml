@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+    <definition name=".desktop.default" extends=".single.default">
+		<put name="content" value="/pages/tasklist/desktop.jsp" />
+	</definition>
+    <definition name=".my.drafts.dashboard" path="/pages/tasklist/myDrafts.jsp" />
+	<definition name=".pending.tasks.dashboard" path="/pages/tasklist/pendingTasks.jsp" />
+	<definition name=".my.units.dashboard" path="/pages/tasklist/myUnits.jsp" />
+	<definition name=".my.tasks.dashboard" path="/pages/tasklist/myTasks.jsp" />
+	
+	<definition name=".create.draft.task.list" extends=".single.default">
+		<put name="content" value="/pages/tasklist/createDraftTask.jsp" />
+	</definition>
+	
+	<definition name=".working.task.list" extends=".layout.default">
+		<put name="content" value="/pages/tasklist/workingTask.jsp" />
+	</definition>
+	
+	<definition name=".process.token.task.list" extends=".single.default">
+		<put name="content" value="/pages/tasklist/processTaskToken.jsp" />
+	</definition>
+	
+	<definition name=".view.history.task.list" extends=".single.default">
+		<put name="content" value="/pages/tasklist/taskHistory.jsp" />
+	</definition>
+	
+	<definition name=".dialog.assign.to.task.list" extends=".page.default">
+		<put name="content" value="/pages/tasklist/dialog/assignTo.jsp" />
+	</definition>
+	
+</tiles-definitions>

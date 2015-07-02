@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="propertiesResourceCacheProvider"
+		class="net.frank.framework.web.taglib.content.property.PropertiesResourceCacheProvider">
+		<property name="propertiesPath" value="net/frank/cms/web/ui/properties" />
+	</bean>
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath" value="classpath:net/frank/cms/web/ui/vm"></property>
+		<property name="velocityProperties">
+			<props>
+				<prop key="userdirective">net.frank.framework.web.taglib.content.template.RenderDirective,net.frank.framework.web.taglib.content.template.RenderHiddenDirective,net.frank.framework.web.taglib.content.template.RenderPropertiesDirective,net.frank.framework.web.taglib.content.template.RenderResourceDirective,net.frank.framework.web.taglib.content.template.RenderDateDirective
+				</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

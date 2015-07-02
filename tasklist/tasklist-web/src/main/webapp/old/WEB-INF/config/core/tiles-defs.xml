@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	
+	<definition name=".brower.core" path="/pages/core/cmsBrower.jsp" />
+	<definition name=".navigation.core" path="/pages/core/navigation.jsp" />
+	<definition name=".nav.tree.core" path="/pages/core/tree.jsp" />
+	<definition name=".inform.details.core" path="/pages/core/informDetails.jsp" />
+	<definition name=".message.core" path="/pages/core/message.jsp" />
+	<definition name=".errors.core" path="/pages/core/errors.jsp" />
+	
+	<definition name=".permission.core" extends=".page.default">
+		<put name="content" value="/pages/core/cmsPermission.jsp" />
+	</definition>
+	<definition name=".move.core" extends=".page.default">
+		<put name="content" value="/pages/core/cmsMove.jsp" />
+	</definition>
+</tiles-definitions>

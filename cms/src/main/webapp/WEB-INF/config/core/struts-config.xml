@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="cmsForm" type="net.frank.framework.struts.form.CmsForm" />
+		<form-bean name="historyForm" type="net.frank.cms.web.core.forms.HistoryForm" />
+		<form-bean name="aclForm" type="net.frank.cms.web.core.forms.AclForm" />
+		<form-bean name="permissionForm" type="net.frank.cms.web.core.forms.PermissionForm" />
+		<form-bean name="moveForm" type="net.frank.cms.web.core.forms.MoveForm" />
+		<form-bean name="aaForm" type="net.frank.cms.web.core.forms.ActivationAccountForm" />
+		<form-bean name="listSessionForm" type="net.frank.cms.web.core.forms.ListSessionForm" />
+		<form-bean name="typeRegistrationForm" type="net.frank.cms.web.core.forms.TypeRegistrationForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<action parameter=".brower.core" path="/cmsBrower"
+			type="org.apache.struts.actions.ForwardAction" />
+
+		<action path="/navigation" type="net.frank.framework.struts.action.CommonTreeAction"
+			scope="request" validate="false">
+			<forward name="success" path=".navigation.core" />
+		</action>
+
+		<action path="/tree" type="net.frank.framework.struts.action.CommonTreeAction"
+			scope="request" validate="false">
+			<forward name="success" path=".nav.tree.core" />
+		</action>
+
+		<action path="/viewInformDetails"
+			type="net.frank.cms.web.core.actions.ViewInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/editInformDetails"
+			type="net.frank.cms.web.core.actions.EditInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/createBusinessObject"
+			type="net.frank.cms.web.core.actions.CreateBusinessObjectAction"
+			name="cmsForm" scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/saveInformDetails"
+			type="net.frank.cms.web.core.actions.SaveInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".message.core" />
+			<forward name="failure" path=".errors.core" />
+		</action>
+		
+		<action path="/listHistory"
+		    type="net.frank.cms.web.core.actions.ListHistoryAction" name="historyForm"
+		    scope="request" validate="false">
+		    <forward name="success" path=".history.list.core" />
+		</action>
+		
+		<action path="/viewHistoryInfo" 
+		    type="net.frank.cms.web.core.actions.ViewHistoryInfoAction" name="historyForm"
+		    scope="request" validate="false">
+			<forward name="success" path=".inform.history.core" />
+		</action>
+		
+		<action path="/listAcl"
+		    type="net.frank.cms.web.core.actions.ListAclAction" name="aclForm"
+		    scope="request" validate="false">
+			 <forward name="success" path=".acl.list.core" />
+		</action>
+		
+		
+		<action path="/dialogAcl"
+		    type="net.frank.cms.web.core.actions.DialogAclAction" name="aclForm"
+		    scope="request" validate="false">
+			 <forward name="success" path=".acl.dialog.core" />
+		</action>
+		
+		<action path="/navigationAcl"
+		    type="net.frank.cms.web.core.actions.NavigationAclAction" name="aclForm"
+		    scope="request" validate="false">
+			 <forward name="success" path=".navigation.acl.core" />
+		</action>
+		
+		<action parameter=".permission.acl.core" path="/permissionAcl"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action parameter=".permission.core" path="/cmsPermission"
+			type="org.apache.struts.actions.ForwardAction" />
+			
+		<action path="/submitPermission"
+			type="net.frank.cms.web.core.actions.SubmitPermissionAction" name="permissionForm"
+			scope="request" validate="false">
+			<forward name="success" path=".permission.core" />
+			<forward name="failure" path="/cmsPermission.do" redirect="false" />
+		</action>
+		
+		<action parameter=".move.core" path="/cmsMove"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action path="/submitMove"
+			type="net.frank.cms.web.core.actions.SubmitMoveAction" name="moveForm"
+			scope="request" validate="false">
+			<forward name="success" path=".move.core" />
+			<forward name="failure" path=".move.core" />
+		</action>
+		
+		<action parameter=".activation.account.core" path="/activationAccount"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action path="/submitActivationAccount"
+			type="net.frank.cms.web.core.actions.SubmitActivationAccountAction" name="aaForm"
+			scope="request" validate="false">
+			<forward name="success" path=".activation.account.core" />
+			<forward name="failure" path=".activation.account.core" />
+		</action>
+		
+		<action path="/listSession"
+		    type="net.frank.cms.web.core.actions.ListSessionAction" name="listSessionForm"
+		    scope="request" validate="false">
+		    <forward name="success" path=".list.session.core" />
+		    <forward name="failure" path=".list.session.core" />
+		</action>
+		
+		<action path="/killSession"
+		    type="net.frank.cms.web.core.actions.KillSessionAction" name="listSessionForm"
+		    scope="request" validate="false">
+		    <forward name="success" path=".list.session.core" />
+		    <forward name="failure" path=".list.session.core" />
+		</action>
+		
+		<action path="/typeRegistration"
+		    type="net.frank.cms.web.common.actions.PreparedSuperUserAction" name="listSessionForm"
+		    scope="request" validate="false">
+		    <forward name="success" path=".type.registration.core" />
+		</action>
+		
+		<action path="/submitTypeRegistration"
+		    type="net.frank.cms.web.core.actions.SubmitTypeRegistrationAction" name="typeRegistrationForm"
+		    scope="request" validate="false">
+		    <forward name="success" path=".type.registration.core" />
+		    <forward name="failure" path=".type.registration.core" />
+		</action>
+		
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" maxFileSize="16M" />
+	
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+			net.frank.cms.web.core.MessageResources,
+			net.frank.web.MessageResources,
+			net.frank.web.MenuResources" />
+
+	<!-- =================================================== Validator plugin -->
+
+</struts-config>

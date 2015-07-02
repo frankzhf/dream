@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".create.draft.task" extends=".single.default">
+		<put name="content" value="/pages/task/createDraftTask.jsp" />
+	</definition>
+	
+	<definition name=".working.task" extends=".layout.default">
+		<put name="content" value="/pages/task/workingTask.jsp" />
+	</definition>
+	
+	<definition name=".view.history.task" extends=".single.default">
+		<put name="content" value="/pages/task/taskHistory.jsp" />
+	</definition>
+	
+	<definition name=".process.token.task" extends=".single.default">
+		<put name="content" value="/pages/task/processTaskToken.jsp" />
+	</definition>
+	
+	<definition name=".view.task" extends=".layout.default">
+		<put name="content" value="/pages/task/viewTask.jsp" />
+	</definition>
+	
+	<definition name=".view.details.task" extends=".single.default">
+		<put name="content" value="/pages/task/viewTaskDetails.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

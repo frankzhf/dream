@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="loginForm" type="net.frank.cms.web.common.forms.LoginForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<action parameter=".page.login" path="/index"
+			type="org.apache.struts.actions.ForwardAction" />
+		<action path="/login" type="net.frank.cms.web.common.actions.LoginAction"
+			scope="request" name="loginForm">
+			<forward name="success" path="/frameAdmin.do" module="/common" />
+			<forward name="failure" path=".page.login" />
+		</action>
+		<action path="/logout" type="net.frank.cms.web.common.actions.LogoutAction">
+			<forward name="success" path="/index.do" redirect="true"/>
+		</action>
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+				net.frank.aa.MessageResources,
+				net.frank.web.MessageResources,
+				net.frank.web.MenuResources" />
+	<!-- =================================================== Tiles plugin -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/config/tiles-defs.xml,
+			/WEB-INF/config/common/tiles-defs.xml,
+			/WEB-INF/config/common/selector/unit/tiles-defs.xml,
+			/WEB-INF/config/core/tiles-defs.xml,
+			/WEB-INF/config/admin/tiles-defs.xml,
+			/WEB-INF/config/self/tiles-defs.xml,
+			/WEB-INF/config/tinymce/tiles-defs.xml" />
+		<set-property property="moduleAware" value="false" />
+	</plug-in>
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/config/validator-rules.xml,/WEB-INF/config/validation.xml" />
+	</plug-in>
+</struts-config>

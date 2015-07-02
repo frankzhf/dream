@@ -1,0 +1,549 @@
+body {
+	color: Black;
+	background-color: White;
+	font-family: Verdana, Times, serif;
+	font-size: 12px;
+	margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, p, th, td, ul, ol, li, dl, dt, dd {
+	font-family: Verdana, Times, serif;
+	font-size: 12px;
+}
+.panel_style {
+	BORDER-RIGHT: #919cd0 1px solid; BORDER-TOP: #919cd0 1px solid; BORDER-LEFT: #919cd0 1px solid; COLOR: #1f2d9a; BORDER-BOTTOM: #919cd0 1px solid
+}
+
+.panel_line {
+	BACKGROUND: #919cd0
+}
+
+h1 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #BD616B;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #6588CD;
+}
+
+h3 {
+	font-size: 12px;
+	font-weight: bolder;
+	color: #BD616B;
+}
+
+h4, h5, h6 {
+	font-size: 12px;
+	font-weight: normal;
+	color: #BD616B;
+}
+
+
+ul {
+	cursor : default;
+}
+
+form, select, textarea, option, input {
+	font-size: 12px;
+	font-weight: normal;
+	font-family : Tahoma, Verdana, serif;
+}
+
+select {
+	border: 1px;
+}
+
+a:link, a:visited {
+	color : Navy;
+	text-decoration : underline;
+}
+
+a:link:hover, a:visited:hover {
+	color : Red;
+	text-decoration : underline;
+}
+
+input.button{
+    color:#333;
+	font-family:'trebuchet ms',helvetica,sans-serif;
+	font-size:84%;
+	font-weight:bold;
+	border:1px solid;
+	border-top-color:#999;
+	border-left-color:#999;
+	border-right-color:#666;
+	border-bottom-color:#666;
+    background-color:#cec;
+    filter:progid:DXImageTransform.Microsoft.Gradient(
+		GradientType=0,StartColorStr='#ffffffff',EndColorStr='#ffaaddaa');
+}
+
+input.buttonhov{
+   border-top-color:#c63;
+   border-left-color:#c63;
+   border-right-color:#930;
+   border-bottom-color:#930;
+}
+
+input.buttonclear{
+	border: none;
+}
+
+
+.warning {
+	color: #999900;	
+}
+
+.errors {
+	color: red;
+	margin-left: 0;
+	list-style: none;	
+}
+
+.errors li {
+	list-style: none;
+}
+
+#footer {
+	border-top: 1px solid #8c8c8c;
+	padding-top: 5px;
+	text-align: center;
+}
+
+/*===The new look and feel===*/
+.pageContent {
+	margin-top: 3px;
+	margin-bottom: 5px;
+	padding: 5px;
+	height: 100%;
+}
+
+.pageContent .title {
+	display: block;
+	border-bottom: 2px solid #C96208;
+	padding-bottom: 5px;
+	margin-bottom: 8px;
+	color: #C96208;
+	font-size: 20px;
+	font-family: Verdana, Tahoma, serif;
+	font-weight: bold;
+}
+
+.pageContent .title td {
+	font-size: 20px;
+}
+
+.commonContainer {
+	color: #1C1300;
+	background-color : #F6F8F2;
+	border: 1px solid #B8CFD7;
+	border-top: 3px solid #B8CFD7;
+	padding: 10px;	
+}
+
+.commonContainer .title {
+	display: block;
+	border-bottom: 1px solid #B8CFD7;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	font-size: 16px;
+	font-weight: bold;
+   color: Black;
+}
+
+.commonContainer .label {
+	font-weight: normal;	
+	text-align: right;
+}
+
+.commonContainer .mandatoryLabel {
+	text-align: right;
+	font-weight: normal;
+	color: #AB2121;
+}
+
+.commonContainer .controlBar {
+	display: block;
+	padding: 5px;
+	border-top: 1px solid #B8CFD7;
+}
+
+
+
+.listTable {
+}
+
+.listTable .oddRow {
+	background-color: #E7F0FF;
+}
+
+.listTable .evenRow {
+	background-color: White;
+}
+
+.listTable tr th {
+	color: Black;
+	font-weight: bold;
+	padding: 3px;
+	border-bottom: 3px solid #97B6E9;	
+}
+
+.listTable tr th a:link, .listTable tr th a:visited{
+	color: #080669;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.listTable tr th img {
+	margin-left: 4px;
+	border: 0px;
+	vertical-align: middle;
+}
+
+.listTable tr td {
+	padding: 3px;
+	border-bottom: 1px solid #97B6E9;	
+}
+
+.listTable tr td.noLine {
+	padding: 3px;
+	border-bottom: none;	
+}
+
+.listTable .subTitle {
+	border-bottom: 2px solid #97b6e9;
+	padding-bottom: 5px;
+	margin-bottom: 8px;	
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.filterBar {
+	text-align: right;
+	margin: 5px;
+}
+
+fieldset {
+	margin: 5px;
+}
+
+
+fieldset label {
+	font-weight: normal;
+}
+
+  
+fieldset legend {
+	font-weight: bold;
+	color: Black;
+}
+
+
+.wizardSteps {
+	padding: 0;
+	margin-left: 0;
+	font-weight: bold;
+}
+
+.wizardSteps li {
+	list-style-type: circle;
+	margin-left: 5px;
+	display: inline;
+	color: gray;
+}
+
+.wizardSteps li.currentStep {
+	color: Black;
+}
+
+.scheduleChooser {
+	border: 1px solid #545454;
+}
+		
+.scheduleChooser table {
+	background-color: #EEF4FF;
+	text-align: center;
+	width: 50px;
+}
+		
+.scheduleChooser .weekName {
+	font-size: 20px;
+	color: #CF6618;
+}
+		
+.scheduleChooser .backupType {
+	color: #187FCF;
+}
+
+.scheduleChooser .backupType a {
+	color: #187FCF;
+}
+			
+.scheduleChooser table.selected {
+	background-color: #D1C6FF;
+	text-align: center;
+}
+
+.controlBar {
+	margin-top: 5px;
+}
+
+.controlBar .paginator {
+	text-align: left;
+	
+}
+
+.controlBar .buttonBar {
+	text-align: right;
+}
+
+.paginator {
+	border: 1px solid #5F90DE;
+}
+
+.paginator a:link, .paginator a:visited {
+	text-decoration: none;
+}
+
+.paginator tr td {
+	border-right: 1px solid #5F90DE;
+	padding: 2px 4px;
+}
+
+.paginator .indicator {
+	background: #E7F0FF;
+	color: #180F00;
+}
+
+.paginator .currentPage {
+	color: #C9623D;
+}
+
+.paginator .previousPage {
+	
+}
+
+.paginator .nextPage {
+	border-right: none;
+}
+
+.actionButtonBar {
+	padding: 2px 5px;
+}
+
+.actionButtonBar2 {
+	padding: 2px 5px;
+	border-bottom: none;
+}
+
+.listTable tr td.actionButtonBar2 {
+	border-bottom: none;	
+}
+
+.actionButtonBar span {
+	background-color: #87A9E0;
+	color: white;
+	margin: 2px;
+}
+
+.actionButtonBar2 span {
+	background-color: #87A9E0;
+	color: white;
+	margin: 2px;
+}
+
+.actionButton a:link, .actionButton a:visited {
+	color: white;
+	padding: 3px 5px;
+}
+
+.actionButton a:link:hover, .actionButton a:visited:hover {
+	color: white;
+	padding: 3px 5px;
+	text-decoration: none;
+}
+
+.grayItem {
+	color: Silver;
+}
+
+.blueItem {
+	color: #00008B;
+}
+
+.yellowItem {
+	color: #FFD700;
+}
+
+.greenItem {
+	color: Green;
+}
+
+.redItem {
+	color: Red;
+}
+.purpleItem {
+	color: Purple;
+}
+
+.greenBox {
+	border: 1px solid #9FCF6D;
+	border-top: 2px solid #9FCF6D;
+	background-color: #F6F8F2;
+	color: Black;
+}
+
+.greenBox .title {
+	display: block;
+	border-bottom: 1px solid #9FCF6D;
+	font-size: 12px;
+	font-weight: bold;
+	color: #064A90;
+	padding: 5px;
+	margin: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	
+}
+
+.greenBox .title2 {
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	color: #064A90;
+	padding: 5px;
+	margin: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	
+}
+
+.greenBox .content {
+	background-color: White;
+}
+
+.blueBox {
+	border: 1px solid #336699;
+	border-top: 2px solid #336699;
+	background-color: #E5ECF9;
+	color: Black;
+}
+
+.blueBox .title {
+	display: block;
+	border-bottom: 1px solid #336699;
+	font-size: 12px;
+	font-weight: bold;
+	color: #064A90;
+	padding: 5px;
+	margin: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	
+}
+
+.blueBox .content {
+	background-color: White;
+}
+
+.yellowBox {
+	border: 1px solid #FF6600;
+	border-top: 2px solid #FF6600;
+	background-color: #FFDAC1;
+	color: Black;
+}
+
+.yellowBox .title {
+	display: block;
+	border-bottom: 1px solid #FF6600;
+	font-size: 12px;
+	font-weight: bold;
+	color: #064A90;
+	padding: 5px;
+	margin: 0px;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	
+}
+
+.yellowBox .content {
+	background-color: White;
+}
+
+.boxTable {
+}
+
+.boxTable .oddRow {
+	background-color: #F0F0F0;
+}
+
+.boxTable .evenRow {
+	background-color: White;
+}
+
+.boxTable tr td a:link, .boxTable tr td a:visited {
+	color: #080669;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.boxTable tr td {
+	padding: 5px;
+}
+
+.boxTable .bottomBar {
+	text-align: right;
+}
+
+.boxTable .bottomBar td {
+	border-top: 1px solid #F0F0F0;
+}
+
+.boxTable .bottomBar a:link, .boxTable .bottomBar a:visited {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #0000CC;
+}
+
+
+.scrollable {
+	padding-right: 10px; overflow-y: auto; padding-left: 10px; scrollbar-face-color: #ffffff; font-size: 11pt; padding-bottom: 0px; scrollbar-highlight-color: #ffffff; overflow: auto;scrollbar-shadow-color: #919192; color: blue; scrollbar-3dlight-color: #ffffff; line-height: 100%; scrollbar-arrow-color: #919192; padding-top: 0px; scrollbar-track-color: #ffffff; scrollbar-darkshadow-color: #ffffff; letter-spacing: 1pt; text-align: left
+}
+
+.commonContainer .sectionTitle {
+	display: block;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #A5C1EC;
+	font-weight: bold;
+	font-size: small;
+	margin-bottom: 5px;
+	color: #783114;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.fullWidth input,select,textarea{
+	width:100%;
+}
+.halfWidth input,select,textArea{
+	width:50%;
+}
+.70Width input,select,textArea{
+	width:70%;
+}
+
+.contentPanel{
+	width:100%;
+}
+
+.contentPanel tr td input[type=text],select,textarea{
+	width:75%;
+}
+/**
+.contentPanel tr td input[type=button]{
+	width:75%;
+}
+*/

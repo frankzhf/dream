@@ -1,0 +1,10 @@
+<pdfboxConfig charsetName="utf-8">
+	<page seq="0">
+	    <!-- 
+		<region name="fullName" pointX="450" pointY="920" width="190" height="35" />
+		<region name="nric" pointX="760" pointY="920" width="190" height="35" />
+		<region name="nameOfCompany" pointX="450" pointY="1000" width="250" height="35" />
+		 -->
+		<region name="title" pointX="380" pointY="760" width="714" height="212" />
+	</page>
+</pdfboxConfig>

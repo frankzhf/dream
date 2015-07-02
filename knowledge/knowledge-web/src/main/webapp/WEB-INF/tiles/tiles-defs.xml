@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".page.login" path="/login.jsp" />
+	<definition name=".dashboard.default" extends=".page.default">
+		<put name="content" value="/pages/dashboard.jsp" />
+	</definition>
+	<definition name=".page.logout" path="/logout.jsp" />
+</tiles-definitions>

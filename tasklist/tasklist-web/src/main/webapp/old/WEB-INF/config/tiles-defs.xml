@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	<definition name=".layout.admin" path="/global/layout/easyui/defaultAdminLayout.jsp">
+		<put name="header" value="header.do" />
+		<put name="menu" value="menu.do" />
+		<put name="body" value="dashboard.do" direct="false" />
+	</definition>
+
+	<definition name=".layout.normal" path="/global/layout/easyui/defaultLayout.jsp">
+		<put name="header" value="header.do" />
+		<put name="body" value="dashboard.do"  direct="false" />
+	</definition>
+
+	<definition name=".header.layout.default" path="/global/layout/easyui/header.jsp" />
+	<definition name=".menu.layout.default" path="/global/layout/easyui/menu.jsp" />
+	
+	<definition name=".page.default" path="/global/layout/Body.jsp">
+		<put name="message" value="/global/layout/Message.jsp" />
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".single.default" path="/global/layout/Single.jsp">
+		<put name="message" value="/global/layout/Message.jsp" />
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	<definition name=".layout.default" path="/global/layout/Single2.jsp">
+		<put name="content" value="/global/layout/Blank.jsp" />
+	</definition>
+	
+	
+	<definition name=".desktop.default" extends=".single.default">
+		<put name="content" value="/pages/desktop.jsp" />
+	</definition>
+	
+	<definition name=".dashboard.default" extends=".page.default">
+		<put name="content" value="/pages/dashboard.jsp" />
+	</definition>
+
+</tiles-definitions>

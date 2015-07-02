@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>xcross</artifactId>
+		<groupId>net.frank</groupId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>framkwork-mail</artifactId>
+	<version>${current.version}</version>
+	<description>
+		Java mail integrate
+	</description>
+	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>commons</artifactId>
+			<version>${current.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>framework-ws</artifactId>
+			<version>${current.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>framework</artifactId>
+			<version>${current.version}</version>
+		</dependency>
+		<!-- EMAIL -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${java.mail.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.2</version>
+		</dependency>
+	</dependencies>
+</project>

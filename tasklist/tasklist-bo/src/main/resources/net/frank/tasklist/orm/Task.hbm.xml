@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.tasklist.bo.Task" table="TB_TASK">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="taskId" type="java.lang.String">
+			<column name="TASK_ID" />
+		</property>
+		<property name="taskSummary" type="java.lang.String">
+			<column name="TASK_SUMMARY" />
+		</property>
+		<property name="description" type="char[]">
+			<column name="DESCRIPTION" sql-type="${clob.type}" />
+		</property>
+		<many-to-one name="unit$14" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="UNIT" />
+		</many-to-one>
+		<property name="status" type="java.lang.Integer">
+			<column name="STATUS" />
+		</property>
+		<many-to-one name="context$3" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="CONTEXT" />
+		</many-to-one>
+		<property name="startDate" type="java.util.Date">
+			<column name="START_DATE" />
+		</property>
+		<property name="targetDate" type="java.util.Date">
+			<column name="TARGET_DATE" />
+		</property>
+		<property name="endDate" type="java.util.Date">
+			<column name="END_DATE" />
+		</property>
+		<property name="reOpen" type="java.lang.Boolean">
+			<column name="RE_OPEN" />
+		</property>
+		<many-to-one name="refTask$50002" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="REF_TASK" />
+		</many-to-one>
+		<many-to-one name="parentTask$50002" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="PARENT_TASK" />
+		</many-to-one>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

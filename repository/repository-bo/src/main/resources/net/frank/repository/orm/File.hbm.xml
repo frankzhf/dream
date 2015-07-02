@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.repository.bo.File" table="TB_FILE">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="fileName" type="java.lang.String">
+			<column name="FILE_NAME" />
+		</property>
+		<property name="length" type="java.lang.Integer">
+		    <column name="LENGTH"/>
+		</property>
+		<property name="reponsitoryName" type="java.lang.String">
+			<column name="REPONSITORY_NAME"/>
+		</property>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

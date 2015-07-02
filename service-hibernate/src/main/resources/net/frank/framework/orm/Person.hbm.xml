@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="net.frank.framework.bo.Person" table="TB_PERSON">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="native" />
+		</id>
+		<property name="idNumber" type="java.lang.String">
+			<column name="IDNUMBER" />
+		</property>
+		<property name="englishName" type="java.lang.String">
+			<column name="E_NAME" />
+		</property>
+		<property name="chineseName" type="java.lang.String">
+			<column name="C_NAME" />
+		</property>
+		<property name="pinYin" type="java.lang.String">
+			<column name="PINYIN" />
+		</property>
+		<property name="placeOfBirth" type="java.lang.String">
+			<column name="PLACEBIRTH" />
+		</property>
+		<property name="birthDay" type="java.util.Date">
+			<column name="BIRTHDAY" />
+		</property>
+		<property name="gender" type="java.lang.String">
+			<column name="GENDER" />
+		</property>
+		<property name="nation" type="java.lang.String">
+			<column name="NATION" />
+		</property>
+		<property name="anmelden" type="java.lang.String">
+			<column name="ANMELDEN" />
+		</property>
+		<property name="address" type="java.lang.String">
+			<column name="ADDRESS" />
+		</property>
+		<property name="province" type="java.lang.String">
+			<column name="PROVINCE" />
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="CITY" />
+		</property>
+		<property name="zipCode" type="java.lang.String">
+			<column name="ZIPCODE" />
+		</property>
+		<property name="homePhone" type="java.lang.String">
+			<column name="HOMEPHONE" />
+		</property>
+		<property name="mobile" type="java.lang.String">
+			<column name="MOBILE" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="EMAIL" />
+		</property>
+		<many-to-one name="photo$11" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="PHOTO$11" />
+		</many-to-one>
+		<many-to-one name="resource" class="net.frank.framework.bo.Resource"
+			lazy="false">
+			<column name="RESOURCE_" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

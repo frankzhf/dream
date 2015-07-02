@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="cmsForm" type="net.frank.framework.struts.form.CmsForm" />
+		<form-bean name="permissionForm" type="net.frank.cms.web.core.forms.PermissionForm" />
+		<form-bean name="moveForm" type="net.frank.cms.web.core.forms.MoveForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<action parameter=".brower.core" path="/cmsBrower"
+			type="org.apache.struts.actions.ForwardAction" />
+
+		<action path="/navigation" type="net.frank.cms.web.core.actions.NavigationAction"
+			scope="request" validate="false">
+			<forward name="success" path=".navigation.core" />
+		</action>
+
+		<action path="/tree" type="net.frank.cms.web.core.actions.NavigationAction"
+			scope="request" validate="false">
+			<forward name="success" path=".nav.tree.core" />
+		</action>
+
+		<action path="/viewInformDetails"
+			type="net.frank.cms.web.core.actions.ViewInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/editInformDetails"
+			type="net.frank.cms.web.core.actions.EditInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/createBusinessObject"
+			type="net.frank.cms.web.core.actions.CreateBusinessObjectAction"
+			name="cmsForm" scope="request" validate="false">
+			<forward name="success" path=".inform.details.core" />
+		</action>
+
+		<action path="/saveInformDetails"
+			type="net.frank.cms.web.core.actions.SaveInformDetailsAction" name="cmsForm"
+			scope="request" validate="false">
+			<forward name="success" path=".message.core" />
+			<forward name="failure" path=".errors.core" />
+		</action>
+		
+		<action parameter=".permission.core" path="/cmsPermission"
+			type="org.apache.struts.actions.ForwardAction" />
+			
+		<action path="/submitPermission"
+			type="net.frank.cms.web.core.actions.SubmitPermissionAction" name="permissionForm"
+			scope="request" validate="false">
+			<forward name="success" path=".permission.core" />
+			<forward name="failure" path="/cmsPermission.do" redirect="false" />
+		</action>
+		
+		<action parameter=".move.core" path="/cmsMove"
+			type="org.apache.struts.actions.ForwardAction" />
+		
+		<action path="/submitMove"
+			type="net.frank.cms.web.core.actions.SubmitMoveAction" name="moveForm"
+			scope="request" validate="false">
+			<forward name="success" path=".move.core" />
+			<forward name="failure" path=".move.core" />
+		</action>
+		
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" maxFileSize="16m" />
+	
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+			net.frank.cms.web.MenuResources,
+			net.frank.cms.web.core.MessageResources" />
+
+	<!-- =================================================== Validator plugin -->
+
+</struts-config>

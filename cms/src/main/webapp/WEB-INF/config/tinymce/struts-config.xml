@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="dialogForm" type="net.frank.cms.web.common.forms.DialogForm" />
+	</form-beans>
+	<action-mappings>
+		<action path="/imageTree" name="dialogForm"
+			type="net.frank.cms.web.tinymce.actions.ImageTreeAction" scope="request" validate="false">
+			<forward name="success" path=".tinymce.image.tree" />
+		</action>
+		<action path="/articleTree" name="dialogForm"
+			type="net.frank.cms.web.tinymce.actions.ArticleTreeAction" scope="request" validate="false">
+			<forward name="success" path=".tinymce.article.tree" />
+		</action>
+		
+		
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+			net.frank.cms.web.tinymce.MessageResources,
+			net.frank.web.MessageResources" />
+		
+</struts-config>

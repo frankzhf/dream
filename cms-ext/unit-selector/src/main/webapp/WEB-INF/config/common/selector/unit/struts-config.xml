@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+	    
+		<form-bean name="dialogForm" type="net.frank.cms.web.common.forms.DialogForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+		<action path="/dialogSelectorUnit"
+			type="net.frank.cms.ext.selector.unit.actions.DialogSelectorAction"
+			name="dialogForm" scope="request" validate="false">
+			<forward name="success" path=".ext.dialog.selector.unit" />
+		</action>
+	</action-mappings>
+	<!-- ============================================= Controller Configuration -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ======================================== Message Resources Definitions -->
+	<message-resources
+		factory="net.frank.framework.struts.message.MultiMessageResourcesFactory"
+		parameter="net.frank.cms.web.MessageResources,
+				net.frank.aa.MessageResources,
+				net.frank.cms.web.common.MessageResources,
+				net.frank.web.MessageResources" />
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/config/validator-rules.xml,/WEB-INF/config/validation.xml" />
+	</plug-in>
+
+</struts-config>

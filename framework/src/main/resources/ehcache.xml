@@ -1,0 +1,13 @@
+<ehcache>
+	<diskStore path="java.io.tmpdir" />
+
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true" />
+	<!-- sample
+	<cache name="jdbcCache" maxElementsInMemory="1000" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="6000" overflowToDisk="false" />
+	 -->
+	<cache name="typeCache" maxElementsInMemory="100" eternal="true" />
+	<cache name="dictionaryCache" maxElementsInMemory="10000" eternal="true" />
+	
+</ehcache>

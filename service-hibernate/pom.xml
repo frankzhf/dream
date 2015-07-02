@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.frank</groupId>
+		<artifactId>xcross</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>service-hibernate</artifactId>
+	<version>${current.version}</version>
+	<properties>
+		<resource.genertor><![CDATA[<generator class="native" />]]></resource.genertor>
+		<data.source.spring.configuration>
+		    <![CDATA[
+		    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass">
+			<value>${jdbc.driverClassName}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${jdbc.url}</value>
+		</property>
+		<property name="user">
+			<value>${jdbc.username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+	</bean>]]>
+		</data.source.spring.configuration>
+		<spring.default.lob.handler><![CDATA[<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+		lazy-init="true" />]]>
+		</spring.default.lob.handler>
+	</properties>
+	<profiles>
+		<profile>
+			<id>SIT</id>
+			<properties>
+				<resource.genertor><![CDATA[<generator class="sequence">
+				<param name="sequence">TB_RESOURCE_SEQ</param> 
+			</generator>]]></resource.genertor>
+				<data.source.spring.configuration><![CDATA[<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName"><value>java:comp/env/jdbc/frank</value></property> 
+	</bean>]]></data.source.spring.configuration>
+				<spring.default.lob.handler><![CDATA[
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true" >
+		<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/>
+	</bean>
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor"
+		lazy-init="true" />
+	]]></spring.default.lob.handler>
+			</properties>
+			<build>
+			    <finalName>service-hibernate-sit</finalName>
+			</build>
+		</profile>
+		
+		
+		<profile>
+			<id>UAT</id>
+			<properties>
+				<resource.genertor><![CDATA[<generator class="sequence">
+				<param name="sequence">TB_RESOURCE_SEQ</param> 
+			</generator>]]></resource.genertor>
+				<data.source.spring.configuration><![CDATA[<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName"><value>java:comp/env/jdbc/frank</value></property> 
+	</bean>]]></data.source.spring.configuration>
+				<spring.default.lob.handler><![CDATA[
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler"
+		lazy-init="true" >
+		<property name="nativeJdbcExtractor" ref="nativeJdbcExtractor"/>
+	</bean>
+	<bean id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.C3P0NativeJdbcExtractor"
+		lazy-init="true" />
+	]]></spring.default.lob.handler>
+			</properties>
+			<build>
+			    <finalName>service-hibernate-uat</finalName>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>commons</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>framework-ws</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>framework</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+	</dependencies>
+</project>

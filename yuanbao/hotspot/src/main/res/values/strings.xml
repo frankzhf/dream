@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">抽奖</string>
+    <string name="menu_add">增加</string>
+    <string name="menu_software">软件信息</string>
+    <string name="menu_help">使用帮助</string>
+    <string name="menu_quit">退出程序</string>
+    <string name="menu_save">保存</string>
+    <string name="menu_back">返回</string>
+    
+    <string name="menu_custom_subject">维护科目</string>
+    <string name="menu_custom_sum">汇总</string>
+    
+    <string name="alert_ok">确定</string>
+    <string name="alert_cancel">取消</string>
+    <string name="menu_quit_msg">您真的要退出程序么?</string>
+    <string name="menu_help_msg">(1)日历主界面\n(2)日常记帐\n(3)科目预算\n(4)饼图统计</string>
+    <string name="menu_software_msg">个人电子帐薄</string>
+    
+    <string name="dialog_create_subject">添加科目信息</string>
+    <string name="dialog_edit_subject">修改科目信息</string>
+    
+</resources>

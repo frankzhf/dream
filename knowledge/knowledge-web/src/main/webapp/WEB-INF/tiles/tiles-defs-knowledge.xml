@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+		"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+		"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<definition name=".my.drafts.knowledge" extends=".page.default">
+		<put name="content" value="/pages/knowledge/myDrafts.jsp" />
+	</definition>
+	
+	<definition name=".edit.article.knowledge"  extends=".layout.easyui" />
+	
+	<definition name=".edit.article.content.knowledge" extends=".blank.page">
+		<put name="content" value="/pages/knowledge/editArticle/center/center.jsp" />
+	</definition>
+	
+	<definition name=".list.resource.knowledge" extends=".default.blank">
+		<put name="content" value="/pages/knowledge/editArticle/west/listResource.jsp" />
+	</definition>
+	
+	<definition name=".control.save.article.knowlodge" extends=".default.blank">
+	    <put name="content" value="/pages/knowledge/editArticle/center/south.jsp" />
+	</definition>
+	
+	<definition name=".list.image.knowledge" extends=".default.blank.layout">
+	    <put name="content" value="/pages/knowledge/editArticle/west/accordion/listImage.jsp" />
+	</definition>
+	
+	<definition name=".upload.image.dialog.knowledge" extends=".default.blank.layout.dialog">
+	    <put name="content" value="/pages/knowledge/editArticle/dialog/uploadImage.jsp" />
+	</definition>
+	
+	<definition name=".empty.dialog.knowledgd" path="/pages/knowledge/empty.jsp" />
+	
+</tiles-definitions>

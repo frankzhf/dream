@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+	
+	<definition name=".brower.core" path="/pages/core/cmsBrower.jsp" />
+	<definition name=".navigation.core" path="/pages/core/navigation.jsp" />
+	<definition name=".nav.tree.core" path="/pages/core/tree.jsp" />
+	<definition name=".inform.details.core" path="/pages/core/informDetails.jsp" />
+	<definition name=".inform.history.core" path="/pages/core/historyInfo.jsp" />
+	<definition name=".history.list.core" path="/pages/core/listHistory.jsp" />
+	<definition name=".acl.list.core" path="/pages/core//listAcl.jsp" />
+	<definition name=".message.core" path="/pages/core/message.jsp" />
+	<definition name=".errors.core" path="/pages/core/errors.jsp" />
+	
+	<definition name=".acl.dialog.core" extends=".layout.leftRight">
+		<put name="leftHeader" value="core.acl.dialog.left.title" />
+		<put name="leftLinker" value="/core/navigationAcl.do" />
+		<put name="rightHeader" value="core.acl.dialog.right.title" />
+	</definition>
+	<definition name=".navigation.acl.core"
+		extends=".tree.default">
+		<put name="content" value="/pages/core/navigationAcl.jsp" />
+	</definition>
+	
+	<definition name=".permission.acl.core" path="/pages/core/permission.jsp" />
+	
+	<definition name=".permission.core" extends=".page.default">
+		<put name="content" value="/pages/core/cmsPermission.jsp" />
+	</definition>
+	<definition name=".move.core" extends=".page.default">
+		<put name="content" value="/pages/core/cmsMove.jsp" />
+	</definition>
+	<definition name=".activation.account.core" extends=".page.default">
+		<put name="content" value="/pages/core/activationAccount.jsp" />
+	</definition>
+	
+	<definition name=".list.session.core" extends=".page.default">
+	    <put name="content" value="/pages/core/listSession.jsp" />
+	</definition>
+	
+	<definition name=".type.registration.core" extends=".page.default">
+	    <put name="content" value="/pages/core/typeRegistration.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!-- This is a blank Tiles definition file with a commented example. -->
+
+<tiles-definitions>
+
+	<definition name=".manage.account" extends=".page.default">
+		<put name="content" value="/pages/admin/manageAccount.jsp" />
+	</definition>
+	<definition name=".brower.staff.inform" path="/pages/admin/staffInform.jsp" />
+	<definition name=".brower.staff.tree" path="/pages/admin/staffTree.jsp" />
+	
+	<definition name=".direct.staff" extends=".page.default"> 
+		<put name="content" value="/pages/admin/directStaff.jsp" />
+	</definition>
+	<definition name=".direct.department" extends=".page.default"> 
+		<put name="content" value="/pages/admin/directDepartment.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>cms</display-name>
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>resources.application</param-value>
+	</context-param>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			WEB-INF/lib/*.jar!/**/applicationContext-*.xml
+		</param-value>
+	</context-param>
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>net.frank.framework.web.filter.SecurityFilter</filter-class>
+		<init-param>
+			<param-name>loginURL</param-name>
+			<param-value>/index.do</param-value>
+		</init-param>
+		<init-param>
+			<param-name>unfilteredURIs</param-name>
+			<param-value>
+				(.*/pages/.*)|(.*/global/css/.*)|(.*/global/images/.*)|(.*/global/jsp/.*)|(.*/global/scripts/.*)|(.*login.do)|(.*logout.do)|(.*index.do)|(.*attachment.*)|(.*document.*)|(.*/tiny/listImage.*)|(.*/tiny/listLink.*)|(.*/tiny/listTemplate.*)|(.*/jaxrs/.*)
+			</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+		<filter-name>setCharacterEncodingFilter</filter-name>
+		<filter-class>net.frank.framework.web.filter.SetCharacterEncodingFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>setCharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<listener>
+		<listener-class>
+			net.frank.framework.web.spring.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/config/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/core</param-name>
+			<param-value>/WEB-INF/config/core/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/dashboard</param-name>
+			<param-value>/WEB-INF/config/dashboard/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/task</param-name>
+			<param-value>/WEB-INF/config/task/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/article</param-name>
+			<param-value>/WEB-INF/config/article/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/share</param-name>
+			<param-value>/WEB-INF/config/share/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/tinymce</param-name>
+			<param-value>/WEB-INF/config/tinymce/struts-config.xml</param-value>
+		</init-param>
+		<!--
+		<init-param>
+			<param-name>config/admin</param-name>
+			<param-value>/WEB-INF/config/admin/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/wf</param-name>
+			<param-value>/WEB-INF/config/wf/struts-config.xml</param-value>
+		</init-param>
+		 -->
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>scriptCompressed</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>blobContentServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.servlet.BlobContentServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>imageContentServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.servlet.ImageContentServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>clobContentServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.servlet.ClobContentServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>uploadSevlet</servlet-name>
+		<servlet-class>net.frank.framework.web.servlet.UpdateFileServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>retrieveImageServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.tiny.RetrieveImageServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>retrieveLinkServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.tiny.RetrieveLinkServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	
+	<!-- 
+	<servlet>
+		<servlet-name>retrieveTemplateServlet</servlet-name>
+		<servlet-class>net.frank.framework.web.tiny.RetrieveTemplateServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	 -->
+	
+	<servlet>
+		<servlet-name>webService</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<load-on-startup>2</load-on-startup>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>net.frank.cms.ws</param-value>
+			<!-- 
+			<param-value>net.frank.cms.ws;net.frank.cms.content.ws</param-value>
+			 -->		 
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>blobContentServlet</servlet-name>
+		<url-pattern>/attachment</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>imageContentServlet</servlet-name>
+		<url-pattern>/image-service</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>clobContentServlet</servlet-name>
+		<url-pattern>/document</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>uploadSevlet</servlet-name>
+		<url-pattern>/uploadSevlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>retrieveImageServlet</servlet-name>
+		<url-pattern>/tiny/listImage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>retrieveLinkServlet</servlet-name>
+		<url-pattern>/tiny/listLink</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 
+	<servlet-mapping>
+		<servlet-name>retrieveTemplateServlet</servlet-name>
+		<url-pattern>/tiny/listTemplate</url-pattern>
+	</servlet-mapping>
+	 -->
+	<servlet-mapping>
+		<servlet-name>webService</servlet-name>
+		<url-pattern>/jaxrs/*</url-pattern>
+	</servlet-mapping>
+	<mime-mapping>
+		<extension>svg</extension>
+		<mime-type>image/svg</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>json</extension>
+		<mime-type>application/json</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>css</extension>
+		<mime-type>text/css</mime-type>
+	</mime-mapping>
+	<!-- Set Favourites Icon MIME-Type -->
+	<mime-mapping>
+		<extension>ico</extension>
+		<mime-type>image/x-icon</mime-type>
+	</mime-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
+			<taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/functions</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fn.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/fmt</taglib-uri>
+			<taglib-location>/WEB-INF/tld/fmt.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://java.sun.com/jsp/jstl/xml</taglib-uri>
+			<taglib-location>/WEB-INF/tld/x.tld</taglib-location>
+		</taglib>
+
+		<taglib>
+			<taglib-uri>/tags/struts-bean</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-html</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-logic</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-tiles</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>/tags/struts-nested</taglib-uri>
+			<taglib-location>/WEB-INF/tld/struts-nested.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://www.frank.net/jsp/tags</taglib-uri>
+			<taglib-location>/WEB-INF/tld/frank.tld</taglib-location>
+		</taglib>
+		<taglib>
+			<taglib-uri>http://www.frank.net/jsp/tags/cms</taglib-uri>
+			<taglib-location>/WEB-INF/tld/cms.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+</web-app>
