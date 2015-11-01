@@ -1,12 +1,10 @@
 target/*
 */target/*
-pom.xml
-*/pom.xml
 .project
 */.project
 */.classpath
 .classpath
-.setting/*
-*/.setting/*
+.settings
+*/.settings
 .DS_Store
 */.DS_Store
