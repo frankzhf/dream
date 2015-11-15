@@ -6,10 +6,7 @@ import javax.servlet.jsp.PageContext;
 
 import net.frank.framework.navigation.MenuRepository;
 
-/**
- * @author Alex.Kwan
- * @version 1.0 Date 2002-8-9
- */
+
 public abstract class NavigationRenderer implements HttpSessionBindingListener{
 	public void valueBound(HttpSessionBindingEvent event) {
 	}

@@ -63,9 +63,7 @@
 		<module>android</module>
 		<module>report</module>
 		<module>yuanbao</module>
-		<module>springmvc-test</module>
    		<module>jax-ws</module>
-   		<module>state</module>
   </modules>
 	<build>
 		<resources>
