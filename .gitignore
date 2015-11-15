@@ -1,10 +1,15 @@
 target/*
-*/target/*
+*/target
+*/*/target
 .project
 */.project
+*/*/.project
+*/*/.classpth
 */.classpath
 .classpath
 .settings
 */.settings
+*/*/.settings
 .DS_Store
 */.DS_Store
+*/*/.DS_Store
