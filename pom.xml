@@ -39,6 +39,7 @@
 		<module>framework</module>
 		<module>framework-mail</module>
 		<module>framework-job</module>
+		<module>framework-payment</module>
 		<module>activiti-engine</module>
 		<module>service-hibernate</module>
 		<module>aa</module>
@@ -64,6 +65,7 @@
 		<module>report</module>
 		<module>yuanbao</module>
    		<module>jax-ws</module>
+   		<module>cluster</module>
   </modules>
 	<build>
 		<resources>

@@ -722,4 +722,9 @@ public final class Base64Util {
     }
 
     private Base64Util() { }   // don't instantiate
+
+	public static byte[] decode(String privateKey) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
