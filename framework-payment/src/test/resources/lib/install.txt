@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=./upacp_sdk-1.0.0-20150703140550.jar -DgroupId=com.unionpay.acp -DartifactId=upacp_sdk -Dversion=1.0.0-20150703140550 -Dpackaging=jar

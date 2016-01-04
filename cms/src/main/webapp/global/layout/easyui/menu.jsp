@@ -10,4 +10,4 @@
 %>
 
 <fk:display configfile="WEB-INF/menu/menu-cms.xml"
-	rendererClass="net.frank.framework.web.taglib.navigator.renderer.JQueryEasyUiNavigationRenderer" />
+	rendererClass="net.frank.framework.struts.taglib.navigator.renderer.JQueryEasyUiNavigationRenderer" />

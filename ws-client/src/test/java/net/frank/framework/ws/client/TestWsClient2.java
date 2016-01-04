@@ -15,7 +15,7 @@ public class TestWsClient2 {
 		}
 		long currentTime = System.currentTimeMillis();
 		PostMethod post = new PostMethod(
-				"http://localhost:8080/cms/jaxrs/rest/transferXml");
+				"http://localhost:18080/cms/jaxrs/rest/transferXml");
 		FileInputStream fis = new FileInputStream(
 				"D:/projects/frank/code/cms/src/main/webapp/ee.xml");
 		byte[] bytes = new byte[fis.available()];

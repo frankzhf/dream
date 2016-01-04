@@ -13,6 +13,7 @@ import net.frank.framework.ws.render.type.BigDecimalTypeRender;
 import net.frank.framework.ws.render.type.BlobTypeRender;
 import net.frank.framework.ws.render.type.BoTypeRender;
 import net.frank.framework.ws.render.type.BooleanTypeRender;
+import net.frank.framework.ws.render.type.ByteTypeRender;
 import net.frank.framework.ws.render.type.ClobTypeRender;
 import net.frank.framework.ws.render.type.IntegerTypeRender;
 import net.frank.framework.ws.render.type.LongTypeRender;
@@ -103,6 +104,10 @@ public final class ClientUtils {
 			contentMap.put("cacheService", cacheService);
 			
 			
+			ByteTypeRender byteWsRender = new ByteTypeRender();
+			byteWsRender.setWsRenderProvider(wsRenderProvider);
+			contentMap.put("byteWsRender", byteWsRender);
+			
 			wsRenderMap.put("default", defaultWsRender);
 			wsRenderMap.put("java.lang.String", defaultWsRender);
 			wsRenderMap.put("java.lang.Integer", integerWsRender);
@@ -110,6 +115,7 @@ public final class ClientUtils {
 			wsRenderMap.put("java.lang.Boolean", booleanWsRender);
 			wsRenderMap.put("java.util.Date", timeWsRender);
 			wsRenderMap.put("java.lang.Long", longWsRender);
+			wsRenderMap.put("java.lang.Byte",byteWsRender);
 			wsRenderMap.put("[C", clobWsRender);
 			wsRenderMap.put("[B", blobWsRender);
 			wsRenderMap.put("net.frank.framework.bo.Resource", resourceWsRender);

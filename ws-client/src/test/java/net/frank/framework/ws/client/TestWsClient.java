@@ -36,13 +36,13 @@ public class TestWsClient {
 
 	private static HttpClient httpClient = null;
 
-	private static final String WS_LOGIN_URL = "http://localhost:8080/cms/jaxrs/welcome/login";
+	private static final String WS_LOGIN_URL = "http://localhost:18080/cms/jaxrs/welcome/login";
 
-	private static final String WS_GET_PATH_URL = "http://localhost:8080/cms/jaxrs/rest/getByPath/";
+	private static final String WS_GET_PATH_URL = "http://localhost:18080/cms/jaxrs/rest/getByPath/";
 
-	private static final String WS_GET_URL = "http://localhost:8080/cms/jaxrs/rest/get";
+	private static final String WS_GET_URL = "http://localhost:18080/cms/jaxrs/rest/get";
 
-	private static final String typeFolderPath = "resTypes";
+	private static final String typeFolderPath = "resType";
 
 	public static void main(String[] args) throws Exception {
 		if (httpClient == null) {
