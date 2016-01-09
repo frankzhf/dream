@@ -724,7 +724,16 @@ public final class Base64Util {
     private Base64Util() { }   // don't instantiate
 
 	public static byte[] decode(String privateKey) {
-		// TODO Auto-generated method stub
-		return null;
+		return decode(privateKey,Base64Util.DEFAULT);
 	}
+	
+	public static String encodeToString(byte[] input) {
+        try {
+            return new String(encode(input, Base64Util.DEFAULT), "US-ASCII");
+        } catch (UnsupportedEncodingException e) {
+            // US-ASCII is guaranteed to be available.
+            throw new AssertionError(e);
+        }
+    }
+	
 }
