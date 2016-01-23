@@ -66,6 +66,7 @@
 		<module>yuanbao</module>
    		<module>jax-ws</module>
    		<module>cluster</module>
+   		<module>hadoop-study</module>
   </modules>
 	<build>
 		<resources>
