@@ -1,5 +1,6 @@
 package net.frank.cms.ws;
 
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class RestImpl extends BaseJersey {
 	@Produces("text/xml")
 	public String getResource(@PathParam("path") String path) {
 		log.debug(path);
-		String _path = CommonConstants.PATH_SYMBOL+path;
+		String _path = path.replaceAll("_path_", "/");
 		CmsService cmsService = (CmsService) getBean(ServiceNames.CMS_SERVICE);
 		Resource resource = cmsService.getResource(_path, getClientSession());
 		WsResponse wsResponse = new WsResponse();
@@ -107,7 +108,52 @@ public class RestImpl extends BaseJersey {
 			System.out.println(System.currentTimeMillis() - currentTime);
 		}
 	}
-
+	
+	@POST
+	@Path("/save") 
+	@Produces("text/xml")
+	public String saveResource(InputStream resourceInfo)throws Exception{
+		CmsService cmsService = (CmsService) getBean(ServiceNames.CMS_SERVICE);
+		long currentTime = System.currentTimeMillis();
+		try {
+			byte[] buf = new byte[4096]; 
+			int flag = -1;
+			ByteArrayOutputStream bis = new ByteArrayOutputStream();
+			while((flag =resourceInfo.read(buf)) !=-1){
+				bis.write(buf,0,flag);
+			}
+			String strResourceInfo = new String(bis.toString());
+			BoXmlUtil boXmlUtil = (BoXmlUtil)getBean("boXmlUtil");
+			WsRequest wsRequest = boXmlUtil.xml2WsRequest(strResourceInfo);
+			WsResponse wsResponse = new WsResponse();
+			if(wsRequest!=null && wsRequest.getResource()!=null){
+				Resource resource = wsRequest.getResource();
+				if(resource!=null){
+					Resource rt = null;
+					if(resource.getId()==null){
+						rt = cmsService.createResource(resource, getClientSession());
+					}else{
+						rt = cmsService.updateResource(resource, getClientSession());
+					}
+					wsResponse.setResource(rt);
+					wsResponse.setMessageNumber(rt.getCode());
+				}else{
+					wsResponse.setResource(null);
+					wsResponse.setMessageNumber(CommonConstants.CMS_CODE.MESSAGE_NOT_EXISTS);
+				}
+				return boXmlUtil.wsResponse2Xml(wsResponse);
+			}else{
+				wsResponse.setResource(null);
+				wsResponse.setMessageNumber(CommonConstants.CMS_CODE.MESSAGE_NOT_EXISTS);
+				return boXmlUtil.wsResponse2Xml(wsResponse);
+			}
+		} finally {
+			System.out.println(System.currentTimeMillis() - currentTime);
+		}
+		
+	}
+			
+	
 	/**
 	 * @Path("/save/") public String saveResource(InputStream
 	 *                 resourceInfo)throws Exception{ byte[] buf = new
