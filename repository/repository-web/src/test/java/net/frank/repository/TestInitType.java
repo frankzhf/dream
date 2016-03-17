@@ -22,7 +22,7 @@ public class TestInitType extends TestInitCase {
 		Resource groupRes = queryService.getResourceAsPath("/group/admin");
 		createType("FILE","net.frank.repository.bo.File",resType,appAccountRes,groupRes);
 		createType("SHAREDREQUEST","net.frank.repository.bo.SharedRequest",resType,appAccountRes,groupRes);
-		createType("COMMENT","net.frank.repository.bo.Comment",resType,appAccountRes,groupRes);
+		//createType("COMMENT","net.frank.repository.bo.Comment",resType,appAccountRes,groupRes);
 	}
 	
 	public Type createType(String alias,String className,Resource parent,Resource account,Resource group){
