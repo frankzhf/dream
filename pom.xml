@@ -65,7 +65,6 @@
 		<module>dede-bo</module>
 		<module>android</module>
 		<module>report</module>
-		<module>yangtes</module>
 		<!--
 		<module>yuanbao</module>
 		<module>springmvc-test</module>
