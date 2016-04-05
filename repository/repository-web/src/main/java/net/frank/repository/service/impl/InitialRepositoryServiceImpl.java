@@ -30,7 +30,7 @@ public class InitialRepositoryServiceImpl implements InitialService {
 	
 	private transient Logger log = Logger.getLogger(getClass());
 	
-	private static final String DEFAULT_READ_UNIT_GROUP_PATH = "/unit/.3410/group/Staff";
+	private static final String DEFAULT_READ_UNIT_GROUP_PATH = "/unit/.7576/group/Staff";
 	
 	private static final String USER_SPACE_FOLDER_MY_DOCUMENT = "myDocument";
 	private static final String USER_SPACE_FOLDER_RECYCLE_BIN = "recycleBin";
@@ -219,7 +219,7 @@ public class InitialRepositoryServiceImpl implements InitialService {
 		acl = new Acl();
 		_aclMenuResource = queryService.getResourceAsPath("/opt/.repositoryApp/menu/.self/myOrg");
 		acl.setResourceId(_aclMenuResource.getId());
-		acl.setOwnId(queryService.getResourceAsPath("/unit/.3410/group/Staff").getId());
+		acl.setOwnId(queryService.getResourceAsPath(DEFAULT_READ_UNIT_GROUP_PATH).getId());
 		acl.setPermission(CommonConstants.PERMISSION.RUN);
 		resourceService.saveObject(acl);
 		

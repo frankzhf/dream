@@ -8,9 +8,9 @@
 
 /.settings/
 
-*/.settings/
+*.settings/
 
-*/.metadata/
+*.metadata/
 
 *.classpath
 
