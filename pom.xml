@@ -70,6 +70,7 @@
 		<module>springmvc-test</module>
 		<module>cluster</module>
 		-->
+		<module>yangtes</module>
 	</modules>
 	<build>
 		<resources>

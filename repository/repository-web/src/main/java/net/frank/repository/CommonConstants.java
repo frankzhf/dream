@@ -4,7 +4,6 @@ public interface CommonConstants extends net.frank.commons.CommonConstants {
 	public interface TYPE extends net.frank.commons.CommonConstants.TYPE{
 		public Long FILE = 50000L;
 		public Long SHAREDREQUEST = 50001L;
-		
 	}
 	
 	public interface PERMISSION_GROUP extends net.frank.commons.CommonConstants.PERMISSION_GROUP{
