@@ -11,7 +11,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>yangtes-commons</module>
-		<!-- <module>yangtes-war-prototype</module> <module>yangtes-war-gen</module> -->
+		<module>yangtes-war-prototype</module>
+		<!--<module>yangtes-war-gen</module> -->
 	</modules>
 	
 	<properties>

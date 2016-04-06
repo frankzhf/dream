@@ -59,6 +59,7 @@
 		<module>site-xtree2</module>
 		<module>site-editor</module>
 		<module>site-echarts</module>
+		<module>site-jee</module>
 		<module>spring-web</module>
 		<module>webdav-client</module>
 		<module>dede</module>
