@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.modules.sys.entity;
 
 import org.hibernate.validator.constraints.Length;
@@ -9,8 +6,6 @@ import net.frank.yangtes.commons.persistence.TreeEntity;
 
 /**
  * 区域Entity
- * @author ThinkGem
- * @version 2013-05-15
  */
 public class Area extends TreeEntity<Area> {
 	/**

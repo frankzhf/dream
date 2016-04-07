@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.modules.sys.security;
 
 import java.io.Serializable;
@@ -41,8 +38,6 @@ import net.frank.yangtes.modules.sys.web.LoginController;
 
 /**
  * 系统安全认证实现类
- * @author ThinkGem
- * @version 2014-7-5
  */
 @Service
 //@DependsOn({"userDao","roleDao","menuDao"})

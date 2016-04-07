@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.modules.sys.entity;
 
 import java.util.List;
@@ -14,8 +11,6 @@ import net.frank.yangtes.commons.persistence.DataEntity;
 
 /**
  * 角色Entity
- * @author ThinkGem
- * @version 2013-12-05
  */
 public class Role extends DataEntity<Role> {
 	

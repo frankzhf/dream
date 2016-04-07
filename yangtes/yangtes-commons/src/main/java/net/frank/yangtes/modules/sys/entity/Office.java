@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.modules.sys.entity;
 
 import java.util.List;
@@ -13,9 +10,6 @@ import net.frank.yangtes.commons.persistence.TreeEntity;
 
 /**
  * 机构Entity
- * 
- * @author ThinkGem
- * @version 2013-05-15
  */
 public class Office extends TreeEntity<Office> {
 

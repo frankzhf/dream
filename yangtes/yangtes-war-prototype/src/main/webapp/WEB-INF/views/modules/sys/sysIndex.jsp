@@ -209,9 +209,11 @@
 				</div>
 				<ul id="userControl" class="nav pull-right">
 					<li>
-						<%---- TODO  index-${fnc:getCurrentSiteId()}.html --%> <a
+						<%---- TODO  index-${fnc:getCurrentSiteId()}.html  <a
 						href="${pageContext.request.contextPath}${fns:getFrontPath()}/index.html"
-						target="_blank" title="访问网站主页"><i class="icon-home"></i></a>
+						target="_blank" title="访问网站主页">
+						--%>
+						<a href="#"><i class="icon-home"></i></a>
 					</li>
 					<li id="themeSwitch" class="dropdown"><a
 						class="dropdown-toggle" data-toggle="dropdown" href="#"
@@ -235,9 +237,10 @@
 									class="icon-user"></i>&nbsp; 个人信息</a></li>
 							<li><a href="${ctx}/sys/user/modifyPwd" target="mainFrame"><i
 									class="icon-lock"></i>&nbsp; 修改密码</a></li>
+							<%--
 							<li><a href="${ctx}/oa/oaNotify/self" target="mainFrame"><i
 									class="icon-bell"></i>&nbsp; 我的通知 <span id="notifyNum2"
-									class="label label-info hide"></span></a></li>
+									class="label label-info hide"></span></a></li> --%>
 						</ul></li>
 					<li><a href="${ctx}/logout" title="退出登录">退出</a></li>
 					<li>&nbsp;</li>

@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.commons.security.shiro;
 
 import org.apache.shiro.subject.Subject;
@@ -8,8 +5,6 @@ import org.apache.shiro.web.tags.PermissionTag;
 
 /**
  * Shiro HasAnyPermissions Tag.
- * 
- * @author calvin
  */
 public class HasAnyPermissionsTag extends PermissionTag {
 

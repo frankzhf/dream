@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.commons.persistence.dialect.db;
 
 import net.frank.yangtes.commons.persistence.dialect.Dialect;

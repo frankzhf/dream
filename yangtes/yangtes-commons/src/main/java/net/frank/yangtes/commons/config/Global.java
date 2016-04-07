@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2014 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package net.frank.yangtes.commons.config;
 
 import java.io.File;
@@ -16,8 +13,6 @@ import net.frank.yangtes.commons.utils.StringUtils;
 
 /**
  * 全局配置类
- * @author ThinkGem
- * @version 2014-06-25
  */
 public class Global {
 
