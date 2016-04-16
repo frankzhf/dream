@@ -14,11 +14,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>net.frank</groupId>
-			<artifactId>commons</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
 			<artifactId>framework</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -41,6 +36,16 @@
 			<groupId>com.unionpay.acp</groupId>
 			<artifactId>upacp_sdk</artifactId>
 			<version>1.0.0-20150703140550</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk14</artifactId>
+			<version>1.45</version>
+		</dependency>
+		<dependency>
+			<groupId>com.paypal.sdk</groupId>
+			<artifactId>rest-api-sdk</artifactId>
+			<version>1.9.2</version>
 		</dependency>
 	</dependencies>
 </project>
