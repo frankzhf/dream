@@ -155,6 +155,7 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>0.4.2</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.ckfinder</groupId>
 			<artifactId>apache-ant-zip</artifactId>
