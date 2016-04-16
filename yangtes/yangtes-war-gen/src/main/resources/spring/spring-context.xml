@@ -32,13 +32,6 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 	
-	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao" />
-        <property name="annotationClass"
-			value="net.frank.yangtes.commons.persistence.annotation.MyBatisDao" />
-    </bean>
     <!-- Define the SqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
@@ -111,4 +104,12 @@
 		value="${jdbc.url}" /> <property name="username" value="${jdbc.username}"/> 
 		<property name="password" value="${jdbc.password}"/> </bean> -->
 	<import resource="extention/spring-context-*.xml" />
+	
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao" />
+        <property name="annotationClass"
+			value="net.frank.yangtes.commons.persistence.annotation.MyBatisDao" />
+    </bean>
+	
 </beans>
