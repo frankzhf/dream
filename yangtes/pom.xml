@@ -10,6 +10,7 @@
 	<artifactId>yangtes</artifactId>
 	<packaging>pom</packaging>
 	<modules>
+		<module>yangtes-qin-template</module>
 		<module>yangtes-commons</module>
 		<module>yangtes-war-prototype</module>
 		<module>yangtes-war-gen</module>
@@ -152,8 +153,4 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
-	
-	
-	
 </project>
