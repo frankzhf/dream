@@ -1,3 +1,7 @@
+<%@page import="net.frank.yangtes.commons.web.Servlets"%>
+<%@page import="net.frank.yangtes.commons.utils.Exceptions"%>
+<%@page import="net.frank.yangtes.commons.utils.StringUtils"%>
+
 <%
 response.setStatus(403);
 
@@ -16,9 +20,7 @@ if (Servlets.isAjaxRequest(request)) {
 //输出异常信息页面
 else {
 %>
-<%@page import="com.thinkgem.jeesite.common.web.Servlets"%>
-<%@page import="com.thinkgem.jeesite.common.utils.Exceptions"%>
-<%@page import="com.thinkgem.jeesite.common.utils.StringUtils"%>
+
 <%@page contentType="text/html;charset=UTF-8" isErrorPage="true"%>
 <%@include file="/WEB-INF/views/include/taglib.jsp"%>
 <!DOCTYPE html>

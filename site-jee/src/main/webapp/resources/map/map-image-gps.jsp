@@ -1,5 +1,5 @@
 <%@page import="java.io.File"%>
-<%@page import="com.thinkgem.jeesite.common.utils.ImageGeo"%>
+<%@page import="net.frank.yangtes.commons.utils.ImageGeo"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ include file="/WEB-INF/views/include/taglib.jsp"%>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript">
 		<%
-			ImageGeo geo = new ImageGeo(request.getRealPath("static/map/IMAG0068.jpg"));
+			ImageGeo geo = new ImageGeo(request.getRealPath("resources/map/IMAG0068.jpg"));
 		%>
 
 		// 地图服务地址
