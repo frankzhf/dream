@@ -114,7 +114,7 @@
 	</filter-mapping>
 	<servlet>
 		<servlet-name>ValidateCodeServlet</servlet-name>
-		<servlet-class>com.heinqi.yangtes.jee.commons.servlet.ValidateCodeServlet</servlet-class>
+		<servlet-class>net.frank.yangtes.commons.servlet.ValidateCodeServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ValidateCodeServlet</servlet-name>
