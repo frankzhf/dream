@@ -1,4 +1,4 @@
-package net.frank.yangtes.modules.sys.excel;
+package net.frank.yangtes.commons.excel;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,7 +26,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.collect.Lists;
 import net.frank.yangtes.commons.utils.Reflections;
-import net.frank.yangtes.commons.excel.ExcelField;
 import net.frank.yangtes.modules.sys.utils.DictUtils;
 
 /**

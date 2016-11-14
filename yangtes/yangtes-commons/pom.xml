@@ -268,5 +268,12 @@
 			<artifactId>shiro-ehcache</artifactId>
 			<version>${shiro.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>commons</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
 	</dependencies>
 </project>
