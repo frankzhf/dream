@@ -1,0 +1,1 @@
+java -cp ../lib/*;../resources net.frank.monkey.ReceiveBroderCast
