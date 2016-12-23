@@ -66,12 +66,15 @@
 		<module>dede-bo</module>
 		<module>android</module>
 		<module>report</module>
+		<module>corejava</module>
 		<!--
 		<module>yuanbao</module>
 		<module>springmvc-test</module>
 		<module>cluster</module>
 		-->
 		<module>yangtes</module>
+		<module>tiger</module>
+		<module>monkey</module>
 	</modules>
 	<build>
 		<resources>

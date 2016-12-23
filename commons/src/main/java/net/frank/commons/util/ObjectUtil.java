@@ -50,37 +50,41 @@ public final class ObjectUtil {
 	public static void preparePreperties(Object child,Object parent){
 		if(child!=null && parent!=null
 				&& isExtend(child,parent)){
-			Field[] fields = parent.getClass().getFields();
-			if(fields!=null && fields.length >0){
-				for(int i=0;i<fields.length;i++){
-					Field field = fields[i];
-					String fieldName = field.getName();
-					if(isPrepare(fieldName)){
-						String getMethod = "get" + getFirstUpperString(fieldName);
-						String setMethod = "set" + getFirstUpperString(fieldName);
-						try{
-							Method mGet = parent.getClass().getMethod(getMethod);
-							Method mSet = null;
-							if(mGet!=null 
-									&&(mSet=parent.getClass().getMethod(setMethod,
-											parent.getClass().getMethod(getMethod).getReturnType()))!=null){
-								Object rtObject = mGet.invoke(parent, new Object[]{});
-								if(rtObject!=null){
-									mSet.invoke(child,new Object[]{rtObject});
+			Class<?> _parent = parent.getClass();
+			do{				
+				Field[] fields = _parent.getDeclaredFields();
+				if(fields!=null && fields.length >0){
+					for(int i=0;i<fields.length;i++){
+						Field field = fields[i];
+						String fieldName = field.getName();
+						if(isPrepare(fieldName)){
+							String getMethod = "get" + getFirstUpperString(fieldName);
+							String setMethod = "set" + getFirstUpperString(fieldName);
+							try{
+								Method mGet = parent.getClass().getMethod(getMethod);
+								Method mSet = null;
+								if(mGet!=null 
+										&&(mSet=parent.getClass().getMethod(setMethod,
+												parent.getClass().getMethod(getMethod).getReturnType()))!=null){
+									Object rtObject = mGet.invoke(parent, new Object[]{});
+									if(rtObject!=null){
+										mSet.invoke(child,new Object[]{rtObject});
+									}
 								}
+							}catch(NoSuchMethodException e){
+								log.error("skip feild :" + fieldName);
+							}catch(IllegalArgumentException e){
+								log.error("skip feild :" + fieldName);
+							}catch(IllegalAccessException e){
+								log.error("skip feild :" + fieldName);
+							}catch(InvocationTargetException e){
+								log.error("skip feild :" + fieldName);
 							}
-						}catch(NoSuchMethodException e){
-							log.error("skip feild :" + fieldName, e);
-						}catch(IllegalArgumentException e){
-							log.error("skip feild :" + fieldName, e);
-						}catch(IllegalAccessException e){
-							log.error("skip feild :" + fieldName, e);
-						}catch(InvocationTargetException e){
-							log.error("skip feild :" + fieldName, e);
 						}
 					}
 				}
-			}
+				_parent = _parent.getSuperclass();
+			}while(_parent!=null && !_parent.equals(Object.class));
 		}
 	}
 	

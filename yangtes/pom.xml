@@ -14,6 +14,7 @@
 		<module>yangtes-commons</module>
 		<module>yangtes-war-prototype</module>
 		<module>yangtes-war-gen</module>
+		<module>yangtes-war-cms</module>
 	</modules>
 	
 	<properties>
