@@ -27,7 +27,26 @@
 		<mybatis.version>3.2.6</mybatis.version>
 		<jackson.version>2.3.1</jackson.version>
 	</properties>
-	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+				    <execution>
+				        <id>my-jar</id>
+				        <phase>package</phase>
+				        <goals>
+				            <goal>jar</goal>
+				        </goals>
+				        <configuration>
+				            <classifier>api</classifier>
+				        </configuration>
+				    </execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
