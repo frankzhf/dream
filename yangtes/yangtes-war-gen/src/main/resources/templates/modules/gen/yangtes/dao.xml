@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>dao</name>
+	<filePath>src/main/java/${packageName}/commons/dao/${subModuleName}</filePath>
+	<fileName>${ClassName}Dao.java</fileName>
+	<content><![CDATA[
+/**
+ * <p>Title: ${ClassName}Dao.java</p>
+ * <p>Description: ${functionNameSimple}表数据访问类</p>
+ * <p>Copyright: Copyright (c) 2016 - </p>
+ * <p>Company: Suzhou HeinQi Information Technology Co. Ltd</p>
+ */
+package ${packageName}.commons.dao;
+
+import net.frank.yangtes.commons.persistence.CrudDao;
+import net.frank.yangtes.commons.persistence.annotation.MyBatisDao;
+import ${packageName}.commons.entity.${ClassName};
+
+/**
+ * @author ${functionAuthor}
+ * @date ${currentTime}
+ * @version ${functionVersion}
+ * -------------------------------------------------------------------------
+ * Modified Date		Modified By			Why & What's modified				
+ *				
+ * -------------------------------------------------------------------------
+ */
+@MyBatisDao
+public interface ${ClassName}Dao extends CrudDao<${ClassName}> {
+	
+}]]>
+	</content>
+</template>

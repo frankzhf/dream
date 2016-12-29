@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>condition</name>
+	<filePath>src/main/java/${packageName}/${moduleName}/condition/${subModuleName}</filePath>
+	<fileName>${ClassName}Condition.java</fileName>
+	<content><![CDATA[
+/**
+ * <p>Title: ${ClassName}Condition.java</p>
+ * <p>Description: ${ClassName}分页查讯的条件</p>
+ * <p>Copyright: Copyright (c) 2016 - </p>
+ * <p>Company: Suzhou HeinQi Information Technology Co. Ltd</p>
+ */
+package ${packageName}.${moduleName}.condition;
+
+import net.frank.yangtes.base.AbstractCondition;
+import ${packageName}.commons.entity.${ClassName};
+
+/**
+ * @author ${functionAuthor}
+ * @date ${currentTime}
+ * @version ${functionVersion}
+ * -------------------------------------------------------------------------
+ * Modified Date		Modified By			Why & What's modified				
+ *				
+ * -------------------------------------------------------------------------
+ */
+
+public class ${ClassName}Condition extends AbstractCondition<${ClassName}> {
+
+	<#list table.columnList as c>
+		<#if c.isQuery?? && c.isQuery == "1">
+	/**
+	 * @serialField ${c.simpleJavaField}
+	 * <#if c.comments??><p>${c.comments}</p></#if>
+	 */	
+	private ${c.simpleJavaType} ${c.simpleJavaField};
+		</#if>
+	</#list>
+	
+	public ${ClassName}Condition(){
+		super();
+	}
+	
+	<#list table.columnList as c>
+		<#if c.isQuery?? && c.isQuery == "1">
+	/**
+     * <p>Title: get${c.simpleJavaField?cap_first}</p>
+     * <p>Description:获取${c.comments}</p>
+     * @return String
+     */
+	public final ${c.simpleJavaType} get${c.simpleJavaField?cap_first}() {
+		return ${c.simpleJavaField};
+	}
+    /**
+     * <p>Title: set${c.simpleJavaField?cap_first}</p>
+     * <p>Description:设置名字${c.comments}</p>
+     * @param ${c.simpleJavaField}Input
+     */
+	public final void set${c.simpleJavaField?cap_first}(final ${c.simpleJavaType} ${c.simpleJavaField}Input) {
+		this.${c.simpleJavaField} = ${c.simpleJavaField}Input;
+	}
+		</#if>
+	</#list>
+}]]>
+	</content>
+</template>

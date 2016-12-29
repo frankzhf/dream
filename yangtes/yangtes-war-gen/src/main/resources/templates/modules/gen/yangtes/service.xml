@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>service</name>
+	<filePath>src/main/java/${packageName}/${moduleName}/service</filePath>
+	<fileName>${ClassName}Service.java</fileName>
+	<content><![CDATA[
+/**
+ * <p>Title: ${ClassName}Service.java</p>
+ * <p>Description: ${functionNameSimple}服务</p>
+ * <p>Copyright: Copyright (c) 2016 - </p>
+ * <p>Company: Suzhou HeinQi Information Technology Co. Ltd</p>
+ */
+package ${packageName}.${moduleName}.service<#if subModuleName != "">.${subModuleName}</#if>;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import net.frank.yangtes.commons.persistence.Page;
+import net.frank.yangtes.commons.service.CrudService;
+import ${packageName}.commons.entity.${ClassName};
+import ${packageName}.commons.dao.${ClassName}Dao;
+import ${packageName}.${moduleName}.condition.${ClassName}Condition;
+
+/**
+ * @author ${functionAuthor}
+ * @date ${currentTime}
+ * @version ${functionVersion}
+ * -------------------------------------------------------------------------
+ * Modified Date		Modified By			Why & What's modified				
+ *				
+ * -------------------------------------------------------------------------
+ */
+@Service
+@Transactional(readOnly = true)
+public class ${ClassName}Service extends CrudService<${ClassName}Dao, ${ClassName}> {
+	
+	/**
+	 * @param id String
+	 * @return ${ClassName}
+	 */
+	public ${ClassName} get(final String id) {
+		return super.get(id);
+	}
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 * @return List<${ClassName}>
+	 */
+	public List<${ClassName}> findList(final ${ClassName} ${className}) {
+		return super.findList(${className});
+	}
+	
+	/**
+	 * <p>Title: findList</p>
+	 * <p>Description:查询方法</p>
+	 * @param condition ${ClassName}Condition
+	 * @return Page<${ClassName}>
+	 */
+	public Page<${ClassName}> findList(${ClassName}Condition condition){
+		condition.setPage(super.findListByCondtion(condition));
+		return condition.getPage();
+	}
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 */
+	@Transactional(readOnly = false)
+	public void save(final ${ClassName} ${className}) {
+		super.save(${className});
+	}
+	/**
+	 * @param ${className} ${ClassName}
+	 */
+	@Transactional(readOnly = false)
+	public void delete(final ${ClassName} ${className}) {
+		super.delete(${className});
+	}
+	
+}]]>
+	</content>
+</template>

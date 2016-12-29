@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>form</name>
+	<filePath>src/main/java/${packageName}/${moduleName}/form</filePath>
+	<fileName>${ClassName}Form.java</fileName>
+	<content><![CDATA[
+/**
+ * <p>Title: ${ClassName}Form.java</p>
+ * <p>Description: ${ClassName}单表表单</p>
+ * <p>Copyright: Copyright (c) 2016 - </p>
+ * <p>Company: Suzhou HeinQi Information Technology Co. Ltd</p>
+ */
+package ${packageName}.${moduleName}.form;
+
+import net.frank.yangtes.base.AbstractForm;
+import ${packageName}.${moduleName}.condition.${ClassName}Condition;
+import ${packageName}.commons.entity.${ClassName};
+
+/**
+ * @author ${functionAuthor}
+ * @date ${currentTime}
+ * @version ${functionVersion}
+ * -------------------------------------------------------------------------
+ * Modified Date		Modified By			Why & What's modified				
+ *				
+ * -------------------------------------------------------------------------
+ */
+
+public class ${ClassName}Form extends AbstractForm<${ClassName},${ClassName}Condition> {
+	
+	public ${ClassName}Form(){
+		super();
+		condition = new ${ClassName}Condition();
+		this.setCondition(condition);
+	}
+	
+	
+}]]>
+	</content>
+</template>

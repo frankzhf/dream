@@ -2,6 +2,17 @@
 <config>
 	<!-- 生成分类 -->
 	<category>
+		<category value="yangtes" label="增删改查（单表）-yangtes">
+			<template>yangtes/condition.xml</template>
+			<template>yangtes/form.xml</template>
+			<template>yangtes/dao.xml</template>
+			<template>yangtes/entity.xml</template>
+			<template>yangtes/mapper.xml</template>
+			<template>yangtes/controller.xml</template>
+			<template>yangtes/service.xml</template>
+			<template>yangtes/viewForm.xml</template>
+			<template>yangtes/viewList.xml</template>
+		</category>
 		<category value="curd" label="增删改查（单表）">
 			<template>curd/controller.xml</template>
 			<template>curd/service.xml</template>

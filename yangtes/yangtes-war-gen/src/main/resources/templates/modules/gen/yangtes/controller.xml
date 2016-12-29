@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>controller</name>
+	<filePath>src/main/java/${packageName}/${moduleName}/controller</filePath>
+	<fileName>${ClassName}Controller.java</fileName>
+	<content><![CDATA[
+/**
+ * <p>Title: ${ClassName}Controller.java</p>
+ * <p>Description: ${functionNameSimple}控制器</p>
+ * <p>Copyright: Copyright (c) 2016 - </p>
+ * <p>Company: Suzhou HeinQi Information Technology Co. Ltd</p>
+ */
+package ${packageName}.${moduleName}.controller;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import net.frank.yangtes.commons.web.BaseController;
+import net.frank.yangtes.commons.utils.StringUtils;
+import ${packageName}.commons.entity.${ClassName};
+import ${packageName}.${moduleName}.service.${ClassName}Service;
+import ${packageName}.${moduleName}.form.${ClassName}Form;
+
+/**
+ * @author ${functionAuthor}
+ * @date ${currentTime}
+ * @version ${functionVersion}
+ * -------------------------------------------------------------------------
+ * Modified Date		Modified By			Why & What's modified				
+ *				
+ * -------------------------------------------------------------------------
+ */
+@Controller
+@RequestMapping(value = "${r"${adminPath}"}/${urlPrefix}")
+public class ${ClassName}Controller extends BaseController {
+	/**
+	 * @serialField
+	 */
+	@Autowired
+	private ${ClassName}Service ${className}Service;
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 * @param request HttpServletRequest
+	 * @param response HttpServletResponse
+	 * @param model Model
+	 * @return String
+	 */
+	@RequiresPermissions("${permissionPrefix}:view")
+	@RequestMapping(value = {"list", ""})
+	public String list(${ClassName}Form form,
+			Model model) {
+		logger.debug("Input Param[form] ->" +form);
+		if (form == null) {
+			form = new ${ClassName}Form();
+		}
+		form.getCondition().setPage(${className}Service.findList(form.getCondition()));
+		model.addAttribute("form", form);
+		return "${lastPackageName}/${viewPrefix}/list";
+	}
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 * @param model Model
+	 * @return String
+	 */
+	@RequiresPermissions("${permissionPrefix}:view")
+	@RequestMapping(value = "form")
+	public String form(${ClassName}Form form,
+			Model model) {
+		logger.debug("Input Param[form]  -> " + form);
+		String dateEntityId = form.getDataEntity().getId();
+		logger.debug("edit entity's Id is " + dateEntityId);
+		if (StringUtils.isNotBlank(dateEntityId)) {
+			form.setDataEntity(${className}Service.get(dateEntityId));
+		} else {
+			form.setDataEntity(new ${ClassName}());
+		}
+		model.addAttribute("form", form);
+		return "${lastPackageName}/${viewPrefix}/form";
+	}
+	
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 * @param model Model
+	 * @param redirectAttributes RedirectAttributes
+	 * @return String
+	 */
+	@RequiresPermissions("${permissionPrefix}:edit")
+	@RequestMapping(value = "save")
+	public String save(${ClassName}Form form,
+			Model model) {
+		logger.debug("Input Param[form]  -> " + form);
+		if (!beanValidator(model, form.getDataEntity())) {
+			return form(form, model);
+		}
+		${className}Service.save(form.getDataEntity());
+		addMessage(model, "保存成功");  //TODO change message
+		return list(form,model);
+	}
+	
+	/**
+	 * @param ${className} ${ClassName}
+	 * @param redirectAttributes RedirectAttributes
+	 * @return String
+	 */
+	@RequiresPermissions("${permissionPrefix}:edit")
+	@RequestMapping(value = "delete")
+	public String delete(${ClassName}Form form, Model model) {
+		logger.debug("Input Param[form]  -> " + form);
+		${className}Service.delete(form.getDataEntity());
+		addMessage(model, "删除成功");	//TODO change message
+		return list(form,model);
+	}
+}]]>
+	</content>
+</template>
