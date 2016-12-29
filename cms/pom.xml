@@ -83,6 +83,7 @@
 			<version>${project.version}</version>
 		</dependency>
 		 -->
+		 <!-- 
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>repository-bo</artifactId>
@@ -103,7 +104,7 @@
 			<artifactId>tasklist-phase</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+		 -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>

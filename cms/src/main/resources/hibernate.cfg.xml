@@ -30,11 +30,12 @@
 		<mapping resource="net/frank/framework/orm/MenuItem.hbm.xml" />
 		<mapping resource="net/frank/framework/orm/Limit.hbm.xml" />
 		<mapping resource="net/frank/framework/orm/Comment.hbm.xml" />
-		
+		<!-- 
 		<mapping resource="net/frank/repository/orm/File.hbm.xml" />
 		<mapping resource="net/frank/repository/orm/SharedRequest.hbm.xml" />
 		
 		<mapping resource="net/frank/tasklist/orm/Task.hbm.xml" />
 		<mapping resource="net/frank/tasklist/orm/TaskToken.hbm.xml" />
+		 -->
 	</session-factory>
 </hibernate-configuration>
