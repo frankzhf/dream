@@ -56,25 +56,22 @@ public class ClientSession implements Session, HttpSessionBindingListener {
 
 	@Override
 	public void valueBound(HttpSessionBindingEvent arg0) {
-		log.debug("Call HttpSessionBindingListener.valueBound:" +arg0);
+		//log.debug("Call HttpSessionBindingListener.valueBound:" +arg0);
 		this.webSession = arg0.getSession();
 		SessionTableHolder.addClientSession(this);
 	}
 
 	@Override
 	public void valueUnbound(HttpSessionBindingEvent arg0) {
-		log.debug("Call HttpSessionBindingListener.valueUnbound:"+arg0);
+		//log.debug("Call HttpSessionBindingListener.valueUnbound:"+arg0);
 		SessionTableHolder.remvoeClientSession(this.getLoginName(),this.getClientIP());
 		HttpSession httpSession = arg0.getSession();
 		if(httpSession!=null){
-			httpSession.setMaxInactiveInterval(0);
-			/***
 			try{
 				httpSession.invalidate();
 			}catch(IllegalStateException e){
 				log.error(e.getMessage(),e);
 			}
-			***/
 		}
 	}
 
