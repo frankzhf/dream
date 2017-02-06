@@ -1,6 +1,6 @@
 <config>
 	<enabled>true</enabled>
-	<baseDir></baseDir>
+	<baseDir>${app.upload.dir}</baseDir>
 	<baseURL>/userfiles/</baseURL>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>

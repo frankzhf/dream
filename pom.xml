@@ -69,7 +69,6 @@
 		<module>corejava</module>
 		<!--
 		<module>yuanbao</module>
-		<module>springmvc-test</module>
 		<module>cluster</module>
 		-->
 		<module>yangtes</module>
