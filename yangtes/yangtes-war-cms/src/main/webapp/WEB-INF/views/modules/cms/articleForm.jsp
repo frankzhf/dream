@@ -25,7 +25,7 @@
                         top.$.jBox.tip('请填写正文','warning');
                     }else{
                         loading('正在提交，请稍等...');
-                        .submit();
+                        submit();
                     }
 				},
 				errorContainer: "#messageBox",
