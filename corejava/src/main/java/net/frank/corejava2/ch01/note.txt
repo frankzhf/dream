@@ -1,0 +1,34 @@
+类java.nio.charset.Charset
+static SortedMap availableCharsets()
+获取当前虚拟机可用的所有字符集。返回一个映射表，它的键是字符集的名字，值是字符集
+
+static Charset forName(String name)
+获取给定名字的字符集
+
+Set aliases()
+返回这个字符集的别名集
+
+ByteBuffer encode(String str)
+将给定字符串编码为字节序列
+
+CharBuffer decode(ByteBuffer buffer)
+解码给定字节序列。无法识别的输入将转换成Unicode的替代字符（'\uFFD'）
+
+
+类java.nio.ByteBuffer
+byte[] array()
+返回这个缓冲区所管理的字节数组
+
+static ByteBuffer wrap(byte[] bytes)
+static ByteBuffer wrap(byte[] bytes,int offset,int length)
+返回管理给定的字节数组或给定字节数组的某个范围的字节缓冲区
+
+类java.nio.CharBuffer
+char[] array()
+返回这个缓冲区所管理的码元数组
+
+char charAt(int index)
+返回给定索引处的码元
+
+String toString()
+返回由这个缓冲区所管理的码元构成的字符串
