@@ -47,7 +47,13 @@ public class ClientSession implements Session, HttpSessionBindingListener {
 	private HttpSession webSession;
 
 	private Map<String, Object> attributes = new HashMap<String, Object>();
-
+	
+	
+	public ClientSession(){
+		
+	}
+			
+	
 	public ClientSession(String loginName, String clientIP) {
 		this.loginName = loginName;
 		this.clientIP = clientIP;
