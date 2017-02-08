@@ -6,4 +6,4 @@
 5) run make && make install
 6) within ffmpeg folder run ./configure --enable-gpl --enable-libx264
 7) run make && make install
-8) ln -s /usr/local/bin/ffmpeg /usr/bincd 
+8) ln -s /usr/local/bin/ffmpeg /usr/bin/ffmpeg
