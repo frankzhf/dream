@@ -4,12 +4,20 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class Employee {
+public class Employee implements Serializable {
+	
+	
+	
+	/**
+	 *  implements Serializable 序列化方式
+	 */
+	private static final long serialVersionUID = -1909227258258861936L;
 	private String name;
 	private double salary;
 	private Date hireDay;
@@ -98,8 +106,5 @@ public class Employee {
 	}
 	
 	static final int NAME_SIZE=40;
-	
-	
-	
 	
 }

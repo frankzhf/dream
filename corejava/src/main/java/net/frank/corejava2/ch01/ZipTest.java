@@ -141,6 +141,7 @@ class ZipTestFrame extends JFrame{
 							zin.closeEntry();
 							break;
 						}
+						zin.closeEntry();
 					}
 					zin.close();
 				}catch(IOException e){
@@ -154,5 +155,77 @@ class ZipTestFrame extends JFrame{
 			}
 		}.execute();
 	}
-	
 }
+
+/***
+ * Class java.util.zip.ZipInputStream
+ * ZipInputStrem(InputStream in)
+ * 创建一个ZipInputStream, 使得我们可以给定的InputStream向其中填充数据
+ * 
+ * ZipEntry getNextEntry()
+ * 为下一项返回ZipEntry对象，没有更多的项时返回null
+ * 
+ * void closeEntry()
+ * 关闭这个Zip文件中当前打开的项
+ * 
+ * 
+ * Class java.util.zip.ZipOutputStream
+ * ZipOutputStrem(OutputStream out)
+ * 创建一个将压缩数据写出到指定的OutputStream的ZipOutputStream
+ * 
+ * void putNextEntry(ZipEntry ze)
+ * 将指定的ZipEntry中的信息写出到流中，并定为用于写出数据的流，当调用write方法时，数据可以写入到指定的流中
+ * 
+ * void closeEntry()
+ * 关闭这个zip文件中当前打开的项。
+ * 
+ * void setLevel(int level)
+ * 设置后续的各个DEFAULT项的默认压缩级别，默认是DEFAULT_COMPRESSION (-1) 可以设置0-9
+ * 
+ * void setMethod(int method)
+ * 设置后续压缩方法 DEFLATED(0)，STORED(8),默认是DEFLATED(0)
+ * 
+ * 
+ * Class java.util.zip.ZipEntry
+ * ZipEntry(String name)
+ * 构造
+ * 
+ * long getCrc()
+ * 返回CRC32校验和的值
+ * 
+ * String getName()
+ * 返回这一项的名称
+ * 
+ * long getSize()
+ * 返回这一项不压缩的大小。或都在不可知的情况下返回-1
+ * 
+ * boolean isDirectory()
+ * 是否是目录
+ * 
+ * void setMethod(int method)
+ * 参见ZipOutputStream.setMethod(int method)
+ * 
+ * void setSize(long size)
+ * 设置这项不被压缩的大小，只有在压缩方法为STORED时才是必需的
+ * 
+ * void setCrc(long crc)
+ * 设置CRC32校验和。只有在压缩方法为STORED时才是必需的
+ * 
+ * Class java.util.zip.ZipFile
+ * ZipFile(String file)
+ * ZipFile(File file)
+ * 构造函数
+ * 
+ * Enumeratio entries()
+ * 获取所有的ZipEntry
+ * 
+ * ZipEntry getEntry(String name)
+ * 返回给定名字的ZipEntry,没有对应时返回null
+ * 
+ * InputStream getInputStream(ZipEntry ze)
+ * 返回给定项的inputStream
+ * 
+ * String getName()
+ * 返回这个ZIP文件的路径
+ * 
+ */
