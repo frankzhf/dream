@@ -1,8 +1,12 @@
 package net.frank.corejava2.ch01;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -10,7 +14,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
-public class Employee implements Serializable {
+public class Employee implements Cloneable,Serializable {
 	
 	
 	
@@ -104,6 +108,25 @@ public class Employee implements Serializable {
 				new GregorianCalendar(year,month-1,day);
 		hireDay = calendar.getTime();
 	}
+	
+	// use by SerialCloneTest
+	public Object clone(){
+		try{
+			ByteArrayOutputStream bout = new ByteArrayOutputStream();
+			ObjectOutputStream out = new ObjectOutputStream(bout);
+			out.writeObject(this);
+			out.close();
+			ByteArrayInputStream bin = new ByteArrayInputStream(bout.toByteArray());
+			ObjectInputStream in = new ObjectInputStream(bin);
+			Object ret = in.readObject();
+			in.close();
+			return ret;
+		}catch(Exception e){
+			return null;
+		}
+		
+	}
+	
 	
 	static final int NAME_SIZE=40;
 	
