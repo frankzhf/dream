@@ -281,6 +281,73 @@ class DOMTreeCellRenderer extends DefaultTreeCellRenderer{
 		}
 		return builder.toString();
 	}
-
-	
 }
+
+/***
+ * Class javax.xml.parsers.DocumentBuilderFactory
+ * static DocumentBuilderFactory newInstance()
+ * 返回DocumentBuilderFactory的一个实例
+ * 
+ * DocumentBuilder newDocumentBuilder()
+ * 返回DocumentBuilder的一个实例
+ * 
+ * Class javax.xml.parsers.DocumentBuilder
+ * Document parse(File file)
+ * Document parse(String url)
+ * Document parse(InputStream in)
+ * 解析来自给定文件，URL或输入流的xml文件，返回一个xml文档对像
+ * 
+ * Class org.w3c.dom.Document
+ * Element getDocumentElement()
+ * 返回文档的根元素
+ * 
+ * Class org.w3c.dom.Element
+ * String getTagName()
+ * 返回元素名称
+ * 
+ * String getAttribute(String name)
+ * 给定名字的属性值，没有的属性返回空字符串
+ * 
+ * Class org.w3c.dom.Node
+ * NodeList getChildNodes()
+ * 返回所有子元素节点的列表
+ * 
+ * Node getFirstChild()
+ * Node getLastChild()
+ * 第一个，最扣一个子元素
+ * 
+ * Node getNextSibling()
+ * Node getPreviousSibling()
+ * 下一个，上一个兄弟节点，没有时，返回null
+ * 
+ * Node getParentNode()
+ * 父节点，当文档节点时，返回null
+ * 
+ * NamedNodeMap getAttributes()
+ * 返回该元素的所有属性的映射表
+ * 
+ * String getNodeName()
+ * 返回节点名字
+ * 
+ * String getNodeValue()
+ * 返回节点值
+ * 
+ * Class org.w3c.dom.CharacterData
+ * String getData()
+ * 返回存储在这个节点的文本
+ * 
+ * Class org.w3c.dom.NodeList
+ * int getLength()
+ * 返回列表的节点数
+ * 
+ * Node item(int index)
+ * 返回给定索引号的节占
+ * 
+ * Class org.w3c.dom.NamedNodeMap
+ * int getLength()
+ * 返回该节点映射表中的节点数
+ * 
+ * Node item(int index)
+ * 返回给定索引号的节占
+ * 
+ */
