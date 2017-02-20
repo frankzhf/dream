@@ -9,7 +9,7 @@
 	
 	<definition name=".edit.article.knowledge"  extends=".layout.easyui" />
 	
-	<definition name=".edit.article.content.knowledge" extends=".blank.page">
+	<definition name=".edit.article.content.knowledge" extends=".default.blank">
 		<put name="content" value="/pages/knowledge/editArticle/center/center.jsp" />
 	</definition>
 	

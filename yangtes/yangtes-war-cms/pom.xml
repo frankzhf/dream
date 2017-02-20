@@ -35,6 +35,11 @@
 			<type>jar</type>
 			<classifier>api</classifier>
 		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>commons</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 	<properties>
 		<app.copyright.year>2016</app.copyright.year>
@@ -46,7 +51,7 @@
 		<database.jdbc.driver>com.mysql.jdbc.Driver</database.jdbc.driver>
 		<database.jdbc.url><![CDATA[jdbc:mysql://192.168.1.109:3306/yangtes?useUnicode=true&amp;characterEncoding=utf8]]></database.jdbc.url>
 		<database.jdbc.name>ilinong</database.jdbc.name>
-		<database.jdbc.password>ili@1234</database.jdbc.password>
+		<database.jdbc.password>1234@ili</database.jdbc.password>
 		<database.jdbc.pool.init>1</database.jdbc.pool.init>
 		<database.jdbc.pool.min.idle>3</database.jdbc.pool.min.idle>
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>

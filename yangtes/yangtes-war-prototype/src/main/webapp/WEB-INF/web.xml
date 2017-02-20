@@ -111,4 +111,22 @@
 		<filter-name>FileUploadFilter</filter-name>
 		<url-pattern>/resources/ckfinder/core/connector/java/connector.java</url-pattern>
 	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>UserfilesDownloadServlet</servlet-name>
+		<servlet-class>net.frank.yangtes.commons.servlet.UserfilesDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserfilesDownloadServlet</servlet-name>
+		<url-pattern>/userfiles/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ValidateCodeServlet</servlet-name>
+		<servlet-class>net.frank.yangtes.commons.servlet.ValidateCodeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ValidateCodeServlet</servlet-name>
+		<url-pattern>/servlet/validateCodeServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

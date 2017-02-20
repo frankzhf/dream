@@ -62,7 +62,7 @@ function doCreateArticle(){
 
 <fk:resource var="myHomeRes" resourceId="${cs.account.home$3.id}"/>
 <fk:resource var="knowlegdeRes" parentResource="${myHomeRes}" alias="knowledge" />
-<fk:resource var="myDraftsRes" parentResource="${knowlegdeRes}" alias="myDrafts" />
+<fk:resource var="myDraftsRes" parentResource="${knowlegdeRes}" alias="draft" />
 
 
 <table width="100%" class="listTable">

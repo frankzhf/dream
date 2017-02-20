@@ -1,6 +1,6 @@
 package net.frank.corejava2.ch09;
 
-import java.awt.GridBagConstraints;
+import java.awt.EventQueue;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +19,25 @@ import net.frank.corejava2.GBC;
 
 public class ClassLoaderTest {
 	public static void main(String[] args) {
-		
+		EventQueue.invokeLater(new Runnable(){
+
+			@Override
+			public void run() {
+				JFrame frame = new ClassLoaderFrame();
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(Boolean.TRUE);
+			}
+			
+		});
 	}
 }
 
 class ClassLoaderFrame extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2067841887458210062L;
 	private JTextField keyField = new JTextField("3",4);
 	private JTextField nameField = new JTextField("Calculator",30);
 	private static final int DEFAULT_WIDTH = 300;

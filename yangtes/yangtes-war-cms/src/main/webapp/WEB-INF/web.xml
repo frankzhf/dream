@@ -77,7 +77,7 @@
 	<!-- CKFinder -->
 	<servlet>
 		<servlet-name>CKFinderConnectorServlet</servlet-name>
-		<servlet-class>net.frank.yangtes.commons.web.CKFinderConnectorServlet</servlet-class>
+		<servlet-class>net.frank.yangtes.modules.ckfinder.M3u8ConnectorServlet</servlet-class>
 		<init-param>
 			<param-name>XMLConfig</param-name>
 			<param-value>/WEB-INF/classes/ckfinder.xml</param-value>
@@ -112,6 +112,14 @@
 		<filter-name>FileUploadFilter</filter-name>
 		<url-pattern>/resources/ckfinder/core/connector/java/connector.java</url-pattern>
 	</filter-mapping>
+	<servlet>
+		<servlet-name>UserfilesDownloadServlet</servlet-name>
+		<servlet-class>net.frank.yangtes.commons.servlet.UserfilesDownloadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserfilesDownloadServlet</servlet-name>
+		<url-pattern>/userfiles/*</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>ValidateCodeServlet</servlet-name>
 		<servlet-class>net.frank.yangtes.commons.servlet.ValidateCodeServlet</servlet-class>

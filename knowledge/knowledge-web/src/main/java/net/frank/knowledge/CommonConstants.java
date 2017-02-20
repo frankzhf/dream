@@ -8,7 +8,7 @@ public interface CommonConstants extends net.frank.commons.CommonConstants {
 	public interface Context extends net.frank.commons.CommonConstants.CONTEXT{
 		
 		public interface ACCOUNT extends net.frank.commons.CommonConstants.CONTEXT.ACCOUNT{
-			public String DRAFTS = USER_WORKSPACE_ROOT_ALIAS + "/myDrafts";
+			public String DRAFTS = USER_WORKSPACE_ROOT_ALIAS + "/" +USER_WORKSPACE_DRAFT;
 			//public String PUBLISHED = "published";
 			//public String RECYCLE_BIN="recycleBin";
 		}
