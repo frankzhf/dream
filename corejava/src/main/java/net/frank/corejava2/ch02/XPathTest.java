@@ -221,4 +221,28 @@ class XPathFrame extends JFrame{
  * XPathConstants STRING|NODE|NODESET|NUMBER|BOOLEAN
  * 				  String|Node|NodeList|Number|Boolean
  * 
+ * 	
+ * Namespace
+ * Class org.w3c.dom.Node
+ * String getLocalName()
+ * 返回本地名（不带别名前缀），或者在解析器不支持命名空间时，返回null
+ * 
+ * String getNamespaceURI()
+ * 返回命名空间URI，或者在解析器不支持命名空间时，返回null
+ * 
+ * Class javax.xml.parsers.DocumentBuilderFactory
+ * boolean isNamespaceAware()
+ * void setNamespaceAware(boolean value)
+ * 获取或设置工厂的namespaceAware属性，值为true时，解析工厂支持命名空间+
+ * 
+ * Example
+ * 
+ * <xsd:schema xmlns:xsl="http://www.w3.org/2001/XMLSchema">
+ * 
+ * 限定名 = xsd:schema
+ * 命名空间URI = http://www.w3.org/2001/XMLSchema
+ * 本地名 = schema
+ * 
  */
+
+

@@ -89,7 +89,8 @@ public abstract class AbstractGenTool{
 		// 设置java类型
 		if (StringUtils.startsWithIgnoreCase(column.getJdbcType(), "CHAR")
 				|| StringUtils.startsWithIgnoreCase(column.getJdbcType(), "VARCHAR")
-				|| StringUtils.startsWithIgnoreCase(column.getJdbcType(), "NARCHAR")){
+				|| StringUtils.startsWithIgnoreCase(column.getJdbcType(), "NARCHAR")
+				|| StringUtils.startsWithIgnoreCase(column.getJdbcType(), "TEXT")){
 			column.setJavaType("String");
 			column.setShowType("input");
 		}else if (StringUtils.startsWithIgnoreCase(column.getJdbcType(), "DATETIME")
@@ -122,7 +123,7 @@ public abstract class AbstractGenTool{
 			}
 			column.setShowType("input");
 		}
-		
+		column.setGenTable(genTable);
 		// 设置java字段名
 		column.setJavaField(StringUtils.toCamelCase(column.getName()));
 		
