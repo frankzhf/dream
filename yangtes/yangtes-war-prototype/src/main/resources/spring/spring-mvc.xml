@@ -13,7 +13,7 @@
 		ignore-unresolvable="true" location="classpath:yangtes.properties" />
 
 	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="net.frank.yangtes.modules.sys.web"
+	<context:component-scan base-package="net.frank.yangtes.modules.sys.web,net.frank.yangtes.prototype.dialog"
 		use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
