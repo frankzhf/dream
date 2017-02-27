@@ -47,7 +47,8 @@
 	
 	<listener>
 		<listener-class>net.frank.framework.web.spring.ContextLoaderListener</listener-class>
-		<listener-class>net.frank.framework.web.security.ClientSession</listener-class>
+		<listener-class>net.frank.framework.web.spring.ContextLoaderListener</listener-class>
+
 	</listener>
 	
 	<servlet>
