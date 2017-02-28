@@ -57,4 +57,20 @@
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>
 		<database.jdbc.test.sql><![CDATA[jdbc.testSql=SELECT 'x' FROM DUAL]]></database.jdbc.test.sql>
 	</properties>
+	
+	<profiles>
+		<profile>
+			<id>dream</id>
+			<properties>
+				<app.copyright.year>2017</app.copyright.year>
+				<app.ehcache.dir>/huashan/projects/cms/run/ehcache</app.ehcache.dir>
+				<app.upload.dir>/huashan/projects/cms/run/repository</app.upload.dir>
+				<app.log.dir>/huashan/projects/cms/run/logs</app.log.dir>
+				<database.jdbc.url><![CDATA[jdbc:mysql://localhost:3306/yangtes?useUnicode=true&amp;characterEncoding=utf8]]></database.jdbc.url>
+				<database.jdbc.name>cat</database.jdbc.name>
+				<database.jdbc.password>123456</database.jdbc.password>
+			</properties>
+		</profile>
+	</profiles>
+	
 </project>

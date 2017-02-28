@@ -10,8 +10,7 @@
 		<param-value>classpath:spring/spring-context.xml</param-value>
 	</context-param>
 	<listener>
-		<listener-class>net.frank.yangtes.modules.sys.listener.WebContextListener</listener-class>
-						
+		<listener-class>net.frank.yangtes.modules.sys.listener.WebContextListener</listener-class>			
 	</listener>
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
