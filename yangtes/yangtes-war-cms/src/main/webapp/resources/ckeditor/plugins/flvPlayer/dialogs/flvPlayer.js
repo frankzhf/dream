@@ -155,7 +155,6 @@
 			var _web_context = base.substr(0,
 			    base.indexOf("/", base.indexOf("/", base.indexOf("//") + 2) + 1));
 			_web_context = _web_context.substr(_web_context.lastIndexOf("/"));
-			//console.log("web_context :" + _web_context);
 			var _content="<object \"classid\"=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" "+
 			"\"codebase\"=\"http://www.macromedia.com/go/getflashplayer\" \"id\"=\"moviename\" width=\""+mywidth+"\" height=\""+myheight+"\">"+
 			"<param name=\"movie\"  value=\""+_web_context+"/resources/flashls-0.4.4.23/flashlsChromeless.swf?url="+_url+"\" />"+
@@ -165,7 +164,7 @@
 			"<param name=\"bgcolor\" value=\"#0\" />"+
 			"<param name=\"allowFullScreen\" value=\"true\" />"+
 			"<param name=\"wmode\" value=\"window\" />"+
-			"<embed src=\"/yangtes-jee-cms-war/resources/flashls-0.4.4.23/flashlsChromeless.swf?url="+_url+"\" \"width\"=\""+mywidth+"\" \"height\"=\""+myheight+"\" \"name\"=\"moviename\" "+
+			"<embed src=\""+_web_context+"/resources/flashls-0.4.4.23/flashlsChromeless.swf?url="+_url+"\" \"width\"=\""+mywidth+"\" \"height\"=\""+myheight+"\" \"name\"=\"moviename\" "+
 				"\"quality\"=\"autohigh\" "+
 				"\"bgcolor\"=\"#0\" "+
 				"\"align\"=\"middle\" allowFullScreen=\"true\" "+

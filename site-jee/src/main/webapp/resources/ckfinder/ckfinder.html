@@ -11,6 +11,7 @@
 	<div id="ckfinder"></div>
 	<script type="text/javascript">
 	//<![CDATA[
+	var _thisCallBackApi = null;
 	(function()
 	{
 		var config = {};
@@ -139,9 +140,22 @@
 		config.width = config.height = '100%';
 
 		var ckfinder = new CKFinder( config );
-		ckfinder.replace( 'ckfinder', config );
+		config.callback = function(api){
+			_thisCallBackApi = api;
+		}
+		ckfinder.replace( 'ckfinder',
+				config );
 		
 	})();
+	
+	function getCkfinderCallbackApi(){
+		if(_thisCallBackApi){
+			return _thisCallBackApi;
+		}else{
+			return null;
+		}
+	}
+	
 	//]]>
 	</script>
 </body>
