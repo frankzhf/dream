@@ -74,6 +74,7 @@
 		<module>yangtes</module>
 		<module>tiger</module>
 		<module>monkey</module>
+		<module>pig</module>
 	</modules>
 	<build>
 		<resources>
