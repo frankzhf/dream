@@ -254,4 +254,7 @@ class Screen extends JPanel implements Runnable {
 	}
 }
 
+/***
+ * http://www.oschina.net/code/snippet_220255_7784
+ */
 
