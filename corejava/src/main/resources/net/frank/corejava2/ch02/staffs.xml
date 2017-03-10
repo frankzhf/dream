@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+<?xml-stylesheet type="text/xsl" href="makehtml.xsl"?>
+<?xml-stylesheet type="text/xsl" href="makeprop.xsl"?>
+ -->
+ 
+<staff>
+	<employee><name>Carl Cracker</name><salary>75000</salary><hiredate year="1987" month="12" day="15"/></employee>
+	<employee><name>Barry Hacker</name><salary>50000</salary><hiredate year="1989" month="10" day="1"/></employee>
+	<employee><name>Tony Tester</name><salary>4000</salary><hiredate year="1990" month="3" day="15"/></employee>
+</staff>
