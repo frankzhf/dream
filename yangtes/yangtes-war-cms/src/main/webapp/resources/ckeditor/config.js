@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.disableNativeSpellChecker = false;
 	config.resize_dir = 'vertical';
 	config.keystrokes =[[ CKEDITOR.CTRL + 13 /*Enter*/, 'maximize' ]];	
-	config.extraPlugins = 'tableresize,flvPlayer';
+	config.extraPlugins = 'tableresize,vedio';
 	config.enterMode = CKEDITOR.ENTER_P;
 	config.shiftEnterMode = CKEDITOR.ENTER_BR;
 	config.font_names='宋体/宋体;黑体/黑体;仿宋/仿宋_GB2312;楷体/楷体_GB2312;隶书/隶书;幼圆/幼圆;微软雅黑/微软雅黑;'+ config.font_names;
@@ -22,7 +22,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.toolbar_default = [
 		['Source','-','Templates','Preview'],
 	    ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print'],
-	    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],['ShowBlocks'],['Image','flvPlayer','Capture','Flash'],['Maximize'],
+	    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],['ShowBlocks'],['Image','Vedio','Capture','Flash'],['Maximize'],
 	    '/',
 	    ['Bold','Italic','Underline','Strike','-'],
 	    ['Subscript','Superscript','-'],

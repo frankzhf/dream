@@ -9,7 +9,9 @@
 <layout:cmsBasic title="${article.title} - ${category.name}"
 	description="${article.description} ${category.description}"
 	keywords="${article.keywords} ${category.keywords}">
-
+	<link href="${ctxStatic}/video-js-5.18.4/video-js.min.css" rel="stylesheet" />
+	<script src="${ctxStatic}/video-js-5.18.4/video.js"></script>
+	<script src="${ctxStatic}/video-js-5.18.4/hls/videojs-contrib-hls.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
