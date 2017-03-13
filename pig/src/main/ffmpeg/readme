@@ -1,0 +1,3 @@
+Please copy from /yangtes-war-cms/src/main/webapp/resources/ffmpeg/win with win
+if use Linux/Unix Please see /yangtes-war-cms/src/main/webapp/resources/ffmpeg/unix/readme.txt
+if use Mac OS use brew install ffmpeg
