@@ -16,7 +16,7 @@ import net.frank.titian.define.BatchContext;
 import net.frank.titian.define.Constants;
 import net.frank.titian.define.RetailerPullExecutor;
 import net.frank.titian.util.HttpUtil;
-import net.frank.titian.util.PropertiesUtil;
+import net.frank.titian.util.RetailerPropertiesUtil;
 import net.frank.commons.log4j.ThreadLoggerFactory;
 
 public class Job implements Runnable {
@@ -37,7 +37,7 @@ public class Job implements Runnable {
 		AccountInfo accountInfo = context.getNextAccountInfo();
 		while(accountInfo!=null){
 			RetailerPullExecutor executor = context.getPullExecutor().get(accountInfo.getRetailerId());
-			executor.setRetailerProperties(PropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()));
+			executor.setRetailerProperties(RetailerPropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()));
 			String workspace = context.getStorage()+ File.separator + Constants.PHASE.CREEP + File.separator + accountInfo.getRetailerId() 
 					+ File.separator + accountInfo.getLoginId();
 			executor.setWorkspace(workspace);
@@ -47,7 +47,7 @@ public class Job implements Runnable {
 			}
 			executor.setLogger(log);
 			
-			int timeout = Integer.parseInt(PropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()).getProperty("sleep.time"));
+			int timeout = Integer.parseInt(RetailerPropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()).getProperty("sleep.time"));
 			
 			CloseableHttpClient httpClient = HttpUtil.createHttpClient(timeout);
 			AntResult result = executor.home(httpClient,context);
@@ -66,7 +66,7 @@ public class Job implements Runnable {
 					unit.setWorkspace(workspace + File.separator + unit.getOperateId());
 					unit.setLog(log);
 					if(unit.check()){
-						AntResult unitResult = unit.process(httpClient,accountInfo,PropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()),context);
+						AntResult unitResult = unit.process(httpClient,accountInfo,RetailerPropertiesUtil.getRetailerProperties(accountInfo.getRetailerId()),context);
 						if(Constants.ACTION_RESULT.FAILURE == unitResult.getStatus()){
 							break;
 						}

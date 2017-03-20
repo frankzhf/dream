@@ -10,7 +10,7 @@ import net.frank.titian.define.RetailerPullExecutor;
 import net.frank.titian.retailer.action.carrefour.LoginAction;
 import net.frank.titian.test.mengnui.action.carrefour.OrderAction;
 import net.frank.titian.test.mengnui.pull.CarrefourPull;
-import net.frank.titian.util.PropertiesUtil;
+import net.frank.titian.util.RetailerPropertiesUtil;
 
 public class MengniuContext extends AbstractBatchContext {
 
@@ -28,7 +28,7 @@ public class MengniuContext extends AbstractBatchContext {
 		carrefourPullExecutor.getAntActionList().add(loginAction);
 		OrderAction orderAction = new OrderAction();
 		carrefourPullExecutor.getAntActionList().add(orderAction);
-		setSysProperties(PropertiesUtil.getBatchProperties());
+		setSysProperties(RetailerPropertiesUtil.getBatchProperties());
 		//设置爬虫下载数据存放目录
 		setStorage(getSysProperties().getProperty("local.storeage.path") + File.separator 
 				+ Thread.currentThread().getId()+"_" + Thread.currentThread().getName() 

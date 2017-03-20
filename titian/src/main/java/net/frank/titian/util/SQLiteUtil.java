@@ -78,7 +78,7 @@ public final class SQLiteUtil {
 	public static Connection getConnection(){
 		try {
 			Class.forName("org.sqlite.JDBC");
-			return DriverManager.getConnection("jdbc:sqlite:" + PropertiesUtil.getBatchProperties().getProperty("local.sqlite.path"));
+			return DriverManager.getConnection("jdbc:sqlite:" + RetailerPropertiesUtil.getBatchProperties().getProperty("local.sqlite.path"));
 		} catch (ClassNotFoundException e) {
 			log.error(e.getMessage(),e);
 		} catch (SQLException e) {
