@@ -75,6 +75,7 @@
 		<module>tiger</module>
 		<module>monkey</module>
 		<module>pig</module>
+		<module>jee</module>
 	</modules>
 	<build>
 		<resources>
