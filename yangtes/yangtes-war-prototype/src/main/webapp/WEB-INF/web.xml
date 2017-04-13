@@ -79,7 +79,7 @@
 		<servlet-class>net.frank.yangtes.commons.web.CKFinderConnectorServlet</servlet-class>
 		<init-param>
 			<param-name>XMLConfig</param-name>
-			<param-value>/WEB-INF/ckfinder.xml</param-value>
+			<param-value>/WEB-INF/classes/ckfinder.xml</param-value>
 		</init-param>
 		<init-param>
 			<param-name>debug</param-name>
