@@ -38,11 +38,11 @@ public final class SoaGenerater {
 			projectPackage = args[5];
 		}else{
 			jdbcClassName="com.mysql.jdbc.Driver";
-			jdbcConnectUrl = "jdbc:mysql://localhost:3306/dede";
+			jdbcConnectUrl = "jdbc:mysql://localhost:3306/signal";
 			jdbcUser = "root";
-			jdbcPassword = "zhf!@#618825";
+			jdbcPassword = "150803";
 			projectRoot = "/Users/zhaofeng/Desktop/thin";
-			projectPackage = "net.frank.dede";
+			projectPackage = "com.lumlux.signal.daemon";
 		}
 		
 		File workspace = new File(projectRoot);
@@ -82,7 +82,7 @@ public final class SoaGenerater {
 		try{
 			Class.forName(jdbcClassName);
 			conn = DriverManager.getConnection(jdbcConnectUrl,jdbcUser,jdbcPassword);
-			rs =conn.getMetaData().getColumns("dede", null, null,null);
+			rs =conn.getMetaData().getColumns("signal", null, null,null);
 			MysqlDialect mysqlDialect = new MysqlDialect();
 			while(rs.next()){
 				String tableName = rs.getString("TABLE_NAME");
