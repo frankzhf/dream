@@ -45,6 +45,10 @@ public class MailTest {
 class MailTestFrame extends JFrame{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7947322949209539251L;
 	private static final int DEFAULT_WIDTH = 300;
 	private static final int DEFAULT_HEIGHT = 300;
 	

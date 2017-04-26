@@ -232,6 +232,27 @@ class InterruptibleSocketFrame extends JFrame{
 				messages.append("\nTestServerHandle.run: " + e);
 			}
 		}
-		
 	}
 }
+
+/****
+ * java.nio.InetSocketAddress	
+ * InetSocketAddress(String hostname, int port)
+ * 通过主机和端口创建一个地址对象，如果主机名不能被解析，该地址对象的unresolved属性被设为true
+ * 
+ * boolean isUnresolved()
+ * 如果主机名不能被解析，则返回true
+ * 
+ * 
+ * java.nio.channels.SocketChannel
+ * static SocketChannel open(InetSocketAddress address)
+ * 开打一个套接字通道，并将其连接到远程地址
+ * 
+ * 
+ * java.nio.channels.Channels
+ * static InputStream newInputStream(ReadableByteChannel channel)
+ * 创建一个输入流，用以从指定的通道读取数据
+ * 
+ * static OutputStream newOutputStream(WritableByteChannel channel)
+ * 创建一个输出流，用以从指定的通道写入数据
+ */ 

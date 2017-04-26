@@ -48,7 +48,7 @@ public class URLConnectionTest {
 			System.out.println("getContentType:" + connection.getContentType());
 			System.out.println("getContentLength:" + connection.getContentLength());
 			System.out.println("getContentEncoding:" + connection.getContentEncoding());
-			System.out.println("getDate:" + connection.getDate());
+			System.out.println("getDate:" +                                                                                                                                                          connection.getDate());
 			System.out.println("getExpiration:" + connection.getExpiration());
 			System.out.println("getLastModified:" + connection.getLastModified());
 			
@@ -138,6 +138,93 @@ class Base64OutputStream extends FilterOutputStream{
 			col = 0;
 		}
 	}
-	
-	
 }
+/***
+ * java.net.URL
+ * InputStream openStream();
+ * 打开一个用于读取资源数据的输入流
+ * 
+ * UrlConnection openConnection()
+ * 返回一个UrlConnection对象
+ * 
+ * 
+ * java.net.URLConnection
+ * void setDoInput(boolean doInput)
+ * boolean getDoInput()
+ * 如果doInput是true,那么用户可以接收来自UrlConnection的输入
+ * 
+ * void setDoOutput(boolean doOutput)
+ * boolean getDoOutput()
+ * 如果doOouput是true,那么用户可以将输出发送到该UrlConnection
+ * 
+ * void setIfModifiedSince(long time)
+ * long getIfModifiedSince()
+ * 只获取那些从某个给定时间以来修改过的数据
+ * 
+ * void setUseCaches(boolean useCaches)
+ * boolean getUseCaches()
+ * 是否从本地缓存中获取
+ * 
+ * void setAllowUserInteraction(boolean allowUserInteraction)
+ * boolean getAllowUserInteraction()
+ * 查询用户口令，查询必须由外部程序实现
+ * 
+ * void setConnectTimeout(int timeout)
+ * int getConnectTimeout()
+ * 连接超时的时限
+ * 
+ * void setReadTimeout(int timeout)
+ * int getReadTimeout()
+ * 读取数据超时的时限
+ * 
+ * void setRequestProperty(String key, String value)
+ * 设置请求头的一个字段
+ * 
+ * Map<String,List<String>> getRequestProperties()
+ * 返回请求头的属性的一个映射表
+ * 
+ * void connect()
+ * 连接远程资源，并获取响应头信息
+ * 
+ * Map<String,List<String>> getHeaderFields()
+ * 返回响应的一个映射表
+ * 
+ * String getHeaderFieldKey(int n)
+ * 得到响应头的第n个字键，0或超出字段总数，返回null
+ * 
+ * String getHeaderField(int n)
+ * 得到响应头的第n个值，0或超出字段总数，返回null
+ * 
+ * int getContentLength()
+ * 如果知道内容长度，则返回该长度，否则为-1
+ * 
+ * String getContentType()
+ * 获取内容类型 text/plain 或 image/gif
+ * 
+ * String getContentEncoding()
+ * 获取内容编码
+ * 
+ * long getDate()
+ * long getExpiration()
+ * long getLastModifed()
+ * 获取创建时间、过期时间及最后一次修改时间
+ * 
+ * InputStream getInputStream()
+ * OutputStream getOutputStream()
+ * 返回从资源读取信息或向资源写入信息的流
+ * 
+ * Object getContent()
+ * 选择适当的内容处理器，以便读取资源数据并将它转换成对象
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
