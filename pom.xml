@@ -60,6 +60,7 @@
 		<module>site-editor</module>
 		<module>site-echarts</module>
 		<module>site-jee</module>
+		<module>site-adminlte</module>
 		<module>spring-web</module>
 		<module>webdav-client</module>
 		<module>dede</module>

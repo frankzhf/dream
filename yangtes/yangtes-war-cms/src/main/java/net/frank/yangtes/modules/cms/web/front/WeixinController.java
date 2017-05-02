@@ -12,8 +12,6 @@ import net.frank.yangtes.modules.cms.utils.WiexinSignUtil;
 
 /**
  * 测试Controller
- * @author ThinkGem
- * @version 2014-02-28
  */
 @Controller
 @RequestMapping(value = "${frontPath}/weixin")

@@ -36,8 +36,6 @@ import net.frank.yangtes.modules.cms.utils.CmsUtils;
 
 /**
  * 网站Controller
- * @author ThinkGem
- * @version 2013-5-29
  */
 @Controller
 @RequestMapping(value = "${frontPath}")

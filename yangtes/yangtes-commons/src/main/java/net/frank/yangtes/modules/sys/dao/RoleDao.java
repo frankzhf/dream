@@ -6,8 +6,6 @@ import net.frank.yangtes.modules.sys.entity.Role;
 
 /**
  * 角色DAO接口
- * @author ThinkGem
- * @version 2013-12-05
  */
 @MyBatisDao
 public interface RoleDao extends CrudDao<Role> {

@@ -20,8 +20,7 @@
 			<groupId>net.frank</groupId>
 			<artifactId>yangtes-commons</artifactId>
 			<version>1.0</version>
-		</dependency>
-		
+		</dependency>	
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -75,6 +74,6 @@
 		<database.jdbc.pool.init>1</database.jdbc.pool.init>
 		<database.jdbc.pool.min.idle>3</database.jdbc.pool.min.idle>
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>
-		<database.jdbc.test.sql><![CDATA[jdbc.testSql=SELECT 'x' FROM DUAL]]></database.jdbc.test.sql>
+		<database.jdbc.test.sql><![CDATA[SELECT 1]]></database.jdbc.test.sql>
 	</properties>
 </project>

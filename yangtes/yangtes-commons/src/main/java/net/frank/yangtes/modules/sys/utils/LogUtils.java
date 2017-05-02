@@ -24,8 +24,6 @@ import net.frank.yangtes.modules.sys.entity.User;
 
 /**
  * 字典工具类
- * @author ThinkGem
- * @version 2014-11-7
  */
 public class LogUtils {
 	

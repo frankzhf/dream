@@ -10,8 +10,6 @@ import net.frank.yangtes.commons.utils.StringUtils;
 
 /**
  * 数据Entity类
- * @author ThinkGem
- * @version 2014-05-16
  */
 public abstract class TreeEntity<T> extends DataEntity<T> {
 

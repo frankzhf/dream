@@ -31,8 +31,6 @@ import net.frank.yangtes.modules.sys.utils.UserUtils;
 
 /**
  * 角色Controller
- * @author ThinkGem
- * @version 2013-12-05
  */
 @Controller
 @RequestMapping(value = "${adminPath}/sys/role")

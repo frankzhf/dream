@@ -11,8 +11,6 @@ import net.frank.yangtes.modules.sys.service.SystemService;
 
 /**
  * 字段类型转换
- * @author ThinkGem
- * @version 2013-5-29
  */
 public class RoleListType {
 

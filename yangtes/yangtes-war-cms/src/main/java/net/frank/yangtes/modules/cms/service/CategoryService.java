@@ -23,8 +23,6 @@ import net.frank.yangtes.modules.sys.utils.UserUtils;
 
 /**
  * 栏目Service
- * @author ThinkGem
- * @version 2013-5-31
  */
 @Service
 @Transactional(readOnly = true)

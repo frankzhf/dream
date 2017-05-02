@@ -18,8 +18,6 @@ import net.frank.yangtes.modules.gen.dao.GenTableDao;
 
 /**
  * 业务表Service
- * @author ThinkGem
- * @version 2013-10-15
  */
 @Service
 @Transactional(readOnly = true)

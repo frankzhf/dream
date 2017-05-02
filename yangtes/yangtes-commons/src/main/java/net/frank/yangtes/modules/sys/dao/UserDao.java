@@ -8,8 +8,6 @@ import net.frank.yangtes.modules.sys.entity.User;
 
 /**
  * 用户DAO接口
- * @author ThinkGem
- * @version 2014-05-16
  */
 @MyBatisDao
 public interface UserDao extends CrudDao<User> {

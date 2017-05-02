@@ -20,8 +20,6 @@ import net.frank.yangtes.commons.excel.ExcelField;
 
 /**
  * 用户Entity
- * @author ThinkGem
- * @version 2013-12-05
  */
 public class User extends DataEntity<User> {
 	

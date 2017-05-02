@@ -28,8 +28,6 @@ import net.frank.yangtes.commons.web.BaseController;
 
 /**
  * 硕正Controller
- * @author ThinkGem
- * @version 2013-11-13
  */
 @Controller
 @RequestMapping(value = "${adminPath}/supcan")

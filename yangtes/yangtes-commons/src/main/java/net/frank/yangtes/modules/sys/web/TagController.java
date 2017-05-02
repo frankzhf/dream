@@ -11,8 +11,6 @@ import net.frank.yangtes.commons.web.BaseController;
 
 /**
  * 标签Controller
- * @author ThinkGem
- * @version 2013-3-23
  */
 @Controller
 @RequestMapping(value = "${adminPath}/tag")

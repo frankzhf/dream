@@ -16,8 +16,6 @@ import net.frank.yangtes.modules.cms.service.StatsService;
 
 /**
  * 统计Controller
- * @author ThinkGem
- * @version 2013-5-21
  */
 @Controller
 @RequestMapping(value = "${adminPath}/cms/stats")
