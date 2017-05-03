@@ -45,7 +45,6 @@
 		
 		var pre_ids = "${selectIds}".split(",");
 		var ids = "${selectIds}".split(",");
-		
 		//点击选择项回调
 		function treeOnClick(event, treeId, treeNode, clickFlag){
 			$.fn.zTree.getZTreeObj(treeId).expandNode(treeNode);
@@ -55,8 +54,6 @@
 				});
 			}
 			if("userTree"==treeId){
-				//alert(treeNode.id + " | " + ids);
-				//alert(typeof ids[0] + " | " +  typeof treeNode.id);
 				if($.inArray(String(treeNode.id), ids)<0){
 					selectedTree.addNodes(null, treeNode);
 					ids.push(String(treeNode.id));
@@ -67,44 +64,37 @@
 					selectedTree.removeNode(treeNode);
 					ids.splice($.inArray(String(treeNode.id), ids), 1);
 				}else{
-					top.$.jBox.tip("角色原有成员不能清除！", 'info');
+					alertx("角色原有成员不能清除！");
 				}
 			}
 		};
 		function clearAssign(){
-			var submit = function (v, h, f) {
-			    if (v == 'ok'){
-					var tips="";
-					if(pre_ids.sort().toString() == ids.sort().toString()){
-						tips = "未给角色【${role.name}】分配新成员！";
-					}else{
-						tips = "已选人员清除成功！";
-					}
-					ids=pre_ids.slice(0);
-					selectedNodes=pre_selectedNodes;
-					$.fn.zTree.init($("#selectedTree"), setting, selectedNodes);
-			    	top.$.jBox.tip(tips, 'info');
-			    } else if (v == 'cancel'){
-			    	// 取消
-			    	top.$.jBox.tip("取消清除操作！", 'info');
-			    }
-			    return true;
-			};
-			tips="确定清除角色【${role.name}】下的已选人员？";
-			top.$.jBox.confirm(tips, "清除确认", submit);
+			var submit = function(){
+				var tips="";
+				if(pre_ids.sort().toString() == ids.sort().toString()){
+					tips = "未给角色【${role.name}】分配新成员！";
+				}else{
+					tips = "已选人员清除成功！";
+				}
+				ids=pre_ids.slice(0);
+				selectedNodes=pre_selectedNodes;
+				$.fn.zTree.init($("#selectedTree"), setting, selectedNodes);
+				alertx("角色原有成员不能清除！");
+			}
+	    	tips="确定清除角色【${role.name}】下的已选人员？";
+			confirmx(tips, submit);
 		};
 	</script>
-	
-	<div id="assignRole" class="row-fluid span12">
-		<div class="span4" style="border-right: 1px solid #A8A8A8;">
+	<div id="assignRole" class="row">
+		<div class="col-sm-4">
 			<p>所在部门：</p>
 			<div id="officeTree" class="ztree"></div>
 		</div>
-		<div class="span3">
+		<div class="col-sm-4">
 			<p>待选人员：</p>
 			<div id="userTree" class="ztree"></div>
 		</div>
-		<div class="span3" style="padding-left:16px;border-left: 1px solid #A8A8A8;">
+		<div class="col-sm-4" style="padding-left:16px;">
 			<p>已选人员：</p>
 			<div id="selectedTree" class="ztree"></div>
 		</div>

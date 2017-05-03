@@ -6,21 +6,39 @@
 <%@ taglib prefix="shiro" uri="/WEB-INF/tlds/shiros.tld" %>
 <%@ taglib prefix="fns" uri="/WEB-INF/tlds/fns.tld" %>
 
-<layout:blank title="分配角色">
+<layout:default title="分配角色">
 	<ul class="nav nav-tabs">
 		<li><a href="${ctx}/sys/role/">角色列表</a></li>
 		<li class="active"><a href="${ctx}/sys/role/assign?id=${role.id}"><shiro:hasPermission name="sys:role:edit">角色分配</shiro:hasPermission><shiro:lacksPermission name="sys:role:edit">人员列表</shiro:lacksPermission></a></li>
 	</ul>
-	<div class="container-fluid breadcrumb">
-		<div class="row-fluid span12">
-			<span class="span4">角色名称: <b>${role.name}</b></span>
-			<span class="span4">归属机构: ${role.office.name}</span>
-			<span class="span4">英文名称: ${role.enname}</span>
+	
+	
+	<div class="row">
+		<div class="form-group col-sm-4">
+			<label class="col-sm-4 control-label">角色名称: </label>
+			<b>${role.name}</b>
 		</div>
-		<div class="row-fluid span8">
-			<span class="span4">角色类型: ${role.roleType}</span>
+		<div class="form-group col-sm-4">
+			<label class="col-sm-4 control-label">归属机构: </label>
+			${role.office.name}
+		</div>
+		<div class="form-group col-sm-4">
+			<label class="col-sm-4 control-label">英文名称: </label>
+			${role.enname}
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="form-group col-sm-4">
+			<label class="col-sm-4 control-label">角色类型: </label>
+			${role.roleType}
+		</div>
+		<div class="form-group col-sm-4">
+			<label class="col-sm-4 control-label">数据范围: </label>
 			<c:set var="dictvalue" value="${role.dataScope}" scope="page" />
-			<span class="span4">数据范围: ${fns:getDictLabel(dictvalue, 'sys_data_scope', '')}</span>
+			${fns:getDictLabel(dictvalue, 'sys_data_scope', '')}
+		</div>
+		<div class="form-group col-sm-4">
 		</div>
 	</div>
 	<sys:message content="${message}"/>
@@ -32,38 +50,53 @@
 		<input id="assignButton" class="btn btn-primary" type="submit" value="分配角色"/>
 		<script type="text/javascript">
 			$("#assignButton").click(function(){
-				top.$.jBox.open("iframe:${ctx}/sys/role/usertorole?id=${role.id}", "分配角色",810,$(top.document).height()-240,{
-					buttons:{"确定分配":"ok", "清除已选":"clear", "关闭":true}, bottomText:"通过选择部门，然后为列出的人员分配角色。",submit:function(v, h, f){
-						var pre_ids = h.find("iframe")[0].contentWindow.pre_ids;
-						var ids = h.find("iframe")[0].contentWindow.ids;
-						//nodes = selectedTree.getSelectedNodes();
-						if (v=="ok"){
-							// 删除''的元素
-							if(ids[0]==''){
-								ids.shift();
-								pre_ids.shift();
+				var url = '${ctx}/sys/role/usertorole?id=${role.id}';
+		        var d = top.dialog({
+					title: '分配角色',
+					url: url,
+					width: 810,
+					height: 650,
+					button:[{
+						id:"btnOk",
+						value:"确定分配",
+						autofocus :true,
+						callback:function(event){
+							var iframeWindow = this.iframeNode.contentWindow;
+							var pre_ids = iframeWindow.pre_ids;
+							var ids = iframeWindow.ids;
+							if (ids[0] == '') {
+							    ids.shift();
+							    pre_ids.shift();
 							}
-							if(pre_ids.sort().toString() == ids.sort().toString()){
-								top.$.jBox.tip("未给角色【${role.name}】分配新成员！", 'info');
-								return false;
-							};
-					    	// 执行保存
-					    	loading('正在提交，请稍等...');
-					    	var idsArr = "";
-					    	for (var i = 0; i<ids.length; i++) {
-					    		idsArr = (idsArr + ids[i]) + (((i + 1)== ids.length) ? '':',');
-					    	}
-					    	$('#idsArr').val(idsArr);
-					    	$('#assignRoleForm').submit();
-					    	return true;
-						} else if (v=="clear"){
-							h.find("iframe")[0].contentWindow.clearAssign();
+							if (pre_ids.sort().toString() == ids.sort().toString()) {
+								alertx("未给角色【${role.name}】分配新成员！");
+							    //top.alert("", 'info');
+							    return false;
+							}
+							var idsArr = "";
+							for (var i = 0; i < ids.length; i++) {
+								idsArr = (idsArr + ids[i]) + (((i + 1) == ids.length) ? '' : ',');
+							}
+							$('#idsArr').val(idsArr);
+							$('#assignRoleForm').submit();
+							return true;
+						}
+					},{
+						id:"btnClear",
+						value:"清除",
+						callback:function(event){
+							var iframeWindow = this.iframeNode.contentWindow;
+							iframeWindow.clearAssign();
 							return false;
-		                }
-					}, loaded:function(h){
-						$(".jbox-content", top.document).css("overflow-y","hidden");
-					}
-				});
+						}
+					},{
+						id:"btnClose",
+						value:"取消",
+						callback:function(event){
+						}
+					}]
+		        });
+		        d.showModal();
 			});
 		</script>
 	</div>
@@ -86,5 +119,5 @@
 		</c:forEach>
 		</tbody>
 	</table>
-</layout:blank>
+</layout:default>
 
