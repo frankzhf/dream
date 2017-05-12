@@ -24,14 +24,12 @@
 			<classifier>api</classifier>
 		</dependency>
 		<dependency>
-			<groupId>com.heinqi.yangtes</groupId>
-			<artifactId>yangtes-war-cms</artifactId>
-			<version>1.0</version>
-			<type>war</type>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-oxm</artifactId>
+			<artifactId>spring-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -40,8 +38,19 @@
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.20</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -61,8 +70,8 @@
 		<database.jdbc.type>mysql</database.jdbc.type>
 		<database.jdbc.driver>com.mysql.jdbc.Driver</database.jdbc.driver>
 		<database.jdbc.url><![CDATA[jdbc:mysql://localhost:3306/yangtes?useUnicode=true&amp;characterEncoding=utf8]]></database.jdbc.url>
-		<database.jdbc.name>frank</database.jdbc.name>
-		<database.jdbc.password>A1j86618825</database.jdbc.password>
+		<database.jdbc.name>root</database.jdbc.name>
+		<database.jdbc.password>150803</database.jdbc.password>
 		<database.jdbc.pool.init>1</database.jdbc.pool.init>
 		<database.jdbc.pool.min.idle>3</database.jdbc.pool.min.idle>
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>
