@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<display-name>Yangtes Ng Prototype</display-name>
+	<display-name>Yangtes Cms</display-name>
 	<!-- Context ConfigLocation -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -76,7 +76,7 @@
 	<!-- CKFinder -->
 	<servlet>
 		<servlet-name>CKFinderConnectorServlet</servlet-name>
-		<servlet-class>net.frank.yangtes.modules.ckfinder.CKFinderConnectorServlet</servlet-class>
+		<servlet-class>net.frank.yangtes.modules.ckfinder.M3u8ConnectorServlet</servlet-class>
 		<init-param>
 			<param-name>XMLConfig</param-name>
 			<param-value>/WEB-INF/classes/ckfinder.xml</param-value>
@@ -110,6 +110,35 @@
 	<filter-mapping>
 		<filter-name>FileUploadFilter</filter-name>
 		<url-pattern>/resources/ckfinder/core/connector/java/connector.java</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>CORS</filter-name>
+		<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>
+		<init-param>
+			<param-name>cors.allowOrigin</param-name>
+			<param-value>*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.supportedMethods</param-name>
+			<param-value>GET, POST, HEAD, PUT, DELETE</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.supportedHeaders</param-name>
+			<param-value>*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.exposedHeaders</param-name>
+			<param-value>Set-Cookie</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.supportsCredentials</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CORS</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
 	<servlet>

@@ -16,8 +16,8 @@
 		<module>yangtes-war-gen</module>
 		<module>yangtes-war-cms</module>
 		<module>yangtes-ng-prototype</module>
+		<module>yangtes-ng-cms</module>
 	</modules>
-	
 	<properties>
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<commons-lang3.version>3.2.1</commons-lang3.version>
