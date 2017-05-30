@@ -70,12 +70,23 @@ public class URLConnectionTest {
 		ByteArrayOutputStream bOut = new ByteArrayOutputStream();
 		Base64OutputStream out = new Base64OutputStream(bOut);
 		try{
-			out.write(input.getBytes());
-			out.flush();
-		}catch(IOException e){
-			
+			try{
+				out.write(input.getBytes());
+				out.flush();
+			}catch(IOException e){
+				
+			}
+			return bOut.toString();
+		}finally{
+			try{
+				if(out!=null){
+					out.close();
+				}
+			}catch(IOException e){
+				
+			}
 		}
-		return bOut.toString();
+		
 	}
 	
 }
@@ -215,16 +226,6 @@ class Base64OutputStream extends FilterOutputStream{
  * 
  * Object getContent()
  * 选择适当的内容处理器，以便读取资源数据并将它转换成对象
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  * 
  */
 

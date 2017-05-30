@@ -1,0 +1,1 @@
+java -jar $JAVA_HOME/db/lib/derbyrun.jar ij -p ./ij.properties
