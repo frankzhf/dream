@@ -66,7 +66,6 @@
 						class="help-inline"><font color="red">*</font> </span>
 				</div>
 			</div>
-
 			<div class="form-group">
 				<label class="col-sm-2 control-label">确认新密码:</label>
 				<div class="col-sm-10">
@@ -75,7 +74,7 @@
 						class="required" equalTo="#newPassword" /> <span
 						class="help-inline"><font color="red">*</font> </span>
 				</div>
-			</div
+			</div>
 		</div>
 		<div class="box-footer">
 			<input id="btnSubmit" class="btn btn-primary" type="submit"
