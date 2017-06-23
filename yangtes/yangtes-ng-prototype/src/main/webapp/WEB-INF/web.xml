@@ -76,7 +76,7 @@
 	<!-- CKFinder -->
 	<servlet>
 		<servlet-name>CKFinderConnectorServlet</servlet-name>
-		<servlet-class>net.frank.yangtes.modules.ckfinder.CKFinderConnectorServlet</servlet-class>
+		<servlet-class>net.frank.yangtes.commons.web.CKFinderConnectorServlet</servlet-class>
 		<init-param>
 			<param-name>XMLConfig</param-name>
 			<param-value>/WEB-INF/classes/ckfinder.xml</param-value>
