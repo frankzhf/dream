@@ -86,4 +86,21 @@
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>
 		<database.jdbc.test.sql><![CDATA[SELECT 1]]></database.jdbc.test.sql>
 	</properties>
+	<profiles>
+		<profile>
+			<id>cheer</id>
+			<properties>
+				<app.repository.local.dir>d:/cheer/yangtes/repository</app.repository.local.dir>
+				<app.log.dir>d:/cheer/yangtes/logs</app.log.dir>
+				<app.ehcache.config.file>ehcache-local.xml</app.ehcache.config.file>
+				<app.ehcache.dir>d:/cheer/yangtes/ehcache</app.ehcache.dir>
+				<database.jdbc.type>mysql</database.jdbc.type>
+				<database.jdbc.driver>com.mysql.jdbc.Driver</database.jdbc.driver>
+				<database.jdbc.url><![CDATA[jdbc:mysql://localhost:3306/huashan?useUnicode=true&amp;characterEncoding=utf8]]></database.jdbc.url>
+				<database.jdbc.name>root</database.jdbc.name>
+				<database.jdbc.password>123456</database.jdbc.password>
+			</properties>
+		</profile>
+	</profiles>
+	
 </project>
