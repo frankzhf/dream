@@ -17,8 +17,7 @@ public class GridBagTest {
 			@Override
 			public void run() {
 				String filename = args.length ==0 ? 
-						"D:/projects/frank/dream/corejava/src/main/resources/net/frank/corejava2/ch02/fontdialog.xml" :
-						args[0];
+						"/Users/zhaofeng/projects/frank/source/dream/corejava/src/main/resources/net/frank/corejava2/ch02/fontdialog.xml":args[0];
 				JFrame frame = new FontFrame(filename);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);

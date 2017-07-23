@@ -3,7 +3,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=${ctxStatic}edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <title>${fns:getConfig('productName')}</title>
 <script src="${ctxStatic}/adminlte/plugins/jQuery/jquery-1.10.2.min.js"></script>
 <link href="${ctxStatic}/bootstrap/2.3.1/awesome/font-awesome.min.css"
@@ -58,8 +59,6 @@
 				<!-- Sidebar toggle button-->
 				<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
 					role="button"> </a>
-
-				<div>
 					<ul class="nav navbar-nav">
 						<c:set var="firstMenu" value="true" />
 						<c:if test="${!empty param.parentId}">
@@ -86,7 +85,6 @@
 							</c:if>
 						</c:forEach>
 					</ul>
-				</div>
 
 				<div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
