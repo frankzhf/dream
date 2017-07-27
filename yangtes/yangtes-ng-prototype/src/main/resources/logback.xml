@@ -7,6 +7,12 @@
 	</appender>
 	<logger name="org.springframework.webmvc" level="DEBUG" additivity="false">
 		<appender-ref ref="console" />
+	</logger> 
+	<logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
+		<appender-ref ref="console" />
+	</logger>
+	<logger name="net.frank.yangtes.modules.sys" level="DEBUG" additivity="false">
+		<appender-ref ref="console" />
 	</logger>
 	<root level="INFO">
 		<appender-ref ref="console" />
