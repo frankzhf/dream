@@ -149,3 +149,56 @@ class BallComponent extends JPanel{
 	}
 	
 }
+
+/****
+ * 
+ * Class java.lang.Thread
+ * Thread(Runnable target)
+ * 
+ * 
+ * void start()
+ * 
+ * 
+ * void run()
+ * 
+ * 
+ * Class java.lang.Runnable
+ * void run()
+ * 
+ * 
+ * 线程状态
+ * New				新创建
+ * Runnable			可运行
+ * Blocked			被阻塞
+ * Waiting			等待
+ * Timed waiting	计时等待
+ * Terminated		被终止
+ * 
+ * 
+ * Class java.lang.Thread
+ * void join()
+ * 等待终止指定的线程
+ * 
+ * void join(long millis)
+ * 等待指定的线程在指定的时间内死亡
+ * 
+ * Thread.State getState()
+ * 得到线程的状态
+ * 
+ * void stop()
+ * 
+ * 
+ * void suspend()
+ * 
+ * 
+ * void resume()
+ * 
+ * 
+ * void setPriority(int newPriority)
+ * 
+ * 
+ * static void yield()
+ * 当前线程让步
+ * 
+ */
+

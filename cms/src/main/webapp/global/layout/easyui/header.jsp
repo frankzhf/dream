@@ -53,7 +53,7 @@
 </div>
 
 
-<table width="100%" height="65px" style="background:#3a6ea5 url(global/images/ncs.jpg) no-repeat fixed 0 0;">
+<table width="100%" height="65px" style="background:#3a6ea5 no-repeat fixed 0 0;">
 	<tr>
 		<td align="right" valign="bottom">
 			<table>

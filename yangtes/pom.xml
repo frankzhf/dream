@@ -17,6 +17,7 @@
 		<module>yangtes-war-cms</module>
 		<module>yangtes-ng-prototype</module>
 		<module>yangtes-ng-cms</module>
+		<module>yangtes-ng-demo</module>
 	</modules>
 	<properties>
 		<spring.version>4.0.2.RELEASE</spring.version>
