@@ -52,6 +52,14 @@
 			<artifactId>spring-jdbc</artifactId>
 		</dependency>
 		<dependency>
+	        <groupId>org.quartz-scheduler</groupId>
+	        <artifactId>quartz</artifactId>
+        </dependency>
+        <dependency>
+	        <groupId>org.quartz-scheduler</groupId>
+	        <artifactId>quartz-jobs</artifactId>
+        </dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.20</version>
