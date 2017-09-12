@@ -1,6 +1,5 @@
 package net.frank.yangtes.modules.sys.security;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,7 +39,6 @@ import net.frank.yangtes.modules.sys.web.LoginController;
  * 系统安全认证实现类
  */
 @Service
-//@DependsOn({"userDao","roleDao","menuDao"})
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -53,12 +51,10 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 	@Override							
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-		
 		int activeSessionSize = getSystemService().getSessionDao().getActiveSessions(false).size();
 		if (logger.isDebugEnabled()){
 			logger.debug("login submit, active session size: {}, username: {}", activeSessionSize, token.getUsername());
 		}
-		
 		// 校验登录验证码
 		if (LoginController.isValidateCodeLogin(token.getUsername(), false, false)){
 			Session session = UserUtils.getSession();
@@ -213,68 +209,5 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 			systemService = SpringContextHolder.getBean(SystemService.class);
 		}
 		return systemService;
-	}
-	
-	/**
-	 * 授权用户信息
-	 */
-	public static class Principal implements Serializable {
-
-		private static final long serialVersionUID = 1L;
-		
-		private String id; // 编号
-		private String loginName; // 登录名
-		private String name; // 姓名
-		private boolean mobileLogin; // 是否手机登录
-		
-//		private Map<String, Object> cacheMap;
-
-		public Principal(User user, boolean mobileLogin) {
-			this.id = user.getId();
-			this.loginName = user.getLoginName();
-			this.name = user.getName();
-			this.mobileLogin = mobileLogin;
-		}
-
-		public String getId() {
-			return id;
-		}
-
-		public String getLoginName() {
-			return loginName;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public boolean isMobileLogin() {
-			return mobileLogin;
-		}
-
-//		@JsonIgnore
-//		public Map<String, Object> getCacheMap() {
-//			if (cacheMap==null){
-//				cacheMap = new HashMap<String, Object>();
-//			}
-//			return cacheMap;
-//		}
-
-		/**
-		 * 获取SESSIONID
-		 */
-		public String getSessionid() {
-			try{
-				return (String) UserUtils.getSession().getId();
-			}catch (Exception e) {
-				return "";
-			}
-		}
-		
-		@Override
-		public String toString() {
-			return id;
-		}
-
 	}
 }

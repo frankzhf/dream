@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.frank.yangtes.commons.config.Global;
 import net.frank.yangtes.commons.utils.FileUtils;
-import net.frank.yangtes.modules.sys.security.SystemAuthorizingRealm.Principal;
+import net.frank.yangtes.modules.sys.security.Principal;
 import net.frank.yangtes.modules.sys.utils.UserUtils;
 
 import com.ckfinder.connector.ConnectorServlet;

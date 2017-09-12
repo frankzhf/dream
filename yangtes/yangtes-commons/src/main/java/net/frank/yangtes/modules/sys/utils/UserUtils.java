@@ -22,7 +22,7 @@ import net.frank.yangtes.modules.sys.entity.Office;
 import net.frank.yangtes.modules.sys.entity.Role;
 import net.frank.yangtes.modules.sys.entity.User;
 
-import net.frank.yangtes.modules.sys.security.SystemAuthorizingRealm.Principal;
+import net.frank.yangtes.modules.sys.security.Principal;
 
 /**
  * 用户工具类

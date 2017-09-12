@@ -25,7 +25,7 @@ import net.frank.yangtes.commons.utils.IdGenUtil;
 import net.frank.yangtes.commons.utils.StringUtils;
 import net.frank.yangtes.commons.web.BaseController;
 import net.frank.yangtes.modules.sys.security.FormAuthenticationFilter;
-import net.frank.yangtes.modules.sys.security.SystemAuthorizingRealm.Principal;
+import net.frank.yangtes.modules.sys.security.Principal;
 import net.frank.yangtes.modules.sys.utils.UserUtils;
 
 /**
