@@ -28,6 +28,12 @@
     		<artifactId>netty-handler</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
+		<!-- install plugin from src/lib -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene</artifactId>
+			<version>1.4.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
