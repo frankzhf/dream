@@ -23,11 +23,19 @@
 			<artifactId>mina-filter-compression</artifactId>
 			<version>2.0.4</version>
 		</dependency>
+		<!-- Netty The Definitive Guide begin -->
 		<dependency>
 			<groupId>io.netty</groupId>
-    		<artifactId>netty-handler</artifactId>
+    			<artifactId>netty-handler</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.msgpack</groupId>
+			<artifactId>msgpack</artifactId>
+			<version>0.6.6</version>
+		</dependency>
+		<!-- Netty The Definitive Guide end -->
+		
 		<!-- install plugin from src/lib -->
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
