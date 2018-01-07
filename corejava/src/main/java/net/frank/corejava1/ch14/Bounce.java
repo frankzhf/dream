@@ -186,16 +186,16 @@ class BallComponent extends JPanel{
  * 得到线程的状态
  * 
  * void stop()
- * 
+ * 停止该线程。这一方法已过时 
  * 
  * void suspend()
- * 
+ * 暂停这一线程的执行。这一方法已过时 
  * 
  * void resume()
- * 
+ * 恢复线程。这一方法仅仅在调用suspend()之后调用。这一方法已经过时
  * 
  * void setPriority(int newPriority)
- * 
+ * 设置线程的优先级。
  * 
  * static void yield()
  * 当前线程让步

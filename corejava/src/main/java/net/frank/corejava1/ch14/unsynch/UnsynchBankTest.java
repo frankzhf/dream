@@ -1,4 +1,4 @@
-package net.frank.corejava1.ch14;
+package net.frank.corejava1.ch14.unsynch;
 
 public class UnsynchBankTest {
 	public static final int NACCOUNTS = 100;

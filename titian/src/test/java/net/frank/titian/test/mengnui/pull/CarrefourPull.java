@@ -4,7 +4,7 @@ import net.frank.titian.base.AbstractRetailerPullExecutor;
 
 public class CarrefourPull extends AbstractRetailerPullExecutor {
 	
-	private static final String HOME_URL = "https://supplierweb.carrefour.com/";
+	private static final String HOME_URL = "http://www.szfcweb.com/";
 	
 	@Override
 	public String getHomeUrl() {

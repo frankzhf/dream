@@ -41,6 +41,6 @@
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
-		z</dependency>
+		</dependency>
 	</dependencies>
 </project>

@@ -38,9 +38,9 @@ public final class SoaGenerater {
 			projectPackage = args[5];
 		}else{
 			jdbcClassName="com.mysql.jdbc.Driver";
-			jdbcConnectUrl = "jdbc:mysql://localhost:3306/signal";
-			jdbcUser = "root";
-			jdbcPassword = "150803";
+			jdbcConnectUrl = "jdbc:mysql://localhost:3306/szfcweb";
+			jdbcUser = "frank";
+			jdbcPassword = "618825";
 			projectRoot = "/Users/zhaofeng/Desktop/thin";
 			projectPackage = "com.lumlux.signal.daemon";
 		}
