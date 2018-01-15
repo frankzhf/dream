@@ -29,21 +29,31 @@
 			<artifactId>netty-handler</artifactId>
 			<version>${netty.version}</version>
 		</dependency>
-		<!-- ch10 -->
-		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-codec-http</artifactId>
-			<version>${netty.version}</version>
-		</dependency>
+		<!-- ch07 -->
 		<dependency>
 			<groupId>org.msgpack</groupId>
 			<artifactId>msgpack</artifactId>
 			<version>0.6.6</version>
 		</dependency>
+		<!-- ch08 -->
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
 			<version>3.1.0</version>
+		</dependency>
+		<!-- ch09 -->
+
+		<dependency>
+			<groupId>org.jboss.marshalling</groupId>
+			<artifactId>jboss-marshalling-serial</artifactId>
+			<version>1.4.11.Final</version><!-- jdk7用的最高版本 -->
+		</dependency>
+
+		<!-- ch10 -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-codec-http</artifactId>
+			<version>${netty.version}</version>
 		</dependency>
 		<!-- Netty The Definitive Guide end -->
 
@@ -82,6 +92,18 @@
 			<groupId>commons-configuration</groupId>
 			<artifactId>commons-configuration</artifactId>
 			<version>1.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-jexl3</artifactId>
+			<version>3.1</version>
 		</dependency>
 
 
