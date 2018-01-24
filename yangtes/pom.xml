@@ -15,6 +15,8 @@
 		<module>yangtes-war-prototype</module>
 		<module>yangtes-war-gen</module>
 		<module>yangtes-war-cms</module>
+		<module>yangtes-war-quartz</module>
+		
 		<module>yangtes-ng-prototype</module>
 		<module>yangtes-ng-cms</module>
 		<module>yangtes-ng-demo</module>
@@ -23,8 +25,7 @@
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<commons-lang3.version>3.2.1</commons-lang3.version>
 		<commons-io.version>2.4</commons-io.version>
-		<slf4j.version>1.7.12</slf4j.version>
-		<logback.version>1.1.1</logback.version>
+		<logback.version>1.1.7</logback.version>
 		<quartz.version>2.2.1</quartz.version>
 		<mybatis.version>3.2.6</mybatis.version>
 		<jackson.version>2.3.1</jackson.version>
@@ -169,26 +170,6 @@
 			
 			<!-- log4j && slf4j -->
 			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>log4j-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>jul-to-slf4j</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>ch.qos.logback</groupId>
 				<artifactId>logback-classic</artifactId>
 				<version>${logback.version}</version>
@@ -213,22 +194,6 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
