@@ -34,7 +34,7 @@ public class Hand {
 	private int fight(Hand h) {
 		if(this == h) {
 			return 0;
-		}else if(!((this.hashCode() +1) % 3 == h.handvalue )) {
+		}else if((this.handvalue +1) % 3 == h.handvalue ) {
 			return 1;
 		}else {
 			return -1;
