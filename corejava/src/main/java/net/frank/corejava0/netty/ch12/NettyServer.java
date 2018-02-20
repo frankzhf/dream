@@ -33,7 +33,7 @@ public class NettyServer {
 			boot.group(bossGroup, workerGroup)
 				.channel(NioServerSocketChannel.class)
 				.option(ChannelOption.SO_BACKLOG, 100)
-				.handler(new LoggingHandler(LogLevel.INFO))
+				//.handler(new LoggingHandler(LogLevel.INFO))
 				.childHandler(new ChannelInitializer<SocketChannel>() {
 					@Override
 					protected void initChannel(SocketChannel ch) throws Exception {

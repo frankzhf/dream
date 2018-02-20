@@ -1,0 +1,223 @@
+frankmac:~ zhaofeng$ brew install zookeeper
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated Homebrew from 5244755a5 to b6a1302b8.
+Updated 4 taps (homebrew/core, homebrew/bundle, caskroom/versions, caskroom/cask).
+==> New Formulae
+ballerina                  gocryptfs                  restview
+bareos-client              howdoi                     shelltestrunner
+boost-python3              krakend                    shogun
+chrome-export              libbitcoin-consensus       siril
+console_bridge             mdcat                      unravel
+coreos-ct                  posh                       urdfdom
+dartsim                    primer3                    urdfdom_headers
+fcl                        qtkeychain
+==> Updated Formulae
+ffmpeg ✔                                 libbitcoin-blockchain
+flow ✔                                   libbitcoin-database
+fribidi ✔                                libbitcoin-explorer
+harfbuzz ✔                               libbitcoin-node
+lame ✔                                   libbitcoin-server
+leptonica ✔                              libebur128
+mpfr ✔                                   libgtop
+node ✔                                   libhttpseverywhere
+postgresql ✔                             liblwgeom
+python ✔                                 libmicrohttpd
+redis ✔                                  libphonenumber
+tomcat ✔                                 libpq
+x264 ✔                                   libpqxx
+abnfgen                                  librealsense
+acpica                                   librsvg
+advancemame                              libsass
+akamai                                   libspatialite
+amber                                    libtrng
+angular-cli                              libzip
+ansible                                  libzzip
+ant                                      liquibase
+apache-geode                             log4cplus
+apibuilder-cli                           logentries
+apm-server                               logstash
+app-engine-java                          lzlib
+aqbanking                                macvim
+argyll-cms                               magic-wormhole
+armadillo                                makensis
+artifactory                              mame
+asciinema                                mariadb@10.0
+auditbeat                                mariadb@10.1
+augeas                                   mas
+aws-sdk-cpp                              mbedtls
+azure-cli                                mercurial
+bandcamp-dl                              metabase
+bartycrouch                              metricbeat
+bash                                     mgba
+bazel                                    mikutter
+bee                                      minimal-racket
+bfg                                      minio-mc
+bigloo                                   minisign
+binutils                                 miniupnpc
+bit                                      mlton
+boost-python                             mockserver
+bork                                     mongoose
+bowtie2                                  mpd
+brew-gem                                 mpdas
+btfs                                     mpv
+bzt                                      mrboom
+calc                                     mu
+carthage                                 multimarkdown
+cask                                     mutt
+cayley                                   mytop
+ccache                                   nailgun
+ccm                                      nano
+cfr-decompiler                           nasm
+cfssl                                    ncdu
+checkstyle                               ncurses
+chibi-scheme                             neko
+chuck                                    neovim
+citus                                    netcdf
+cjdns                                    nghttp2
+cloc                                     nginx
+clojure                                  node-build
+closure-compiler                         octave
+cockroach                                openrct2
+coffeescript                             openrtsp
+conan                                    ortp
+conjure-up                               osquery
+consul                                   p7zip
+cpprestsdk                               packer
+cryfs                                    packetbeat
+daemonize                                paket
+davmail                                  pandoc-citeproc
+dbus                                     passenger
+dbus-glib                                pcb
+dcmtk                                    pegtl
+dependency-check                         percona-toolkit
+dfmt                                     percona-xtrabackup
+dhall-json                               picard-tools
+diamond                                  pilosa
+dislocker                                pioneer
+django-completion                        planck
+docfx                                    plantuml
+docker                                   plzip
+docker-completion                        postgresql@9.5
+docker-compose                           postgresql@9.6
+dpkg                                     pre-commit
+dtc                                      presto
+duo_unix                                 prips
+dwarfutils                               proguard
+e2fsprogs                                py2cairo
+ebook-tools                              py3cairo
+elasticsearch                            pyinvoke
+elasticsearch@5.6                        python-markdown
+elixir                                   qpdf
+embulk                                   qpid-proton
+emscripten                               quantlib
+encfs                                    quicktype
+enchant                                  rabbitmq
+entr                                     radare2
+etcd                                     rakudo-star
+exempi                                   ranger
+exim                                     re2
+expect                                   rgbds
+f3                                       rocksdb
+faas-cli                                 rom-tools
+fabio                                    rsync
+fd                                       rtags
+feh                                      rustup-init
+ffmbc                                    saldl
+ffmpeg@2.8                               saltstack
+fibjs                                    sane-backends
+filebeat                                 sbcl
+fizmo                                    sbt
+fltk                                     sccache
+fluent-bit                               schismtracker
+fn                                       selenium-server-standalone
+folly                                    sfk
+fonttools                                shadowsocks-libev
+fossil                                   sip
+fox                                      skafos
+freedink                                 snakemake
+freeipmi                                 snapcraft
+freeradius-server                        solr
+frugal                                   sonarqube
+fuse-zip                                 sourcekitten
+gammaray                                 speedtest-cli
+gdb                                      sphinx-doc
+geeqie                                   spigot
+gexiv2                                   sqlmap
+gforth                                   sslh
+gifski                                   sslsplit
+git-imerge                               sslyze
+git-standup                              stella
+git-town                                 stk
+gitbucket                                stockfish
+github-keygen                            storm
+gitless                                  svgo
+gjs                                      swiftformat
+global                                   sword
+go                                       syncthing
+go@1.8                                   systemc
+godep                                    taisei
+goenv                                    telegraf
+gpatch                                   teleport
+gradle                                   terraform
+graphicsmagick                           terragrunt
+groonga                                  tig
+grpc                                     timewarrior
+gsoap                                    tintin
+gwenhywfar                               tldr
+gwyddion                                 traefik
+gxml                                     twarc
+hadolint                                 txr
+hadoop                                   typescript
+haproxy                                  ucon64
+haxe                                     udpxy
+heartbeat                                udunits
+heroku                                   uhd
+hlint                                    unibilium
+html-xml-utils                           uriparser
+htmldoc                                  userspace-rcu
+htop                                     uwsgi
+http-parser                              vagrant-completion
+hubflow                                  vala
+huexpress                                vapoursynth
+hugo                                     vault
+hwloc                                    verilator
+i2p                                      vifm
+ideviceinstaller                         vim
+igv                                      vips
+infer                                    webpack
+influxdb                                 wiredtiger
+innotop                                  wireguard-tools
+isc-dhcp                                 wpcli-completion
+jenkins                                  wtf
+jenkins-job-builder                      x3270
+jhipster                                 xmake
+joplin                                   xpdf
+kaitai-struct-compiler                   xrootd
+kibana                                   xtensor
+kibana@5.6                               xxhash
+kitchen-sync                             yaml-cpp
+knot-resolver                            ykman
+kubernetes-cli                           ykneomgr
+kubernetes-helm                          yle-dl
+latex2html                               you-get
+lbdb                                     youtube-dl
+ledit                                    zanata-client
+libav                                    zimg
+libbitcoin
+==> Renamed Formulae
+ssreflect -> math-comp                   tachyon -> alluxio
+==> Deleted Formulae
+clozure-cl      go@1.6          go@1.7          qt@5.7          root@5
+
+==> Downloading https://homebrew.bintray.com/bottles/zookeeper-3.4.10.high_sierr
+
+######################################################################## 100.0%
+==> Pouring zookeeper-3.4.10.high_sierra.bottle.1.tar.gz
+==> Caveats
+To have launchd start zookeeper now and restart at login:
+  brew services start zookeeper
+Or, if you don't want/need a background service you can just run:
+  zkServer start
+==> Summary
+🍺  /usr/local/Cellar/zookeeper/3.4.10: 241 files, 31.4MB

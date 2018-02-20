@@ -38,7 +38,6 @@ public class NettyClient {
 		try {
 			Bootstrap boot = new Bootstrap();
 			boot.group(group).channel(NioSocketChannel.class).option(ChannelOption.TCP_NODELAY, true)
-					.handler(new LoggingHandler(LogLevel.INFO))
 					.handler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
@@ -50,6 +49,7 @@ public class NettyClient {
 									configuration);
 							UnmarshallerProvider UnmarshallerProvider = new DefaultUnmarshallerProvider(
 									marshallerFactory, configuration);
+							ch.pipeline().addLast("logging",new LoggingHandler(LogLevel.INFO));
 							ch.pipeline().addLast(new MarshallingDecoder(UnmarshallerProvider));
 							ch.pipeline().addLast("MessageEncoder", new MarshallingEncoder(marshallerProvider));
 							ch.pipeline().addLast("readTimeoutHandler",new ReadTimeoutHandler(50));

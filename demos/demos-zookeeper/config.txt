@@ -1,0 +1,39 @@
+zhaofeng          4135   0.0  0.7  7874000  55120   ??  S     5:59上午   0:00.75 /usr/bin/java 
+-Dzookeeper.root.logger=INFO,CONSOLE 
+-cp /usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../build/classes:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../build/lib/*.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../lib/slf4j-log4j12-1.6.1.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../lib/slf4j-api-1.6.1.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../lib/netty-3.10.5.Final.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../lib/log4j-1.2.16.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../lib/jline-0.9.94.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../zookeeper-3.4.10.jar:/usr/local/Cellar/zookeeper/3.4.10/libexec/bin/../src/java/lib/*.jar:/usr/local/etc/zookeeper: 
+-Dapple.awt.UIElement=true 
+-Dcom.sun.management.jmxremote 
+-Dcom.sun.management.jmxremote.local.only=false 
+-Dzookeeper.log.dir=. 
+org.apache.zookeeper.server.quorum.QuorumPeerMain 
+/usr/local/etc/zookeeper/zoo.cfg
+
+## config file start
+# The number of milliseconds of each tick
+tickTime=2000
+# The number of ticks that the initial 
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between 
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just 
+# example sakes.
+dataDir=/usr/local/var/run/zookeeper/data
+# the port at which the clients will connect
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the 
+# administrator guide before turning on autopurge.
+#
+# http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to "0" to disable auto purge feature
+#autopurge.purgeInterval=1

@@ -68,6 +68,7 @@
 		<module>android</module>
 		<module>report</module>
 		<module>corejava</module>
+		<module>demos</module>
 		<!--
 		<module>yuanbao</module>
 		<module>cluster</module>
