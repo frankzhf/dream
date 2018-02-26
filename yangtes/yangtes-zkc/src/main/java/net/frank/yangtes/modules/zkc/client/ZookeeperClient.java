@@ -20,7 +20,7 @@ import net.frank.yangtes.modules.zkc.entity.NodeData;
 import net.frank.yangtes.modules.zkc.enums.NodeModelEnum;
 
 /**
- * @version
+ * 
  */
 public class ZookeeperClient implements Watcher {
 

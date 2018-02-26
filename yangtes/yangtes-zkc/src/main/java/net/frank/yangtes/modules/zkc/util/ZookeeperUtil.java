@@ -10,7 +10,7 @@ public class ZookeeperUtil {
 	
 	private static ZookeeperClient zkClient = null;
 
-	public static ZookeeperClient getZkClient() {	
+	public static ZookeeperClient getZkClient() {
 		return zkClient;
 	}
 
