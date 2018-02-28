@@ -41,7 +41,7 @@ public class ZookeeperClient implements Watcher {
 	/**
 	 * 长度为1的计数器 用于处理zk连接是否成功
 	 */
-	private CountDownLatch connectedLatch = new CountDownLatch(1);
+	//private CountDownLatch connectedLatch = new CountDownLatch(1);
 
 	/**
 	 * 构造方法
@@ -53,15 +53,23 @@ public class ZookeeperClient implements Watcher {
 	public ZookeeperClient(String connectString, int sessionTimeout) throws Exception {
 		this.connectString = connectString;
 		this.sessionTimeout = sessionTimeout;
-		zookeeper = new ZooKeeper(this.connectString, this.sessionTimeout, this);
-		boolean isConnectin = connectedLatch.await(20l, TimeUnit.SECONDS);
-		if (isConnectin) {
-			log.debug("connecting zookeeper server success.");
-		} else {
-			log.debug("connecting zookeeper server failed.");
-			// throw new Exception("connecting zookeeper server failed.");
-		}
+		connect();
 	}
+	
+	public void connect() throws Exception {
+		if(zookeeper!=null) {
+			zookeeper.close();
+		}
+		zookeeper = new ZooKeeper(this.connectString, this.sessionTimeout, this);
+		//boolean isConnectin = connectedLatch.await(20l, TimeUnit.SECONDS);
+		//if (isConnectin) {
+		//	log.debug("connecting zookeeper server success.");
+		//} else {
+		//	log.debug("connecting zookeeper server failed.");
+			// throw new Exception("connecting zookeeper server failed.");
+		//}
+	}
+	
 
 	/**
 	 * 节点是否存在
@@ -162,16 +170,25 @@ public class ZookeeperClient implements Watcher {
 			if (EventType.None == event.getType()) {
 				log.debug("zookeeper connect success");
 				// 成功连接，计数器-1
-				connectedLatch.countDown();
+				//connectedLatch.countDown();
 			}
 		} else if (KeeperState.Disconnected == event.getState()) {
 			log.debug("zookeeper Disconnected");
+			try {
+				connect();
+			}catch(Exception e) {
+				log.error(e.getMessage(),e);
+			}
 		} else if (KeeperState.AuthFailed == event.getState()) {
 			log.debug("zookeeper AuthFailed");
 		} else if (KeeperState.Expired == event.getState()) {
 			log.debug("zookeeper Expired");
+			try {
+				connect();
+			}catch(Exception e) {
+				log.error(e.getMessage(),e);
+			}
 		}
-
 	}
 
 	/**
@@ -231,7 +248,7 @@ public class ZookeeperClient implements Watcher {
 			}
 			log.debug("zookeeper disconnect.");
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			log.error(e.getMessage(),e);
 		}
 	}
 

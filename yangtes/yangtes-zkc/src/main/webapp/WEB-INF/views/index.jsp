@@ -62,14 +62,18 @@
 							class="menu_text">节点管理</span></a>
 						<ul class="submenu sub1">
 							<li><a src="${pageContext.request.contextPath}/node/home">数据节点</a></li>
-						</ul></li>
+						</ul>
+					</li>
+					<%--
 					<li class="main_menu"><a href="#" class="dropdown-toggle"><span
 							class="arrow_box"><b class="menu_icon_base arrow"></b></span><i
 							class="menu_icon_nav icon_dashboard_3"></i><span
 							class="menu_text menu_text_style">服务管理</span></a>
 						<ul class="submenu sub1">
 							<li><a src="${pageContext.request.contextPath}/monitor/home">Server列表</a></li>
-						</ul></li>
+						</ul>
+					</li>
+					 --%>
 				</ul>
 			</div>
 			<div class="main_content">
