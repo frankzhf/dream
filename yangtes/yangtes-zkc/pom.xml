@@ -73,5 +73,17 @@
 		</dependency>
 	</dependencies>
 	<properties>
+		<zookeeper.host>192.168.1.79:2181</zookeeper.host>
+		<zookeeper.timeout>5000</zookeeper.timeout>
 	</properties>
+	<profiles>
+		<profile>
+			<id></id>
+			<properties>
+				<zookeeper.host>localhost:2181</zookeeper.host>
+				<zookeeper.timeout>5000</zookeeper.timeout>
+			</properties>
+		</profile>
+	</profiles>
+	
 </project>

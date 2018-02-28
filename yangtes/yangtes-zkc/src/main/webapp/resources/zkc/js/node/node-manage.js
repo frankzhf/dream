@@ -30,9 +30,9 @@ $(function(){
 							zTree.reAsyncChildNodes(selectNode, "refresh");
 							zTree.selectNode(selectNode);
 							zTree.setting.callback.onClick(null, zTree.setting.treeId, selectNode);
-							//var nodeId = data.message;
-							//var nodeName = nodeId.substring(nodeId.lastIndexOf('/')+1);
-							//zTree.addNodes(selectNode,{id:nodeId, pId:selectNode.id, name:nodeName});
+							var nodeId = data.message;
+							var nodeName = nodeId.substring(nodeId.lastIndexOf('/')+1);
+							zTree.addNodes(selectNode,{id:nodeId, pId:selectNode.id, name:nodeName});
 						}else{
 							$.dialog.tips(data.message);
 						}

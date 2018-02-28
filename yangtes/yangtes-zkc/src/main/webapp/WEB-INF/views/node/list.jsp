@@ -75,8 +75,7 @@
 					var param = {
 						id:treeNode.id
 					};
-					$('#childrenNode').load('childrenList',param,function(){
-					});
+					$('#childrenNode').load('childrenList',param,function(){});
 				},
 				onExpand: function(event, treeId, treeNode){
 				},
