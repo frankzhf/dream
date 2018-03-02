@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>Shiro Configuration</description>
+    <!-- 加载配置属性文件 -->
+	<context:component-scan base-package="net.frank.yangtes.quartz.web.service"><!-- base-package 如果多个，用“,”分隔 -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	<bean class="net.frank.yangtes.commons.persistence.MyBatisExtendMapper">
+	    <property name="beanId" value="mapperScannerConfigurer" />
+	    <property name="extendsBasePackage" value="net.frank.yangtes.quartz.web.dao" />
+	</bean>
+</beans>
