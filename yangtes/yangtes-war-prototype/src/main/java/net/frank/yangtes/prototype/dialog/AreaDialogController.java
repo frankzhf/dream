@@ -50,13 +50,13 @@ public class AreaDialogController extends BaseController {
      */
 	@RequestMapping(value = "${adminPath}/dialog/area/get",method=RequestMethod.GET)
 	public @ResponseBody Area getArea(@RequestParam("areaId")String areaId){
-		logger.debug("Input Param [areaId] -> " + areaId);
+		log.debug("Input Param [areaId] -> " + areaId);
 		Area area = null;
 		if(StringUtils.isNotBlank(areaId)){
 			area = areaService.get(areaId);	
 		}
 		if(area==null){
-			logger.error("Not find any area info.");
+			log.error("Not find any area info.");
 			area = new Area();
 			area.setName(Constant.UNDEFINE_AREA);
 			return area;
@@ -70,8 +70,8 @@ public class AreaDialogController extends BaseController {
 			@RequestParam(value="scope",required=false)String scope,
 			
 			Model model) {
-		logger.debug("Input Param [selectId] -> " + selectId);
-		logger.debug("Input Param [scope] -> " + scope);
+		log.debug("Input Param [selectId] -> " + selectId);
+		log.debug("Input Param [scope] -> " + scope);
 		if(StringUtils.isNotBlank(selectId)){
 			Area selectArea = areaService.get(selectId);
 			model.addAttribute("selectArea", selectArea);
@@ -103,7 +103,7 @@ public class AreaDialogController extends BaseController {
 	
 	@RequestMapping(value = "${adminPath}/dialog/area/tree/children/{areaId}")
 	public @ResponseBody List<Map<String, Object>> areaChilddren(@PathVariable("areaId") String areaId) {
-		logger.debug("Input Param [areaId] -> " + areaId);
+		log.debug("Input Param [areaId] -> " + areaId);
 		List<Map<String, Object>> mapList = Lists.newArrayList();
 		List<Area> list = areaService.findAll();
 		for (int i=0; i<list.size(); i++){

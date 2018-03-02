@@ -11,4 +11,9 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
+	<bean class="net.frank.yangtes.commons.persistence.MyBatisExtendMapper">
+	    <property name="beanId" value="mapperScannerConfigurer" />
+	    <property name="extendsBasePackage" value="net.frank.yangtes.modules.cms.dao" />
+	</bean>
+	
 </beans>

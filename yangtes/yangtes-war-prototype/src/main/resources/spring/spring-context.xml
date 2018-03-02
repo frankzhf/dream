@@ -33,9 +33,9 @@
 	</context:component-scan>
 	
 	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<bean bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao" />
+        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao" />
         <property name="annotationClass"
 			value="net.frank.yangtes.commons.persistence.annotation.MyBatisDao" />
     </bean>

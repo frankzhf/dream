@@ -12,7 +12,6 @@ import javax.validation.Validator;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.shiro.authc.AuthenticationException;
-//import org.apache.shiro.authc.AuthenticationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +35,7 @@ public abstract class BaseController {
 	/**
 	 * 日志对象
 	 */
-	protected Logger logger = LoggerFactory.getLogger(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	/**
 	 * 管理基础路径

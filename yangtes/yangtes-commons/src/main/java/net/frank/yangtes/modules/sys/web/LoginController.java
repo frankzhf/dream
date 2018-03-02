@@ -43,22 +43,16 @@ public class LoginController extends BaseController{
 	@RequestMapping(value = "${adminPath}/login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request, HttpServletResponse response, Model model) {
 		Principal principal = UserUtils.getPrincipal();
-
 //		// 默认页签模式
 //		String tabmode = CookieUtils.getCookie(request, "tabmode");
 //		if (tabmode == null){
 //			CookieUtils.setCookie(response, "tabmode", "1");
 //		}
-		
-		if (logger.isDebugEnabled()){
-			logger.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
-		}
-		
+		log.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
 		// 如果已登录，再次访问主页，则退出原账号。
 		if (Global.TRUE.equals(Global.getConfig("notAllowRefreshIndex"))){
 			CookieUtils.setCookie(response, "LOGINED", "false");
 		}
-		
 		// 如果已经登录，则跳转到管理首页
 		if(principal != null && !principal.isMobileLogin()){
 			return "redirect:" + adminPath;
@@ -94,10 +88,8 @@ public class LoginController extends BaseController{
 		model.addAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME, exception);
 		model.addAttribute(FormAuthenticationFilter.DEFAULT_MESSAGE_PARAM, message);
 		
-		if (logger.isDebugEnabled()){
-			logger.debug("login fail, active session size: {}, message: {}, exception: {}", 
+		log.debug("login fail, active session size: {}, message: {}, exception: {}", 
 					new Object[]{sessionDAO.getActiveSessions(false).size(), message, exception});
-		}
 		
 		// 非授权异常，登录失败，验证码加1。
 		if (!UnauthorizedException.class.getName().equals(exception)){
@@ -125,11 +117,7 @@ public class LoginController extends BaseController{
 
 		// 登录成功后，验证码计算器清零
 		isValidateCodeLogin(principal.getLoginName(), false, true);
-		
-		if (logger.isDebugEnabled()){
-			logger.debug("show index, active session size: {}", sessionDAO.getActiveSessions(false).size());
-		}
-		
+		log.debug("show index, active session size: {}", sessionDAO.getActiveSessions(false).size());
 		// 如果已登录，再次访问主页，则退出原账号。
 		if (Global.TRUE.equals(Global.getConfig("notAllowRefreshIndex"))){
 			String logined = CookieUtils.getCookie(request, "LOGINED");
