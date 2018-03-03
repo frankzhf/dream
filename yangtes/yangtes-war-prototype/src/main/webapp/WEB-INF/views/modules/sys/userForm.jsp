@@ -170,6 +170,3 @@
 		</div>
 	</form:form>
 </layout:default>
-
-
-	
