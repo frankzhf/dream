@@ -121,4 +121,59 @@ public class ReflectionTest {
 			System.out.print(name+";\n");
 		}
 	}
+	
+	/***
+	 * java.lang.Class
+	 * Field[] getFields()
+	 * Field[] getDeclaredFields()
+	 * 返回类的所有字段，Declared方法包括私有的
+	 * 
+	 * Method[] getMehtods()
+	 * Method[] getDeclareMethods()
+	 * 返回类的所有方法，Declared方法包括私有的
+	 * 
+	 * Constructor[] getConstructors()
+	 * Constructor[] getDeclaredConstructors()
+	 * 返回类的所有构造方法，Declared方法包括私有的
+	 * 
+	 * java.lang.reflect.Field
+	 * java.lang.reflect.Mehtod
+	 * java.lang.reflect.Constructor
+	 * Class getDeclaringClass()
+	 * 返回一个用于描述类中定义的构造器
+	 * 
+	 * Class[] getExceptionTypes()（在Constructor和Method中）
+	 * 返回构造或方法定义的异常类型
+	 * 
+	 * int getModifiers();
+	 * 返回一个用于描述构造器
+	 * 
+	 * String getName()
+	 * 返回一个用于描述构造器的字符串
+	 * 
+	 * Class[] getParameterTypes()（在Constructor和Method中）
+	 * 返回构造或方法定义的参数类型
+	 * 
+	 * Class getReturnType()（在Method中）
+	 * 返回法定义的返回值类型
+	 * 
+	 * java.lang.reflect.Modifier
+	 * static String toString(int modifiers)
+	 * 返回对应modifiers中位置的修饰符的字符串
+	 * 
+	 * static boolean isAbstract(int modifiers)
+	 * static boolean isFinal(int modifiers)
+	 * static boolean isInterface(int modifiers)
+	 * static boolean isNative(int modifiers)
+	 * static boolean isPrivate(int modifiers)
+	 * static boolean isProtected(int modifiers)
+	 * static boolean isPublic(int modifiers)
+	 * static boolean isStatic(int modifiers)
+	 * static boolean isStrict(int modifiers)
+	 * static boolean isSynchronized(int modifiers)
+	 * static boolean isVolatile(int modifiers)
+	 * 判断修饰符是否包含特定描述
+	 * 
+	 */
+	
 }
