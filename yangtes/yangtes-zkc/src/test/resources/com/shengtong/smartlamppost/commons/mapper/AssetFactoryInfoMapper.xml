@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.AssetFactoryInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfo" >
+    <id column="Factory_ID" property="factoryId" jdbcType="INTEGER" />
+    <result column="Factory_Name" property="factoryName" jdbcType="VARCHAR" />
+    <result column="Factory_Tel" property="factoryTel" jdbcType="VARCHAR" />
+    <result column="Factory_Addr" property="factoryAddr" jdbcType="VARCHAR" />
+    <result column="Factory_Attn" property="factoryAttn" jdbcType="VARCHAR" />
+    <result column="Supplement" property="supplement" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Factory_ID, Factory_Name, Factory_Tel, Factory_Addr, Factory_Attn, Supplement
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from r_factory_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from r_factory_info
+    where Factory_ID = #{factoryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_factory_info
+    where Factory_ID = #{factoryId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfo" >
+    insert into r_factory_info (Factory_ID, Factory_Name, Factory_Tel, 
+      Factory_Addr, Factory_Attn, Supplement
+      )
+    values (#{factoryId,jdbcType=INTEGER}, #{factoryName,jdbcType=VARCHAR}, #{factoryTel,jdbcType=VARCHAR}, 
+      #{factoryAddr,jdbcType=VARCHAR}, #{factoryAttn,jdbcType=VARCHAR}, #{supplement,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfo" >
+    insert into r_factory_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="factoryId != null" >
+        Factory_ID,
+      </if>
+      <if test="factoryName != null" >
+        Factory_Name,
+      </if>
+      <if test="factoryTel != null" >
+        Factory_Tel,
+      </if>
+      <if test="factoryAddr != null" >
+        Factory_Addr,
+      </if>
+      <if test="factoryAttn != null" >
+        Factory_Attn,
+      </if>
+      <if test="supplement != null" >
+        Supplement,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="factoryId != null" >
+        #{factoryId,jdbcType=INTEGER},
+      </if>
+      <if test="factoryName != null" >
+        #{factoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryTel != null" >
+        #{factoryTel,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryAddr != null" >
+        #{factoryAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryAttn != null" >
+        #{factoryAttn,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        #{supplement,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfo" >
+    update r_factory_info
+    <set >
+      <if test="factoryName != null" >
+        Factory_Name = #{factoryName,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryTel != null" >
+        Factory_Tel = #{factoryTel,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryAddr != null" >
+        Factory_Addr = #{factoryAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryAttn != null" >
+        Factory_Attn = #{factoryAttn,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        Supplement = #{supplement,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Factory_ID = #{factoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.AssetFactoryInfo" >
+    update r_factory_info
+    set Factory_Name = #{factoryName,jdbcType=VARCHAR},
+      Factory_Tel = #{factoryTel,jdbcType=VARCHAR},
+      Factory_Addr = #{factoryAddr,jdbcType=VARCHAR},
+      Factory_Attn = #{factoryAttn,jdbcType=VARCHAR},
+      Supplement = #{supplement,jdbcType=VARCHAR}
+    where Factory_ID = #{factoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

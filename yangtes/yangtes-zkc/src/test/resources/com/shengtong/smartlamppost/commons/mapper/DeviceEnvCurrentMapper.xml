@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceEnvCurrentMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrent" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="device_code" property="deviceCode" jdbcType="VARCHAR" />
+    <result column="running_status" property="runningStatus" jdbcType="CHAR" />
+    <result column="device_status" property="deviceStatus" jdbcType="CHAR" />
+    <result column="collect_date" property="collectDate" jdbcType="TIMESTAMP" />
+    <result column="env_dn" property="envDn" jdbcType="VARCHAR" />
+    <result column="env_dm" property="envDm" jdbcType="VARCHAR" />
+    <result column="env_dx" property="envDx" jdbcType="VARCHAR" />
+    <result column="env_sn" property="envSn" jdbcType="VARCHAR" />
+    <result column="env_sm" property="envSm" jdbcType="VARCHAR" />
+    <result column="env_sx" property="envSx" jdbcType="VARCHAR" />
+    <result column="env_ta" property="envTa" jdbcType="VARCHAR" />
+    <result column="env_ua" property="envUa" jdbcType="VARCHAR" />
+    <result column="env_pa" property="envPa" jdbcType="VARCHAR" />
+    <result column="env_rc" property="envRc" jdbcType="VARCHAR" />
+    <result column="env_sr" property="envSr" jdbcType="VARCHAR" />
+    <result column="env_uv" property="envUv" jdbcType="VARCHAR" />
+    <result column="env_co" property="envCo" jdbcType="VARCHAR" />
+    <result column="env_so2" property="envSo2" jdbcType="VARCHAR" />
+    <result column="env_h2s" property="envH2s" jdbcType="VARCHAR" />
+    <result column="env_no2" property="envNo2" jdbcType="VARCHAR" />
+    <result column="env_o3" property="envO3" jdbcType="VARCHAR" />
+    <result column="env_no" property="envNo" jdbcType="VARCHAR" />
+    <result column="env_nx" property="envNx" jdbcType="VARCHAR" />
+    <result column="env_ni" property="envNi" jdbcType="VARCHAR" />
+    <result column="env_ns" property="envNs" jdbcType="VARCHAR" />
+    <result column="env_pm25" property="envPm25" jdbcType="VARCHAR" />
+    <result column="env_pm10" property="envPm10" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, device_code, running_status, device_status, collect_date, env_dn, 
+    env_dm, env_dx, env_sn, env_sm, env_sx, env_ta, env_ua, env_pa, env_rc, env_sr, env_uv, 
+    env_co, env_so2, env_h2s, env_no2, env_o3, env_no, env_nx, env_ni, env_ns, env_pm25, 
+    env_pm10, create_by, create_date, update_by, update_date, remarks, del_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_env_current
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_env_current
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_env_current
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrent" >
+    insert into device_env_current (id, branch_id, device_code, 
+      running_status, device_status, collect_date, 
+      env_dn, env_dm, env_dx, 
+      env_sn, env_sm, env_sx, 
+      env_ta, env_ua, env_pa, 
+      env_rc, env_sr, env_uv, 
+      env_co, env_so2, env_h2s, 
+      env_no2, env_o3, env_no, 
+      env_nx, env_ni, env_ns, 
+      env_pm25, env_pm10, create_by, 
+      create_date, update_by, update_date, 
+      remarks, del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{deviceCode,jdbcType=VARCHAR}, 
+      #{runningStatus,jdbcType=CHAR}, #{deviceStatus,jdbcType=CHAR}, #{collectDate,jdbcType=TIMESTAMP}, 
+      #{envDn,jdbcType=VARCHAR}, #{envDm,jdbcType=VARCHAR}, #{envDx,jdbcType=VARCHAR}, 
+      #{envSn,jdbcType=VARCHAR}, #{envSm,jdbcType=VARCHAR}, #{envSx,jdbcType=VARCHAR}, 
+      #{envTa,jdbcType=VARCHAR}, #{envUa,jdbcType=VARCHAR}, #{envPa,jdbcType=VARCHAR}, 
+      #{envRc,jdbcType=VARCHAR}, #{envSr,jdbcType=VARCHAR}, #{envUv,jdbcType=VARCHAR}, 
+      #{envCo,jdbcType=VARCHAR}, #{envSo2,jdbcType=VARCHAR}, #{envH2s,jdbcType=VARCHAR}, 
+      #{envNo2,jdbcType=VARCHAR}, #{envO3,jdbcType=VARCHAR}, #{envNo,jdbcType=VARCHAR}, 
+      #{envNx,jdbcType=VARCHAR}, #{envNi,jdbcType=VARCHAR}, #{envNs,jdbcType=VARCHAR}, 
+      #{envPm25,jdbcType=VARCHAR}, #{envPm10,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrent" >
+    insert into device_env_current
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="deviceCode != null" >
+        device_code,
+      </if>
+      <if test="runningStatus != null" >
+        running_status,
+      </if>
+      <if test="deviceStatus != null" >
+        device_status,
+      </if>
+      <if test="collectDate != null" >
+        collect_date,
+      </if>
+      <if test="envDn != null" >
+        env_dn,
+      </if>
+      <if test="envDm != null" >
+        env_dm,
+      </if>
+      <if test="envDx != null" >
+        env_dx,
+      </if>
+      <if test="envSn != null" >
+        env_sn,
+      </if>
+      <if test="envSm != null" >
+        env_sm,
+      </if>
+      <if test="envSx != null" >
+        env_sx,
+      </if>
+      <if test="envTa != null" >
+        env_ta,
+      </if>
+      <if test="envUa != null" >
+        env_ua,
+      </if>
+      <if test="envPa != null" >
+        env_pa,
+      </if>
+      <if test="envRc != null" >
+        env_rc,
+      </if>
+      <if test="envSr != null" >
+        env_sr,
+      </if>
+      <if test="envUv != null" >
+        env_uv,
+      </if>
+      <if test="envCo != null" >
+        env_co,
+      </if>
+      <if test="envSo2 != null" >
+        env_so2,
+      </if>
+      <if test="envH2s != null" >
+        env_h2s,
+      </if>
+      <if test="envNo2 != null" >
+        env_no2,
+      </if>
+      <if test="envO3 != null" >
+        env_o3,
+      </if>
+      <if test="envNo != null" >
+        env_no,
+      </if>
+      <if test="envNx != null" >
+        env_nx,
+      </if>
+      <if test="envNi != null" >
+        env_ni,
+      </if>
+      <if test="envNs != null" >
+        env_ns,
+      </if>
+      <if test="envPm25 != null" >
+        env_pm25,
+      </if>
+      <if test="envPm10 != null" >
+        env_pm10,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCode != null" >
+        #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="runningStatus != null" >
+        #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        #{deviceStatus,jdbcType=CHAR},
+      </if>
+      <if test="collectDate != null" >
+        #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="envDn != null" >
+        #{envDn,jdbcType=VARCHAR},
+      </if>
+      <if test="envDm != null" >
+        #{envDm,jdbcType=VARCHAR},
+      </if>
+      <if test="envDx != null" >
+        #{envDx,jdbcType=VARCHAR},
+      </if>
+      <if test="envSn != null" >
+        #{envSn,jdbcType=VARCHAR},
+      </if>
+      <if test="envSm != null" >
+        #{envSm,jdbcType=VARCHAR},
+      </if>
+      <if test="envSx != null" >
+        #{envSx,jdbcType=VARCHAR},
+      </if>
+      <if test="envTa != null" >
+        #{envTa,jdbcType=VARCHAR},
+      </if>
+      <if test="envUa != null" >
+        #{envUa,jdbcType=VARCHAR},
+      </if>
+      <if test="envPa != null" >
+        #{envPa,jdbcType=VARCHAR},
+      </if>
+      <if test="envRc != null" >
+        #{envRc,jdbcType=VARCHAR},
+      </if>
+      <if test="envSr != null" >
+        #{envSr,jdbcType=VARCHAR},
+      </if>
+      <if test="envUv != null" >
+        #{envUv,jdbcType=VARCHAR},
+      </if>
+      <if test="envCo != null" >
+        #{envCo,jdbcType=VARCHAR},
+      </if>
+      <if test="envSo2 != null" >
+        #{envSo2,jdbcType=VARCHAR},
+      </if>
+      <if test="envH2s != null" >
+        #{envH2s,jdbcType=VARCHAR},
+      </if>
+      <if test="envNo2 != null" >
+        #{envNo2,jdbcType=VARCHAR},
+      </if>
+      <if test="envO3 != null" >
+        #{envO3,jdbcType=VARCHAR},
+      </if>
+      <if test="envNo != null" >
+        #{envNo,jdbcType=VARCHAR},
+      </if>
+      <if test="envNx != null" >
+        #{envNx,jdbcType=VARCHAR},
+      </if>
+      <if test="envNi != null" >
+        #{envNi,jdbcType=VARCHAR},
+      </if>
+      <if test="envNs != null" >
+        #{envNs,jdbcType=VARCHAR},
+      </if>
+      <if test="envPm25 != null" >
+        #{envPm25,jdbcType=VARCHAR},
+      </if>
+      <if test="envPm10 != null" >
+        #{envPm10,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrent" >
+    update device_env_current
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCode != null" >
+        device_code = #{deviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="runningStatus != null" >
+        running_status = #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        device_status = #{deviceStatus,jdbcType=CHAR},
+      </if>
+      <if test="collectDate != null" >
+        collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="envDn != null" >
+        env_dn = #{envDn,jdbcType=VARCHAR},
+      </if>
+      <if test="envDm != null" >
+        env_dm = #{envDm,jdbcType=VARCHAR},
+      </if>
+      <if test="envDx != null" >
+        env_dx = #{envDx,jdbcType=VARCHAR},
+      </if>
+      <if test="envSn != null" >
+        env_sn = #{envSn,jdbcType=VARCHAR},
+      </if>
+      <if test="envSm != null" >
+        env_sm = #{envSm,jdbcType=VARCHAR},
+      </if>
+      <if test="envSx != null" >
+        env_sx = #{envSx,jdbcType=VARCHAR},
+      </if>
+      <if test="envTa != null" >
+        env_ta = #{envTa,jdbcType=VARCHAR},
+      </if>
+      <if test="envUa != null" >
+        env_ua = #{envUa,jdbcType=VARCHAR},
+      </if>
+      <if test="envPa != null" >
+        env_pa = #{envPa,jdbcType=VARCHAR},
+      </if>
+      <if test="envRc != null" >
+        env_rc = #{envRc,jdbcType=VARCHAR},
+      </if>
+      <if test="envSr != null" >
+        env_sr = #{envSr,jdbcType=VARCHAR},
+      </if>
+      <if test="envUv != null" >
+        env_uv = #{envUv,jdbcType=VARCHAR},
+      </if>
+      <if test="envCo != null" >
+        env_co = #{envCo,jdbcType=VARCHAR},
+      </if>
+      <if test="envSo2 != null" >
+        env_so2 = #{envSo2,jdbcType=VARCHAR},
+      </if>
+      <if test="envH2s != null" >
+        env_h2s = #{envH2s,jdbcType=VARCHAR},
+      </if>
+      <if test="envNo2 != null" >
+        env_no2 = #{envNo2,jdbcType=VARCHAR},
+      </if>
+      <if test="envO3 != null" >
+        env_o3 = #{envO3,jdbcType=VARCHAR},
+      </if>
+      <if test="envNo != null" >
+        env_no = #{envNo,jdbcType=VARCHAR},
+      </if>
+      <if test="envNx != null" >
+        env_nx = #{envNx,jdbcType=VARCHAR},
+      </if>
+      <if test="envNi != null" >
+        env_ni = #{envNi,jdbcType=VARCHAR},
+      </if>
+      <if test="envNs != null" >
+        env_ns = #{envNs,jdbcType=VARCHAR},
+      </if>
+      <if test="envPm25 != null" >
+        env_pm25 = #{envPm25,jdbcType=VARCHAR},
+      </if>
+      <if test="envPm10 != null" >
+        env_pm10 = #{envPm10,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceEnvCurrent" >
+    update device_env_current
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      device_code = #{deviceCode,jdbcType=VARCHAR},
+      running_status = #{runningStatus,jdbcType=CHAR},
+      device_status = #{deviceStatus,jdbcType=CHAR},
+      collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      env_dn = #{envDn,jdbcType=VARCHAR},
+      env_dm = #{envDm,jdbcType=VARCHAR},
+      env_dx = #{envDx,jdbcType=VARCHAR},
+      env_sn = #{envSn,jdbcType=VARCHAR},
+      env_sm = #{envSm,jdbcType=VARCHAR},
+      env_sx = #{envSx,jdbcType=VARCHAR},
+      env_ta = #{envTa,jdbcType=VARCHAR},
+      env_ua = #{envUa,jdbcType=VARCHAR},
+      env_pa = #{envPa,jdbcType=VARCHAR},
+      env_rc = #{envRc,jdbcType=VARCHAR},
+      env_sr = #{envSr,jdbcType=VARCHAR},
+      env_uv = #{envUv,jdbcType=VARCHAR},
+      env_co = #{envCo,jdbcType=VARCHAR},
+      env_so2 = #{envSo2,jdbcType=VARCHAR},
+      env_h2s = #{envH2s,jdbcType=VARCHAR},
+      env_no2 = #{envNo2,jdbcType=VARCHAR},
+      env_o3 = #{envO3,jdbcType=VARCHAR},
+      env_no = #{envNo,jdbcType=VARCHAR},
+      env_nx = #{envNx,jdbcType=VARCHAR},
+      env_ni = #{envNi,jdbcType=VARCHAR},
+      env_ns = #{envNs,jdbcType=VARCHAR},
+      env_pm25 = #{envPm25,jdbcType=VARCHAR},
+      env_pm10 = #{envPm10,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

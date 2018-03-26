@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration 
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="/Users/zhaofeng/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://139.196.106.102:3306/smartlamppost_admin?useUnicode=true&amp;characterEncoding=utf8"
+			userId="lamppostdevuser" password="edc321@">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.shengtong.smartlamppost.commons.entity"
+			targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.shengtong.smartlamppost.commons.mapper"
+			targetProject="src/test/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.shengtong.smartlamppost.commons.mapper"
+			targetProject="src/test/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="device_alarm" domainObjectName="DeviceAlert"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_alarm_fault" domainObjectName="DeviceAlertFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_ap_currect" domainObjectName="DeviceApCurrect"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_ap_fault" domainObjectName="DeviceApFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_ap_history" domainObjectName="DeviceApHistory"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_broadcast" domainObjectName="DeviceBroadcast"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_broadcast_fault" domainObjectName="DeviceBroadcastFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_camera" domainObjectName="DeviceCamera"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_camera_fault" domainObjectName="DeviceCameraFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_camera_preset_position"
+			domainObjectName="DeviceCameraPresetPosition" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_cover" domainObjectName="DeviceCover"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_cover_base_station" domainObjectName="DeviceCoverBaseStation"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_cover_config_history" domainObjectName="DeviceCoverConfigHistory"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_cover_fault" domainObjectName="DeviceCoverFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_env_current" domainObjectName="DeviceEnvCurrent"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_env_fault" domainObjectName="DeviceEnvFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_env_history" domainObjectName="DeviceEnvHistory"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_cap" domainObjectName="DeviceLampCap"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_concentrator" domainObjectName="DeviceLampConcentrator"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_control" domainObjectName="DeviceLampControl"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_fault" domainObjectName="DeviceLampFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_terminal" domainObjectName="DeviceLampTerminal"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lamp_terminal_loop" domainObjectName="DeviceLampTerminalLoop"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen" domainObjectName="DeviceLampScreen"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_capture_detail"
+			domainObjectName="DeviceLampScreenCaptureDetail"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_capture_head"
+			domainObjectName="DeviceLampScreenCaptureHead" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_fault" domainObjectName="DeviceLampScreenFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_publish" domainObjectName="DeviceLampScreenPublish"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_publish_detail"
+			domainObjectName="DeviceLampScreenPublishDetail"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_led_screen_realtime_server"
+			domainObjectName="DeviceLampScreenRealtimeServer"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_lux_current" domainObjectName="DeviceLuxCurrent"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_mul_touch_screen" domainObjectName="DeviceMulTouchScreen"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_mul_touch_screen_fault"
+			domainObjectName="DeviceMulTouchScreenFault" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_mul_touch_screen_publish"
+			domainObjectName="DeviceMulTouchScreenPublish" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_mul_touch_screen_publish_detail"
+			domainObjectName="DeviceMulTouchScreenPublishDetail"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_review_user" domainObjectName="DeviceReviewUser"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_card" domainObjectName="DeviceRfidCard"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_fault" domainObjectName="DeviceRfidFault"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_punch_card_record"
+			domainObjectName="DeviceRfidPunchCardRecord" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_reader_current" domainObjectName="DeviceRfidReaderCurrent"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_task" domainObjectName="DeviceRfidTask"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_task_lamp" domainObjectName="DeviceRfidTaskLamp"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_task_user" domainObjectName="DeviceRfidTaskUser"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_task_user_result"
+			domainObjectName="DeviceRfidTaskUserResult" enableCountByExample="false"
+			enableSelectByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false">
+		</table>
+		<table tableName="device_rfid_user" domainObjectName="DeviceRfidUser"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_device_log" domainObjectName="OpsDeviceLog"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_event" domainObjectName="OpsEvent"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_event_attachment" domainObjectName="OpsEventAttachment"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_gateway_service" domainObjectName="OpsGatewayService"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_notification" domainObjectName="OpsNotification"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_sync_record" domainObjectName="OpsSyncRecord"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_sync_subnode_record" domainObjectName="OpsSyncSubnodeRecord"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="ops_sync_table" domainObjectName="OpsSyncTable"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+
+		<table tableName="r_access_equclass_info" domainObjectName="AssetAccessEquclassInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_access_group_info" domainObjectName="AssetAccessGroupInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_area_info" domainObjectName="AssetAreaInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+
+		<table tableName="r_equclass_info" domainObjectName="AssetEquclassInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_equipment_info" domainObjectName="AssetEquipmentInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_equmodel_info" domainObjectName="AssetEqumodelInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_equsection_info" domainObjectName="AssetEqusectionInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_factory_info" domainObjectName="AssetFactoryInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_group_info" domainObjectName="AssetGroupInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_lamp_info" domainObjectName="AssetLampInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="r_user_info" domainObjectName="AssetUserInfo"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_area" domainObjectName="SysArea"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_branch" domainObjectName="SysBranch"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_dict" domainObjectName="SysDict"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_grid_column" domainObjectName="SysGridColumn"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_heatmap" domainObjectName="SysHeatmap"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_log" domainObjectName="SysLog"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_menu" domainObjectName="SysMenu"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_mobile_authorization" domainObjectName="SysMobileAuthorization"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_mobile_jpush" domainObjectName="SysMobileJpush"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_office" domainObjectName="SysOffice"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_role" domainObjectName="SysRole"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_role_menu" domainObjectName="SysRoleMenu"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_role_office" domainObjectName="SysRoleOffice"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_service_config" domainObjectName="SysServiceConfig"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_task_job" domainObjectName="SysTaskJob"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_third_authorization" domainObjectName="SysThirdAuthorization"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_user" domainObjectName="SysUser"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="sys_user_role" domainObjectName="SysUserRole"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+	</context>
+</generatorConfiguration>

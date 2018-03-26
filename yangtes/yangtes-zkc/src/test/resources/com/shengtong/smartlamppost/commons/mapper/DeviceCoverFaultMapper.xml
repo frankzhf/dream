@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceCoverFaultMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceCoverFault" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="device_cover_id" property="deviceCoverId" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="cover_id" property="coverId" jdbcType="VARCHAR" />
+    <result column="base_station_id" property="baseStationId" jdbcType="VARCHAR" />
+    <result column="device_station_code" property="deviceStationCode" jdbcType="VARCHAR" />
+    <result column="device_cover_code" property="deviceCoverCode" jdbcType="VARCHAR" />
+    <result column="cover_open_status" property="coverOpenStatus" jdbcType="CHAR" />
+    <result column="power_status" property="powerStatus" jdbcType="CHAR" />
+    <result column="water_level_status" property="waterLevelStatus" jdbcType="CHAR" />
+    <result column="fault_status" property="faultStatus" jdbcType="CHAR" />
+    <result column="fault_reslove_date" property="faultResloveDate" jdbcType="TIMESTAMP" />
+    <result column="collect_date" property="collectDate" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="cover_inclination" property="coverInclination" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, device_cover_id, branch_id, cover_id, base_station_id, device_station_code, device_cover_code, 
+    cover_open_status, power_status, water_level_status, fault_status, fault_reslove_date, 
+    collect_date, create_by, create_date, update_by, update_date, remarks, del_flag, 
+    cover_inclination
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverFaultExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_cover_fault
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_cover_fault
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_cover_fault
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverFault" >
+    insert into device_cover_fault (id, device_cover_id, branch_id, 
+      cover_id, base_station_id, device_station_code, 
+      device_cover_code, cover_open_status, power_status, 
+      water_level_status, fault_status, fault_reslove_date, 
+      collect_date, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag, cover_inclination)
+    values (#{id,jdbcType=VARCHAR}, #{deviceCoverId,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, 
+      #{coverId,jdbcType=VARCHAR}, #{baseStationId,jdbcType=VARCHAR}, #{deviceStationCode,jdbcType=VARCHAR}, 
+      #{deviceCoverCode,jdbcType=VARCHAR}, #{coverOpenStatus,jdbcType=CHAR}, #{powerStatus,jdbcType=CHAR}, 
+      #{waterLevelStatus,jdbcType=CHAR}, #{faultStatus,jdbcType=CHAR}, #{faultResloveDate,jdbcType=TIMESTAMP}, 
+      #{collectDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR}, #{coverInclination,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverFault" >
+    insert into device_cover_fault
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceCoverId != null" >
+        device_cover_id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="coverId != null" >
+        cover_id,
+      </if>
+      <if test="baseStationId != null" >
+        base_station_id,
+      </if>
+      <if test="deviceStationCode != null" >
+        device_station_code,
+      </if>
+      <if test="deviceCoverCode != null" >
+        device_cover_code,
+      </if>
+      <if test="coverOpenStatus != null" >
+        cover_open_status,
+      </if>
+      <if test="powerStatus != null" >
+        power_status,
+      </if>
+      <if test="waterLevelStatus != null" >
+        water_level_status,
+      </if>
+      <if test="faultStatus != null" >
+        fault_status,
+      </if>
+      <if test="faultResloveDate != null" >
+        fault_reslove_date,
+      </if>
+      <if test="collectDate != null" >
+        collect_date,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="coverInclination != null" >
+        cover_inclination,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCoverId != null" >
+        #{deviceCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="coverId != null" >
+        #{coverId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseStationId != null" >
+        #{baseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceStationCode != null" >
+        #{deviceStationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCoverCode != null" >
+        #{deviceCoverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coverOpenStatus != null" >
+        #{coverOpenStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null" >
+        #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="waterLevelStatus != null" >
+        #{waterLevelStatus,jdbcType=CHAR},
+      </if>
+      <if test="faultStatus != null" >
+        #{faultStatus,jdbcType=CHAR},
+      </if>
+      <if test="faultResloveDate != null" >
+        #{faultResloveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectDate != null" >
+        #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="coverInclination != null" >
+        #{coverInclination,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverFault" >
+    update device_cover_fault
+    <set >
+      <if test="deviceCoverId != null" >
+        device_cover_id = #{deviceCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="coverId != null" >
+        cover_id = #{coverId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseStationId != null" >
+        base_station_id = #{baseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceStationCode != null" >
+        device_station_code = #{deviceStationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCoverCode != null" >
+        device_cover_code = #{deviceCoverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="coverOpenStatus != null" >
+        cover_open_status = #{coverOpenStatus,jdbcType=CHAR},
+      </if>
+      <if test="powerStatus != null" >
+        power_status = #{powerStatus,jdbcType=CHAR},
+      </if>
+      <if test="waterLevelStatus != null" >
+        water_level_status = #{waterLevelStatus,jdbcType=CHAR},
+      </if>
+      <if test="faultStatus != null" >
+        fault_status = #{faultStatus,jdbcType=CHAR},
+      </if>
+      <if test="faultResloveDate != null" >
+        fault_reslove_date = #{faultResloveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectDate != null" >
+        collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="coverInclination != null" >
+        cover_inclination = #{coverInclination,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverFault" >
+    update device_cover_fault
+    set device_cover_id = #{deviceCoverId,jdbcType=VARCHAR},
+      branch_id = #{branchId,jdbcType=VARCHAR},
+      cover_id = #{coverId,jdbcType=VARCHAR},
+      base_station_id = #{baseStationId,jdbcType=VARCHAR},
+      device_station_code = #{deviceStationCode,jdbcType=VARCHAR},
+      device_cover_code = #{deviceCoverCode,jdbcType=VARCHAR},
+      cover_open_status = #{coverOpenStatus,jdbcType=CHAR},
+      power_status = #{powerStatus,jdbcType=CHAR},
+      water_level_status = #{waterLevelStatus,jdbcType=CHAR},
+      fault_status = #{faultStatus,jdbcType=CHAR},
+      fault_reslove_date = #{faultResloveDate,jdbcType=TIMESTAMP},
+      collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      cover_inclination = #{coverInclination,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

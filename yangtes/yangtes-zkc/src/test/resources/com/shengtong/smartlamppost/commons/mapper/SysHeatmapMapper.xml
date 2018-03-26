@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.SysHeatmapMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.SysHeatmap" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="parameter_code" property="parameterCode" jdbcType="VARCHAR" />
+    <result column="parameter_desc" property="parameterDesc" jdbcType="VARCHAR" />
+    <result column="parameter_unit" property="parameterUnit" jdbcType="VARCHAR" />
+    <result column="area_max_value1" property="areaMaxValue1" jdbcType="VARCHAR" />
+    <result column="area_max_value2" property="areaMaxValue2" jdbcType="VARCHAR" />
+    <result column="area_max_value3" property="areaMaxValue3" jdbcType="VARCHAR" />
+    <result column="area_max_value4" property="areaMaxValue4" jdbcType="VARCHAR" />
+    <result column="area_max_value5" property="areaMaxValue5" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, parameter_code, parameter_desc, parameter_unit, area_max_value1, area_max_value2, 
+    area_max_value3, area_max_value4, area_max_value5, sort, create_by, create_date, 
+    update_by, update_date, remarks, del_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.SysHeatmapExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sys_heatmap
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_heatmap
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_heatmap
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.SysHeatmap" >
+    insert into sys_heatmap (id, branch_id, parameter_code, 
+      parameter_desc, parameter_unit, area_max_value1, 
+      area_max_value2, area_max_value3, area_max_value4, 
+      area_max_value5, sort, create_by, 
+      create_date, update_by, update_date, 
+      remarks, del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{parameterCode,jdbcType=VARCHAR}, 
+      #{parameterDesc,jdbcType=VARCHAR}, #{parameterUnit,jdbcType=VARCHAR}, #{areaMaxValue1,jdbcType=VARCHAR}, 
+      #{areaMaxValue2,jdbcType=VARCHAR}, #{areaMaxValue3,jdbcType=VARCHAR}, #{areaMaxValue4,jdbcType=VARCHAR}, 
+      #{areaMaxValue5,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.SysHeatmap" >
+    insert into sys_heatmap
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="parameterCode != null" >
+        parameter_code,
+      </if>
+      <if test="parameterDesc != null" >
+        parameter_desc,
+      </if>
+      <if test="parameterUnit != null" >
+        parameter_unit,
+      </if>
+      <if test="areaMaxValue1 != null" >
+        area_max_value1,
+      </if>
+      <if test="areaMaxValue2 != null" >
+        area_max_value2,
+      </if>
+      <if test="areaMaxValue3 != null" >
+        area_max_value3,
+      </if>
+      <if test="areaMaxValue4 != null" >
+        area_max_value4,
+      </if>
+      <if test="areaMaxValue5 != null" >
+        area_max_value5,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterCode != null" >
+        #{parameterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterDesc != null" >
+        #{parameterDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterUnit != null" >
+        #{parameterUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue1 != null" >
+        #{areaMaxValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue2 != null" >
+        #{areaMaxValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue3 != null" >
+        #{areaMaxValue3,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue4 != null" >
+        #{areaMaxValue4,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue5 != null" >
+        #{areaMaxValue5,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.SysHeatmap" >
+    update sys_heatmap
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterCode != null" >
+        parameter_code = #{parameterCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterDesc != null" >
+        parameter_desc = #{parameterDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="parameterUnit != null" >
+        parameter_unit = #{parameterUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue1 != null" >
+        area_max_value1 = #{areaMaxValue1,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue2 != null" >
+        area_max_value2 = #{areaMaxValue2,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue3 != null" >
+        area_max_value3 = #{areaMaxValue3,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue4 != null" >
+        area_max_value4 = #{areaMaxValue4,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMaxValue5 != null" >
+        area_max_value5 = #{areaMaxValue5,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.SysHeatmap" >
+    update sys_heatmap
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      parameter_code = #{parameterCode,jdbcType=VARCHAR},
+      parameter_desc = #{parameterDesc,jdbcType=VARCHAR},
+      parameter_unit = #{parameterUnit,jdbcType=VARCHAR},
+      area_max_value1 = #{areaMaxValue1,jdbcType=VARCHAR},
+      area_max_value2 = #{areaMaxValue2,jdbcType=VARCHAR},
+      area_max_value3 = #{areaMaxValue3,jdbcType=VARCHAR},
+      area_max_value4 = #{areaMaxValue4,jdbcType=VARCHAR},
+      area_max_value5 = #{areaMaxValue5,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

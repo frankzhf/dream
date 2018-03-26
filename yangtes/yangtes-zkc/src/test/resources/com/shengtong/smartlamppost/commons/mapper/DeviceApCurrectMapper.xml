@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceApCurrectMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceApCurrect" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="ap_id_address" property="apIdAddress" jdbcType="VARCHAR" />
+    <result column="ac_id_address" property="acIdAddress" jdbcType="VARCHAR" />
+    <result column="device_ap_code" property="deviceApCode" jdbcType="VARCHAR" />
+    <result column="device_ac_code" property="deviceAcCode" jdbcType="VARCHAR" />
+    <result column="ac_running_status" property="acRunningStatus" jdbcType="CHAR" />
+    <result column="ap_running_status" property="apRunningStatus" jdbcType="CHAR" />
+    <result column="device_ac_status" property="deviceAcStatus" jdbcType="CHAR" />
+    <result column="device_ap_status" property="deviceApStatus" jdbcType="CHAR" />
+    <result column="user_access_count" property="userAccessCount" jdbcType="INTEGER" />
+    <result column="ap_send_speed" property="apSendSpeed" jdbcType="DECIMAL" />
+    <result column="ap_recv_speed" property="apRecvSpeed" jdbcType="DECIMAL" />
+    <result column="collect_date" property="collectDate" jdbcType="TIMESTAMP" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="ap_group_id" property="apGroupId" jdbcType="VARCHAR" />
+    <result column="ap_group_name" property="apGroupName" jdbcType="VARCHAR" />
+    <result column="user_probe_count" property="userProbeCount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, ap_id_address, ac_id_address, device_ap_code, device_ac_code, ac_running_status, 
+    ap_running_status, device_ac_status, device_ap_status, user_access_count, ap_send_speed, 
+    ap_recv_speed, collect_date, create_by, create_date, update_by, update_date, remarks, 
+    del_flag, ap_group_id, ap_group_name, user_probe_count
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceApCurrectExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_ap_currect
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_ap_currect
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_ap_currect
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceApCurrect" >
+    insert into device_ap_currect (id, branch_id, ap_id_address, 
+      ac_id_address, device_ap_code, device_ac_code, 
+      ac_running_status, ap_running_status, device_ac_status, 
+      device_ap_status, user_access_count, ap_send_speed, 
+      ap_recv_speed, collect_date, create_by, 
+      create_date, update_by, update_date, 
+      remarks, del_flag, ap_group_id, 
+      ap_group_name, user_probe_count)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{apIdAddress,jdbcType=VARCHAR}, 
+      #{acIdAddress,jdbcType=VARCHAR}, #{deviceApCode,jdbcType=VARCHAR}, #{deviceAcCode,jdbcType=VARCHAR}, 
+      #{acRunningStatus,jdbcType=CHAR}, #{apRunningStatus,jdbcType=CHAR}, #{deviceAcStatus,jdbcType=CHAR}, 
+      #{deviceApStatus,jdbcType=CHAR}, #{userAccessCount,jdbcType=INTEGER}, #{apSendSpeed,jdbcType=DECIMAL}, 
+      #{apRecvSpeed,jdbcType=DECIMAL}, #{collectDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, #{apGroupId,jdbcType=VARCHAR}, 
+      #{apGroupName,jdbcType=VARCHAR}, #{userProbeCount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceApCurrect" >
+    insert into device_ap_currect
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="apIdAddress != null" >
+        ap_id_address,
+      </if>
+      <if test="acIdAddress != null" >
+        ac_id_address,
+      </if>
+      <if test="deviceApCode != null" >
+        device_ap_code,
+      </if>
+      <if test="deviceAcCode != null" >
+        device_ac_code,
+      </if>
+      <if test="acRunningStatus != null" >
+        ac_running_status,
+      </if>
+      <if test="apRunningStatus != null" >
+        ap_running_status,
+      </if>
+      <if test="deviceAcStatus != null" >
+        device_ac_status,
+      </if>
+      <if test="deviceApStatus != null" >
+        device_ap_status,
+      </if>
+      <if test="userAccessCount != null" >
+        user_access_count,
+      </if>
+      <if test="apSendSpeed != null" >
+        ap_send_speed,
+      </if>
+      <if test="apRecvSpeed != null" >
+        ap_recv_speed,
+      </if>
+      <if test="collectDate != null" >
+        collect_date,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="apGroupId != null" >
+        ap_group_id,
+      </if>
+      <if test="apGroupName != null" >
+        ap_group_name,
+      </if>
+      <if test="userProbeCount != null" >
+        user_probe_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="apIdAddress != null" >
+        #{apIdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="acIdAddress != null" >
+        #{acIdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceApCode != null" >
+        #{deviceApCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceAcCode != null" >
+        #{deviceAcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acRunningStatus != null" >
+        #{acRunningStatus,jdbcType=CHAR},
+      </if>
+      <if test="apRunningStatus != null" >
+        #{apRunningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceAcStatus != null" >
+        #{deviceAcStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceApStatus != null" >
+        #{deviceApStatus,jdbcType=CHAR},
+      </if>
+      <if test="userAccessCount != null" >
+        #{userAccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="apSendSpeed != null" >
+        #{apSendSpeed,jdbcType=DECIMAL},
+      </if>
+      <if test="apRecvSpeed != null" >
+        #{apRecvSpeed,jdbcType=DECIMAL},
+      </if>
+      <if test="collectDate != null" >
+        #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="apGroupId != null" >
+        #{apGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="apGroupName != null" >
+        #{apGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="userProbeCount != null" >
+        #{userProbeCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceApCurrect" >
+    update device_ap_currect
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="apIdAddress != null" >
+        ap_id_address = #{apIdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="acIdAddress != null" >
+        ac_id_address = #{acIdAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceApCode != null" >
+        device_ap_code = #{deviceApCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceAcCode != null" >
+        device_ac_code = #{deviceAcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acRunningStatus != null" >
+        ac_running_status = #{acRunningStatus,jdbcType=CHAR},
+      </if>
+      <if test="apRunningStatus != null" >
+        ap_running_status = #{apRunningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceAcStatus != null" >
+        device_ac_status = #{deviceAcStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceApStatus != null" >
+        device_ap_status = #{deviceApStatus,jdbcType=CHAR},
+      </if>
+      <if test="userAccessCount != null" >
+        user_access_count = #{userAccessCount,jdbcType=INTEGER},
+      </if>
+      <if test="apSendSpeed != null" >
+        ap_send_speed = #{apSendSpeed,jdbcType=DECIMAL},
+      </if>
+      <if test="apRecvSpeed != null" >
+        ap_recv_speed = #{apRecvSpeed,jdbcType=DECIMAL},
+      </if>
+      <if test="collectDate != null" >
+        collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="apGroupId != null" >
+        ap_group_id = #{apGroupId,jdbcType=VARCHAR},
+      </if>
+      <if test="apGroupName != null" >
+        ap_group_name = #{apGroupName,jdbcType=VARCHAR},
+      </if>
+      <if test="userProbeCount != null" >
+        user_probe_count = #{userProbeCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceApCurrect" >
+    update device_ap_currect
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      ap_id_address = #{apIdAddress,jdbcType=VARCHAR},
+      ac_id_address = #{acIdAddress,jdbcType=VARCHAR},
+      device_ap_code = #{deviceApCode,jdbcType=VARCHAR},
+      device_ac_code = #{deviceAcCode,jdbcType=VARCHAR},
+      ac_running_status = #{acRunningStatus,jdbcType=CHAR},
+      ap_running_status = #{apRunningStatus,jdbcType=CHAR},
+      device_ac_status = #{deviceAcStatus,jdbcType=CHAR},
+      device_ap_status = #{deviceApStatus,jdbcType=CHAR},
+      user_access_count = #{userAccessCount,jdbcType=INTEGER},
+      ap_send_speed = #{apSendSpeed,jdbcType=DECIMAL},
+      ap_recv_speed = #{apRecvSpeed,jdbcType=DECIMAL},
+      collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      ap_group_id = #{apGroupId,jdbcType=VARCHAR},
+      ap_group_name = #{apGroupName,jdbcType=VARCHAR},
+      user_probe_count = #{userProbeCount,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

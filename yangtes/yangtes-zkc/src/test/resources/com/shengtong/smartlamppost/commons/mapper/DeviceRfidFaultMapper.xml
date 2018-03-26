@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceRfidFaultMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceRfidFault" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="rfid_reader_device_id" property="rfidReaderDeviceId" jdbcType="VARCHAR" />
+    <result column="rfid_reader_device_code" property="rfidReaderDeviceCode" jdbcType="VARCHAR" />
+    <result column="fault_level" property="faultLevel" jdbcType="CHAR" />
+    <result column="fault_type" property="faultType" jdbcType="VARCHAR" />
+    <result column="fault_code" property="faultCode" jdbcType="VARCHAR" />
+    <result column="fault_desc" property="faultDesc" jdbcType="VARCHAR" />
+    <result column="fault_create_date" property="faultCreateDate" jdbcType="TIMESTAMP" />
+    <result column="fault_reslove_date" property="faultResloveDate" jdbcType="TIMESTAMP" />
+    <result column="fault_status" property="faultStatus" jdbcType="CHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, rfid_reader_device_id, rfid_reader_device_code, fault_level, fault_type, 
+    fault_code, fault_desc, fault_create_date, fault_reslove_date, fault_status, create_by, 
+    create_date, update_by, update_date, remarks, del_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceRfidFaultExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_rfid_fault
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_rfid_fault
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_rfid_fault
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceRfidFault" >
+    insert into device_rfid_fault (id, branch_id, rfid_reader_device_id, 
+      rfid_reader_device_code, fault_level, fault_type, 
+      fault_code, fault_desc, fault_create_date, 
+      fault_reslove_date, fault_status, create_by, 
+      create_date, update_by, update_date, 
+      remarks, del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{rfidReaderDeviceId,jdbcType=VARCHAR}, 
+      #{rfidReaderDeviceCode,jdbcType=VARCHAR}, #{faultLevel,jdbcType=CHAR}, #{faultType,jdbcType=VARCHAR}, 
+      #{faultCode,jdbcType=VARCHAR}, #{faultDesc,jdbcType=VARCHAR}, #{faultCreateDate,jdbcType=TIMESTAMP}, 
+      #{faultResloveDate,jdbcType=TIMESTAMP}, #{faultStatus,jdbcType=CHAR}, #{createBy,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceRfidFault" >
+    insert into device_rfid_fault
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="rfidReaderDeviceId != null" >
+        rfid_reader_device_id,
+      </if>
+      <if test="rfidReaderDeviceCode != null" >
+        rfid_reader_device_code,
+      </if>
+      <if test="faultLevel != null" >
+        fault_level,
+      </if>
+      <if test="faultType != null" >
+        fault_type,
+      </if>
+      <if test="faultCode != null" >
+        fault_code,
+      </if>
+      <if test="faultDesc != null" >
+        fault_desc,
+      </if>
+      <if test="faultCreateDate != null" >
+        fault_create_date,
+      </if>
+      <if test="faultResloveDate != null" >
+        fault_reslove_date,
+      </if>
+      <if test="faultStatus != null" >
+        fault_status,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidReaderDeviceId != null" >
+        #{rfidReaderDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidReaderDeviceCode != null" >
+        #{rfidReaderDeviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faultLevel != null" >
+        #{faultLevel,jdbcType=CHAR},
+      </if>
+      <if test="faultType != null" >
+        #{faultType,jdbcType=VARCHAR},
+      </if>
+      <if test="faultCode != null" >
+        #{faultCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faultDesc != null" >
+        #{faultDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="faultCreateDate != null" >
+        #{faultCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="faultResloveDate != null" >
+        #{faultResloveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="faultStatus != null" >
+        #{faultStatus,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceRfidFault" >
+    update device_rfid_fault
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidReaderDeviceId != null" >
+        rfid_reader_device_id = #{rfidReaderDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="rfidReaderDeviceCode != null" >
+        rfid_reader_device_code = #{rfidReaderDeviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faultLevel != null" >
+        fault_level = #{faultLevel,jdbcType=CHAR},
+      </if>
+      <if test="faultType != null" >
+        fault_type = #{faultType,jdbcType=VARCHAR},
+      </if>
+      <if test="faultCode != null" >
+        fault_code = #{faultCode,jdbcType=VARCHAR},
+      </if>
+      <if test="faultDesc != null" >
+        fault_desc = #{faultDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="faultCreateDate != null" >
+        fault_create_date = #{faultCreateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="faultResloveDate != null" >
+        fault_reslove_date = #{faultResloveDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="faultStatus != null" >
+        fault_status = #{faultStatus,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceRfidFault" >
+    update device_rfid_fault
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      rfid_reader_device_id = #{rfidReaderDeviceId,jdbcType=VARCHAR},
+      rfid_reader_device_code = #{rfidReaderDeviceCode,jdbcType=VARCHAR},
+      fault_level = #{faultLevel,jdbcType=CHAR},
+      fault_type = #{faultType,jdbcType=VARCHAR},
+      fault_code = #{faultCode,jdbcType=VARCHAR},
+      fault_desc = #{faultDesc,jdbcType=VARCHAR},
+      fault_create_date = #{faultCreateDate,jdbcType=TIMESTAMP},
+      fault_reslove_date = #{faultResloveDate,jdbcType=TIMESTAMP},
+      fault_status = #{faultStatus,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

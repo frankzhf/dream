@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.AssetEquipmentInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfo" >
+    <id column="Equipment_ID" property="equipmentId" jdbcType="INTEGER" />
+    <result column="Equipment_Code" property="equipmentCode" jdbcType="VARCHAR" />
+    <result column="Equipment_Name" property="equipmentName" jdbcType="VARCHAR" />
+    <result column="Lamp_ID" property="lampId" jdbcType="INTEGER" />
+    <result column="EquClass_ID" property="equclassId" jdbcType="INTEGER" />
+    <result column="EquSection_ID" property="equsectionId" jdbcType="INTEGER" />
+    <result column="EquModel_ID" property="equmodelId" jdbcType="INTEGER" />
+    <result column="Group_ID" property="groupId" jdbcType="INTEGER" />
+    <result column="Equipment_IP" property="equipmentIp" jdbcType="VARCHAR" />
+    <result column="Equipment_Port" property="equipmentPort" jdbcType="VARCHAR" />
+    <result column="MAC_ADDR" property="macAddr" jdbcType="VARCHAR" />
+    <result column="SN" property="sn" jdbcType="VARCHAR" />
+    <result column="Factory_ID" property="factoryId" jdbcType="INTEGER" />
+    <result column="Date_Factory" property="dateFactory" jdbcType="BIGINT" />
+    <result column="Equipment_Login_Name" property="equipmentLoginName" jdbcType="VARCHAR" />
+    <result column="Equipment_Login_Password" property="equipmentLoginPassword" jdbcType="VARCHAR" />
+    <result column="Date_Created" property="dateCreated" jdbcType="BIGINT" />
+    <result column="Date_Modified" property="dateModified" jdbcType="BIGINT" />
+    <result column="Created_By" property="createdBy" jdbcType="VARCHAR" />
+    <result column="Modified_By" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="Is_Available" property="isAvailable" jdbcType="INTEGER" />
+    <result column="Supplement" property="supplement" jdbcType="VARCHAR" />
+    <result column="Service_IP" property="serviceIp" jdbcType="VARCHAR" />
+    <result column="Service_Port" property="servicePort" jdbcType="VARCHAR" />
+    <result column="Service_Login_Name" property="serviceLoginName" jdbcType="VARCHAR" />
+    <result column="Service_Login_Password" property="serviceLoginPassword" jdbcType="VARCHAR" />
+    <result column="ControlCard_serialNum" property="controlcardSerialnum" jdbcType="VARCHAR" />
+    <result column="Related_Equipment_ID" property="relatedEquipmentId" jdbcType="INTEGER" />
+    <result column="Subnet_Mask" property="subnetMask" jdbcType="VARCHAR" />
+    <result column="Gateway" property="gateway" jdbcType="VARCHAR" />
+    <result column="DNS" property="dns" jdbcType="VARCHAR" />
+    <result column="Gis_Pos_X" property="gisPosX" jdbcType="VARCHAR" />
+    <result column="Gis_Pos_Y" property="gisPosY" jdbcType="VARCHAR" />
+    <result column="Equipment_Addr" property="equipmentAddr" jdbcType="VARCHAR" />
+    <result column="Business_Code" property="businessCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Equipment_ID, Equipment_Code, Equipment_Name, Lamp_ID, EquClass_ID, EquSection_ID, 
+    EquModel_ID, Group_ID, Equipment_IP, Equipment_Port, MAC_ADDR, SN, Factory_ID, Date_Factory, 
+    Equipment_Login_Name, Equipment_Login_Password, Date_Created, Date_Modified, Created_By, 
+    Modified_By, Is_Available, Supplement, Service_IP, Service_Port, Service_Login_Name, 
+    Service_Login_Password, ControlCard_serialNum, Related_Equipment_ID, Subnet_Mask, 
+    Gateway, DNS, Gis_Pos_X, Gis_Pos_Y, Equipment_Addr, Business_Code
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from r_equipment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from r_equipment_info
+    where Equipment_ID = #{equipmentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_equipment_info
+    where Equipment_ID = #{equipmentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfo" >
+    insert into r_equipment_info (Equipment_ID, Equipment_Code, Equipment_Name, 
+      Lamp_ID, EquClass_ID, EquSection_ID, 
+      EquModel_ID, Group_ID, Equipment_IP, 
+      Equipment_Port, MAC_ADDR, SN, 
+      Factory_ID, Date_Factory, Equipment_Login_Name, 
+      Equipment_Login_Password, Date_Created, Date_Modified, 
+      Created_By, Modified_By, Is_Available, 
+      Supplement, Service_IP, Service_Port, 
+      Service_Login_Name, Service_Login_Password, 
+      ControlCard_serialNum, Related_Equipment_ID, 
+      Subnet_Mask, Gateway, DNS, 
+      Gis_Pos_X, Gis_Pos_Y, Equipment_Addr, 
+      Business_Code)
+    values (#{equipmentId,jdbcType=INTEGER}, #{equipmentCode,jdbcType=VARCHAR}, #{equipmentName,jdbcType=VARCHAR}, 
+      #{lampId,jdbcType=INTEGER}, #{equclassId,jdbcType=INTEGER}, #{equsectionId,jdbcType=INTEGER}, 
+      #{equmodelId,jdbcType=INTEGER}, #{groupId,jdbcType=INTEGER}, #{equipmentIp,jdbcType=VARCHAR}, 
+      #{equipmentPort,jdbcType=VARCHAR}, #{macAddr,jdbcType=VARCHAR}, #{sn,jdbcType=VARCHAR}, 
+      #{factoryId,jdbcType=INTEGER}, #{dateFactory,jdbcType=BIGINT}, #{equipmentLoginName,jdbcType=VARCHAR}, 
+      #{equipmentLoginPassword,jdbcType=VARCHAR}, #{dateCreated,jdbcType=BIGINT}, #{dateModified,jdbcType=BIGINT}, 
+      #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, #{isAvailable,jdbcType=INTEGER}, 
+      #{supplement,jdbcType=VARCHAR}, #{serviceIp,jdbcType=VARCHAR}, #{servicePort,jdbcType=VARCHAR}, 
+      #{serviceLoginName,jdbcType=VARCHAR}, #{serviceLoginPassword,jdbcType=VARCHAR}, 
+      #{controlcardSerialnum,jdbcType=VARCHAR}, #{relatedEquipmentId,jdbcType=INTEGER}, 
+      #{subnetMask,jdbcType=VARCHAR}, #{gateway,jdbcType=VARCHAR}, #{dns,jdbcType=VARCHAR}, 
+      #{gisPosX,jdbcType=VARCHAR}, #{gisPosY,jdbcType=VARCHAR}, #{equipmentAddr,jdbcType=VARCHAR}, 
+      #{businessCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfo" >
+    insert into r_equipment_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equipmentId != null" >
+        Equipment_ID,
+      </if>
+      <if test="equipmentCode != null" >
+        Equipment_Code,
+      </if>
+      <if test="equipmentName != null" >
+        Equipment_Name,
+      </if>
+      <if test="lampId != null" >
+        Lamp_ID,
+      </if>
+      <if test="equclassId != null" >
+        EquClass_ID,
+      </if>
+      <if test="equsectionId != null" >
+        EquSection_ID,
+      </if>
+      <if test="equmodelId != null" >
+        EquModel_ID,
+      </if>
+      <if test="groupId != null" >
+        Group_ID,
+      </if>
+      <if test="equipmentIp != null" >
+        Equipment_IP,
+      </if>
+      <if test="equipmentPort != null" >
+        Equipment_Port,
+      </if>
+      <if test="macAddr != null" >
+        MAC_ADDR,
+      </if>
+      <if test="sn != null" >
+        SN,
+      </if>
+      <if test="factoryId != null" >
+        Factory_ID,
+      </if>
+      <if test="dateFactory != null" >
+        Date_Factory,
+      </if>
+      <if test="equipmentLoginName != null" >
+        Equipment_Login_Name,
+      </if>
+      <if test="equipmentLoginPassword != null" >
+        Equipment_Login_Password,
+      </if>
+      <if test="dateCreated != null" >
+        Date_Created,
+      </if>
+      <if test="dateModified != null" >
+        Date_Modified,
+      </if>
+      <if test="createdBy != null" >
+        Created_By,
+      </if>
+      <if test="modifiedBy != null" >
+        Modified_By,
+      </if>
+      <if test="isAvailable != null" >
+        Is_Available,
+      </if>
+      <if test="supplement != null" >
+        Supplement,
+      </if>
+      <if test="serviceIp != null" >
+        Service_IP,
+      </if>
+      <if test="servicePort != null" >
+        Service_Port,
+      </if>
+      <if test="serviceLoginName != null" >
+        Service_Login_Name,
+      </if>
+      <if test="serviceLoginPassword != null" >
+        Service_Login_Password,
+      </if>
+      <if test="controlcardSerialnum != null" >
+        ControlCard_serialNum,
+      </if>
+      <if test="relatedEquipmentId != null" >
+        Related_Equipment_ID,
+      </if>
+      <if test="subnetMask != null" >
+        Subnet_Mask,
+      </if>
+      <if test="gateway != null" >
+        Gateway,
+      </if>
+      <if test="dns != null" >
+        DNS,
+      </if>
+      <if test="gisPosX != null" >
+        Gis_Pos_X,
+      </if>
+      <if test="gisPosY != null" >
+        Gis_Pos_Y,
+      </if>
+      <if test="equipmentAddr != null" >
+        Equipment_Addr,
+      </if>
+      <if test="businessCode != null" >
+        Business_Code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equipmentId != null" >
+        #{equipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentCode != null" >
+        #{equipmentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentName != null" >
+        #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="lampId != null" >
+        #{lampId,jdbcType=INTEGER},
+      </if>
+      <if test="equclassId != null" >
+        #{equclassId,jdbcType=INTEGER},
+      </if>
+      <if test="equsectionId != null" >
+        #{equsectionId,jdbcType=INTEGER},
+      </if>
+      <if test="equmodelId != null" >
+        #{equmodelId,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentIp != null" >
+        #{equipmentIp,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentPort != null" >
+        #{equipmentPort,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddr != null" >
+        #{macAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sn != null" >
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryId != null" >
+        #{factoryId,jdbcType=INTEGER},
+      </if>
+      <if test="dateFactory != null" >
+        #{dateFactory,jdbcType=BIGINT},
+      </if>
+      <if test="equipmentLoginName != null" >
+        #{equipmentLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentLoginPassword != null" >
+        #{equipmentLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null" >
+        #{dateCreated,jdbcType=BIGINT},
+      </if>
+      <if test="dateModified != null" >
+        #{dateModified,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isAvailable != null" >
+        #{isAvailable,jdbcType=INTEGER},
+      </if>
+      <if test="supplement != null" >
+        #{supplement,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceIp != null" >
+        #{serviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePort != null" >
+        #{servicePort,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLoginName != null" >
+        #{serviceLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLoginPassword != null" >
+        #{serviceLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="controlcardSerialnum != null" >
+        #{controlcardSerialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedEquipmentId != null" >
+        #{relatedEquipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="subnetMask != null" >
+        #{subnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="gateway != null" >
+        #{gateway,jdbcType=VARCHAR},
+      </if>
+      <if test="dns != null" >
+        #{dns,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosX != null" >
+        #{gisPosX,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosY != null" >
+        #{gisPosY,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentAddr != null" >
+        #{equipmentAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null" >
+        #{businessCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfo" >
+    update r_equipment_info
+    <set >
+      <if test="equipmentCode != null" >
+        Equipment_Code = #{equipmentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentName != null" >
+        Equipment_Name = #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="lampId != null" >
+        Lamp_ID = #{lampId,jdbcType=INTEGER},
+      </if>
+      <if test="equclassId != null" >
+        EquClass_ID = #{equclassId,jdbcType=INTEGER},
+      </if>
+      <if test="equsectionId != null" >
+        EquSection_ID = #{equsectionId,jdbcType=INTEGER},
+      </if>
+      <if test="equmodelId != null" >
+        EquModel_ID = #{equmodelId,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null" >
+        Group_ID = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentIp != null" >
+        Equipment_IP = #{equipmentIp,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentPort != null" >
+        Equipment_Port = #{equipmentPort,jdbcType=VARCHAR},
+      </if>
+      <if test="macAddr != null" >
+        MAC_ADDR = #{macAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sn != null" >
+        SN = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryId != null" >
+        Factory_ID = #{factoryId,jdbcType=INTEGER},
+      </if>
+      <if test="dateFactory != null" >
+        Date_Factory = #{dateFactory,jdbcType=BIGINT},
+      </if>
+      <if test="equipmentLoginName != null" >
+        Equipment_Login_Name = #{equipmentLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentLoginPassword != null" >
+        Equipment_Login_Password = #{equipmentLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null" >
+        Date_Created = #{dateCreated,jdbcType=BIGINT},
+      </if>
+      <if test="dateModified != null" >
+        Date_Modified = #{dateModified,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        Created_By = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        Modified_By = #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="isAvailable != null" >
+        Is_Available = #{isAvailable,jdbcType=INTEGER},
+      </if>
+      <if test="supplement != null" >
+        Supplement = #{supplement,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceIp != null" >
+        Service_IP = #{serviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="servicePort != null" >
+        Service_Port = #{servicePort,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLoginName != null" >
+        Service_Login_Name = #{serviceLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceLoginPassword != null" >
+        Service_Login_Password = #{serviceLoginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="controlcardSerialnum != null" >
+        ControlCard_serialNum = #{controlcardSerialnum,jdbcType=VARCHAR},
+      </if>
+      <if test="relatedEquipmentId != null" >
+        Related_Equipment_ID = #{relatedEquipmentId,jdbcType=INTEGER},
+      </if>
+      <if test="subnetMask != null" >
+        Subnet_Mask = #{subnetMask,jdbcType=VARCHAR},
+      </if>
+      <if test="gateway != null" >
+        Gateway = #{gateway,jdbcType=VARCHAR},
+      </if>
+      <if test="dns != null" >
+        DNS = #{dns,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosX != null" >
+        Gis_Pos_X = #{gisPosX,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosY != null" >
+        Gis_Pos_Y = #{gisPosY,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentAddr != null" >
+        Equipment_Addr = #{equipmentAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCode != null" >
+        Business_Code = #{businessCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Equipment_ID = #{equipmentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEquipmentInfo" >
+    update r_equipment_info
+    set Equipment_Code = #{equipmentCode,jdbcType=VARCHAR},
+      Equipment_Name = #{equipmentName,jdbcType=VARCHAR},
+      Lamp_ID = #{lampId,jdbcType=INTEGER},
+      EquClass_ID = #{equclassId,jdbcType=INTEGER},
+      EquSection_ID = #{equsectionId,jdbcType=INTEGER},
+      EquModel_ID = #{equmodelId,jdbcType=INTEGER},
+      Group_ID = #{groupId,jdbcType=INTEGER},
+      Equipment_IP = #{equipmentIp,jdbcType=VARCHAR},
+      Equipment_Port = #{equipmentPort,jdbcType=VARCHAR},
+      MAC_ADDR = #{macAddr,jdbcType=VARCHAR},
+      SN = #{sn,jdbcType=VARCHAR},
+      Factory_ID = #{factoryId,jdbcType=INTEGER},
+      Date_Factory = #{dateFactory,jdbcType=BIGINT},
+      Equipment_Login_Name = #{equipmentLoginName,jdbcType=VARCHAR},
+      Equipment_Login_Password = #{equipmentLoginPassword,jdbcType=VARCHAR},
+      Date_Created = #{dateCreated,jdbcType=BIGINT},
+      Date_Modified = #{dateModified,jdbcType=BIGINT},
+      Created_By = #{createdBy,jdbcType=VARCHAR},
+      Modified_By = #{modifiedBy,jdbcType=VARCHAR},
+      Is_Available = #{isAvailable,jdbcType=INTEGER},
+      Supplement = #{supplement,jdbcType=VARCHAR},
+      Service_IP = #{serviceIp,jdbcType=VARCHAR},
+      Service_Port = #{servicePort,jdbcType=VARCHAR},
+      Service_Login_Name = #{serviceLoginName,jdbcType=VARCHAR},
+      Service_Login_Password = #{serviceLoginPassword,jdbcType=VARCHAR},
+      ControlCard_serialNum = #{controlcardSerialnum,jdbcType=VARCHAR},
+      Related_Equipment_ID = #{relatedEquipmentId,jdbcType=INTEGER},
+      Subnet_Mask = #{subnetMask,jdbcType=VARCHAR},
+      Gateway = #{gateway,jdbcType=VARCHAR},
+      DNS = #{dns,jdbcType=VARCHAR},
+      Gis_Pos_X = #{gisPosX,jdbcType=VARCHAR},
+      Gis_Pos_Y = #{gisPosY,jdbcType=VARCHAR},
+      Equipment_Addr = #{equipmentAddr,jdbcType=VARCHAR},
+      Business_Code = #{businessCode,jdbcType=VARCHAR}
+    where Equipment_ID = #{equipmentId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.AssetAreaInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.AssetAreaInfo" >
+    <id column="Area_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="Area_Pid" property="areaPid" jdbcType="INTEGER" />
+    <result column="Area_Code" property="areaCode" jdbcType="VARCHAR" />
+    <result column="Area_Shortname" property="areaShortname" jdbcType="VARCHAR" />
+    <result column="Area_Name" property="areaName" jdbcType="VARCHAR" />
+    <result column="Area_MergerName" property="areaMergername" jdbcType="VARCHAR" />
+    <result column="Level" property="level" jdbcType="TINYINT" />
+    <result column="PinYin" property="pinyin" jdbcType="VARCHAR" />
+    <result column="Telephone_Code" property="telephoneCode" jdbcType="VARCHAR" />
+    <result column="First_Word" property="firstWord" jdbcType="VARCHAR" />
+    <result column="Gis_Pos_X" property="gisPosX" jdbcType="VARCHAR" />
+    <result column="Gis_Pos_Y" property="gisPosY" jdbcType="VARCHAR" />
+    <result column="Supplement" property="supplement" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Area_ID, Area_Pid, Area_Code, Area_Shortname, Area_Name, Area_MergerName, Level, 
+    PinYin, Telephone_Code, First_Word, Gis_Pos_X, Gis_Pos_Y, Supplement
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.AssetAreaInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from r_area_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from r_area_info
+    where Area_ID = #{areaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_area_info
+    where Area_ID = #{areaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.AssetAreaInfo" >
+    insert into r_area_info (Area_ID, Area_Pid, Area_Code, 
+      Area_Shortname, Area_Name, Area_MergerName, 
+      Level, PinYin, Telephone_Code, 
+      First_Word, Gis_Pos_X, Gis_Pos_Y, 
+      Supplement)
+    values (#{areaId,jdbcType=INTEGER}, #{areaPid,jdbcType=INTEGER}, #{areaCode,jdbcType=VARCHAR}, 
+      #{areaShortname,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, #{areaMergername,jdbcType=VARCHAR}, 
+      #{level,jdbcType=TINYINT}, #{pinyin,jdbcType=VARCHAR}, #{telephoneCode,jdbcType=VARCHAR}, 
+      #{firstWord,jdbcType=VARCHAR}, #{gisPosX,jdbcType=VARCHAR}, #{gisPosY,jdbcType=VARCHAR}, 
+      #{supplement,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetAreaInfo" >
+    insert into r_area_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="areaId != null" >
+        Area_ID,
+      </if>
+      <if test="areaPid != null" >
+        Area_Pid,
+      </if>
+      <if test="areaCode != null" >
+        Area_Code,
+      </if>
+      <if test="areaShortname != null" >
+        Area_Shortname,
+      </if>
+      <if test="areaName != null" >
+        Area_Name,
+      </if>
+      <if test="areaMergername != null" >
+        Area_MergerName,
+      </if>
+      <if test="level != null" >
+        Level,
+      </if>
+      <if test="pinyin != null" >
+        PinYin,
+      </if>
+      <if test="telephoneCode != null" >
+        Telephone_Code,
+      </if>
+      <if test="firstWord != null" >
+        First_Word,
+      </if>
+      <if test="gisPosX != null" >
+        Gis_Pos_X,
+      </if>
+      <if test="gisPosY != null" >
+        Gis_Pos_Y,
+      </if>
+      <if test="supplement != null" >
+        Supplement,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="areaPid != null" >
+        #{areaPid,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaShortname != null" >
+        #{areaShortname,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMergername != null" >
+        #{areaMergername,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=TINYINT},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneCode != null" >
+        #{telephoneCode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWord != null" >
+        #{firstWord,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosX != null" >
+        #{gisPosX,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosY != null" >
+        #{gisPosY,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        #{supplement,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetAreaInfo" >
+    update r_area_info
+    <set >
+      <if test="areaPid != null" >
+        Area_Pid = #{areaPid,jdbcType=INTEGER},
+      </if>
+      <if test="areaCode != null" >
+        Area_Code = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaShortname != null" >
+        Area_Shortname = #{areaShortname,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null" >
+        Area_Name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaMergername != null" >
+        Area_MergerName = #{areaMergername,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        Level = #{level,jdbcType=TINYINT},
+      </if>
+      <if test="pinyin != null" >
+        PinYin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="telephoneCode != null" >
+        Telephone_Code = #{telephoneCode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstWord != null" >
+        First_Word = #{firstWord,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosX != null" >
+        Gis_Pos_X = #{gisPosX,jdbcType=VARCHAR},
+      </if>
+      <if test="gisPosY != null" >
+        Gis_Pos_Y = #{gisPosY,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        Supplement = #{supplement,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Area_ID = #{areaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.AssetAreaInfo" >
+    update r_area_info
+    set Area_Pid = #{areaPid,jdbcType=INTEGER},
+      Area_Code = #{areaCode,jdbcType=VARCHAR},
+      Area_Shortname = #{areaShortname,jdbcType=VARCHAR},
+      Area_Name = #{areaName,jdbcType=VARCHAR},
+      Area_MergerName = #{areaMergername,jdbcType=VARCHAR},
+      Level = #{level,jdbcType=TINYINT},
+      PinYin = #{pinyin,jdbcType=VARCHAR},
+      Telephone_Code = #{telephoneCode,jdbcType=VARCHAR},
+      First_Word = #{firstWord,jdbcType=VARCHAR},
+      Gis_Pos_X = #{gisPosX,jdbcType=VARCHAR},
+      Gis_Pos_Y = #{gisPosY,jdbcType=VARCHAR},
+      Supplement = #{supplement,jdbcType=VARCHAR}
+    where Area_ID = #{areaId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.AssetEqusectionInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfo" >
+    <id column="EquSection_ID" property="equsectionId" jdbcType="INTEGER" />
+    <result column="EquSection_Code" property="equsectionCode" jdbcType="CHAR" />
+    <result column="EquClass_ID" property="equclassId" jdbcType="INTEGER" />
+    <result column="EquSection_Name" property="equsectionName" jdbcType="VARCHAR" />
+    <result column="Supplement" property="supplement" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    EquSection_ID, EquSection_Code, EquClass_ID, EquSection_Name, Supplement
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from r_equsection_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from r_equsection_info
+    where EquSection_ID = #{equsectionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_equsection_info
+    where EquSection_ID = #{equsectionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfo" >
+    insert into r_equsection_info (EquSection_ID, EquSection_Code, EquClass_ID, 
+      EquSection_Name, Supplement)
+    values (#{equsectionId,jdbcType=INTEGER}, #{equsectionCode,jdbcType=CHAR}, #{equclassId,jdbcType=INTEGER}, 
+      #{equsectionName,jdbcType=VARCHAR}, #{supplement,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfo" >
+    insert into r_equsection_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="equsectionId != null" >
+        EquSection_ID,
+      </if>
+      <if test="equsectionCode != null" >
+        EquSection_Code,
+      </if>
+      <if test="equclassId != null" >
+        EquClass_ID,
+      </if>
+      <if test="equsectionName != null" >
+        EquSection_Name,
+      </if>
+      <if test="supplement != null" >
+        Supplement,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="equsectionId != null" >
+        #{equsectionId,jdbcType=INTEGER},
+      </if>
+      <if test="equsectionCode != null" >
+        #{equsectionCode,jdbcType=CHAR},
+      </if>
+      <if test="equclassId != null" >
+        #{equclassId,jdbcType=INTEGER},
+      </if>
+      <if test="equsectionName != null" >
+        #{equsectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        #{supplement,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfo" >
+    update r_equsection_info
+    <set >
+      <if test="equsectionCode != null" >
+        EquSection_Code = #{equsectionCode,jdbcType=CHAR},
+      </if>
+      <if test="equclassId != null" >
+        EquClass_ID = #{equclassId,jdbcType=INTEGER},
+      </if>
+      <if test="equsectionName != null" >
+        EquSection_Name = #{equsectionName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        Supplement = #{supplement,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EquSection_ID = #{equsectionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.AssetEqusectionInfo" >
+    update r_equsection_info
+    set EquSection_Code = #{equsectionCode,jdbcType=CHAR},
+      EquClass_ID = #{equclassId,jdbcType=INTEGER},
+      EquSection_Name = #{equsectionName,jdbcType=VARCHAR},
+      Supplement = #{supplement,jdbcType=VARCHAR}
+    where EquSection_ID = #{equsectionId,jdbcType=INTEGER}
+  </update>
+</mapper>

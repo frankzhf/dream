@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceCoverConfigHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistory" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="device_cover_id" property="deviceCoverId" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="cover_id" property="coverId" jdbcType="VARCHAR" />
+    <result column="base_station_id" property="baseStationId" jdbcType="VARCHAR" />
+    <result column="setup_result" property="setupResult" jdbcType="CHAR" />
+    <result column="callback_base_station_id" property="callbackBaseStationId" jdbcType="VARCHAR" />
+    <result column="callback_cover_id" property="callbackCoverId" jdbcType="VARCHAR" />
+    <result column="hearbeat_time" property="hearbeatTime" jdbcType="INTEGER" />
+    <result column="cover_inclination_threshold" property="coverInclinationThreshold" jdbcType="INTEGER" />
+    <result column="cover_calibration" property="coverCalibration" jdbcType="INTEGER" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, device_cover_id, branch_id, cover_id, base_station_id, setup_result, callback_base_station_id, 
+    callback_cover_id, hearbeat_time, cover_inclination_threshold, cover_calibration, 
+    create_by, create_date, update_by, update_date, remarks, del_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_cover_config_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_cover_config_history
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_cover_config_history
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistory" >
+    insert into device_cover_config_history (id, device_cover_id, branch_id, 
+      cover_id, base_station_id, setup_result, 
+      callback_base_station_id, callback_cover_id, 
+      hearbeat_time, cover_inclination_threshold, 
+      cover_calibration, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{deviceCoverId,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, 
+      #{coverId,jdbcType=VARCHAR}, #{baseStationId,jdbcType=VARCHAR}, #{setupResult,jdbcType=CHAR}, 
+      #{callbackBaseStationId,jdbcType=VARCHAR}, #{callbackCoverId,jdbcType=VARCHAR}, 
+      #{hearbeatTime,jdbcType=INTEGER}, #{coverInclinationThreshold,jdbcType=INTEGER}, 
+      #{coverCalibration,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistory" >
+    insert into device_cover_config_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceCoverId != null" >
+        device_cover_id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="coverId != null" >
+        cover_id,
+      </if>
+      <if test="baseStationId != null" >
+        base_station_id,
+      </if>
+      <if test="setupResult != null" >
+        setup_result,
+      </if>
+      <if test="callbackBaseStationId != null" >
+        callback_base_station_id,
+      </if>
+      <if test="callbackCoverId != null" >
+        callback_cover_id,
+      </if>
+      <if test="hearbeatTime != null" >
+        hearbeat_time,
+      </if>
+      <if test="coverInclinationThreshold != null" >
+        cover_inclination_threshold,
+      </if>
+      <if test="coverCalibration != null" >
+        cover_calibration,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceCoverId != null" >
+        #{deviceCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="coverId != null" >
+        #{coverId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseStationId != null" >
+        #{baseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="setupResult != null" >
+        #{setupResult,jdbcType=CHAR},
+      </if>
+      <if test="callbackBaseStationId != null" >
+        #{callbackBaseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackCoverId != null" >
+        #{callbackCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="hearbeatTime != null" >
+        #{hearbeatTime,jdbcType=INTEGER},
+      </if>
+      <if test="coverInclinationThreshold != null" >
+        #{coverInclinationThreshold,jdbcType=INTEGER},
+      </if>
+      <if test="coverCalibration != null" >
+        #{coverCalibration,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistory" >
+    update device_cover_config_history
+    <set >
+      <if test="deviceCoverId != null" >
+        device_cover_id = #{deviceCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="coverId != null" >
+        cover_id = #{coverId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseStationId != null" >
+        base_station_id = #{baseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="setupResult != null" >
+        setup_result = #{setupResult,jdbcType=CHAR},
+      </if>
+      <if test="callbackBaseStationId != null" >
+        callback_base_station_id = #{callbackBaseStationId,jdbcType=VARCHAR},
+      </if>
+      <if test="callbackCoverId != null" >
+        callback_cover_id = #{callbackCoverId,jdbcType=VARCHAR},
+      </if>
+      <if test="hearbeatTime != null" >
+        hearbeat_time = #{hearbeatTime,jdbcType=INTEGER},
+      </if>
+      <if test="coverInclinationThreshold != null" >
+        cover_inclination_threshold = #{coverInclinationThreshold,jdbcType=INTEGER},
+      </if>
+      <if test="coverCalibration != null" >
+        cover_calibration = #{coverCalibration,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceCoverConfigHistory" >
+    update device_cover_config_history
+    set device_cover_id = #{deviceCoverId,jdbcType=VARCHAR},
+      branch_id = #{branchId,jdbcType=VARCHAR},
+      cover_id = #{coverId,jdbcType=VARCHAR},
+      base_station_id = #{baseStationId,jdbcType=VARCHAR},
+      setup_result = #{setupResult,jdbcType=CHAR},
+      callback_base_station_id = #{callbackBaseStationId,jdbcType=VARCHAR},
+      callback_cover_id = #{callbackCoverId,jdbcType=VARCHAR},
+      hearbeat_time = #{hearbeatTime,jdbcType=INTEGER},
+      cover_inclination_threshold = #{coverInclinationThreshold,jdbcType=INTEGER},
+      cover_calibration = #{coverCalibration,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

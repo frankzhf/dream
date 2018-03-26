@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.AssetGroupInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    <id column="Group_ID" property="groupId" jdbcType="INTEGER" />
+    <result column="Group_Code" property="groupCode" jdbcType="CHAR" />
+    <result column="Group_Name" property="groupName" jdbcType="VARCHAR" />
+    <result column="Parent_Group_ID" property="parentGroupId" jdbcType="INTEGER" />
+    <result column="Area_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="Is_Subnode" property="isSubnode" jdbcType="INTEGER" />
+    <result column="Date_Created" property="dateCreated" jdbcType="BIGINT" />
+    <result column="Date_Modified" property="dateModified" jdbcType="BIGINT" />
+    <result column="Created_By" property="createdBy" jdbcType="VARCHAR" />
+    <result column="Modified_By" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="Supplement" property="supplement" jdbcType="VARCHAR" />
+    <result column="Modified_By_System" property="modifiedBySystem" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" extends="BaseResultMap" >
+    <result column="Parent_Group_IDs" property="parentGroupIds" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    Group_ID, Group_Code, Group_Name, Parent_Group_ID, Area_ID, Is_Subnode, Date_Created, 
+    Date_Modified, Created_By, Modified_By, Supplement, Modified_By_System
+  </sql>
+  <sql id="Blob_Column_List" >
+    Parent_Group_IDs
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from r_group_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from r_group_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from r_group_info
+    where Group_ID = #{groupId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from r_group_info
+    where Group_ID = #{groupId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    insert into r_group_info (Group_ID, Group_Code, Group_Name, 
+      Parent_Group_ID, Area_ID, Is_Subnode, 
+      Date_Created, Date_Modified, Created_By, 
+      Modified_By, Supplement, Modified_By_System, 
+      Parent_Group_IDs)
+    values (#{groupId,jdbcType=INTEGER}, #{groupCode,jdbcType=CHAR}, #{groupName,jdbcType=VARCHAR}, 
+      #{parentGroupId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{isSubnode,jdbcType=INTEGER}, 
+      #{dateCreated,jdbcType=BIGINT}, #{dateModified,jdbcType=BIGINT}, #{createdBy,jdbcType=VARCHAR}, 
+      #{modifiedBy,jdbcType=VARCHAR}, #{supplement,jdbcType=VARCHAR}, #{modifiedBySystem,jdbcType=INTEGER}, 
+      #{parentGroupIds,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    insert into r_group_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        Group_ID,
+      </if>
+      <if test="groupCode != null" >
+        Group_Code,
+      </if>
+      <if test="groupName != null" >
+        Group_Name,
+      </if>
+      <if test="parentGroupId != null" >
+        Parent_Group_ID,
+      </if>
+      <if test="areaId != null" >
+        Area_ID,
+      </if>
+      <if test="isSubnode != null" >
+        Is_Subnode,
+      </if>
+      <if test="dateCreated != null" >
+        Date_Created,
+      </if>
+      <if test="dateModified != null" >
+        Date_Modified,
+      </if>
+      <if test="createdBy != null" >
+        Created_By,
+      </if>
+      <if test="modifiedBy != null" >
+        Modified_By,
+      </if>
+      <if test="supplement != null" >
+        Supplement,
+      </if>
+      <if test="modifiedBySystem != null" >
+        Modified_By_System,
+      </if>
+      <if test="parentGroupIds != null" >
+        Parent_Group_IDs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupId != null" >
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="groupCode != null" >
+        #{groupCode,jdbcType=CHAR},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentGroupId != null" >
+        #{parentGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="isSubnode != null" >
+        #{isSubnode,jdbcType=INTEGER},
+      </if>
+      <if test="dateCreated != null" >
+        #{dateCreated,jdbcType=BIGINT},
+      </if>
+      <if test="dateModified != null" >
+        #{dateModified,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        #{supplement,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBySystem != null" >
+        #{modifiedBySystem,jdbcType=INTEGER},
+      </if>
+      <if test="parentGroupIds != null" >
+        #{parentGroupIds,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    update r_group_info
+    <set >
+      <if test="groupCode != null" >
+        Group_Code = #{groupCode,jdbcType=CHAR},
+      </if>
+      <if test="groupName != null" >
+        Group_Name = #{groupName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentGroupId != null" >
+        Parent_Group_ID = #{parentGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        Area_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="isSubnode != null" >
+        Is_Subnode = #{isSubnode,jdbcType=INTEGER},
+      </if>
+      <if test="dateCreated != null" >
+        Date_Created = #{dateCreated,jdbcType=BIGINT},
+      </if>
+      <if test="dateModified != null" >
+        Date_Modified = #{dateModified,jdbcType=BIGINT},
+      </if>
+      <if test="createdBy != null" >
+        Created_By = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        Modified_By = #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="supplement != null" >
+        Supplement = #{supplement,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBySystem != null" >
+        Modified_By_System = #{modifiedBySystem,jdbcType=INTEGER},
+      </if>
+      <if test="parentGroupIds != null" >
+        Parent_Group_IDs = #{parentGroupIds,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where Group_ID = #{groupId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    update r_group_info
+    set Group_Code = #{groupCode,jdbcType=CHAR},
+      Group_Name = #{groupName,jdbcType=VARCHAR},
+      Parent_Group_ID = #{parentGroupId,jdbcType=INTEGER},
+      Area_ID = #{areaId,jdbcType=INTEGER},
+      Is_Subnode = #{isSubnode,jdbcType=INTEGER},
+      Date_Created = #{dateCreated,jdbcType=BIGINT},
+      Date_Modified = #{dateModified,jdbcType=BIGINT},
+      Created_By = #{createdBy,jdbcType=VARCHAR},
+      Modified_By = #{modifiedBy,jdbcType=VARCHAR},
+      Supplement = #{supplement,jdbcType=VARCHAR},
+      Modified_By_System = #{modifiedBySystem,jdbcType=INTEGER},
+      Parent_Group_IDs = #{parentGroupIds,jdbcType=LONGVARCHAR}
+    where Group_ID = #{groupId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.AssetGroupInfo" >
+    update r_group_info
+    set Group_Code = #{groupCode,jdbcType=CHAR},
+      Group_Name = #{groupName,jdbcType=VARCHAR},
+      Parent_Group_ID = #{parentGroupId,jdbcType=INTEGER},
+      Area_ID = #{areaId,jdbcType=INTEGER},
+      Is_Subnode = #{isSubnode,jdbcType=INTEGER},
+      Date_Created = #{dateCreated,jdbcType=BIGINT},
+      Date_Modified = #{dateModified,jdbcType=BIGINT},
+      Created_By = #{createdBy,jdbcType=VARCHAR},
+      Modified_By = #{modifiedBy,jdbcType=VARCHAR},
+      Supplement = #{supplement,jdbcType=VARCHAR},
+      Modified_By_System = #{modifiedBySystem,jdbcType=INTEGER}
+    where Group_ID = #{groupId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceLampControlMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceLampControl" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="concentrator_id" property="concentratorId" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="device_logical_addr" property="deviceLogicalAddr" jdbcType="VARCHAR" />
+    <result column="device_physical_addr" property="devicePhysicalAddr" jdbcType="VARCHAR" />
+    <result column="collect_date" property="collectDate" jdbcType="TIMESTAMP" />
+    <result column="parameter_error_status" property="parameterErrorStatus" jdbcType="CHAR" />
+    <result column="running_status" property="runningStatus" jdbcType="CHAR" />
+    <result column="eeprom_status" property="eepromStatus" jdbcType="CHAR" />
+    <result column="alert_status" property="alertStatus" jdbcType="CHAR" />
+    <result column="work_parameter_status" property="workParameterStatus" jdbcType="CHAR" />
+    <result column="correct_status" property="correctStatus" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="temperature" property="temperature" jdbcType="INTEGER" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="dt_cache" property="dtCache" jdbcType="TIMESTAMP" />
+    <result column="offstream_status" property="offstreamStatus" jdbcType="CHAR" />
+    <result column="device_status" property="deviceStatus" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, concentrator_id, branch_id, device_logical_addr, device_physical_addr, collect_date, 
+    parameter_error_status, running_status, eeprom_status, alert_status, work_parameter_status, 
+    correct_status, status, temperature, create_by, create_date, update_by, update_date, 
+    remarks, del_flag, dt_cache, offstream_status, device_status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampControlExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_lamp_control
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_lamp_control
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_lamp_control
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampControl" >
+    insert into device_lamp_control (id, concentrator_id, branch_id, 
+      device_logical_addr, device_physical_addr, 
+      collect_date, parameter_error_status, running_status, 
+      eeprom_status, alert_status, work_parameter_status, 
+      correct_status, status, temperature, 
+      create_by, create_date, update_by, 
+      update_date, remarks, del_flag, 
+      dt_cache, offstream_status, device_status
+      )
+    values (#{id,jdbcType=VARCHAR}, #{concentratorId,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, 
+      #{deviceLogicalAddr,jdbcType=VARCHAR}, #{devicePhysicalAddr,jdbcType=VARCHAR}, 
+      #{collectDate,jdbcType=TIMESTAMP}, #{parameterErrorStatus,jdbcType=CHAR}, #{runningStatus,jdbcType=CHAR}, 
+      #{eepromStatus,jdbcType=CHAR}, #{alertStatus,jdbcType=CHAR}, #{workParameterStatus,jdbcType=CHAR}, 
+      #{correctStatus,jdbcType=CHAR}, #{status,jdbcType=CHAR}, #{temperature,jdbcType=INTEGER}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{dtCache,jdbcType=TIMESTAMP}, #{offstreamStatus,jdbcType=CHAR}, #{deviceStatus,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampControl" >
+    insert into device_lamp_control
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="concentratorId != null" >
+        concentrator_id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        device_logical_addr,
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        device_physical_addr,
+      </if>
+      <if test="collectDate != null" >
+        collect_date,
+      </if>
+      <if test="parameterErrorStatus != null" >
+        parameter_error_status,
+      </if>
+      <if test="runningStatus != null" >
+        running_status,
+      </if>
+      <if test="eepromStatus != null" >
+        eeprom_status,
+      </if>
+      <if test="alertStatus != null" >
+        alert_status,
+      </if>
+      <if test="workParameterStatus != null" >
+        work_parameter_status,
+      </if>
+      <if test="correctStatus != null" >
+        correct_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="temperature != null" >
+        temperature,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="dtCache != null" >
+        dt_cache,
+      </if>
+      <if test="offstreamStatus != null" >
+        offstream_status,
+      </if>
+      <if test="deviceStatus != null" >
+        device_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="concentratorId != null" >
+        #{concentratorId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        #{deviceLogicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        #{devicePhysicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="collectDate != null" >
+        #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parameterErrorStatus != null" >
+        #{parameterErrorStatus,jdbcType=CHAR},
+      </if>
+      <if test="runningStatus != null" >
+        #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="eepromStatus != null" >
+        #{eepromStatus,jdbcType=CHAR},
+      </if>
+      <if test="alertStatus != null" >
+        #{alertStatus,jdbcType=CHAR},
+      </if>
+      <if test="workParameterStatus != null" >
+        #{workParameterStatus,jdbcType=CHAR},
+      </if>
+      <if test="correctStatus != null" >
+        #{correctStatus,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null" >
+        #{temperature,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="dtCache != null" >
+        #{dtCache,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offstreamStatus != null" >
+        #{offstreamStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        #{deviceStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampControl" >
+    update device_lamp_control
+    <set >
+      <if test="concentratorId != null" >
+        concentrator_id = #{concentratorId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        device_logical_addr = #{deviceLogicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        device_physical_addr = #{devicePhysicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="collectDate != null" >
+        collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parameterErrorStatus != null" >
+        parameter_error_status = #{parameterErrorStatus,jdbcType=CHAR},
+      </if>
+      <if test="runningStatus != null" >
+        running_status = #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="eepromStatus != null" >
+        eeprom_status = #{eepromStatus,jdbcType=CHAR},
+      </if>
+      <if test="alertStatus != null" >
+        alert_status = #{alertStatus,jdbcType=CHAR},
+      </if>
+      <if test="workParameterStatus != null" >
+        work_parameter_status = #{workParameterStatus,jdbcType=CHAR},
+      </if>
+      <if test="correctStatus != null" >
+        correct_status = #{correctStatus,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="temperature != null" >
+        temperature = #{temperature,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="dtCache != null" >
+        dt_cache = #{dtCache,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offstreamStatus != null" >
+        offstream_status = #{offstreamStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        device_status = #{deviceStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampControl" >
+    update device_lamp_control
+    set concentrator_id = #{concentratorId,jdbcType=VARCHAR},
+      branch_id = #{branchId,jdbcType=VARCHAR},
+      device_logical_addr = #{deviceLogicalAddr,jdbcType=VARCHAR},
+      device_physical_addr = #{devicePhysicalAddr,jdbcType=VARCHAR},
+      collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      parameter_error_status = #{parameterErrorStatus,jdbcType=CHAR},
+      running_status = #{runningStatus,jdbcType=CHAR},
+      eeprom_status = #{eepromStatus,jdbcType=CHAR},
+      alert_status = #{alertStatus,jdbcType=CHAR},
+      work_parameter_status = #{workParameterStatus,jdbcType=CHAR},
+      correct_status = #{correctStatus,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      temperature = #{temperature,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      dt_cache = #{dtCache,jdbcType=TIMESTAMP},
+      offstream_status = #{offstreamStatus,jdbcType=CHAR},
+      device_status = #{deviceStatus,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

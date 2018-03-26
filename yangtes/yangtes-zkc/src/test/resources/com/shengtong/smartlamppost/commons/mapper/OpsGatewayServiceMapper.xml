@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.OpsGatewayServiceMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.OpsGatewayService" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="gateway_code" property="gatewayCode" jdbcType="VARCHAR" />
+    <result column="gateway_name" property="gatewayName" jdbcType="VARCHAR" />
+    <result column="online_date" property="onlineDate" jdbcType="TIMESTAMP" />
+    <result column="offline_date" property="offlineDate" jdbcType="TIMESTAMP" />
+    <result column="gateway_ip_addr" property="gatewayIpAddr" jdbcType="VARCHAR" />
+    <result column="gateway_port" property="gatewayPort" jdbcType="VARCHAR" />
+    <result column="getway_status" property="getwayStatus" jdbcType="CHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="getway_statusCopy" property="getwayStatuscopy" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, gateway_code, gateway_name, online_date, offline_date, gateway_ip_addr, 
+    gateway_port, getway_status, create_by, create_date, update_by, update_date, remarks, 
+    del_flag, getway_statusCopy
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.OpsGatewayServiceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ops_gateway_service
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from ops_gateway_service
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from ops_gateway_service
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.OpsGatewayService" >
+    insert into ops_gateway_service (id, branch_id, gateway_code, 
+      gateway_name, online_date, offline_date, 
+      gateway_ip_addr, gateway_port, getway_status, 
+      create_by, create_date, update_by, 
+      update_date, remarks, del_flag, 
+      getway_statusCopy)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{gatewayCode,jdbcType=VARCHAR}, 
+      #{gatewayName,jdbcType=VARCHAR}, #{onlineDate,jdbcType=TIMESTAMP}, #{offlineDate,jdbcType=TIMESTAMP}, 
+      #{gatewayIpAddr,jdbcType=VARCHAR}, #{gatewayPort,jdbcType=VARCHAR}, #{getwayStatus,jdbcType=CHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{getwayStatuscopy,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.OpsGatewayService" >
+    insert into ops_gateway_service
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="gatewayCode != null" >
+        gateway_code,
+      </if>
+      <if test="gatewayName != null" >
+        gateway_name,
+      </if>
+      <if test="onlineDate != null" >
+        online_date,
+      </if>
+      <if test="offlineDate != null" >
+        offline_date,
+      </if>
+      <if test="gatewayIpAddr != null" >
+        gateway_ip_addr,
+      </if>
+      <if test="gatewayPort != null" >
+        gateway_port,
+      </if>
+      <if test="getwayStatus != null" >
+        getway_status,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="getwayStatuscopy != null" >
+        getway_statusCopy,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayCode != null" >
+        #{gatewayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayName != null" >
+        #{gatewayName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineDate != null" >
+        #{onlineDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineDate != null" >
+        #{offlineDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gatewayIpAddr != null" >
+        #{gatewayIpAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayPort != null" >
+        #{gatewayPort,jdbcType=VARCHAR},
+      </if>
+      <if test="getwayStatus != null" >
+        #{getwayStatus,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="getwayStatuscopy != null" >
+        #{getwayStatuscopy,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.OpsGatewayService" >
+    update ops_gateway_service
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayCode != null" >
+        gateway_code = #{gatewayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayName != null" >
+        gateway_name = #{gatewayName,jdbcType=VARCHAR},
+      </if>
+      <if test="onlineDate != null" >
+        online_date = #{onlineDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineDate != null" >
+        offline_date = #{offlineDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gatewayIpAddr != null" >
+        gateway_ip_addr = #{gatewayIpAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="gatewayPort != null" >
+        gateway_port = #{gatewayPort,jdbcType=VARCHAR},
+      </if>
+      <if test="getwayStatus != null" >
+        getway_status = #{getwayStatus,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="getwayStatuscopy != null" >
+        getway_statusCopy = #{getwayStatuscopy,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.OpsGatewayService" >
+    update ops_gateway_service
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      gateway_code = #{gatewayCode,jdbcType=VARCHAR},
+      gateway_name = #{gatewayName,jdbcType=VARCHAR},
+      online_date = #{onlineDate,jdbcType=TIMESTAMP},
+      offline_date = #{offlineDate,jdbcType=TIMESTAMP},
+      gateway_ip_addr = #{gatewayIpAddr,jdbcType=VARCHAR},
+      gateway_port = #{gatewayPort,jdbcType=VARCHAR},
+      getway_status = #{getwayStatus,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      getway_statusCopy = #{getwayStatuscopy,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

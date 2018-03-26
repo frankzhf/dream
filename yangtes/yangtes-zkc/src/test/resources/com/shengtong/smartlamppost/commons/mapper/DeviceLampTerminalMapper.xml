@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceLampTerminalMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminal" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="device_logical_addr" property="deviceLogicalAddr" jdbcType="VARCHAR" />
+    <result column="device_physical_addr" property="devicePhysicalAddr" jdbcType="VARCHAR" />
+    <result column="collect_date" property="collectDate" jdbcType="TIMESTAMP" />
+    <result column="power_supply_status" property="powerSupplyStatus" jdbcType="CHAR" />
+    <result column="boot_status" property="bootStatus" jdbcType="CHAR" />
+    <result column="offstream_status" property="offstreamStatus" jdbcType="CHAR" />
+    <result column="alarm_status" property="alarmStatus" jdbcType="CHAR" />
+    <result column="voltage_over_range_status" property="voltageOverRangeStatus" jdbcType="CHAR" />
+    <result column="current_over_range_status" property="currentOverRangeStatus" jdbcType="CHAR" />
+    <result column="no_current_status" property="noCurrentStatus" jdbcType="CHAR" />
+    <result column="parameter_error_status" property="parameterErrorStatus" jdbcType="INTEGER" />
+    <result column="temperature" property="temperature" jdbcType="VARCHAR" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+    <result column="running_status" property="runningStatus" jdbcType="CHAR" />
+    <result column="device_status" property="deviceStatus" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, branch_id, device_logical_addr, device_physical_addr, collect_date, power_supply_status, 
+    boot_status, offstream_status, alarm_status, voltage_over_range_status, current_over_range_status, 
+    no_current_status, parameter_error_status, temperature, create_by, create_date, update_by, 
+    update_date, remarks, del_flag, running_status, device_status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_lamp_terminal
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_lamp_terminal
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_lamp_terminal
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminal" >
+    insert into device_lamp_terminal (id, branch_id, device_logical_addr, 
+      device_physical_addr, collect_date, power_supply_status, 
+      boot_status, offstream_status, alarm_status, 
+      voltage_over_range_status, current_over_range_status, 
+      no_current_status, parameter_error_status, temperature, 
+      create_by, create_date, update_by, 
+      update_date, remarks, del_flag, 
+      running_status, device_status)
+    values (#{id,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, #{deviceLogicalAddr,jdbcType=VARCHAR}, 
+      #{devicePhysicalAddr,jdbcType=VARCHAR}, #{collectDate,jdbcType=TIMESTAMP}, #{powerSupplyStatus,jdbcType=CHAR}, 
+      #{bootStatus,jdbcType=CHAR}, #{offstreamStatus,jdbcType=CHAR}, #{alarmStatus,jdbcType=CHAR}, 
+      #{voltageOverRangeStatus,jdbcType=CHAR}, #{currentOverRangeStatus,jdbcType=CHAR}, 
+      #{noCurrentStatus,jdbcType=CHAR}, #{parameterErrorStatus,jdbcType=INTEGER}, #{temperature,jdbcType=VARCHAR}, 
+      #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, #{delFlag,jdbcType=CHAR}, 
+      #{runningStatus,jdbcType=CHAR}, #{deviceStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminal" >
+    insert into device_lamp_terminal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        device_logical_addr,
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        device_physical_addr,
+      </if>
+      <if test="collectDate != null" >
+        collect_date,
+      </if>
+      <if test="powerSupplyStatus != null" >
+        power_supply_status,
+      </if>
+      <if test="bootStatus != null" >
+        boot_status,
+      </if>
+      <if test="offstreamStatus != null" >
+        offstream_status,
+      </if>
+      <if test="alarmStatus != null" >
+        alarm_status,
+      </if>
+      <if test="voltageOverRangeStatus != null" >
+        voltage_over_range_status,
+      </if>
+      <if test="currentOverRangeStatus != null" >
+        current_over_range_status,
+      </if>
+      <if test="noCurrentStatus != null" >
+        no_current_status,
+      </if>
+      <if test="parameterErrorStatus != null" >
+        parameter_error_status,
+      </if>
+      <if test="temperature != null" >
+        temperature,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="runningStatus != null" >
+        running_status,
+      </if>
+      <if test="deviceStatus != null" >
+        device_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        #{deviceLogicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        #{devicePhysicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="collectDate != null" >
+        #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="powerSupplyStatus != null" >
+        #{powerSupplyStatus,jdbcType=CHAR},
+      </if>
+      <if test="bootStatus != null" >
+        #{bootStatus,jdbcType=CHAR},
+      </if>
+      <if test="offstreamStatus != null" >
+        #{offstreamStatus,jdbcType=CHAR},
+      </if>
+      <if test="alarmStatus != null" >
+        #{alarmStatus,jdbcType=CHAR},
+      </if>
+      <if test="voltageOverRangeStatus != null" >
+        #{voltageOverRangeStatus,jdbcType=CHAR},
+      </if>
+      <if test="currentOverRangeStatus != null" >
+        #{currentOverRangeStatus,jdbcType=CHAR},
+      </if>
+      <if test="noCurrentStatus != null" >
+        #{noCurrentStatus,jdbcType=CHAR},
+      </if>
+      <if test="parameterErrorStatus != null" >
+        #{parameterErrorStatus,jdbcType=INTEGER},
+      </if>
+      <if test="temperature != null" >
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="runningStatus != null" >
+        #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        #{deviceStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminal" >
+    update device_lamp_terminal
+    <set >
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLogicalAddr != null" >
+        device_logical_addr = #{deviceLogicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePhysicalAddr != null" >
+        device_physical_addr = #{devicePhysicalAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="collectDate != null" >
+        collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="powerSupplyStatus != null" >
+        power_supply_status = #{powerSupplyStatus,jdbcType=CHAR},
+      </if>
+      <if test="bootStatus != null" >
+        boot_status = #{bootStatus,jdbcType=CHAR},
+      </if>
+      <if test="offstreamStatus != null" >
+        offstream_status = #{offstreamStatus,jdbcType=CHAR},
+      </if>
+      <if test="alarmStatus != null" >
+        alarm_status = #{alarmStatus,jdbcType=CHAR},
+      </if>
+      <if test="voltageOverRangeStatus != null" >
+        voltage_over_range_status = #{voltageOverRangeStatus,jdbcType=CHAR},
+      </if>
+      <if test="currentOverRangeStatus != null" >
+        current_over_range_status = #{currentOverRangeStatus,jdbcType=CHAR},
+      </if>
+      <if test="noCurrentStatus != null" >
+        no_current_status = #{noCurrentStatus,jdbcType=CHAR},
+      </if>
+      <if test="parameterErrorStatus != null" >
+        parameter_error_status = #{parameterErrorStatus,jdbcType=INTEGER},
+      </if>
+      <if test="temperature != null" >
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+      <if test="runningStatus != null" >
+        running_status = #{runningStatus,jdbcType=CHAR},
+      </if>
+      <if test="deviceStatus != null" >
+        device_status = #{deviceStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminal" >
+    update device_lamp_terminal
+    set branch_id = #{branchId,jdbcType=VARCHAR},
+      device_logical_addr = #{deviceLogicalAddr,jdbcType=VARCHAR},
+      device_physical_addr = #{devicePhysicalAddr,jdbcType=VARCHAR},
+      collect_date = #{collectDate,jdbcType=TIMESTAMP},
+      power_supply_status = #{powerSupplyStatus,jdbcType=CHAR},
+      boot_status = #{bootStatus,jdbcType=CHAR},
+      offstream_status = #{offstreamStatus,jdbcType=CHAR},
+      alarm_status = #{alarmStatus,jdbcType=CHAR},
+      voltage_over_range_status = #{voltageOverRangeStatus,jdbcType=CHAR},
+      current_over_range_status = #{currentOverRangeStatus,jdbcType=CHAR},
+      no_current_status = #{noCurrentStatus,jdbcType=CHAR},
+      parameter_error_status = #{parameterErrorStatus,jdbcType=INTEGER},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR},
+      running_status = #{runningStatus,jdbcType=CHAR},
+      device_status = #{deviceStatus,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

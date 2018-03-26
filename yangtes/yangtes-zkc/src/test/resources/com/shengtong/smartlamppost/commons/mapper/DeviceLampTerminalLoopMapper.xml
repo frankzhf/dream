@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shengtong.smartlamppost.commons.mapper.DeviceLampTerminalLoopMapper" >
+  <resultMap id="BaseResultMap" type="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoop" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="device_lamp_terminal_id" property="deviceLampTerminalId" jdbcType="VARCHAR" />
+    <result column="branch_id" property="branchId" jdbcType="VARCHAR" />
+    <result column="loop_id" property="loopId" jdbcType="INTEGER" />
+    <result column="loop_name" property="loopName" jdbcType="VARCHAR" />
+    <result column="current" property="current" jdbcType="DECIMAL" />
+    <result column="power" property="power" jdbcType="DECIMAL" />
+    <result column="voltage" property="voltage" jdbcType="DECIMAL" />
+    <result column="rate" property="rate" jdbcType="DECIMAL" />
+    <result column="factor" property="factor" jdbcType="VARCHAR" />
+    <result column="switch_input_status" property="switchInputStatus" jdbcType="CHAR" />
+    <result column="voltage_over_range" property="voltageOverRange" jdbcType="CHAR" />
+    <result column="current_over_range" property="currentOverRange" jdbcType="CHAR" />
+    <result column="lamp_on_time" property="lampOnTime" jdbcType="INTEGER" />
+    <result column="estimate_power_capacity" property="estimatePowerCapacity" jdbcType="DOUBLE" />
+    <result column="electricity" property="electricity" jdbcType="DOUBLE" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="del_flag" property="delFlag" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, device_lamp_terminal_id, branch_id, loop_id, loop_name, current, power, voltage, 
+    rate, factor, switch_input_status, voltage_over_range, current_over_range, lamp_on_time, 
+    estimate_power_capacity, electricity, create_by, create_date, update_by, update_date, 
+    remarks, del_flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoopExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from device_lamp_terminal_loop
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from device_lamp_terminal_loop
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from device_lamp_terminal_loop
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoop" >
+    insert into device_lamp_terminal_loop (id, device_lamp_terminal_id, branch_id, 
+      loop_id, loop_name, current, 
+      power, voltage, rate, 
+      factor, switch_input_status, voltage_over_range, 
+      current_over_range, lamp_on_time, estimate_power_capacity, 
+      electricity, create_by, create_date, 
+      update_by, update_date, remarks, 
+      del_flag)
+    values (#{id,jdbcType=VARCHAR}, #{deviceLampTerminalId,jdbcType=VARCHAR}, #{branchId,jdbcType=VARCHAR}, 
+      #{loopId,jdbcType=INTEGER}, #{loopName,jdbcType=VARCHAR}, #{current,jdbcType=DECIMAL}, 
+      #{power,jdbcType=DECIMAL}, #{voltage,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, 
+      #{factor,jdbcType=VARCHAR}, #{switchInputStatus,jdbcType=CHAR}, #{voltageOverRange,jdbcType=CHAR}, 
+      #{currentOverRange,jdbcType=CHAR}, #{lampOnTime,jdbcType=INTEGER}, #{estimatePowerCapacity,jdbcType=DOUBLE}, 
+      #{electricity,jdbcType=DOUBLE}, #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remarks,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoop" >
+    insert into device_lamp_terminal_loop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceLampTerminalId != null" >
+        device_lamp_terminal_id,
+      </if>
+      <if test="branchId != null" >
+        branch_id,
+      </if>
+      <if test="loopId != null" >
+        loop_id,
+      </if>
+      <if test="loopName != null" >
+        loop_name,
+      </if>
+      <if test="current != null" >
+        current,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+      <if test="voltage != null" >
+        voltage,
+      </if>
+      <if test="rate != null" >
+        rate,
+      </if>
+      <if test="factor != null" >
+        factor,
+      </if>
+      <if test="switchInputStatus != null" >
+        switch_input_status,
+      </if>
+      <if test="voltageOverRange != null" >
+        voltage_over_range,
+      </if>
+      <if test="currentOverRange != null" >
+        current_over_range,
+      </if>
+      <if test="lampOnTime != null" >
+        lamp_on_time,
+      </if>
+      <if test="estimatePowerCapacity != null" >
+        estimate_power_capacity,
+      </if>
+      <if test="electricity != null" >
+        electricity,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceLampTerminalId != null" >
+        #{deviceLampTerminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="loopId != null" >
+        #{loopId,jdbcType=INTEGER},
+      </if>
+      <if test="loopName != null" >
+        #{loopName,jdbcType=VARCHAR},
+      </if>
+      <if test="current != null" >
+        #{current,jdbcType=DECIMAL},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=DECIMAL},
+      </if>
+      <if test="voltage != null" >
+        #{voltage,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null" >
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="factor != null" >
+        #{factor,jdbcType=VARCHAR},
+      </if>
+      <if test="switchInputStatus != null" >
+        #{switchInputStatus,jdbcType=CHAR},
+      </if>
+      <if test="voltageOverRange != null" >
+        #{voltageOverRange,jdbcType=CHAR},
+      </if>
+      <if test="currentOverRange != null" >
+        #{currentOverRange,jdbcType=CHAR},
+      </if>
+      <if test="lampOnTime != null" >
+        #{lampOnTime,jdbcType=INTEGER},
+      </if>
+      <if test="estimatePowerCapacity != null" >
+        #{estimatePowerCapacity,jdbcType=DOUBLE},
+      </if>
+      <if test="electricity != null" >
+        #{electricity,jdbcType=DOUBLE},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoop" >
+    update device_lamp_terminal_loop
+    <set >
+      <if test="deviceLampTerminalId != null" >
+        device_lamp_terminal_id = #{deviceLampTerminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="branchId != null" >
+        branch_id = #{branchId,jdbcType=VARCHAR},
+      </if>
+      <if test="loopId != null" >
+        loop_id = #{loopId,jdbcType=INTEGER},
+      </if>
+      <if test="loopName != null" >
+        loop_name = #{loopName,jdbcType=VARCHAR},
+      </if>
+      <if test="current != null" >
+        current = #{current,jdbcType=DECIMAL},
+      </if>
+      <if test="power != null" >
+        power = #{power,jdbcType=DECIMAL},
+      </if>
+      <if test="voltage != null" >
+        voltage = #{voltage,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null" >
+        rate = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="factor != null" >
+        factor = #{factor,jdbcType=VARCHAR},
+      </if>
+      <if test="switchInputStatus != null" >
+        switch_input_status = #{switchInputStatus,jdbcType=CHAR},
+      </if>
+      <if test="voltageOverRange != null" >
+        voltage_over_range = #{voltageOverRange,jdbcType=CHAR},
+      </if>
+      <if test="currentOverRange != null" >
+        current_over_range = #{currentOverRange,jdbcType=CHAR},
+      </if>
+      <if test="lampOnTime != null" >
+        lamp_on_time = #{lampOnTime,jdbcType=INTEGER},
+      </if>
+      <if test="estimatePowerCapacity != null" >
+        estimate_power_capacity = #{estimatePowerCapacity,jdbcType=DOUBLE},
+      </if>
+      <if test="electricity != null" >
+        electricity = #{electricity,jdbcType=DOUBLE},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shengtong.smartlamppost.commons.entity.DeviceLampTerminalLoop" >
+    update device_lamp_terminal_loop
+    set device_lamp_terminal_id = #{deviceLampTerminalId,jdbcType=VARCHAR},
+      branch_id = #{branchId,jdbcType=VARCHAR},
+      loop_id = #{loopId,jdbcType=INTEGER},
+      loop_name = #{loopName,jdbcType=VARCHAR},
+      current = #{current,jdbcType=DECIMAL},
+      power = #{power,jdbcType=DECIMAL},
+      voltage = #{voltage,jdbcType=DECIMAL},
+      rate = #{rate,jdbcType=DECIMAL},
+      factor = #{factor,jdbcType=VARCHAR},
+      switch_input_status = #{switchInputStatus,jdbcType=CHAR},
+      voltage_over_range = #{voltageOverRange,jdbcType=CHAR},
+      current_over_range = #{currentOverRange,jdbcType=CHAR},
+      lamp_on_time = #{lampOnTime,jdbcType=INTEGER},
+      estimate_power_capacity = #{estimatePowerCapacity,jdbcType=DOUBLE},
+      electricity = #{electricity,jdbcType=DOUBLE},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      del_flag = #{delFlag,jdbcType=CHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
