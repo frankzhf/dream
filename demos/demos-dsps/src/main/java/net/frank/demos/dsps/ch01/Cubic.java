@@ -1,4 +1,4 @@
-package net.frank.corejava0.dsps.ch01;
+package net.frank.demos.dsps.ch01;
 
 public class Cubic{
 	

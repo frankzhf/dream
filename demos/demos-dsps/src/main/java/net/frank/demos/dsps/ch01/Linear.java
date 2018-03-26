@@ -1,7 +1,6 @@
-package net.frank.corejava0.dsps.ch01;
+package net.frank.demos.dsps.ch01;
 
-public class On2 {
-
+public class Linear {
 	private static int seqStart = -1;
 	private static int seqEnd = -1;
 
@@ -22,16 +21,17 @@ public class On2 {
 
 	public static int maxSubsequenceSum(int[] input) {
 		int maxSum = Integer.MIN_VALUE;
-		
-		for(int i=0;i<input.length;i++) {
-			int thisSum = 0;
-			for(int j=i;j<input.length;j++) {
-				thisSum += input[j];
-				if(thisSum > maxSum) {
-					maxSum = thisSum;
-					seqStart = i;
-					seqEnd = j;
-				}
+		int thisSum = 0;
+		for(int i=0,j=0;j<input.length;j++) {
+			thisSum += input[j];
+			if(thisSum > maxSum) {
+				maxSum = thisSum;
+				seqStart = i;
+				seqEnd = j;
+			}else if(thisSum < 0) {
+				i = i+1;
+				j = i-1;
+				thisSum = 0;
 			}
 		}
 		return maxSum;
