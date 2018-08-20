@@ -1,6 +1,7 @@
 package net.frank.cms.service.impl;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.app.InitialService;
@@ -11,7 +12,7 @@ import net.frank.framework.service.QueryService;
 
 public class InitialTemplateServiceImpl implements InitialService {
 	
-	private transient Logger log = Logger.getLogger(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private QueryService queryService;
 	
@@ -81,7 +82,7 @@ public class InitialTemplateServiceImpl implements InitialService {
 				CommonConstants.TYPE.RESOURCE, account_root, group_admin);
 		res = qingMaker.createResource("media", articleTempleate,true,
 				CommonConstants.TYPE.RESOURCE, account_root, group_admin);
-		log.debug(res);
+		log.debug(res+"");
 		log.debug("Init End");
 	}
 

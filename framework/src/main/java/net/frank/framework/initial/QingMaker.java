@@ -3,7 +3,7 @@ package net.frank.framework.initial;
 import java.util.Date;
 
 import net.frank.commons.CommonConstants;
-import net.frank.commons.util.PasswordUtil;
+import net.frank.commons.util.DesEncryptUtil;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Account2Group;
 import net.frank.framework.bo.Application;
@@ -88,7 +88,7 @@ public final class QingMaker {
 		Account account = new Account();
 		account.setResource(res);
 		account.setLoginName(loginName);
-		account.setPassword(PasswordUtil.MD5encode(password));
+		account.setPassword(DesEncryptUtil.encodeDES(password));
 		account.setUmask(umask);
 		account.setHome$3(homeRes);
 		account.setStaff$16(null);

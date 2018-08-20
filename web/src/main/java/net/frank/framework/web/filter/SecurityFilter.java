@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.MDC;
 
 import net.frank.framework.spring.SpringContextHolder;
 import net.frank.framework.web.WebConstants;
@@ -27,7 +26,6 @@ import net.frank.framework.ws.process.BoXmlUtil;
 public class SecurityFilter implements Filter {
 	private transient Log log = LogFactory.getLog(getClass());
 	public static final String ORIGINAL_SERVLET_PATH = "ORIGINAL_SERVLET_PATH";
-	private static final String LOG4J_SESSION_ID_KEY = "sessionId";
 	private static final String WS_REQUEST_URL = "/jaxrs";
 	
 	private static final String WS_COMMON_UTIL_BEAN_ID = "boXmlUtil";
@@ -52,7 +50,6 @@ public class SecurityFilter implements Filter {
 			}
 			String context = hrequest.getContextPath();
 			String requestURI = hrequest.getRequestURI().substring(context.length());
-			MDC.put(LOG4J_SESSION_ID_KEY,hrequest.getSession().getId());
 			log.debug("requestURI:" + requestURI);
 	
 			if (requestURI.matches(unfilteredURIs)) {
@@ -82,8 +79,6 @@ public class SecurityFilter implements Filter {
 				hresponse.sendRedirect(hrequest.getContextPath() + loginURL);
 			}
 		}finally{
-			if(MDC.get(LOG4J_SESSION_ID_KEY) !=null)
-				MDC.remove(LOG4J_SESSION_ID_KEY);
 		}
 	}
 

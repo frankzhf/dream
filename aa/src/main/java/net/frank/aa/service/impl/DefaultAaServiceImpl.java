@@ -47,9 +47,11 @@ public class DefaultAaServiceImpl implements AaService {
 				currA11r.authenticate(loginName, password, session);
 			}
 		}
-		for(Iterator<Authorization> it=authorizationList.iterator();it.hasNext();){
-			Authorization currA11n = it.next();
-			currA11n.exec(session);
+		if(Session.STATUS_LOGINED.equals(session.getStatus())) {
+			for(Iterator<Authorization> it=authorizationList.iterator();it.hasNext();){
+				Authorization currA11n = it.next();
+				currA11n.exec(session);
+			}
 		}
 		return session;
 	}

@@ -1,5 +1,7 @@
 package net.frank.cms.service.impl;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.frank.cms.service.SelfService;
 import net.frank.commons.CommonConstants;
 import net.frank.framework.bo.Account;
@@ -28,7 +30,7 @@ public class SelfServiceImpl implements SelfService {
 	public void setResourceService(ResourceService resourceService) {
 		this.resourceService = resourceService;
 	}
-
+	@Transactional
 	@Override
 	public void addPersonalInfo(ClientSession cs) {
 		Account currentAccount = cs.getAccount();

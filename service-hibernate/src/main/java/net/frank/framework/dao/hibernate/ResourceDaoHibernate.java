@@ -1,12 +1,11 @@
 package net.frank.framework.dao.hibernate;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate4.HibernateCallback;
 
 import net.frank.framework.bo.Resource;
 import net.frank.framework.dao.ResourceDao;
@@ -18,7 +17,7 @@ public class ResourceDaoHibernate extends BaseDaoHibernate implements
 		List<Resource> executeFind = getHibernateTemplate().execute(new HibernateCallback<List<Resource>>() {
 			@SuppressWarnings("unchecked")
 			public List<Resource> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Resource as r where r.parentId=:parentId and r.alias=:alias";
 				Query q = session.createQuery(hql);
 				q.setParameter("parentId", parentId);
@@ -36,7 +35,7 @@ public class ResourceDaoHibernate extends BaseDaoHibernate implements
 		List<Resource> executeFind = getHibernateTemplate().execute(new HibernateCallback<List<Resource>>() {
 			@SuppressWarnings("unchecked")
 			public List<Resource> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Resource as r where r.parentId = :parentId order by r.createdDt";
 				Query q = session.createQuery(hql);
 				q.setParameter("parentId", parentId);
@@ -51,7 +50,7 @@ public class ResourceDaoHibernate extends BaseDaoHibernate implements
 		List<Resource> executeFind = getHibernateTemplate().execute(new HibernateCallback<List<Resource>>() {
 			@SuppressWarnings("unchecked")
 			public List<Resource> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException{
 				String hql = "from net.frank.framework.bo.Resource as r where r.typeId = :typeId";
 				Query q = session.createQuery(hql);
 				q.setParameter("typeId", typeId);

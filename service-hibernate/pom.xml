@@ -4,10 +4,9 @@
 	<parent>
 		<groupId>net.frank</groupId>
 		<artifactId>xcross</artifactId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>service-hibernate</artifactId>
-	<version>${current.version}</version>
 	<properties>
 		<resource.genertor><![CDATA[<generator class="native" />]]></resource.genertor>
 		<data.source.spring.configuration>
@@ -87,17 +86,17 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>commons</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework-ws</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>c3p0</groupId>

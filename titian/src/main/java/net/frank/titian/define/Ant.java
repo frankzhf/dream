@@ -3,7 +3,7 @@ package net.frank.titian.define;
 import java.util.Properties;
 
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 
 public interface Ant {
 	public String getOperateId();

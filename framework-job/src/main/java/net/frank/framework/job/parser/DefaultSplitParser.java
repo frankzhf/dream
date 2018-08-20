@@ -1,7 +1,8 @@
 package net.frank.framework.job.parser;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.job.JobConstant;
 import net.frank.framework.job.JobException;
@@ -10,7 +11,7 @@ import net.frank.framework.job.model.DataRow;
 
 public class DefaultSplitParser implements IPlaintextParser {
 	
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private String columnNames;
 	

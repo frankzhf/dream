@@ -1,12 +1,11 @@
 package net.frank.cms.ext.selector.unit.dao.impl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate4.HibernateCallback;
 
 import net.frank.cms.ext.selector.unit.dao.UnitSelectorDao;
 import net.frank.framework.bo.Resource;
@@ -21,7 +20,7 @@ public class UnitSelectorDaoHibernate extends BaseDaoHibernate implements
 		List<Unit> executeFind = getHibernateTemplate().execute(new HibernateCallback<List<Unit>>() {
 			@SuppressWarnings("unchecked")
 			public List<Unit> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Unit as r where r.context$3.id=:contextId";
 				Query q = session.createQuery(hql);
 				q.setParameter("contextId", context.getId());

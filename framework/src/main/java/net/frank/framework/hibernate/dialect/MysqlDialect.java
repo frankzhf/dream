@@ -2,15 +2,31 @@ package net.frank.framework.hibernate.dialect;
 
 import java.sql.Types;
 
-import org.hibernate.Hibernate;
 import org.hibernate.dialect.MySQLDialect;
+import org.hibernate.type.BigDecimalType;
+import org.hibernate.type.BigIntegerType;
+import org.hibernate.type.BinaryType;
+import org.hibernate.type.BlobType;
+import org.hibernate.type.BooleanType;
+import org.hibernate.type.ByteType;
+import org.hibernate.type.CharArrayType;
+import org.hibernate.type.CharacterType;
+import org.hibernate.type.ClobType;
+import org.hibernate.type.DateType;
+import org.hibernate.type.DoubleType;
+import org.hibernate.type.FloatType;
+import org.hibernate.type.IntegerType;
+import org.hibernate.type.ShortType;
+import org.hibernate.type.StringType;
+import org.hibernate.type.TimeType;
+import org.hibernate.type.TimestampType;
 
 public class MysqlDialect extends MySQLDialect {
 	
 	public MysqlDialect(){
 		super();
-		registerHibernateType( Types.LONGVARCHAR, Hibernate.CHAR_ARRAY.getName() );
-		registerHibernateType( Types.REAL, Hibernate.FLOAT.getName() );
+		registerHibernateType( Types.LONGVARCHAR, CharArrayType.INSTANCE.getName() );
+		registerHibernateType( Types.REAL, FloatType.INSTANCE.getName());
 	}
 	
 	protected void registerVarcharTypes() {
@@ -26,68 +42,68 @@ public class MysqlDialect extends MySQLDialect {
 		Class<?> rt = null;
 		switch(typeCode){
 		case Types.BIGINT:
-			rt = Hibernate.BIG_INTEGER.getReturnedClass();
+			rt = BigIntegerType.INSTANCE.getReturnedClass();
 			break;
 		case Types.BINARY:
-			rt = Hibernate.BINARY.getReturnedClass();
+			rt = BinaryType.INSTANCE.getReturnedClass();
 			break;
 		case Types.BIT:
-			rt = Hibernate.BOOLEAN.getReturnedClass();
+			rt = BooleanType.INSTANCE.getReturnedClass();
 			break;
 		case Types.CHAR:
 			if(size ==1){
-				rt = Hibernate.CHARACTER.getReturnedClass();
+				rt = CharacterType.INSTANCE.getReturnedClass();
 			}else{
-				rt = Hibernate.STRING.getReturnedClass();
+				rt = StringType.INSTANCE.getReturnedClass();
 			}
 			break;
 		case Types.DATE:
-			rt = Hibernate.DATE.getReturnedClass();
+			rt = DateType.INSTANCE.getReturnedClass();
 			break;	
 		case Types.DOUBLE:
-			rt = Hibernate.DOUBLE.getReturnedClass();
+			rt = DoubleType.INSTANCE.getReturnedClass();
 			break;
 		case Types.FLOAT:
-			rt = Hibernate.BIG_DECIMAL.getReturnedClass();
+			rt = FloatType.INSTANCE.getReturnedClass();
 			break;
 		case Types.INTEGER:
-			rt = Hibernate.INTEGER.getReturnedClass();
+			rt = IntegerType.INSTANCE.getReturnedClass();
 			break;	
 		case Types.SMALLINT:
-			rt = Hibernate.INTEGER.getReturnedClass();
+			rt = ShortType.INSTANCE.getReturnedClass();
 			break;
 		case Types.TINYINT:
-			rt = Hibernate.BYTE.getReturnedClass();
+			rt = ByteType.INSTANCE.getReturnedClass();
 			break;
 		case Types.TIME:
-			rt = Hibernate.TIME.getReturnedClass();
+			rt = TimeType.INSTANCE.getReturnedClass();
 			break;	
 		case Types.TIMESTAMP:
-			rt = Hibernate.TIMESTAMP.getReturnedClass();
+			rt = TimestampType.INSTANCE.getReturnedClass();
 			break;
 		case Types.VARCHAR:
-			rt = Hibernate.STRING.getReturnedClass();
+			rt = StringType.INSTANCE.getReturnedClass();
 			break;
 		case Types.VARBINARY:
-			rt = Hibernate.BINARY.getReturnedClass();
+			rt = BinaryType.INSTANCE.getReturnedClass();
 			break;
 		case Types.NUMERIC:
-			rt = Hibernate.BIG_DECIMAL.getReturnedClass();
+			rt = BigDecimalType.INSTANCE.getReturnedClass();
 			break;	
 		case Types.DECIMAL:
-			rt = Hibernate.BIG_DECIMAL.getReturnedClass();
+			rt = BigDecimalType.INSTANCE.getReturnedClass();
 			break;
 		case Types.BLOB:
-			rt = Hibernate.BLOB.getReturnedClass();
+			rt = BlobType.INSTANCE.getReturnedClass();
 			break;
 		case Types.CLOB:
-			rt = Hibernate.CLOB.getReturnedClass();
+			rt = ClobType.INSTANCE.getReturnedClass();
 			break;	
 		case Types.LONGVARCHAR:
-			rt = Hibernate.CHAR_ARRAY.getReturnedClass();
+			rt = CharArrayType.INSTANCE.getReturnedClass();
 			break;
 		case Types.REAL:
-			rt = Hibernate.FLOAT.getReturnedClass();
+			rt = FloatType.INSTANCE.getReturnedClass();
 			break;
 		}
 		return rt;

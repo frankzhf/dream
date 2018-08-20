@@ -9,11 +9,12 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public final class DesEncryptUtil {
-	private static transient Log log = LogFactory.getLog(DesEncryptUtil.class);
+	private static transient Logger log = LoggerFactory.getLogger(DesEncryptUtil.class);
 
 	private static final String DESKEY = "net.frank.f3ew2k";
 

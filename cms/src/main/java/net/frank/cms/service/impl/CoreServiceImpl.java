@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.frank.cms.common.CmsCommonConstants;
 import net.frank.cms.service.CoreService;
 import net.frank.commons.CommonConstants;
@@ -31,7 +33,7 @@ public class CoreServiceImpl implements CoreService {
 	public void setResourceService(ResourceService resourceService) {
 		this.resourceService = resourceService;
 	}
-
+	@Transactional
 	@Override
 	public void move(Resource from, Resource to, boolean isClone,
 			boolean recursive, Session cs) {
@@ -60,7 +62,7 @@ public class CoreServiceImpl implements CoreService {
 		}
 
 	}
-
+	@Transactional
 	@Override
 	public void changeSystemPreperties(Resource resource,
 			final Byte ownPermission, final Byte groupPermission,
@@ -122,7 +124,7 @@ public class CoreServiceImpl implements CoreService {
 		}
 
 	}
-
+	@Transactional
 	@Override
 	public void activationAccount(List<Resource> accountResourceList,
 			Resource defaultGroupRes, Session cs) {
@@ -185,20 +187,20 @@ public class CoreServiceImpl implements CoreService {
 			}
 		}
 	}
-
+	@Transactional
 	@Override
 	public int addAcl(Long resourceId, Long ownId, Byte permission) {
 		resourceService.addAcl(resourceId, ownId, permission);
 		return CommonConstants.CMS_CODE.MESSAGE_OK;
 	}
-
+	@Transactional
 	@Override
 	public int updateAcl(Long aclId, Long resourceId, Long ownId,
 			Byte permission) {
 		resourceService.updateAcl(aclId, resourceId, ownId, permission);
 		return CommonConstants.CMS_CODE.MESSAGE_OK;
 	}
-
+	@Transactional
 	@Override
 	public int deleteAcl(Long aclId) {
 		resourceService.deleteAcl(aclId);

@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>site-adminlte</artifactId>
 	<packaging>war</packaging>

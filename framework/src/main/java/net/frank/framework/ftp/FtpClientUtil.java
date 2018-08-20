@@ -72,14 +72,8 @@ public final class FtpClientUtil {
 		InputStream fileIn = null;
 		OutputStream fileOut = null;
 		try {
-			if (port == null) {
-				log.debug("Connect to FTP server on " + host + ":"
-						+ FTP.DEFAULT_PORT);
-				ftpClient.connect(host);
-			} else {
-				log.debug("Connect to FTP server on " + host + ":" + port);
-				ftpClient.connect(host, port);
-			}
+			log.debug("Connect to FTP server on " + host + ":" + port);
+			ftpClient.connect(host, port);
 			int reply = ftpClient.getReplyCode();
 			if (!FTPReply.isPositiveCompletion(reply)) {
 				log.error("FTP server refuses connection");

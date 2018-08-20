@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.frank.monkey.executor.ReceiveImages;
-import org.apache.log4j.Logger;
 
 public class ReceiveBroderCast {
 	
@@ -15,7 +18,7 @@ public class ReceiveBroderCast {
 	private static final String KEY_TIPER_PORT = "tiger.port";
 	
 	
-	private static transient Logger log = Logger.getLogger(ReceiveBroderCast.class);
+	private static transient Logger log = LoggerFactory.getLogger(ReceiveBroderCast.class);
 	public ExecutorService exector;
 
 	public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package net.frank.framework.dao.hibernate;
 
 import java.lang.reflect.Method;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -9,8 +8,8 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate4.HibernateCallback;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import net.frank.framework.bo.BusinessObject;
 import net.frank.framework.dao.BaseDao;
@@ -79,19 +78,21 @@ public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
 	}
 	
 	@Override
-	public void clearObjectts(Class<?> claz) {
+	public void clearObjects(Class<?> claz) {
 		final StringBuffer buff = new StringBuffer();
 		buff.append("delete from ").append(claz.getName());
-		getHibernateTemplate().executeFind(new HibernateCallback<Object>() {
+		
+		
+		getHibernateTemplate().execute(new HibernateCallback<Object>() {
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
-				Query q = getSession().createQuery(buff.toString());
+					throws HibernateException {
+				Query q = session.createQuery(buff.toString());
 				q.executeUpdate();
 				return null;
 			}});
 	}
 
-	public void clearObjectts2(Class<?> claz) {
+	public void clearObjects2(Class<?> claz) {
 		List<?> objectts = getHibernateTemplate().find("from " + claz.getName());
 		getHibernateTemplate().deleteAll(objectts);
 	}
@@ -104,10 +105,10 @@ public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
 		}
 		buff.deleteCharAt(buff.length()-1);
 		buff.append(")");
-		getHibernateTemplate().executeFind(new HibernateCallback<Object>() {
+		getHibernateTemplate().execute(new HibernateCallback<Object>() {
 			public Object doInHibernate(Session session)
-					throws HibernateException, SQLException {
-				Query q = getSession().createQuery(buff.toString());
+					throws HibernateException {
+				Query q = session.createQuery(buff.toString());
 				q.executeUpdate();
 				return null;
 		}});
@@ -117,9 +118,9 @@ public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
 	public BusinessObject getBusinessObject(final String className,final Long resourceId) {
 		@SuppressWarnings("unchecked")
 		List<BusinessObject> executeFind = (List<BusinessObject>)getHibernateTemplate().
-				executeFind(new HibernateCallback<List<BusinessObject>>() {
+				execute(new HibernateCallback<List<BusinessObject>>() {
 			public List<BusinessObject> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				StringBuffer sb = new StringBuffer("from ");
 				sb.append(className);
 				sb.append(" as r where r.resource.id = :id");
@@ -143,5 +144,4 @@ public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
 	public void flush() {
 		getHibernateTemplate().flush();
 	}
-	
 }

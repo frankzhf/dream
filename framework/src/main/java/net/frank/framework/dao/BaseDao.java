@@ -10,9 +10,9 @@ public interface BaseDao {
 
 	public void removeObject(Object o) throws DAOException;
 
-	public void clearObjectts(Class<?> claz);
+	public void clearObjects(Class<?> claz);
 
-	public void clearObjectts2(Class<?> claz);
+	public void clearObjects2(Class<?> claz);
 	
 	public BusinessObject getBusinessObject(String className,Long resourceId);
 	

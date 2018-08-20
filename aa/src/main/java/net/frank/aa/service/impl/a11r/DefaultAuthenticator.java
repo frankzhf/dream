@@ -1,7 +1,7 @@
 package net.frank.aa.service.impl.a11r;
 
 import net.frank.framework.security.Authenticator;
-import net.frank.commons.util.PasswordUtil;
+import net.frank.commons.util.DesEncryptUtil;
 import net.frank.framework.bo.Account;
 import net.frank.framework.dao.AccountDao;
 import net.frank.framework.security.Session;
@@ -20,7 +20,7 @@ public class DefaultAuthenticator implements Authenticator {
 		Account checkAccount = accountDao.retrieveAccountByUid(loginName);
 		if(checkAccount != null && Account.TYPE_DEFAULT.equals(checkAccount.getType())){
 			String encode = checkAccount.getPassword();
-			String _encode = PasswordUtil.MD5encode(password);
+			String _encode = DesEncryptUtil.encodeDES(password);
 			if(_encode.equals(encode)){
 				session.setStatus(Session.STATUS_LOGINED);
 				Account cloneAccount = checkAccount.clone();

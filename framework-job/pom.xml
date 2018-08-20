@@ -4,10 +4,9 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>framkwork-job</artifactId>
-	<version>${current.version}</version>
 	<description>
 		Job integrate
 	</description>
@@ -16,7 +15,7 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>commons</artifactId>
-			<version>${current.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>

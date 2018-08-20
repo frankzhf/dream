@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>cms</artifactId>
 	<packaging>war</packaging>
@@ -43,66 +43,19 @@
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
-			<artifactId>framework-ws</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>framework</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>service-hibernate</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>web</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
 			<artifactId>struts</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>aa</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<!-- 
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>sex</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>subject</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		 -->
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>repository-bo</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>repository-phase</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>tasklist-bo</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>tasklist-phase</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+	        <groupId>org.hibernate</groupId>
+	        <artifactId>hibernate-ehcache</artifactId>
+	        <version>${hibernate.version}</version>
+	    </dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>

@@ -8,12 +8,13 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.tiger.executor.SendScreenImg;
 
 public class BroderCast {
-	private static transient Logger log = Logger.getLogger(BroderCast.class);
+	private static transient Logger log = LoggerFactory.getLogger(BroderCast.class);
 	
 	private static final String DEFAULT_PORT = "8002";
 	

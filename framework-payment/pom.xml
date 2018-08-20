@@ -6,16 +6,15 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<packaging>jar</packaging>
 	<artifactId>framework-payment</artifactId>
-	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-httpclient</groupId>

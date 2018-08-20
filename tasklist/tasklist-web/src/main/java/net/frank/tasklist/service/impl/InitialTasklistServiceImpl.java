@@ -3,7 +3,8 @@ package net.frank.tasklist.service.impl;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.cms.service.AdminService;
 import net.frank.cms.service.TypeRegistrationService;
@@ -22,7 +23,7 @@ import net.frank.framework.service.ResourceService;
 import net.frank.tasklist.CommonConstants;
 
 public class InitialTasklistServiceImpl implements InitialService {
-	private transient Logger log = Logger.getLogger(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private QingMaker qingMaker;
 	

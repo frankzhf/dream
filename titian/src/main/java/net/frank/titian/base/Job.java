@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.titian.define.AccountInfo;
 import net.frank.titian.define.Ant;
@@ -17,7 +18,6 @@ import net.frank.titian.define.Constants;
 import net.frank.titian.define.RetailerPullExecutor;
 import net.frank.titian.util.HttpUtil;
 import net.frank.titian.util.RetailerPropertiesUtil;
-import net.frank.commons.log4j.ThreadLoggerFactory;
 
 public class Job implements Runnable {
 	
@@ -32,7 +32,7 @@ public class Job implements Runnable {
 	
 	@Override
 	public void run() {
-		Logger log = ThreadLoggerFactory.getLogger();
+		Logger log = LoggerFactory.getLogger(getClass());
 		log.debug("Job run start");
 		AccountInfo accountInfo = context.getNextAccountInfo();
 		while(accountInfo!=null){

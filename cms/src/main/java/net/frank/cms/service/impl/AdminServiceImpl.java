@@ -3,9 +3,11 @@ package net.frank.cms.service.impl;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.frank.cms.service.AdminService;
 import net.frank.commons.CommonConstants;
-import net.frank.commons.util.PasswordUtil;
+import net.frank.commons.util.DesEncryptUtil;
 import net.frank.commons.util.StringUtil;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Account2Group;
@@ -76,7 +78,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 	public void setPrivilegeDao(PrivilegeDao privilegeDao) {
 		this.privilegeDao = privilegeDao;
 	}
-
+	@Transactional
 	@Override
 	public void addUnit(String unitName, String unitCode,
 			Resource parentUnitRes, Session cs) {
@@ -197,7 +199,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 			}
 		}	
 	}
-
+	@Transactional
 	@Override
 	public void addGroup(String groupName, Resource parent, Session cs) {
 		Resource newGroupRes = resourceService.newResource(groupName, parent,
@@ -211,7 +213,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 		group.setResource(newGroupRes);
 		resourceService.saveOrUpdateBo(group, cs);
 	}
-
+	@Transactional
 	@Override
 	public void addAccount(String loginName, String password, Session cs) {
 		Resource parent = queryService.getResourceAsPath(DEFAULT_HOME);
@@ -229,7 +231,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 				CommonConstants.PERMISSION.NONE);
 		Account account = new Account();
 		account.setLoginName(loginName);
-		account.setPassword(PasswordUtil.MD5encode(password));
+		account.setPassword(DesEncryptUtil.encodeDES(password));
 		account.setUmask("700");
 		account.setType(Account.TYPE_DEFAULT);
 		account.setResource(newAccountRes);
@@ -338,7 +340,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 		}
 		return true;
 	}
-
+	@Transactional
 	@Override
 	public void appointManager(Long unitResourceId, Long staffResourceId,
 			Session cs) {
@@ -417,7 +419,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 		}
 		return true;
 	}
-
+	@Transactional
 	@Override
 	public void grantStaffGroup(Long groupResourceId, Long staffResourceId,
 			Session cs) {
@@ -446,7 +448,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 		a2gObject.setGroup$6(groupRes);
 		resourceService.saveOrUpdateBo(a2gObject, cs);
 	}
-
+	@Transactional
 	@Override
 	public void removeStaffGroup(Long a2gResourceId, Session cs) {
 		Account2Group a2g = (Account2Group) queryService.getBo(a2gResourceId);

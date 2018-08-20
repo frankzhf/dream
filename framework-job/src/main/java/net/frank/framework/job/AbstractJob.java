@@ -2,12 +2,12 @@ package net.frank.framework.job;
 
 import java.sql.Connection;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractJob implements IAbstractJob {
 	
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	protected abstract void runJob()throws JobException;
 	

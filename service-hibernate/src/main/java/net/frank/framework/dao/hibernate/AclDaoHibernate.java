@@ -1,12 +1,11 @@
 package net.frank.framework.dao.hibernate;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate4.HibernateCallback;
 
 import net.frank.framework.bo.Acl;
 import net.frank.framework.dao.AclDao;
@@ -19,7 +18,7 @@ public class AclDaoHibernate extends BaseDaoHibernate implements AclDao{
 			@SuppressWarnings("unchecked")
 			@Override
 			public List<Acl> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Acl as r where r.resourceId = :resourceId";
 				Query q = session.createQuery(hql);
 				q.setParameter("resourceId", resourceId);
@@ -40,7 +39,7 @@ public class AclDaoHibernate extends BaseDaoHibernate implements AclDao{
 			@SuppressWarnings("unchecked")
 			@Override
 			public List<Acl> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Acl as r where r.resourceId = :resourceId and r.ownId = :ownId";
 				Query q = session.createQuery(hql);
 				q.setParameter("resourceId", resourceId);
@@ -57,7 +56,7 @@ public class AclDaoHibernate extends BaseDaoHibernate implements AclDao{
 			@SuppressWarnings("unchecked")
 			@Override
 			public List<Acl> doInHibernate(Session session)
-					throws HibernateException, SQLException {
+					throws HibernateException {
 				String hql = "from net.frank.framework.bo.Acl as r where r.ownId = :ownId";
 				Query q = session.createQuery(hql);
 				q.setParameter("ownId", oweId);

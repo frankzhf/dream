@@ -12,11 +12,11 @@ public final class TestServiceImpl implements TestService {
 	}
 	
 	public void clearAll(Class<?> claz) {
-		baseDao.clearObjectts(claz);
+		baseDao.clearObjects(claz);
 	}
 	
 	public void clearAll2(Class<?> claz){
-		baseDao.clearObjectts2(claz);
+		baseDao.clearObjects2(claz);
 	}
 
 	@Override

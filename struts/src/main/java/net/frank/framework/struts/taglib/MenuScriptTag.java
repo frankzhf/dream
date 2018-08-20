@@ -31,7 +31,7 @@ public class MenuScriptTag extends CommonTag{
 				Resource menu = it.next();
 				if (checkRunPermission(menu, cs)) {
 					String menuName = ((MenuItem) menu.getObject()).getTitle();
-					String _menuName = menuName.replaceAll(DOT, _);
+					String _menuName = menuName.replaceAll(DOT, UL);
 					out.text("\t\t$('#");
 					out.text(PREFFIX);
 					out.text(_menuName);
@@ -48,7 +48,7 @@ public class MenuScriptTag extends CommonTag{
 							if (checkRunPermission(child, cs)) {
 								MenuItem menuItem = (MenuItem) child.getObject();
 								String menuItemName = menuItem.getTitle();
-								String _menuItemName = menuItemName.replaceAll(DOT, _);
+								String _menuItemName = menuItemName.replaceAll(DOT, UL);
 								String message = TagUtils.getInstance().message(pageContext,
 									bundle, localeKey, menuItemName, null);
 								out.text("\t\t$('#");

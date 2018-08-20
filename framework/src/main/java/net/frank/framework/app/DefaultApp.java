@@ -65,7 +65,7 @@ public class DefaultApp implements ApplicationTemplate {
 				Resource typeRoot = cmsService.getResource(currentPath,
 						rootSession);
 				if (!CommonConstants.TYPE.RESOURCE.equals(typeRoot.getTypeId())
-						|| typeRoot.getChildren().isEmpty()) {
+						|| typeRoot.getChildren()==null ||typeRoot.getChildren().isEmpty()) {
 					break;
 				}
 				for (Iterator<Resource> it = typeRoot.getChildren().iterator(); it

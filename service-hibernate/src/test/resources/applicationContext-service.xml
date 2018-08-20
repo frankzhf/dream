@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-	<bean id="cacheService" class="net.frank.framework.service.impl.CacheServiceImpl"
+	<bean id="cacheService"
+		class="net.frank.framework.service.impl.CacheServiceImpl"
 		autowire="byName" />
 
-	<bean id="queryService" class="net.frank.framework.service.impl.QueryServiceImpl"
+	<bean id="queryService"
+		class="net.frank.framework.service.impl.QueryServiceImpl"
 		autowire="byName" />
 
-	<bean id="resourceService" class="net.frank.framework.service.impl.ResourceServiceImpl"
+	<bean id="resourceService"
+		class="net.frank.framework.service.impl.ResourceServiceImpl"
 		autowire="byName" />
-	
-	<bean id="cmsServiceTarget" class="net.frank.framework.service.impl.CmsServiceImpl"
+
+	<bean id="cmsServiceTarget"
+		class="net.frank.framework.service.impl.CmsServiceImpl"
 		autowire="byName" />
-	
-	<bean id="permissionService" class="net.frank.framework.service.impl.PermissionServiceImpl"
+
+	<bean id="permissionService"
+		class="net.frank.framework.service.impl.PermissionServiceImpl"
 		autowire="byName" />
-		
-	<bean id="accountServiceTarget" class="net.frank.framework.service.impl.AccountServiceImpl"
+
+	<bean id="accountServiceTarget"
+		class="net.frank.framework.service.impl.AccountServiceImpl"
 		autowire="byName" />
-	
-	<bean id="taskActionTarget" class="net.frank.framework.service.impl.TaskActionServiceImpl"
-		autowire="byName" />
-		
+
 	<bean id="accountService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager">
@@ -42,7 +41,7 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean id="cmsService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager">
@@ -53,26 +52,9 @@
 		</property>
 		<property name="transactionAttributes">
 			<props>
-			    <prop key="getResource*">readOnly</prop>
+				<prop key="getResource*">readOnly</prop>
 				<prop key="*">PROPAGATION_REQUIRED</prop>
 			</props>
 		</property>
 	</bean>
-	
-	<bean id="taskAction"
-		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-		<property name="transactionManager">
-			<ref bean="transactionManager" />
-		</property>
-		<property name="target">
-			<ref bean="taskActionTarget" />
-		</property>
-		<property name="transactionAttributes">
-			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean>
-	
-
 </beans>

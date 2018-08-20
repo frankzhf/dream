@@ -1,5 +1,7 @@
 package net.frank.cms.service.impl;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.frank.cms.dao.TypeRegistrationDao;
 import net.frank.cms.service.TypeRegistrationService;
 import net.frank.commons.CommonConstants;
@@ -35,7 +37,7 @@ public class TypeRegistrationServiceImpl implements TypeRegistrationService {
 	public void setTypeRegistrationDao(TypeRegistrationDao typeRegistrationDao){
 		this.typeRegistrationDao = typeRegistrationDao;
 	}
-
+	@Transactional
 	@Override
 	public void registrationType(String entityClass, String description,
 			String typeKey, Application applciation,Session cs) {

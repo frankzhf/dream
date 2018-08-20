@@ -3,9 +3,9 @@ package net.frank.framework.job.generator;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.util.StringUtil;
 import net.frank.framework.job.JobConstant;
@@ -14,7 +14,7 @@ import net.frank.framework.job.model.DataRow;
 
 public class SpecifyLengthGenerator implements IPlaintextGenerator {
 	
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	/**
 	 * define as columnName1[|columnName2|.......]

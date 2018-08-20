@@ -114,16 +114,18 @@ public class AdminAjax extends BaseAjax {
 		parentUnitRes = cmsService.getResource(parentUnitRes, cs);
 		Resource unitContext = ((Unit)parentUnitRes.getObject()).getContext$3();
 		Resource childrenRes = cmsService.getResource(unitContext, CommonConstants.CONTEXT.UNIT.CHILDREN, cs);
-		for(Iterator<Resource> it=childrenRes.getChildren().iterator();it.hasNext();){
-			Resource child = it.next();
-			child = cmsService.getResource(child, cs);
-			if(CommonConstants.TYPE.UNIT.equals(child.getTypeId())){
-				Unit childUnit = (Unit)child.getObject();
-				if(childUnit.getUnitName().equals(departmentName)){
-					return CommonConstants.CMS_CODE.MESSAGE_EXISTS;
-				}
-				if(childUnit.getUnitCode().equals(departmentCode)){
-					return CommonConstants.CMS_CODE.MESSAGE_NOT_EXISTS;
+		if(childrenRes.getChildren()!=null && !childrenRes.getChildren().isEmpty()) {
+			for(Iterator<Resource> it=childrenRes.getChildren().iterator();it.hasNext();){
+				Resource child = it.next();
+				child = cmsService.getResource(child, cs);
+				if(CommonConstants.TYPE.UNIT.equals(child.getTypeId())){
+					Unit childUnit = (Unit)child.getObject();
+					if(childUnit.getUnitName().equals(departmentName)){
+						return CommonConstants.CMS_CODE.MESSAGE_EXISTS;
+					}
+					if(childUnit.getUnitCode().equals(departmentCode)){
+						return CommonConstants.CMS_CODE.MESSAGE_NOT_EXISTS;
+					}
 				}
 			}
 		}

@@ -11,10 +11,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipInputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReceiveImages extends Thread implements ImageObserver {
-	private transient Logger log = Logger.getLogger(ReceiveImages.class);
+	private transient Logger log = LoggerFactory.getLogger(ReceiveImages.class);
 	private BorderInit frame;
 	private Socket socket;
 	private String ip;

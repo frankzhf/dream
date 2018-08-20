@@ -1,7 +1,6 @@
 package net.frank.framework.ws.render;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
 
 import net.frank.commons.CommonConstants;
@@ -11,7 +10,7 @@ import net.frank.framework.ws.WsXmlConstants;
 import net.frank.framework.ws.define.WsRender;
 
 public class DefaultWsRender implements WsRender, WsXmlConstants {
-	protected final transient Log log = LogFactory.getLog(getClass());
+	protected final transient Logger log = LoggerFactory.getLogger(getClass());
 	private static final String DEFAULT_CLASS_NAME = "java.lang.String";
 
 	public static final String DEFAULT_ATTRIBUTE_NAME = "name";

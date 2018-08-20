@@ -1,7 +1,9 @@
 package net.frank.framework.service.impl;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import net.frank.commons.CommonConstants;
-import net.frank.commons.util.PasswordUtil;
+import net.frank.commons.util.DesEncryptUtil;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Account2Group;
 import net.frank.framework.bo.Image;
@@ -42,20 +44,20 @@ public class AccountServiceImpl extends BaseServiceImpl implements
 	public void setResourceService(ResourceService resourceService) {
 		this.resourceService = resourceService;
 	}
-
+	@Transactional
 	@Override
 	public Account createLdapAccount(String loginName, String password,
 			Session session) {
 		return createAccount(loginName,password,session,Account.TYPE_LDAP);
 	}
-	
+	@Transactional
 	@Override
 	public Account addAccount(String loginName, String password, 
 			Session session) {
 		return createAccount(loginName,password,session,Account.TYPE_DEFAULT);
 	}
 	
-	
+	@Transactional
 	private Account createAccount(String loginName, String password,
 			Session session,Integer accountType){
 		Resource parent = queryService.getResourceAsPath(HOME_FOLDER);
@@ -73,7 +75,7 @@ public class AccountServiceImpl extends BaseServiceImpl implements
 				CommonConstants.PERMISSION.NONE);
 		Account account = new Account();
 		account.setLoginName(loginName);
-		account.setPassword(PasswordUtil.MD5encode(password));
+		account.setPassword(DesEncryptUtil.encodeDES(password));
 		account.setUmask(DEFAULT_UMASK);
 		account.setType(accountType);
 		account.setResource(newAccountRes);

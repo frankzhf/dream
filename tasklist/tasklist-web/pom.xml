@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>tasklist</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>tasklist-web</artifactId>
 	<packaging>war</packaging>
@@ -81,21 +81,21 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>tasklist-bo</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>unit-selector</artifactId>
 			<type>jar</type>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 			<classifier>api</classifier>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>unit-selector</artifactId>
 			<type>war</type>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 </project>

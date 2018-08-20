@@ -4,15 +4,15 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>commons</artifactId>
-	<version>${current.version}</version>
 	<description>
 		Password encode and decode
 	</description>
 	<packaging>jar</packaging>
 	<dependencies>
+	<!-- 
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
@@ -22,17 +22,17 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
-		</dependency>
+		</dependency> -->
 		<!-- Acegi -->
-		<dependency>
-			<groupId>acegisecurity</groupId>
-			<artifactId>acegi-security</artifactId>
-			<version>0.8.3</version>
-		</dependency>
 		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
 	</dependencies>
 </project>

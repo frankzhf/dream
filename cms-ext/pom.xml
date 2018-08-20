@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>cms-ext</artifactId>
 	<packaging>pom</packaging>
@@ -39,14 +39,14 @@
 			<groupId>net.frank</groupId>
 			<artifactId>cms</artifactId>
 			<type>jar</type>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 			<classifier>api</classifier>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>cms</artifactId>
 			<type>war</type>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 	<build>

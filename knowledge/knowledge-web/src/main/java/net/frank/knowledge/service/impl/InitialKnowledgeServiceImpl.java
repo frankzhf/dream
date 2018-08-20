@@ -1,6 +1,7 @@
 package net.frank.knowledge.service.impl;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.cms.service.AdminService;
 import net.frank.framework.app.InitialService;
@@ -16,7 +17,7 @@ import net.frank.framework.service.ResourceService;
 import net.frank.knowledge.CommonConstants;
 
 public class InitialKnowledgeServiceImpl implements InitialService {
-	private transient Logger log = Logger.getLogger(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private QingMaker qingMaker;
 	

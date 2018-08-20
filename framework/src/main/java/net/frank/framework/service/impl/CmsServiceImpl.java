@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.bo.BusinessObject;
@@ -81,7 +82,7 @@ public class CmsServiceImpl implements CmsService{
 		}
 		return resource;
 	}
-
+	@Transactional
 	@Override
 	public Resource createResource(Resource resource, Session cs) {
 		Resource parent = queryService.getResource(resource.getParentId());
@@ -105,7 +106,7 @@ public class CmsServiceImpl implements CmsService{
 		}
 		return resource;
 	}
-
+	@Transactional
 	@Override
 	public Resource updateResource(Resource resource, Session cs) {
 		Resource returnValue = queryService.getResource(resource.getId());
@@ -137,7 +138,7 @@ public class CmsServiceImpl implements CmsService{
 		}
 		return returnValue;
 	}
-
+	@Transactional
 	@Override
 	public Resource deleteResource(Resource resource, Session cs) {
 		Resource returnValue = queryService.getResource(resource.getId());
@@ -150,7 +151,7 @@ public class CmsServiceImpl implements CmsService{
 		}
 		return returnValue;
 	}
-	
+	@Transactional
 	public Resource deleteResource2(Resource resource, Session cs)throws SQLException {
 		//Resource returnValue = getResource(resource,cs);
 		try{

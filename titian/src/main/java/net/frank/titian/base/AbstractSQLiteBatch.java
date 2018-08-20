@@ -6,7 +6,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.titian.define.Batch;
 import net.frank.titian.define.BatchContext;
@@ -15,7 +16,7 @@ import net.frank.titian.util.SQLiteUtil;
 
 public abstract class AbstractSQLiteBatch implements Batch{
 	
-	protected transient Logger log = Logger.getLogger(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	protected abstract BatchContext prepare(String retailerId);
 

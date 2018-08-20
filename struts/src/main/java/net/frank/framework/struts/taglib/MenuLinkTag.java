@@ -30,7 +30,7 @@ public class MenuLinkTag extends CommonTag {
 				Resource menu = it.next();
 				if (checkRunPermission(menu, cs)) {
 					String menuName = ((MenuItem) menu.getObject()).getTitle();
-					String _menuName = menuName.replaceAll(DOT, _);
+					String _menuName = menuName.replaceAll(DOT, UL);
 					out.startElement(Xhtml.Tag.TD);
 					out.setPrettyPrinting(false);
 					out.startElement(Xhtml.Tag.A);

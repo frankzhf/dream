@@ -17,11 +17,12 @@ import java.util.zip.ZipOutputStream;
 
 import javax.imageio.ImageIO;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SendScreenImg extends Thread {
 	
-	private transient Logger log = Logger.getLogger(SendScreenImg.class);
+	private transient Logger log = LoggerFactory.getLogger(SendScreenImg.class);
 	
 	private BufferedImage mouseIcon = null;
 	

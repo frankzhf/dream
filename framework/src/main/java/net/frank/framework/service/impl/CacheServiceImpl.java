@@ -9,7 +9,7 @@ import net.frank.framework.bo.Type;
 import net.frank.framework.dao.TypeDao;
 import net.frank.framework.service.CacheService;
 
-import net.sf.ehcache.CacheManager;
+//import net.sf.ehcache.CacheManager;
 //import net.sf.ehcache.Element;
 
 
@@ -17,13 +17,13 @@ public final class CacheServiceImpl implements CacheService {
 	
 	private static Map<Long,Type> CACHE_TYPE=null;
 	
-	private CacheManager ehCacheManager;
+	//private CacheManager ehCacheManager;
 	
 	private TypeDao typeDao;
 	
-	public void setEhCacheManager(CacheManager ehCacheManager){
-		this.ehCacheManager = ehCacheManager;
-	}
+	//public void setEhCacheManager(CacheManager ehCacheManager){
+	//	this.ehCacheManager = ehCacheManager;
+	//}
 	
 	public void setTypeDao(TypeDao typeDao){
 		this.typeDao=typeDao;

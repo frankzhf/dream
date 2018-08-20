@@ -4,12 +4,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public final class ObjectUtil {
 	
-	private static transient Log log = LogFactory.getLog(ObjectUtil.class);
+	private static transient Logger log = LoggerFactory.getLogger(ObjectUtil.class);
 	
 	private static final String TYPE_INT = "int";
 	private static final String TYPE_BYTE = "byte";

@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>site-echarts</artifactId>
 	<description>Echarts-2.0.4 extend</description>

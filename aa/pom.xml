@@ -3,31 +3,15 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>aa</artifactId>
-	<version>${current.version}</version>
 	<dependencies>
 		<dependency>
 			<groupId>net.frank</groupId>
-			<artifactId>commons</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>framework-ws</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>framework</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
 			<artifactId>service-hibernate</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<!-- 
 		<dependency>

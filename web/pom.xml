@@ -4,10 +4,9 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>web</artifactId>
-	<version>${current.version}</version>
 	<packaging>jar</packaging>
 	<build>
 	    <plugins>
@@ -24,18 +23,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>net.frank</groupId>
-			<artifactId>commons</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
-			<artifactId>framework-ws</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>net.frank</groupId>
 			<artifactId>framework</artifactId>
-			<version>${project.version}</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.directwebremoting</groupId>

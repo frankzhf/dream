@@ -60,7 +60,7 @@ public final class TestInitSystem extends TestInitDbCase {
 		String sqlFile = workspacePath + File.separator + "src/main/init-sql/" + 
 				dbDialect + File.separator + "init-template.sql";
 		String command =  getSqlClientCommand(dbDialect, 
-				"frank", "A1j86618825", "frank", sqlFile);
+				"frank", "123456", "frank", sqlFile);
 		Runtime runtime = Runtime.getRuntime();
 		//String shCommand = "sh -c " + command;
 		//logger.info(shCommand);
@@ -72,7 +72,7 @@ public final class TestInitSystem extends TestInitDbCase {
 		sqlFile = workspacePath + File.separator + "src/main/init-sql/" + 
 				dbDialect + File.separator + "init-end.sql";
 		command =  getSqlClientCommand(dbDialect, 
-				"frank", "A1j86618825", "frank", sqlFile);
+				"frank", "123456", "frank", sqlFile);
 		//shCommand = "sh -c " + command;
 		logger.info(command);
 		commandGroup =OsUtil.getOsBatchCommand(command);

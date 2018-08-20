@@ -11,8 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.commons.util.DateUtil;
@@ -38,7 +38,7 @@ public abstract class BaseEntity implements IBase, Serializable {
 	private static Map<String,Map<String,Method>> methodMap = null;
 
 	private static final long serialVersionUID = -725835001549125508L;
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	private static Integer BIGDECIMAL_SCALE = 2;
 	protected Map<String, String> errorFieldsValue = new HashMap<String, String>();
 

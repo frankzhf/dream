@@ -3,7 +3,8 @@ package net.frank.repository.service.impl;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.cms.service.AdminService;
 import net.frank.cms.service.TypeRegistrationService;
@@ -11,7 +12,6 @@ import net.frank.framework.app.InitialService;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Acl;
 import net.frank.framework.bo.Application;
-import net.frank.framework.bo.Comment;
 import net.frank.framework.bo.MenuItem;
 import net.frank.framework.bo.Resource;
 import net.frank.framework.bo.Unit;
@@ -28,9 +28,9 @@ import net.frank.repository.organization.AddUnitPhase;
 
 public class InitialRepositoryServiceImpl implements InitialService {
 	
-	private transient Logger log = Logger.getLogger(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
-	private static final String DEFAULT_READ_UNIT_GROUP_PATH = "/unit/.7576/group/Staff";
+	private static final String DEFAULT_READ_UNIT_GROUP_PATH = "/unit/.3410/group/Staff";
 	
 	private static final String USER_SPACE_FOLDER_MY_DOCUMENT = "myDocument";
 	private static final String USER_SPACE_FOLDER_RECYCLE_BIN = "recycleBin";

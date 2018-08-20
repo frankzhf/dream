@@ -30,7 +30,7 @@ public class MenuTag extends CommonTag {
 				Resource menu = it.next();
 				if (checkRunPermission(menu, cs)) {
 					String menuName = ((MenuItem) menu.getObject()).getTitle();
-					String _menuName = menuName.replaceAll(DOT, _);
+					String _menuName = menuName.replaceAll(DOT, UL);
 					out.startElement(Xhtml.Tag.DIV);
 					out.attribute(Xhtml.Attr.ID, PREFFIX + _menuName + SUFFIX);
 					out.attribute(Xhtml.Attr.STYLE, DEFAULT_MENU_WIDTH);
@@ -40,7 +40,7 @@ public class MenuTag extends CommonTag {
 						if (checkRunPermission(child, cs)) {
 							String menuItemName = ((MenuItem) child.getObject())
 									.getTitle();
-							String _menuItemName = menuItemName.replaceAll(DOT, _);
+							String _menuItemName = menuItemName.replaceAll(DOT, UL);
 							out.setPrettyPrinting(false);
 							out.startElement(Xhtml.Tag.DIV);
 							out.attribute(Xhtml.Attr.ID, PREFFIX + _menuItemName);

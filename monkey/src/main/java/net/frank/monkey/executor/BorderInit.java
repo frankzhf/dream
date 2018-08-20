@@ -6,12 +6,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 class BorderInit extends JFrame {
 	private static final long serialVersionUID = -8232999379756338989L;
 	
-	private transient Logger log = Logger.getLogger(BorderInit.class);
+	private transient Logger log = LoggerFactory.getLogger(BorderInit.class);
 	
 	public JLabel jlbImg;
 	private boolean flag;
