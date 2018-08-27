@@ -8,15 +8,15 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.writer.JspResponseWriter;
 import net.frank.framework.xml.Xhtml;
 
 public final class PanelTag extends SimpleTagSupport {
 
-	private final static transient Log log = LogFactory.getLog(PanelTag.class);
+	private final static transient Logger log = LoggerFactory.getLogger(PanelTag.class);
 
 	private String id;
 	private String title;

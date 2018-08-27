@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.bo.Account;
@@ -24,7 +24,7 @@ import net.frank.framework.security.Session;
 
 public class ClientSession implements Session, HttpSessionBindingListener {
 	
-	private transient Log log = LogFactory.getLog(this.getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private Integer loginType = LOGIN_TYPE_DEFAULT;
 	private Integer status = STATUS_INITIAL;

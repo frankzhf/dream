@@ -5,12 +5,13 @@ import java.util.Date;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class HttpSessionEventPublisher implements HttpSessionListener {
 	
-	private transient Log log = LogFactory.getLog(this.getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private static int SESSION_CNT = 0;
 	

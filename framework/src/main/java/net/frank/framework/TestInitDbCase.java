@@ -227,8 +227,8 @@ public abstract class TestInitDbCase extends BaseTestCase {
 				resMap.get("/resType/RESOURCE"), null, null);
 		Resource privilegRes = createResource(".privilege", resMap.get("/home/." + loginName), true,
 				resMap.get("/resType/RESOURCE"), null, null);
-		logger.debug(groupRes);
-		logger.debug(privilegRes);
+		logger.debug("Variable [groupRes] -> " + groupRes);
+		logger.debug("Variable privilegRes] -> " + privilegRes);
 		Account account = new Account();
 		account.setResource(res);
 		account.setLoginName(loginName);

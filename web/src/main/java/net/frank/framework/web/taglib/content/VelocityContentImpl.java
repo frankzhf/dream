@@ -18,16 +18,16 @@ import net.frank.framework.web.taglib.content.template.RenderDirective;
 import net.frank.framework.web.taglib.content.template.RenderPropertiesDirective;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.app.VelocityEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ui.velocity.VelocityEngineUtils;
 import org.springframework.web.servlet.support.JspAwareRequestContext;
 import org.springframework.web.servlet.support.RequestContext;
 
 public final class VelocityContentImpl extends SimpleTagSupport {
 
-	private transient Log log = LogFactory.getLog(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 
 	private Object var;
 

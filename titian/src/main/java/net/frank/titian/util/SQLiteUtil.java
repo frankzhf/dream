@@ -8,13 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.titian.entity.UserStoreEntity;
 
 public final class SQLiteUtil {
-	private static Log log = LogFactory.getLog(SQLiteUtil.class);
+	private static Logger log = LoggerFactory.getLogger(SQLiteUtil.class);
 	
 
 	public static void main(String[] args) {

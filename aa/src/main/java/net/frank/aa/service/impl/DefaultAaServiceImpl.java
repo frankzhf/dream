@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.security.Authenticator;
 import net.frank.framework.security.Authorization;
@@ -13,7 +13,7 @@ import net.frank.aa.service.AaService;
 import net.frank.framework.security.Session;
 
 public class DefaultAaServiceImpl implements AaService {
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private Map<Integer, Authenticator> authenticatorMap;
 

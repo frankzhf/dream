@@ -8,8 +8,8 @@ import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.util.StringUtil;
 import net.frank.framework.bo.BaseEntity;
@@ -19,7 +19,7 @@ import net.frank.framework.service.ServiceNames;
 import net.frank.framework.spring.SpringContextUtil;
 
 public abstract class TreeBuilder {
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	private String callback = "";
 	public static String IGNORE_PRE = "ignore";
 	private Map<String,Object> paramMap;

@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.web.security.AuthenticatorHolder;
@@ -27,7 +27,7 @@ import net.frank.framework.service.QueryService;
 import net.frank.framework.service.ServiceNames;
 
 public class BlobContentServlet extends HttpServlet {
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	protected static final String RESPONSE_HEADER_CONTENT_DISPOSITION_KEY = "Content-Disposition";
 	protected static final String RESPONSE_HEADER_DEFALUT_CONTENT_TYPE = "application/octet-stream";
 	private static final String DEFAULT_CONTENT_FIELD = "content";

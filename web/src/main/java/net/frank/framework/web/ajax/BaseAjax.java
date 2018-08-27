@@ -4,9 +4,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.directwebremoting.WebContextFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.spring.SpringContextUtil;
 import net.frank.framework.service.BaseService;
@@ -14,7 +14,7 @@ import net.frank.framework.web.security.AuthenticatorHolder;
 import net.frank.framework.web.security.ClientSession;
 
 public class BaseAjax {
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private AjaxTemplate template;
 	

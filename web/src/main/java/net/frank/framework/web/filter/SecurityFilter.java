@@ -13,8 +13,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.spring.SpringContextHolder;
 import net.frank.framework.web.WebConstants;
@@ -24,7 +24,7 @@ import net.frank.framework.ws.define.WsResponse;
 import net.frank.framework.ws.process.BoXmlUtil;
 
 public class SecurityFilter implements Filter {
-	private transient Log log = LogFactory.getLog(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	public static final String ORIGINAL_SERVLET_PATH = "ORIGINAL_SERVLET_PATH";
 	private static final String WS_REQUEST_URL = "/jaxrs";
 	

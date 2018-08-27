@@ -8,14 +8,14 @@ import net.frank.framework.spring.SpringContextHolder;
 import net.frank.framework.web.security.AuthenticatorHolder;
 import net.frank.framework.web.security.ClientSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 public class BaseJersey {
 	private static final Integer DEFAULT_BUFFER_LENGTH = 4096;
 	
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	protected String inputStream2String(InputStream inputStrem)throws IOException{
 		byte[] buf = new byte[DEFAULT_BUFFER_LENGTH];

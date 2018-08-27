@@ -13,15 +13,15 @@ import net.frank.framework.spring.SpringContextUtil;
 import net.frank.framework.web.security.AuthenticatorHolder;
 import net.frank.framework.web.security.ClientSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMessages;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
 public class BaseAction extends Action {
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	public boolean hasErrors(HttpServletRequest request) {
 		ActionMessages msgs = getErrors(request);

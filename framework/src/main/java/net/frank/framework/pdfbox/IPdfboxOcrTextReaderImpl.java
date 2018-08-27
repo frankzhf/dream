@@ -91,16 +91,16 @@ public class IPdfboxOcrTextReaderImpl extends IPdfboxTextReaderImpl {
 			}
 			int status = process.exitValue();
 			if(status == 0){
-				FileReader fr = new FileReader(textFile+".txt");
-				log.debug(fr);
-				char[] charBuffer = new char[1024];
-				StringBuffer sb = new StringBuffer(CommonConstants.DEFAULT_STRING_BUFFER_LENGTH);
-				int readFlag = 0;
-				while((readFlag = fr.read(charBuffer)) !=-1){
-					sb.append(charBuffer,0,readFlag);
+				try(FileReader fr = new FileReader(textFile+".txt")){
+					log.debug("Variable [fr] -> " + fr );
+					char[] charBuffer = new char[1024];
+					StringBuffer sb = new StringBuffer(CommonConstants.DEFAULT_STRING_BUFFER_LENGTH);
+					int readFlag = 0;
+					while((readFlag = fr.read(charBuffer)) !=-1){
+						sb.append(charBuffer,0,readFlag);
+					}
+					rt.put(key, sb.toString());
 				}
-				rt.put(key, sb.toString());
-			
 			}
 		
 		}

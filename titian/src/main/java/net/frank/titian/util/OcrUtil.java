@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.util.OsUtil;
 import net.frank.commons.util.OsUtil.CommandReturn;
@@ -16,7 +16,7 @@ import net.frank.commons.util.OsUtil.RETURN_TYPE;
 
 public final class OcrUtil {
 	
-	private static Log log = LogFactory.getLog(HttpUtil.class);
+	private static Logger log = LoggerFactory.getLogger(OcrUtil.class);
 	
 	private static final String OCR_CHAR = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	

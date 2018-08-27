@@ -3,20 +3,20 @@ package net.frank.titian.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContextBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.titian.ssl.TrustSelfSignedStrategy;
 
 public final class HttpUtil {
 	
-	private static Log log = LogFactory.getLog(HttpUtil.class);
+	private static transient Logger log = LoggerFactory.getLogger(HttpUtil.class);
 	
 	private static Map<Integer,RequestConfig> cache = new HashMap<Integer,RequestConfig>();
 	

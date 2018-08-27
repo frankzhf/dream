@@ -13,18 +13,18 @@ import net.frank.framework.writer.JspResponseWriter;
 import net.frank.framework.bo.BusinessObject;
 
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.context.InternalContextAdapter;
 import org.apache.velocity.exception.MethodInvocationException;
 import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.runtime.directive.Directive;
 import org.apache.velocity.runtime.parser.node.Node;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RenderHiddenDirective extends Directive {
 
-	private transient Log log = LogFactory.getLog(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	public static final String CALL_FUNCTION_NAME = "renderHidden";
 
 	@Override

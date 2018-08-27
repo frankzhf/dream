@@ -15,8 +15,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.commons.util.ObjectUtil;
@@ -41,8 +41,8 @@ public final class ContentImpl extends SimpleTagSupport {
 
 	private static final String VALUE = "Value";
 
-	private final static transient Log log = LogFactory
-			.getLog(ContentImpl.class);
+	private final transient Logger log = LoggerFactory
+			.getLogger(getClass());
 
 	private Object var;
 

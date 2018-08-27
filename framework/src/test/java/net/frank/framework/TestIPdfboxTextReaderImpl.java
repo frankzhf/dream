@@ -6,15 +6,15 @@ import java.util.Map;
 
 import net.frank.framework.pdfbox.IPdfboxTextReader;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import junit.framework.TestCase;
 
 public class TestIPdfboxTextReaderImpl extends TestCase {
-	protected Log logger = LogFactory.getLog(getClass());
+	protected transient Logger logger = LoggerFactory.getLogger(getClass());
 
 	protected ApplicationContext context = new ClassPathXmlApplicationContext(
 			new String[] { "/applicationContext-pdfbox.xml" });

@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.frank.framework.bo.Resource;
 import net.frank.framework.service.QueryService;
 import net.frank.framework.service.ServiceNames;
@@ -16,12 +19,14 @@ import net.frank.framework.spring.SpringContextUtil;
 import net.frank.framework.web.security.AuthenticatorHolder;
 import net.frank.framework.web.security.ClientSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 public class UpdateFileServlet extends HttpServlet {
 
-	private transient Log log = LogFactory.getLog(getClass());
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5903518717341980014L;
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 
 	public void destory() {
 		super.destroy();

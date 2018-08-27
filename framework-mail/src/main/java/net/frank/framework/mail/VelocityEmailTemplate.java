@@ -5,9 +5,9 @@ import java.util.Map;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.app.VelocityEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -15,7 +15,7 @@ import org.springframework.ui.velocity.VelocityEngineUtils;
 
 public final class VelocityEmailTemplate {
 
-	protected final Log logger = LogFactory.getLog(getClass());
+	protected final transient Logger logger = LoggerFactory.getLogger(getClass());
 
 	private JavaMailSender javaMailSender;
 	private VelocityEngine velocityEngine;

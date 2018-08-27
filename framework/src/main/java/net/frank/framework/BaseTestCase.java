@@ -12,15 +12,15 @@ import net.frank.commons.CommonConstants;
 import net.frank.framework.bo.Resource;
 import net.frank.framework.spring.SpringContextHolder;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import junit.framework.TestCase;
 
 public abstract class BaseTestCase extends TestCase {
-	protected Log logger = LogFactory.getLog(getClass());
+	protected transient Logger logger = LoggerFactory.getLogger(getClass());
 	private ApplicationContext context = null;
 	protected Map<String, Resource> resMap = new HashMap<String, Resource>();
 

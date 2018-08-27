@@ -3,11 +3,11 @@ package net.frank.framework.dao.hibernate;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
@@ -16,7 +16,7 @@ import net.frank.framework.dao.BaseDao;
 import net.frank.framework.dao.DAOException;
 
 public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	@Override
 	public Object getObject(Object o) throws DAOException {

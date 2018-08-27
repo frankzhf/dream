@@ -9,8 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -26,12 +24,6 @@ public abstract class BaseDispatchAction extends BaseAction {
 	 * The Class instance of this <code>DispatchAction</code> class.
 	 */
 	protected Class<?> clazz = this.getClass();
-
-	/**
-	 * Commons Logging instance.
-	 */
-	protected static Log log = LogFactory.getLog(BaseDispatchAction.class);
-
 	/**
 	 * The message resources for this package.
 	 */

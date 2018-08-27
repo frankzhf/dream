@@ -137,7 +137,7 @@ public class SaveInformDetailsAction extends BaseAction {
 			//		getClientSession());
 			_form.setResource(resource);
 			_form.setListResource(null);
-			log.debug(_form.getResource());
+			log.debug("Result [_form.resource] -> " + _form.getResource());
 		}
 		request.setAttribute("resource", resource);
 		return mapping.findForward(CmsCommonConstants.FORWARD.SUCCESS);

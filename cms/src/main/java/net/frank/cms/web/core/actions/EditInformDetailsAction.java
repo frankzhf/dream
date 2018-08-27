@@ -50,7 +50,7 @@ public class EditInformDetailsAction extends BaseAction {
 			request.setAttribute("mode", CmsCommonConstants.PAGE_MODE.EDIT);
 			request.setAttribute("content", content);
 			request.setAttribute("listResource", list);
-			log.debug(_form.getResource());
+			log.debug("Result [_form.resource] -> " + _form.getResource());
 		}
 		return mapping.findForward(CmsCommonConstants.FORWARD.SUCCESS);
 	}

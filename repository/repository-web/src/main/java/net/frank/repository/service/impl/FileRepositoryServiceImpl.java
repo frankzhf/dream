@@ -11,8 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.repository.CommonConstants;
 import net.frank.commons.util.DateUtil;
@@ -32,7 +32,7 @@ import net.frank.repository.service.FileRepositoryService;
 
 public final class FileRepositoryServiceImpl extends RepositoryQueryServiceImpl implements FileRepositoryService {
 	
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 	
 	private static final String CURRENT_SERVICE_OPERATE_GROUP_PATH = "/groups/Self";
 	

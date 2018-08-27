@@ -13,20 +13,20 @@ import net.frank.framework.pdfbox.model.PdfboxConfig;
 import net.frank.framework.pdfbox.model.PdfboxPage;
 import net.frank.framework.pdfbox.model.PdfboxRegion;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.util.PDFTextStripperByArea;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 public class IPdfboxTextReaderImpl implements IPdfboxTextReader,
 		InitializingBean {
 
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	private String config;
 

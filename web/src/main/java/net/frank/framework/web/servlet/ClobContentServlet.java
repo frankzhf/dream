@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.web.security.AuthenticatorHolder;
@@ -22,7 +22,7 @@ import net.frank.framework.service.QueryService;
 import net.frank.framework.service.ServiceNames;
 
 public class ClobContentServlet extends HttpServlet {
-	private transient Log log = LogFactory.getLog(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 	/**
 	 * 
 	 */

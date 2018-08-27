@@ -10,15 +10,15 @@ import java.net.SocketException;
 
 import net.frank.framework.ftp.model.FtpConnectInfo;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 public final class FtpClientUtil {
-	public static final Log log = LogFactory.getLog(FtpClientUtil.class);
+	public static final transient Logger log = LoggerFactory.getLogger(FtpClientUtil.class);
 
 	private static final String ANONYMOUS_USER_NAME = "anonymous";
 

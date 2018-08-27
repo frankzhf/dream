@@ -6,14 +6,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.security.Session;
 
 public final class SessionTableHolder {
 	
-	private static Log log = LogFactory.getLog(SessionTableHolder.class);
+	private static transient Logger log = LoggerFactory.getLogger(SessionTableHolder.class);
 	
 	private static List<ClientSession> clientSessionList = new ArrayList<ClientSession>();
 	

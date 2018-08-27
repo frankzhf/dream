@@ -1,14 +1,15 @@
 package net.frank.framework.service.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.framework.dao.BaseDao;
 import net.frank.framework.service.BaseService;
 
 public abstract class BaseServiceImpl implements BaseService {
 
-	protected transient Log log = LogFactory.getLog(this.getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	private BaseDao baseDao;
 	

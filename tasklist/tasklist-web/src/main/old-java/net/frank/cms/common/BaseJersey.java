@@ -6,15 +6,13 @@
 /*    */ import net.frank.framework.spring.SpringContextHolder;
 /*    */ import net.frank.framework.web.security.AuthenticatorHolder;
 /*    */ import net.frank.framework.web.security.ClientSession;
-/*    */ import org.apache.commons.logging.Log;
-/*    */ import org.apache.commons.logging.LogFactory;
 /*    */ import org.springframework.context.ApplicationContext;
 /*    */ 
 /*    */ public class BaseJersey
 /*    */ {
 /* 16 */   private static final Integer DEFAULT_BUFFER_LENGTH = Integer.valueOf(4096);
 /*    */ 
-/* 18 */   protected transient Log log = LogFactory.getLog(getClass());
+/* 18 */   protected transient Logger log = LoggerFactory.getLogger(getClass());
 /*    */ 
 /*    */   protected String inputStream2String(InputStream inputStrem) throws IOException {
 /* 21 */     byte[] buf = new byte[DEFAULT_BUFFER_LENGTH.intValue()];

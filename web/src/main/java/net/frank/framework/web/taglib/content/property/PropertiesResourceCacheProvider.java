@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import net.frank.commons.CommonConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import net.frank.commons.CommonConstants;
 
 public final class PropertiesResourceCacheProvider {
 	
@@ -16,7 +16,7 @@ public final class PropertiesResourceCacheProvider {
 	
 	private static final String PROPERTIES_FILE_SUFFIX = ".properties";
 	
-	private transient Log log = LogFactory.getLog(getClass());
+	private transient Logger log = LoggerFactory.getLogger(getClass());
 
 	private static Map<String, Map<String,Properties>> cache = new HashMap<String, Map<String,Properties>>();
 	

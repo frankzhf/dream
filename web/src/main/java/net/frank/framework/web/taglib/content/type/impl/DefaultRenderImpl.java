@@ -5,8 +5,8 @@ import java.util.Date;
 
 import javax.servlet.jsp.PageContext;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.frank.commons.CommonConstants;
 import net.frank.framework.web.taglib.content.type.TypeRender;
@@ -18,7 +18,7 @@ import net.frank.commons.util.DateUtil;
 
 public class DefaultRenderImpl implements TypeRender {
 
-	protected transient Log log = LogFactory.getLog(getClass());
+	protected transient Logger log = LoggerFactory.getLogger(getClass());
 
 	private static final String CONTENT_NAME = "content";
 

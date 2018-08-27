@@ -17,8 +17,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.struts.Globals;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionServlet;
@@ -26,11 +24,13 @@ import org.apache.struts.config.ModuleConfig;
 import org.apache.struts.upload.FormFile;
 import org.apache.struts.upload.MultipartRequestHandler;
 import org.apache.struts.upload.MultipartRequestWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ExtendMultipartRequestHandler implements MultipartRequestHandler {
 
-	protected static Log log = LogFactory
-			.getLog(ExtendMultipartRequestHandler.class);
+	protected static transient Logger log = LoggerFactory
+			.getLogger(ExtendMultipartRequestHandler.class);
 
 	public static final long DEFAULT_SIZE_MAX = 250 * 1024 * 1024;
 
