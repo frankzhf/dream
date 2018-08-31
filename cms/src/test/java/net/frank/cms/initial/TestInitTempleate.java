@@ -35,7 +35,7 @@ public final class TestInitTempleate extends TestInitCase {
 				getType(CommonConstants.TYPE.RESOURCE), getRootAccount(), getAdminGroup());
 		Limit limit = createLimit("PERSON_REPOSITORY_SZIE", 536870912L, 0L, confRes,
 				getRootAccount(), getAdminGroup());
-		logger.debug(limit);
+		logger.debug("Variable [limit] ->" + limit);
 		Resource respostiory = createResource("repository", accountTemplate,false,
 				getType(CommonConstants.TYPE.RESOURCE), getRootAccount(), getAdminGroup());
 		res = createResource("myDocument", respostiory,false,
@@ -49,7 +49,7 @@ public final class TestInitTempleate extends TestInitCase {
 				getType(CommonConstants.TYPE.RESOURCE), getRootAccount(), getAdminGroup());
 		res = createResource("recycleBin", respostiory,false,
 				getType(CommonConstants.TYPE.RESOURCE), getRootAccount(), getAdminGroup());
-		logger.debug(res);
+		logger.debug("Variable [res] ->" + res);
 		
 		Resource unitTemplate = createResource("unit", templateRoot,true,
 				getType(CommonConstants.TYPE.RESOURCE), getRootAccount(), getAdminGroup());
