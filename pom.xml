@@ -41,8 +41,8 @@
 		<module>framework-job</module>
 		<!--
 		<module>activiti-engine</module>
-		-->
 		<module>framework-payment</module>
+		-->
 		<module>service-hibernate</module>
 		<module>aa</module>
 		<module>web</module>
@@ -62,9 +62,12 @@
 		<module>webdav-client</module>
 		<module>dede</module>
 		<module>dede-bo</module>
+		<!-- 
 		<module>android</module>
+		-->
 		<module>report</module>
-		<module>corejava</module>
+		<!--
+		<module>corejava</module>-->
 		<module>demos</module>
 		<!--
 		<module>yuanbao</module>

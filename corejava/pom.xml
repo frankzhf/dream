@@ -58,12 +58,13 @@
 		<!-- Netty The Definitive Guide end -->
 
 		<!-- install plugin from src/lib -->
+		<!-- 
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene</artifactId>
 			<version>1.4.3</version>
 		</dependency>
-
+ 		-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
