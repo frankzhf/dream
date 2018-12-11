@@ -4,10 +4,8 @@ import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
@@ -16,6 +14,11 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 public class MouseFrame extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8958460600506762872L;
 
 	public MouseFrame() {
 		add(new MouseComponent());
@@ -173,4 +176,59 @@ class MouseComponent extends JComponent {
  * FocusEvent
  * WindowEvent
  * 
- */
+ * 事件处理总结
+ * 接口					方法						参数/访问方法					事件源
+ * ActionListener		actionPerformed			ActionEvent					AbstractButton
+ * 													getActionCommand		JComboBox JTextField
+ * 													getModifiers			Timer
+ * 
+ * AdjustmentListener	adjustmentValueChanged	AdjustmentEvent				JScrollbar
+ * 													getAdjustable
+ * 													getAdjustmentType
+ * 													getValue
+ * 
+ * ItemListener			itemStateChanged		ItemEvent					AbstractButton
+ * 													getItem					JComboBox
+ * 													getItemSelectable
+ * 													getStateChange
+ * 
+ * FocusListener		focusGained				FocusEvent					Component
+ * 						focusLost					isTemporary
+ * 
+ * KeyListener			keyPressed				KeyEvent					Component
+ * 						keyReleased					getKeyChar
+ * 						keyTyped					getKeyCode
+ * 													getKeyModifiersText
+ * 													getKeyText
+ * 													isActionKey
+ * 
+ * MouseListener		mousePressed			MouseEvent					Component
+ * 						mouseReleased				getClickCount
+ * 						mouseEntered				getX
+ * 						mouseExited					getY
+ * 						mouseChicked				getPoint
+ * 													translatePoint
+ * 
+ * MouseMotionListener	mouseDragged			MouseEvent					Component
+ * 						mouseMoved
+ * 
+ * MouseWheelListener	mouseWheelMoved			MouseWheelEvent				Component
+ * 													getWheelRotation
+ * 													getScrollAmount
+ * 
+ * WindowListener		windowClosing			WindowEvent					Window
+ * 						windowOpened				getWindow
+ * 						windowIconified
+ * 						windowDeiconified
+ * 						windowClosed
+ * 						windowActivated
+ * 						windowDeactivated
+ * 
+ * WindowFocusListener	windowGainedFocus		WindowEvent					Window
+ * 						windowLostFocus				getOppositeWindow
+ * 
+ * WindowStateListener	windowStateChanged		WindowEvent					Window
+ * 													getOldState
+ * 													getNewState
+ * 
+ */	
