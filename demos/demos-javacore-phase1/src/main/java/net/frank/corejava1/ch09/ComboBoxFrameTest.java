@@ -31,6 +31,10 @@ public class ComboBoxFrameTest {
 
 
 class ComboBoxFrame extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3869553176729975126L;
 	private JComboBox<String> faceCombo;
 	private JLabel label;
 	private static final int DEFAULT_SIZE = 24;
