@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>framework-payment-face-bus</artifactId>
+    <parent>
+        <groupId>net.frank</groupId>
+        <artifactId>framework-payment-face</artifactId>
+        <version>1.0.1</version>
+    </parent>
+    <packaging>jar</packaging>
+    <dependencies>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.frank</groupId>
+            <artifactId>framework-payment-face-ali</artifactId>
+            <version>1.0.1</version>
+            <type>jar</type>
+            <classifier>api</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>net.frank</groupId>
+            <artifactId>framework-payment-face-wx</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+    </dependencies>
+</project>

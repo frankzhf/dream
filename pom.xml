@@ -43,6 +43,7 @@
 		<module>activiti-engine</module>
 		<module>framework-payment</module>
 		-->
+		<module>framework-payment-face</module>
 		<module>service-hibernate</module>
 		<module>aa</module>
 		<module>web</module>
