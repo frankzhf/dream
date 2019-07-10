@@ -67,8 +67,6 @@
 		<module>android</module>
 		-->
 		<module>report</module>
-		<!--
-		<module>corejava</module>-->
 		<module>demos</module>
 		<!--
 		<module>yuanbao</module>
@@ -81,6 +79,7 @@
 		<module>jee</module>
 		<module>titian</module>
 		<module>dduo</module>
+		<module>llin</module>
 	</modules>
 	<build>
 		<resources>
