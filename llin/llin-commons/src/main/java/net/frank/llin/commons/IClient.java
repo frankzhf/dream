@@ -1,4 +1,4 @@
-package net.frankllin.commons;
+package net.frank.llin.commons;
 
 public interface IClient {
 	/**

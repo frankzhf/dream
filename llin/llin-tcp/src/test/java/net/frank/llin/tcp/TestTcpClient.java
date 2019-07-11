@@ -10,6 +10,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.concurrent.Promise;
 
+import net.frank.llin.commons.SocketConnectResult;
+
 public class TestTcpClient {
 
 	public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class TestTcpClient {
 		client.connect("192.168.1.101", 14000, new TcpHandler() {
 
 			@Override
-			public void getPacketChannel(SocketChannel ch, Promise<TcpConnectResult> connectFuture) {
+			public void getPacketChannel(SocketChannel ch, Promise<SocketConnectResult> connectFuture) {
 				ByteBuf byteBuf = Unpooled.copiedBuffer("\r".getBytes());
 				ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, byteBuf));
 				ch.pipeline().addLast(new StringEncoder());

@@ -22,6 +22,7 @@
 		<module>llin-udp</module>
 		<module>llin-http</module>
 		<module>llin-server</module>
+		<module>llin-prototype</module>
 	</modules>
 	
 	<dependencyManagement>

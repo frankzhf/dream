@@ -14,6 +14,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultPromise;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.Promise;
+import net.frank.llin.commons.SocketConnectResult;
 
 public class UdpClientImpl implements UdpClient {
 
@@ -22,11 +23,11 @@ private EventLoopGroup eventLoop;
 	private Channel channel;
 	
 	@Override
-	public Future<UdpConnectResult> connect(String host, int port, UdpHandler udpHandler) {
+	public Future<SocketConnectResult> connect(String host, int port, UdpHandler udpHandler) {
 		if (this.eventLoop == null) {
 			this.eventLoop = new NioEventLoopGroup();
 		}
-		Promise<UdpConnectResult> connectFuture = new DefaultPromise<UdpConnectResult>(this.eventLoop.next());
+		Promise<SocketConnectResult> connectFuture = new DefaultPromise<SocketConnectResult>(this.eventLoop.next());
 		Bootstrap bootstrap = new Bootstrap();
 		bootstrap.group(eventLoop);
 		bootstrap.channel(NioDatagramChannel.class);
@@ -50,11 +51,11 @@ private EventLoopGroup eventLoop;
 	
 	private class UdpChannelInitializer extends ChannelInitializer<NioDatagramChannel> {
 
-		private final Promise<UdpConnectResult> connectFuture;
+		private final Promise<SocketConnectResult> connectFuture;
 		
 		private UdpHandler udpHandler;
 
-		UdpChannelInitializer(Promise<UdpConnectResult> connectFuture,UdpHandler udpHandler) {
+		UdpChannelInitializer(Promise<SocketConnectResult> connectFuture,UdpHandler udpHandler) {
 			this.connectFuture = connectFuture;
 			this.udpHandler = udpHandler;
 		}

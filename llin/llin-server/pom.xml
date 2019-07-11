@@ -11,8 +11,19 @@
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>llin-tcp</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.frank</groupId>
+			<artifactId>llin-udp</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-handler</artifactId>
 		</dependency>
+		
 	</dependencies>
 </project>

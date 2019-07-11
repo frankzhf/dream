@@ -3,7 +3,8 @@ package net.frank.llin.tcp;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.util.concurrent.Future;
-import net.frankllin.commons.IClient;
+import net.frank.llin.commons.IClient;
+import net.frank.llin.commons.SocketConnectResult;
 
 public interface TcpClient extends IClient {
 	/***
@@ -12,7 +13,7 @@ public interface TcpClient extends IClient {
 	 * @param port
 	 * @return
 	 */
-	Future<TcpConnectResult> connect(String host, int port, TcpHandler tcpHandler);
+	Future<SocketConnectResult> connect(String host, int port, TcpHandler tcpHandler);
 
 	/**
 	 * 获取 netty {@link EventLoopGroup}

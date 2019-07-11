@@ -3,7 +3,8 @@ package net.frank.llin.udp;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.util.concurrent.Future;
-import net.frankllin.commons.IClient;
+import net.frank.llin.commons.IClient;
+import net.frank.llin.commons.SocketConnectResult;
 
 public interface UdpClient extends IClient {
 
@@ -13,7 +14,7 @@ public interface UdpClient extends IClient {
 	 * @param port
 	 * @return
 	 */
-	Future<UdpConnectResult> connect(String host, int port, UdpHandler udpHandler);
+	Future<SocketConnectResult> connect(String host, int port, UdpHandler udpHandler);
 
 	/**
 	 * 获取 netty {@link EventLoopGroup}

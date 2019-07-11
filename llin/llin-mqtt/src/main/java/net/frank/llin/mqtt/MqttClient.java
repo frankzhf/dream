@@ -4,8 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.EventLoopGroup;
 import io.netty.handler.codec.mqtt.MqttQoS;
 import io.netty.util.concurrent.Future;
-
-import net.frankllin.commons.IClient;
+import net.frank.llin.commons.IClient;
 
 public interface MqttClient extends IClient {
 

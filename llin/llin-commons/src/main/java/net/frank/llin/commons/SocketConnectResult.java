@@ -1,13 +1,13 @@
-package net.frank.llin.udp;
+package net.frank.llin.commons;
 
 import io.netty.channel.ChannelFuture;
 
-public final class UdpConnectResult {
+public class SocketConnectResult {
 	private final boolean success;
 
 	private final ChannelFuture closeFuture;
 
-	public UdpConnectResult(boolean success, ChannelFuture closeFuture) {
+	public SocketConnectResult(boolean success, ChannelFuture closeFuture) {
 		this.success = success;
 		this.closeFuture = closeFuture;
 	}

@@ -15,6 +15,7 @@ import io.netty.handler.timeout.IdleStateHandler;
 import io.netty.util.concurrent.DefaultPromise;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.Promise;
+import net.frank.llin.commons.SocketConnectResult;
 
 public class TcpClientImpl implements TcpClient {
 
@@ -23,11 +24,11 @@ private EventLoopGroup eventLoop;
 	private Channel channel;
 	
 	@Override
-	public Future<TcpConnectResult> connect(String host, int port, TcpHandler tcpHandler) {
+	public Future<SocketConnectResult> connect(String host, int port, TcpHandler tcpHandler) {
 		if (this.eventLoop == null) {
 			this.eventLoop = new NioEventLoopGroup();
 		}
-		Promise<TcpConnectResult> connectFuture = new DefaultPromise<TcpConnectResult>(this.eventLoop.next());
+		Promise<SocketConnectResult> connectFuture = new DefaultPromise<SocketConnectResult>(this.eventLoop.next());
 		Bootstrap bootstrap = new Bootstrap();
 		bootstrap.group(this.eventLoop);
 		bootstrap.channel(NioSocketChannel.class);
@@ -35,7 +36,7 @@ private EventLoopGroup eventLoop;
 		bootstrap.handler(new TcpChannelInitializer(connectFuture,tcpHandler));
 		ChannelFuture future = bootstrap.connect();
 		future.addListener((ChannelFutureListener) f -> TcpClientImpl.this.channel = f.channel());
-
+		
 		return connectFuture;
 	}
 
@@ -52,11 +53,11 @@ private EventLoopGroup eventLoop;
 	
 	private class TcpChannelInitializer extends ChannelInitializer<SocketChannel> {
 
-		private final Promise<TcpConnectResult> connectFuture;
+		private final Promise<SocketConnectResult> connectFuture;
 		
 		private TcpHandler tcpHandler;
 
-		TcpChannelInitializer(Promise<TcpConnectResult> connectFuture,TcpHandler tcpHandler) {
+		TcpChannelInitializer(Promise<SocketConnectResult> connectFuture,TcpHandler tcpHandler) {
 			this.connectFuture = connectFuture;
 			this.tcpHandler = tcpHandler;
 		}
