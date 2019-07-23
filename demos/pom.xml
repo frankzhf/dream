@@ -15,5 +15,6 @@
 		<module>demos-dsps</module>
 		<module>demos-javacore-phase1</module>
 		<module>demos-javacore-phase2</module>
-	</modules>
+        <module>demos-kafka</module>
+    </modules>
 </project>
