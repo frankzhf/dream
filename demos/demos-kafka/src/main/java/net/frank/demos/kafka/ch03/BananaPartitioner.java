@@ -25,7 +25,11 @@ public class BananaPartitioner implements Partitioner {
             return numPartitions;
         }
 
-        return (Math.abs(Utils.murmur2(keyBytes))% (numPartitions-1));
+        if(numPartitions>1) {
+            return (Math.abs(Utils.murmur2(keyBytes)) % (numPartitions - 1));
+        }else{
+            return 0;
+        }
     }
 
     public void close(){
