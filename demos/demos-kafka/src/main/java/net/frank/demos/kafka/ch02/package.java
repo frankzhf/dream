@@ -50,11 +50,21 @@ mkdir /tmp/kafka-logs
  主题默认配置
  --num.partitions
  新创建的主题包含多少个分区，一个分区的吞吐量不需要超过５０Ｍ/每秒
+
  --log.retention.ms
  数据可以保存多久，默认一周168小时
 
  --log.retention.bytes
  数据覆盖的字节数，默认1G
+
+ --log.segment.bytes
+ 日志片段字节数上限
+
+ --log.segment.ms
+ 日志片段时间上限
+
+ --message.max.bytes
+ 消息最大字节数，默认1M
 
  常规命令
 

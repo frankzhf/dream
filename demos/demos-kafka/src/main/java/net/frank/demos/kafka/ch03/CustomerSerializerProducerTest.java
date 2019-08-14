@@ -17,18 +17,21 @@ public class CustomerSerializerProducerTest {
         kafkaProps.put("value.serializer","net.frank.demos.kafka.ch03.CustomerSerializer");
 
         Producer<String,Customer> producer = new KafkaProducer<>(kafkaProps);
-
-        Customer customer = new Customer(1000,"1000's customer name");
-        //customer.setCustomerId(1000);
-        //customer.setCustomerName("1000's customer name");
-        ProducerRecord<String,Customer> record
-                = new ProducerRecord<>("CustomerCountry","Preision Products",customer);
-        producer.send(record, (RecordMetadata metadata, Exception exception)-> {
-            if(exception!=null){
-                exception.printStackTrace();
-            }
-        });
-        producer.flush();
+        int i=1000;
+        for(;;) {
+            Customer customer = new Customer(i, i+"'s customer name");
+            //customer.setCustomerId(1000);
+            //customer.setCustomerName("1000's customer name");
+            ProducerRecord<String, Customer> record
+                    = new ProducerRecord<>("CustomerCountry", "Preision Products", customer);
+            producer.send(record, (RecordMetadata metadata, Exception exception) -> {
+                if (exception != null) {
+                    exception.printStackTrace();
+                }
+            });
+            producer.flush();
+            i++;
+        }
     }
 
 }
