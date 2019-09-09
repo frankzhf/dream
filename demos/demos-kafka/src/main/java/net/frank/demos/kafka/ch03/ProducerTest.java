@@ -15,7 +15,7 @@ public class ProducerTest {
         Producer<String,String> producer = new KafkaProducer<>(kafkaProps);
 
         ProducerRecord<String,String> record
-                = new ProducerRecord<>("CustomerCountry","Preision Products","France");
+                = new ProducerRecord<>("test","Preision Products","France");
 
         try{
             //发送消息
