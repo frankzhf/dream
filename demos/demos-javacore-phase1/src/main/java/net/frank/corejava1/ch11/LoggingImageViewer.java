@@ -123,6 +123,7 @@ class WindowHandler extends StreamHandler {
         frame.add(new JScrollPane(output));
         frame.setFocusableWindowState(false);
         frame.setVisible(true);
+
         setOutputStream(new OutputStream() {
             @Override
             public void write(int b)  {
@@ -188,7 +189,105 @@ class WindowHandler extends StreamHandler {
  * void logrb(Level level, String className, String methodName, String bundleName, String message, Throwable t)
  * 记录一个给定级别、准确的调用者信息、资源包名和消息的日志记录，其中可以包括对象或可抛出对象
  *
+ * Level getLevel()
+ * void setLevel(Level l)
+ * 获取或设置日志级别
  *
+ * Logger getParent()
+ * void setParent(Logger l)
+ * 获取或设置这个日志记录器的父日志记录器
  *
+ * Handler[] getHandlers()
+ * 获取这个日志记录器的所有处理器
+ *
+ * void addHandler(Handler h)
+ * void removeHandler(Handler h)
+ * 增加或删除这个日志记录器中的一个处理器
+ *
+ * boolean getUseParentHandlers()
+ * void setUseParentHandlers(boolean b)
+ * 获取或设置是否用父处理器，如果是，日志记录会转发给父处理器
+ *
+ * Filter getFilter()
+ * void setFilter(Filter f)
+ * 获取或设置这个日志记录器的过滤器
+ *
+ * java.util.logging.Handler
+ * abstract void publish(LogRecord record)
+ * 将日志记录发送到希望的目的地
+ *
+ * abstract void flush()
+ * 刷新所有已缓冲的数据
+ *
+ * abstract void close()
+ * 刷新所有已缓冲的数据 ，并释放所有相关资源
+ *
+ * Filter getFilter()
+ * void setFilter(Filter f)
+ * 获取或设置这个处理器的过滤器
+ *
+ * Formatter getFormatter()
+ * void setFormatter(Formatter f)
+ * 获取或设置这个处理器的格式化器
+ *
+ * Level getLevel()
+ * void setLevel(Level l)
+ * 获取或设置这个处理器的级别
+ *
+ * java.util.logging.ConsoleHandler
+ * ConsoleHandler()
+ * 构造一个新的控制台处理器
+ *
+ * java.util.logging.FileHandler
+ * FileHandler(String pattern)
+ * FileHandler(String pattern, boolean append)
+ * FileHandler(String pattern, int limit, int count)
+ * FileHandler(String pattern, int limit, int count, boolean append)
+ * 构造一个文件处理器
+ *
+ * java.util.logging.LogRecord
+ * Level getLevel()
+ * 获取这个日志记录的记录级别
+ *
+ * String getLoggerName()
+ * 获取正在记录这个日志记录的日志记录器的名字
+ *
+ * ResourceBundle getResourceBundle()
+ * String getResourceBundleName()
+ * 获取用于本地化消息的资源包或资源包名称。哪果没有获取，则返回null
+ *
+ * String getMessage()
+ * 获取本地化和格式化之前的原始消息
+ *
+ * Throwable getThrown()
+ * 获取抛出对象
+ *
+ * String getSourceClassName()
+ * String getSourceMethodName()
+ * 获取记录这个日志记录的代码区域
+ *
+ * long getMillis()
+ * 获取创建时间
+ *
+ * long getSequenceNumber()
+ * 获取这个日志记录的唯一序列号
+ *
+ * int getThreadID()
+ * 获取创建这个日志记录的线程的唯一ID
+ *
+ * java.util.logging.Filter
+ * boolean isLoggable(LogRecord record)
+ * 如果给定日志记录需要记录，则返回true
+ *
+ * java.util.logging.Formatter
+ * abstract String format(LogRecord record)
+ * 返回对日志记录格式化后得到的字符串
+ *
+ * String getHead(Handler h)
+ * String getTail(Handler h)
+ * 返回应该出现在包含日志记录的文档开头和结尾的字符串
+ *
+ * String formatMessage(LogRecord record)
+ * 返回经过本地化和格式化后的日志记录的消息内容
  *
  ***/
