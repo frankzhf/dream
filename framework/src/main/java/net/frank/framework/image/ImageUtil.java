@@ -11,11 +11,16 @@ import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.frank.commons.CommonConstants;
 
 import com.mortennobel.imagescaling.ResampleOp;
 
 public final class ImageUtil {
+	
+	static transient Logger log = LoggerFactory.getLogger(ImageUtil.class);
 	
 	private static final String DEFAUTL_IMAGE_EXTENTION = "png";
 	/**
@@ -33,17 +38,16 @@ public final class ImageUtil {
 	 */
 
 	public static void scissor(int x1, int y1, int x2, int y2,
-			String originPath, String savePath) throws IOException {
-		FileInputStream is = null;
-		ImageInputStream iis = null;
-		try {
-			is = new FileInputStream(originPath);
+			String originPath, String savePath) {
+		
+		try (FileInputStream is =new FileInputStream(originPath);
+			ImageInputStream iis = ImageIO.createImageInputStream(is);
+				){
 			String extentionName = getExtention(originPath);
 			Iterator<ImageReader> it = ImageIO
 					.getImageReadersByFormatName(extentionName
 							.toLowerCase());
 			ImageReader reader = it.next();
-			iis = ImageIO.createImageInputStream(is);
 			reader.setInput(iis, true);
 			ImageReadParam param = reader.getDefaultReadParam();
 			Rectangle rect = new Rectangle(x1, y1, x2 - x1, y2 - y1);
@@ -51,12 +55,9 @@ public final class ImageUtil {
 			BufferedImage bi = reader.read(0, param);
 			ImageIO.write(bi, extentionName.toLowerCase(), new File(
 					savePath));
-		} finally {
-			if (is != null)
-				is.close();
-			if (iis != null)
-				iis.close();
-		}
+		} catch(IOException e) {
+			log.error(e.getMessage(),e);
+		} 
 	}
 
 	/**

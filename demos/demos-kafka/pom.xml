@@ -21,10 +21,5 @@
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
         </dependency>
-        <dependency>
-            <groupId>io.confluent</groupId>
-            <artifactId>kafka-connect-elasticsearch</artifactId>
-            <version>3.2.0</version>
-        </dependency>
     </dependencies>
 </project>
