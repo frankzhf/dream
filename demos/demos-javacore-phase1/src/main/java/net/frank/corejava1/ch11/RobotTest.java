@@ -70,4 +70,37 @@ public class RobotTest {
             add(label);
         }
     }
+
+    /***
+     *  java.awt.GraphicsEnvironment
+     *  static GraphicsEnvironment getLocalGraphicsEnvironment()
+     *  返回本地图形环境
+     *
+     *  GraphicsDevice getDefaultScreenDevice()
+     *  返回默认的屏幕设备。通过getScreenDevices方法可以得到一个保存所有屏幕设备的数组
+     *
+     *  java.awt.Robot
+     *  Robot(GraphicsDevice device)
+     *  构造一个能够与给定设备交互的机器人
+     *
+     *  void keyPress(int key)
+     *  void keyRelease(int key)
+     *  模拟按键与释放
+     *
+     *  void mouseMove(int x, int y)
+     *  模拟移动鼠标到指定的x,y座标
+     *
+     *  void mousePress(int eventMask)
+     *  void mouseRelease(int eventMask)
+     *  模拟鼠标按键与释放
+     *
+     *  void delay(milliseconds)
+     *  模拟迟延
+     *
+     *  BufferedImage createScreenCapture(Rectangle rect)
+     *  截取屏幕一部分
+     *
+     */
+
+
 }
