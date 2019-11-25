@@ -16,6 +16,5 @@
 		<module>demos-javacore-phase1</module>
 		<module>demos-javacore-phase2</module>
         <module>demos-kafka</module>
-		<module>demos-netty</module>
-	</modules>
+    </modules>
 </project>
