@@ -86,4 +86,5 @@ public final class IDGenerator {
 	public static Long getWorkId(Long id){
 		return (id & ((2<<(timestampLeftShift-1)) -1)) >> sequenceBits ;
 	}
+
 }

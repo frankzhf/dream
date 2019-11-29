@@ -1,7 +1,7 @@
 package net.frank.cms.web.common.ajaxs;
 
 import net.frank.commons.CommonConstants;
-import net.frank.commons.util.DesEncryptUtil;
+import net.frank.commons.util.EncryptUtils;
 import net.frank.framework.bo.Group;
 import net.frank.framework.service.QueryService;
 import net.frank.framework.service.ServiceNames;
@@ -27,7 +27,7 @@ public class HeaderAjax extends BaseAjax {
 		if(oldPassword == null || CommonConstants.EMPTY_STRING.equals(oldPassword)){
 			return true;
 		}
-		String _oldPassword = DesEncryptUtil.encodeDES(oldPassword);
+		String _oldPassword = EncryptUtils.encodeDES(oldPassword);
 		ClientSession cs = AuthenticatorHolder.getClientSession();
 		return _oldPassword.equals(cs.getAccount().getPassword());
 	}
