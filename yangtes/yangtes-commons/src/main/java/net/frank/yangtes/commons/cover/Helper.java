@@ -2,7 +2,7 @@ package net.frank.yangtes.commons.cover;
 
 import java.util.Random;
 
-import net.frank.commons.util.DesEncryptUtil;
+import net.frank.commons.util.EncryptUtils;
 
 
 public final class Helper {
@@ -20,12 +20,12 @@ public final class Helper {
 		if ((random > 32) && ((random < 48) || (random > 57))) {
 			mask = (char) random;
 		}
-		input = len % 8 > 0 ? DesEncryptUtil.fillMask(mask, 8 * (len / 8 + 1), input) : input;
-		return DesEncryptUtil.encodeDES(input);
+		input = len % 8 > 0 ? EncryptUtils.fillMask(mask, 8 * (len / 8 + 1), input) : input;
+		return EncryptUtils.encodeDES(input);
 	}
 
 	public static String decodeDES(String input) {
-		byte[] tk = DesEncryptUtil.decodeDES(input).getBytes();
+		byte[] tk = EncryptUtils.decodeDES(input).getBytes();
 		int len = tk.length;
 		StringBuilder sb = new StringBuilder();
 		boolean isBegin = false;
@@ -48,12 +48,12 @@ public final class Helper {
 		if ((random > 32) && ((random < 48) || (random > 57))) {
 			mask = (char) random;
 		}
-		input = len % 8 > 0 ? DesEncryptUtil.fillMask(mask, 8 * (len / 8 + 1), input) : input;
-		return DesEncryptUtil.encodeDES(input, desKey);
+		input = len % 8 > 0 ? EncryptUtils.fillMask(mask, 8 * (len / 8 + 1), input) : input;
+		return EncryptUtils.encodeDES(input, desKey);
 	}
 
 	public static String decodeDES(String input, String desKey) {
-		byte[] tk = DesEncryptUtil.decodeDES(input, desKey).getBytes();
+		byte[] tk = EncryptUtils.decodeDES(input, desKey).getBytes();
 		int len = tk.length;
 		StringBuilder sb = new StringBuilder();
 		boolean isBegin = false;

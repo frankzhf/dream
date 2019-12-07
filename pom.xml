@@ -73,8 +73,8 @@
 		<!--
 		<module>yuanbao</module>
 		<module>cluster</module>
-		<module>yangtes</module>
 		-->
+		<module>yangtes</module>
 		<module>tiger</module>
 		<module>monkey</module>
 		<module>pig</module>

@@ -8,7 +8,14 @@
 		<artifactId>demos</artifactId>
 	</parent>
 	<artifactId>demos-javacore-phase1</artifactId>
-	<version>${current.version}</version>
 	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.jnlp</groupId>
+			<artifactId>jnlp</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+	</dependencies>
 
 </project>

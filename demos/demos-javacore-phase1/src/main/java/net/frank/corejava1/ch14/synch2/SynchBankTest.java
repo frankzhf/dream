@@ -1,8 +1,5 @@
 package net.frank.corejava1.ch14.synch2;
 
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class SynchBankTest {
 	public static final int NACCOUNTS = 100;

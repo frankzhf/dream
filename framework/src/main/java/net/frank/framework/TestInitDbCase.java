@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
-import net.frank.commons.util.DesEncryptUtil;
+import net.frank.commons.util.EncryptUtils;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Account2Group;
 import net.frank.framework.bo.Group;
@@ -232,7 +232,7 @@ public abstract class TestInitDbCase extends BaseTestCase {
 		Account account = new Account();
 		account.setResource(res);
 		account.setLoginName(loginName);
-		account.setPassword(DesEncryptUtil.encodeDES(password));
+		account.setPassword(EncryptUtils.encodeDES(password));
 		account.setUmask(umask);
 		account.setHome$3(homeRes);
 		account.setStaff$16(null);

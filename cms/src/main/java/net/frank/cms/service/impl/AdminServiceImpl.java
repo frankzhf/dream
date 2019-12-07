@@ -3,11 +3,11 @@ package net.frank.cms.service.impl;
 import java.util.Iterator;
 import java.util.List;
 
+import net.frank.commons.util.EncryptUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.frank.cms.service.AdminService;
 import net.frank.commons.CommonConstants;
-import net.frank.commons.util.DesEncryptUtil;
 import net.frank.commons.util.StringUtil;
 import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Account2Group;
@@ -231,7 +231,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 				CommonConstants.PERMISSION.NONE);
 		Account account = new Account();
 		account.setLoginName(loginName);
-		account.setPassword(DesEncryptUtil.encodeDES(password));
+		account.setPassword(EncryptUtils.encodeDES(password));
 		account.setUmask("700");
 		account.setType(Account.TYPE_DEFAULT);
 		account.setResource(newAccountRes);
