@@ -45,7 +45,7 @@ mkdir /tmp/kafka-logs
  每个kafka数据目录的处理线程数
 
  --auto.create.topics.enabled
- 允许自动创建线程
+ 允许自动创建主题
 
  主题默认配置
  --num.partitions
