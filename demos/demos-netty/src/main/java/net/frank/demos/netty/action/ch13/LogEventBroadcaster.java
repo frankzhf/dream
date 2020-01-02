@@ -1,4 +1,4 @@
-package net.frank.demos.netty.udp;
+package net.frank.demos.netty.action.ch13;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -26,7 +26,7 @@ public class LogEventBroadcaster {
         Channel ch = bootstrap.bind(0).sync().channel();
         long count = 0;
         for(;;){
-            ch.writeAndFlush(new LogMsg(null,++count,LogConst.getLogInfo()));
+            ch.writeAndFlush(new LogMsg(null,++count, LogConst.getLogInfo()));
             try{
                 Thread.sleep(2000);
             }catch (InterruptedException e){
