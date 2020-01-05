@@ -1,0 +1,19 @@
+runtime/cache       缓存目录
+runtime/data        数据目录
+runtime/commitlog   提交日志
+runtime/log         日志目录
+runtime/opt         程序
+runtime/install     程序压缩包
+
+工作路径
+cd demos/demos-cassandra
+
+启动
+runtime/apache-cassandra/bin/cassandra
+
+缺少jar包
+mx4j-tools-3.0.1.jar
+
+
+导入元数据
+runtime/apache-cassandra-0.7.2/bin/schematool localhost 8080 import
