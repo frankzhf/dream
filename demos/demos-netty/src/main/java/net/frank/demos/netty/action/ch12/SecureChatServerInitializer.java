@@ -7,11 +7,11 @@ import io.netty.handler.ssl.SslHandler;
 
 import javax.net.ssl.SSLEngine;
 
-public class SecureChatServerInitialzer extends ChatServerInitializer{
+public class SecureChatServerInitializer extends ChatServerInitializer{
 
     private final SslContext context;
 
-    public SecureChatServerInitialzer(ChannelGroup group, SslContext context){
+    public SecureChatServerInitializer(ChannelGroup group, SslContext context){
         super(group);
         this.context = context;
     }

@@ -1,7 +1,6 @@
 package net.frank.demos.netty.action.ch12;
 
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFlushPromiseNotifier;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.group.ChannelGroup;
@@ -21,7 +20,7 @@ public class SecureChatServer extends ChatServer {
 
     @Override
     protected ChannelInitializer<Channel> createInitializer(ChannelGroup group){
-        return new SecureChatServerInitialzer(group,context);
+        return new SecureChatServerInitializer(group,context);
     }
 
     public static void main(String[] args) throws Exception{
