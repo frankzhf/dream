@@ -6,11 +6,11 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
-public class FixedLengthFremeDecoder extends ByteToMessageDecoder {
+public class FixedLengthFrameDecoder extends ByteToMessageDecoder {
 
     private final int frameLength;
 
-    public FixedLengthFremeDecoder(int frameLength){
+    public FixedLengthFrameDecoder(int frameLength){
         if(frameLength <= 0){
             throw new IllegalArgumentException("frameLength must be apositive integer: " + frameLength);
         }
