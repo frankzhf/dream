@@ -47,7 +47,7 @@ public class DefaultApp implements ApplicationTemplate {
 	}
 
 	@Override
-	public void afterPropertiesSet() throws Exception {
+	public void afterPropertiesSet(){
 		Session rootSession = RootSessionHolder.getDefaultRootSession();
 		Resource app = cmsService.getResource(appPath, rootSession);
 		if (!CommonConstants.TYPE.APPLICATION.equals(app.getTypeId())) {
