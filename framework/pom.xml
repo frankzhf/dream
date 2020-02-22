@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>framework</artifactId>
 	<packaging>jar</packaging>
@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework-ws</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<!-- Apache Commons lib -->
 		<dependency>
@@ -251,6 +251,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
+
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>

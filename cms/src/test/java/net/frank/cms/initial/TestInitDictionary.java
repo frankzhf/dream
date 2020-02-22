@@ -11,7 +11,7 @@ public class TestInitDictionary extends TestInitCase {
 	
 	@Override
 	public String[] getSpringConfig() {
-		return new String[] { "/applicationContext-datasource.xml",
+		return new String[] {"/applicationContext-datasource.xml",
 				"/applicationContext-base.xml",
 				"/applicationContext-dao.xml",
 				"/applicationContext-service.xml" };

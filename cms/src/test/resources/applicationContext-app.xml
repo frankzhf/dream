@@ -26,16 +26,16 @@
 	</bean>
 	
 	
-	<bean id="initialTempleateServiceTarget" class="net.frank.cms.service.impl.InitialTemplateServiceImpl"
+	<bean id="initialTemplateServiceImpl" class="net.frank.cms.service.impl.InitialTemplateServiceImpl"
 		autowire="byName" />
 	
-	<bean id="initialTempleateService"
+	<bean id="initialTemplateService"
 		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
 		<property name="transactionManager">
 			<ref bean="transactionManager" />
 		</property>
 		<property name="target">
-			<ref bean="initialTempleateServiceTarget" />
+			<ref bean="initialTemplateServiceImpl" />
 		</property>
 		<property name="transactionAttributes">
 			<props>

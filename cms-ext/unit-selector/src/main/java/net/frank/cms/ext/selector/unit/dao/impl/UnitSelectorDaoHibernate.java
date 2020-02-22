@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.springframework.orm.hibernate4.HibernateCallback;
+import org.springframework.orm.hibernate5.HibernateCallback;
 
 import net.frank.cms.ext.selector.unit.dao.UnitSelectorDao;
 import net.frank.framework.bo.Resource;

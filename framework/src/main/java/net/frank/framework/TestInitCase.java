@@ -26,8 +26,7 @@ import org.hibernate.FlushMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
-import org.springframework.orm.hibernate3.SessionHolder;
+import org.springframework.orm.hibernate5.SessionHolder;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 public abstract class TestInitCase extends BaseTestCase {
@@ -50,10 +49,11 @@ public abstract class TestInitCase extends BaseTestCase {
 	public void setUp() {
 		super.setUp();
 		sessionFactory = (SessionFactory) getBean("sessionFactory");
-		session = SessionFactoryUtils.getSession(sessionFactory, true);
+		session = sessionFactory.openSession();
 		session.setFlushMode(FlushMode.COMMIT);
 		TransactionSynchronizationManager.bindResource(sessionFactory,
 				new SessionHolder(session));
+
 		configuration = (Configuration) getBean("hibernateConfiguration");
 		queryService = (QueryService) getBean("queryService");
 		resourceService = (ResourceService) getBean("resourceService");

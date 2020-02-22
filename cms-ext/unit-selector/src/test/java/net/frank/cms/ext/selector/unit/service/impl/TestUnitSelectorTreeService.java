@@ -1,7 +1,5 @@
 package net.frank.cms.ext.selector.unit.service.impl;
 
-import java.util.List;
-
 import net.frank.framework.BaseTestCase;
 import net.frank.framework.bo.Resource;
 import net.frank.framework.security.RootSessionHolder;
@@ -25,7 +23,7 @@ public final class TestUnitSelectorTreeService extends BaseTestCase {
 	
 	@Override
 	public String[] getSpringConfig() {
-		return new String[] { "/applicationContext-datasource.xml",
+		return new String[] {"/applicationContext-datasource.xml",
 				"/applicationContext-base.xml",
 				"/applicationContext-dao.xml",
 				"/applicationContext-service.xml",

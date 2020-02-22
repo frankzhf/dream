@@ -3,7 +3,6 @@ package net.frank.cms.ext.selector.unit.dao;
 import net.frank.framework.BaseTestCase;
 import net.frank.framework.bo.Resource;
 import net.frank.framework.bo.Unit;
-import net.frank.framework.service.DialogTreeService;
 import net.frank.framework.service.QueryService;
 
 public class TestUnitSelectorDaoHibernate extends BaseTestCase {
@@ -20,7 +19,7 @@ public class TestUnitSelectorDaoHibernate extends BaseTestCase {
 	
 	@Override
 	public String[] getSpringConfig() {
-		return new String[] { "/applicationContext-datasource.xml",
+		return new String[] {"/applicationContext-datasource.xml",
 				"/applicationContext-base.xml",
 				"/applicationContext-dao.xml",
 				"/applicationContext-service.xml",

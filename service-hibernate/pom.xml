@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>net.frank</groupId>
 		<artifactId>xcross</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>service-hibernate</artifactId>
 	<properties>
@@ -86,17 +86,17 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>commons</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework-ws</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>framework</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>c3p0</groupId>

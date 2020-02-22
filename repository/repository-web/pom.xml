@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>repository</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>repository-web</artifactId>
 	<packaging>war</packaging>

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>net.frank</groupId>
 		<artifactId>llin</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>llin-prototype</artifactId>
 	<packaging>jar</packaging>
@@ -13,22 +13,22 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>llin-tcp</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>llin-udp</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>llin-mqtt</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>llin-server</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>

@@ -5,6 +5,9 @@ import java.util.List;
 import net.frank.framework.bo.Type;
 import net.frank.framework.dao.TypeDao;
 
+/**
+ * @author zhaofeng
+ */
 public class TypeDaoHibernate extends BaseDaoHibernate implements TypeDao {
 	@Override
 	public List<Type> retriveTypeList() {

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
+<hibernate-configuration
+		xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration http://hibernate.org/xsd/hibernate-configuration/hibernate-configuration-4.0.xsd">
 	<session-factory>
 		<property name="hibernate.connection.useUnicode">true</property>
 		<property name="hibernate.connection.characterEncoding">utf8</property>
@@ -30,12 +31,5 @@
 		<mapping resource="net/frank/framework/orm/MenuItem.hbm.xml" />
 		<mapping resource="net/frank/framework/orm/Limit.hbm.xml" />
 		<mapping resource="net/frank/framework/orm/Comment.hbm.xml" />
-		<!-- 
-		<mapping resource="net/frank/repository/orm/File.hbm.xml" />
-		<mapping resource="net/frank/repository/orm/SharedRequest.hbm.xml" />
-		
-		<mapping resource="net/frank/tasklist/orm/Task.hbm.xml" />
-		<mapping resource="net/frank/tasklist/orm/TaskToken.hbm.xml" />
-		 -->
 	</session-factory>
 </hibernate-configuration>

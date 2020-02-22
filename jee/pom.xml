@@ -4,7 +4,7 @@
 	<parent>
 		<artifactId>xcross</artifactId>
 		<groupId>net.frank</groupId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>jee</artifactId>
 	<version>${current.version}</version>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>net.frank</groupId>
 			<artifactId>commons</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

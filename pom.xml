@@ -3,14 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.frank</groupId>
 	<artifactId>xcross</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<build.src.version>1.8</build.src.version>
 		<build.target.version>1.8</build.target.version>
-		<spring.framework.version>4.0.2.RELEASE</spring.framework.version>
-		<hibernate.version>4.1.7.Final</hibernate.version>
+		<spring.boot.version>1.5.14.RELEASE</spring.boot.version>
+		<spring.framework.version>4.3.18.RELEASE</spring.framework.version>
+		<hibernate.version>5.0.12.Final</hibernate.version>
 		<drools.version>5.3.0.Final</drools.version>
 		<java.mail.version>1.4.1</java.mail.version>
 		<jersey.version>1.17</jersey.version>
@@ -19,7 +20,7 @@
 		<env.ANDROID_SDK_HOME>/Users/zhaofeng/android_sdk</env.ANDROID_SDK_HOME>
 		<blob.type>MEDIUMBLOB</blob.type>
 		<clob.type>TEXT</clob.type>
-		<hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
+		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
 		<repository.path>/Users/zhaofeng/tmp/local_repository</repository.path>
 	</properties>
 	<profiles>
@@ -29,7 +30,7 @@
 				<blob.type>BLOB</blob.type>
 				<clob.type>CLOB</clob.type>
 				<repository.path>~/Desktop/local_repository</repository.path>
-				<hibernate.dialect>org.hibernate.dialect.Oracle9Dialect</hibernate.dialect>
+				<hibernate.dialect>org.hibernate.dialect.Oracle12cDialect</hibernate.dialect>
 			</properties>
 		</profile>
 	</profiles>
@@ -73,8 +74,8 @@
 		<!--
 		<module>yuanbao</module>
 		<module>cluster</module>
-		-->
 		<module>yangtes</module>
+		-->
 		<module>tiger</module>
 		<module>monkey</module>
 		<module>pig</module>

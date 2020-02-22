@@ -27,7 +27,7 @@ public final class TestInitSystem extends TestInitDbCase {
 	
 	@Override
 	public String[] getSpringConfig() {
-		return new String[] { "/applicationContext-datasource.xml",
+		return new String[] {"/applicationContext-datasource.xml",
 				"/applicationContext-base.xml",
 				"/applicationContext-dao.xml",
 				"/applicationContext-service.xml",
@@ -38,7 +38,7 @@ public final class TestInitSystem extends TestInitDbCase {
 	public void setUp() {
 		super.setUp();
 		initialSystemService = (InitialService)getBean("initialSystemService");
-		initialTemplateService = (InitialService)getBean("initialTempleateService");
+		initialTemplateService = (InitialService)getBean("initialTemplateService");
 		initialCmsService = (InitialService)getBean("initialCmsService");
 		adminService = (AdminService)getBean("adminService");
 		coreService = (CoreService)getBean("coreService");
@@ -46,8 +46,6 @@ public final class TestInitSystem extends TestInitDbCase {
 
 
 	public void testCreateSchema()throws Exception {
-		dropDatabaseSchema(configuration, sessionFactory);
-		createDatabaseSchema(configuration, sessionFactory);
 		init();
 	}
 	
