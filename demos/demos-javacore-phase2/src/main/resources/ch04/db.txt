@@ -1,0 +1,14 @@
+安装目录
+/Users/zhaofeng/tools/db-derby-10.14.2.0-bin/
+
+启动服务器
+java -jar /Users/zhaofeng/tools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server start
+
+启动客户端
+java -jar /Users/zhaofeng/tools/db-derby-10.14.2.0-bin/lib/derbyrun.jar ij -p demos/demos-javacore-phase2/src/main/resources/ij.properties
+
+退出客户端
+EXIT;
+
+关闭服务器
+java -jar /Users/zhaofeng/tools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server shutdown

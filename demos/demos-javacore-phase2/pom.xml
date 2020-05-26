@@ -10,4 +10,13 @@
 	<artifactId>demos-javacore-phase2</artifactId>
 	<version>${current.version}</version>
 	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derbyclient</artifactId>
+			<version>10.14.2.0</version>
+		</dependency>
+	</dependencies>
+
 </project>
