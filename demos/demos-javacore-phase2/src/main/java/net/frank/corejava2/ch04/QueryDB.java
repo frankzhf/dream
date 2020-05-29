@@ -390,7 +390,7 @@ class QueryDBFrame extends JFrame {
      * void execute()
      * 执行命令来填充行集
      *
-     * javax.sql.rowset.CacheRowSet
+     * javax.sql.rowset.CachedRowSet
      * void execute(Connection conn)
      * 通过执行使用的setCommand方法设置的命令集来填充行集。该方法使用给定的连接，并负责关闭它
      *
