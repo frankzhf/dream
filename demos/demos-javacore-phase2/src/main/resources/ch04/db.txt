@@ -12,3 +12,14 @@ EXIT;
 
 关闭服务器
 java -jar /Users/zhaofeng/tools/db-derby-10.14.2.0-bin/lib/derbyrun.jar server shutdown
+
+
+openldap
+安装
+brew install openldap
+
+程序所在目录
+/usr/local/opt/openldap/libexec
+
+启动
+sudo /usr/local/opt/openldap/libexec/slapd

@@ -3,22 +3,12 @@ package net.frank.corejava2.ch04;
 import com.sun.rowset.CachedRowSetImpl;
 
 import javax.sql.RowSet;
-import javax.sql.RowSetEvent;
-import javax.sql.RowSetListener;
-import javax.sql.RowSetMetaData;
 import javax.sql.rowset.CachedRowSet;
-import javax.sql.rowset.RowSetWarning;
-import javax.sql.rowset.spi.SyncProvider;
-import javax.sql.rowset.spi.SyncProviderException;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.*;
-import java.sql.Date;
 import java.util.*;
 import java.util.List;
 
@@ -294,6 +284,49 @@ class DataPanel extends JPanel{
      *
      * String getColumnName(int column)
      * 返回指定的列序号所对应的列名
+     *
+     */
+
+    /**
+     * 事务
+     * java.sql.Connection
+     * boolean getAutoCommit()
+     * void setAutoCommit(boolean b)
+     * 获取或设置事务是否自动提交
+     *
+     * void commit()
+     * 提交上次提交以来所有执行过的语句所产生的影响
+     *
+     * void rollback()
+     * 撒销自上次提交以来所有执行过的语句所产生的影响
+     *
+     * Savepoint setSavepoint()
+     * Savepoint setSavepoint(String name)
+     * 设置一个匿名或具名的保存点
+     *
+     * void rollback(Savepoint svpt)
+     * 回滚到给定的保存点
+     *
+     * void releaseSavepoint(Savepoint svpt)
+     * 释放给定的保存点
+     *
+     * java.sql.Savepoint
+     * int getSavepointId()
+     * 获取该匿名保存点
+     *
+     * String getSavepointName()
+     * 获取该保存点的名称
+     *
+     * java.sql.Statement
+     * void addBatch(String command)
+     * 添加命令到当前批量命令中
+     *
+     * int[] executeBatch()
+     * 执行当前批量更新中的所有命令
+     *
+     * java.sql.DatabaseMetaData
+     * boolean supportsBatchUpdates()
+     * 如果驱动程序支持批量更新，则返回true
      *
      */
 }
