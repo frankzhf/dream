@@ -160,4 +160,57 @@ class NumberFormatFrame extends JFrame {
         String n = currentNumberFormat.format(currentNumber);
         numberText.setText(n);
     }
+
+    /***
+     * java.text.NumberFormat
+     * static Locale[] getAvailableLocales()
+     * 返回一个可通知的Locale数组
+     *
+     * static NumberFormat getNumberInstance()
+     * static NumberFormat getNumberInstance(Locale l)
+     * static NumberFormat getCurrencyInstance()
+     * static NumberFormat getCurrencyInstance(Locale l)
+     * static NumberFormat getPercentInstance()
+     * static NumberFormat getPercentInstance(Locale l)
+     * 为当前的或给定的locale提供数字、货币或百分比的格式器
+     *
+     * String format(double x)
+     * String format(long x)
+     * 格式化double或long,返回一个字符串
+     *
+     * Number parse(String s)
+     * 解析一个字符串，返回一个数
+     *
+     * void setParseIntegerOnly(boolean b)
+     * boolean getParseIntegerOnly()
+     * 设置或获取一个标识，是否只解析整数值
+     *
+     * void setMinimumIntegerDigits(int n)
+     * int getMinimumIntegerDigits()
+     * void setMaximumIntegerDigits(int n)
+     * int getMaximumIntegerDigits()
+     * void setMinimumFactionDigits(int n)
+     * int getMinimumFactionDigits()
+     * void setMaximumFactionDigits(int n)
+     * int getMaximumFactionDigits()
+     * 设置或获取速数或小数部分所允许的最大或最小位数
+     *
+     * java.util.Currency
+     * static Currency getInstance(String currencyCode)
+     * static Currency getInstance(Locale locale)
+     * 返回一个货币实例
+     *
+     * String toString()
+     * String getCurrencyCode()
+     * 获取货币代码
+     *
+     * String getSymbol()
+     * String getSymbol(Locale locale)
+     * 获取货币格式化符号
+     *
+     * int getDefaultFractionDigits()
+     * 获取货币值小数点后的默认位数
+     */
+
+
 }
