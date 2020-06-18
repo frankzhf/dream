@@ -119,34 +119,6 @@ class DateFormatFrame extends JFrame{
         timeText.setText(t);
     }
 
-
-
-}
-
-class EnumCombo extends JComboBox{
-
-    private Map<String, Integer> table = new TreeMap<>();
-
-    public EnumCombo(Class<?> cl, String[] labels){
-        for(String label:labels){
-            String name = label.toUpperCase().replace(' ','_');
-            int value = 0;
-            try{
-                java.lang.reflect.Field f = cl.getField(name);
-                value = f.getInt(cl);
-            }catch(Exception e){
-                label = "(" + label +")";
-            }
-            table.put(label,value);
-            addItem(label);
-        }
-        setSelectedItem(labels[0]);
-    }
-
-    public int getValue(){
-        return table.get(getSelectedItem());
-    }
-
     /****
      * java.text.DateFormat
      * static Locale[] getAvailableLocales()
@@ -208,5 +180,8 @@ class EnumCombo extends JComboBox{
      * 给定的时间是否是夏令时
      *
      */
-
 }
+
+
+
+
