@@ -115,4 +115,50 @@ class CollationFrame extends JFrame{
         pack();
     }
 
+    /**
+     * java.text.MessageFormat
+     * MessageFormat(String pattern)
+     * MessageFormat(String pattern, Locale loc)
+     * 用给定的模式和locale构建一个消息格式对象
+     *
+     * void applyPattern(String pattern)
+     * 给消息格式对象设置物定的模式
+     *
+     * void setLocale(Locale loc)
+     * Locale getLocale()
+     * 设置或获取消息中占位符所使用的locale对象
+     *
+     * static String format(String pattern, Object... args)
+     * 通过使用args[i]作为站位符[i]的输入来格化式pattern字符串
+     *
+     * StringBuffer format(Object args, StringBuffer result, FiledPosition pos)
+     * 格式化MessageFormat的模式。args必须是一个对象数组。被格式化的字符串会被附加到result末尾,并返回result。如果pos等于new FieldPosition(MessageFormat.Field.ARGUMENT),就用它的biginIndex和endIndex属性值来设置替换占位符{1}的文本位置。如果不关心位置信息， 可以将它设为null
+     *
+     * java.text.Format
+     * String format(Object ojb)
+     * 按照格式器的规则格式化给定的对象，这个方法将调用format(obj, new StringBuffer(), new FieldPosition(1)).toString()
+     *
+     *
+     * java.util.ResourceBundle
+     * static ResourceBundle getBundle(String baseName, Locale loc)
+     * static ResourceBundle getBundle(String baseName)
+     * 在给定的locale或默认的locale下以给定的名字加载资源绑定类和它的父类，资源包类必须是public的。
+     *
+     * Object getObject(String name)
+     * 从资源包或它的父包中查找一个对象
+     *
+     * String getString(String name)
+     * 从资源包或它的父包中查找一对象并把它转型成字符串
+     *
+     * String[] getStringArray(String name)
+     * 从资源包或它的父包中查找一对象并把它转型成字符串数组
+     *
+     * Enumeration<String> getKeys()
+     * 返回一个枚举对象，枚举出资源包中所有键，也包括父包中的键
+     *
+     * Object handleGetObject(String key)
+     * 如果你定义了自己的资源查找机制，这个方法需要被覆写，用来查找给定的键相关联的资源值
+     *
+     */
+
 }
