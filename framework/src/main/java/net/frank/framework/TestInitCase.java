@@ -274,7 +274,7 @@ public abstract class TestInitCase extends BaseTestCase {
 		app.setSuperAccount$5(superUser);
 		app.setResource(res);
 		app.setTypePaths(typePaths.toCharArray());
-		app.setParent$20(null);
+		app.setParent$12(null);
 		baseDao.saveObject(app);
 		res.setObject(app);
 		return app;

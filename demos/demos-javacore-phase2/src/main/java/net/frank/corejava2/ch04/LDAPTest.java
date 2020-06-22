@@ -1,13 +1,9 @@
 package net.frank.corejava2.ch04;
 
-import org.w3c.dom.Attr;
-import sun.tools.jconsole.inspector.XObject;
-
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.*;
-import javax.smartcardio.ATR;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;

@@ -11,7 +11,7 @@ public final class Application extends BusinessObject {
 	private Byte layout;
 	private Resource context$3 = new Resource();
 	private Resource superAccount$5 = new Resource();
-	private Resource parent$20 = new Resource();
+	private Resource parent$12 = new Resource();
 	public String getAppName() {
 		return appName;
 	}
@@ -48,11 +48,11 @@ public final class Application extends BusinessObject {
 	public void setSuperAccount$5(Resource superAccount$5) {
 		this.superAccount$5 = superAccount$5;
 	}
-	public Resource getParent$20() {
-		return parent$20;
+	public Resource getParent$12() {
+		return parent$12;
 	}
-	public void setParent$20(Resource parent$20) {
-		this.parent$20 = parent$20;
+	public void setParent$12(Resource parent$12) {
+		this.parent$12 = parent$12;
 	}
 	
 }
