@@ -114,7 +114,6 @@ public class BaseDaoHibernate extends HibernateDaoSupport implements BaseDao {
 		@SuppressWarnings("unchecked")
 		List<BusinessObject> executeFind = (List<BusinessObject>)getHibernateTemplate().
 				execute((session)-> {
-
 			StringBuilder sb = new StringBuilder("from ");
 			sb.append(className);
 			sb.append(" as r where r.resource.id = :id");

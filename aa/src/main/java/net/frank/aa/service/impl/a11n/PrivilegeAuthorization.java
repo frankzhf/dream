@@ -18,7 +18,7 @@ public class PrivilegeAuthorization implements Authorization {
 	@Override
 	public void exec(Session session) {
 		if(Session.STATUS_LOGINED.equals(session.getStatus())){
-			List<Privilege> privileges = privilegeDao.getPrivileger(session
+			List<Privilege> privileges = privilegeDao.getPrivilege(session
 					.getAccount());
 			session.getAttributes().put(Session.CS_ATTRIBLE_PRIVILEGES_KEY,
 					privileges);

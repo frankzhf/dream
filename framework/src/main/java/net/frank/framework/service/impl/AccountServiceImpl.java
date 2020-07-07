@@ -58,8 +58,8 @@ public class AccountServiceImpl extends BaseServiceImpl implements
 	}
 	
 	@Transactional
-	private Account createAccount(String loginName, String password,
-			Session session,Integer accountType){
+	Account createAccount(String loginName, String password,
+						  Session session, Integer accountType){
 		Resource parent = queryService.getResourceAsPath(HOME_FOLDER);
 		Resource src = queryService.getResourceAsPath(TEMPLATE_PATH);
 		src = queryService.getResourceWithRecursive(src);

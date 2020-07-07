@@ -352,7 +352,7 @@ public class AdminServiceImpl extends BaseServiceImpl  implements AdminService {
 		if (manager != null) {
 			Account preAccount = accountDao.retrieveAccountByStaff(manager
 					.getId());
-			List<Privilege> pList = privilegeDao.getPrivileger(preAccount);
+			List<Privilege> pList = privilegeDao.getPrivilege(preAccount);
 			for (Iterator<Privilege> it = pList.iterator(); it.hasNext();) {
 				Privilege cP = it.next();
 				if (preAccount.getResource().getId()

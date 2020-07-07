@@ -15,7 +15,7 @@ public class PrivilegeDaoHibernate extends BaseDaoHibernate implements
 		PrivilegeDao {
 
 	@Override
-	public List<Privilege> getPrivileger(final Account account) {
+	public List<Privilege> getPrivilege(final Account account) {
 		List<Privilege> executeFind = getHibernateTemplate().execute((session)->{
 			String hql = "from net.frank.framework.bo.Privilege as r where r.account$5.id = :id and r.resource.active = true";
 			Query q = session.createQuery(hql);
