@@ -1,7 +1,5 @@
 package net.frank.framework.bo;
 
-import net.frank.framework.bo.BusinessObject;
-
 public final class Group extends BusinessObject {
 	
 	/**

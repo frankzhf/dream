@@ -25,7 +25,7 @@
 			lazy="false">
 			<column name="SUPER_ACCOUNT" />
 		</many-to-one>
-		<many-to-one name="parent$20" class="net.frank.framework.bo.Resource"
+		<many-to-one name="parent$12" class="net.frank.framework.bo.Resource"
 			lazy="false">
 			<column name="PARENT_" />
 		</many-to-one>

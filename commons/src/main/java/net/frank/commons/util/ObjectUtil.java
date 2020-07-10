@@ -48,7 +48,7 @@ public final class ObjectUtil {
 		return false;
 	}
 	
-	public static void preparePreperties(Object child,Object parent){
+	public static void prepareProperties(Object child,Object parent){
 		if(child!=null && parent!=null
 				&& isExtend(child,parent)){
 			Class<?> _parent = parent.getClass();
@@ -72,14 +72,11 @@ public final class ObjectUtil {
 										mSet.invoke(child,new Object[]{rtObject});
 									}
 								}
-							}catch(NoSuchMethodException e){
-								log.error("skip feild :" + fieldName);
-							}catch(IllegalArgumentException e){
-								log.error("skip feild :" + fieldName);
-							}catch(IllegalAccessException e){
-								log.error("skip feild :" + fieldName);
-							}catch(InvocationTargetException e){
-								log.error("skip feild :" + fieldName);
+							}catch(NoSuchMethodException |
+									IllegalArgumentException |
+									IllegalAccessException |
+									InvocationTargetException e){
+								log.error("skip field :" + fieldName);
 							}
 						}
 					}

@@ -6,5 +6,5 @@ import net.frank.framework.bo.Account;
 import net.frank.framework.bo.Privilege;
 
 public interface PrivilegeDao {
-	public List<Privilege> getPrivileger(Account account);
+	List<Privilege> getPrivilege(Account account);
 }
