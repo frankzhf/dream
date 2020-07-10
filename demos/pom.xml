@@ -19,6 +19,6 @@
 		<module>demos-netty</module>
 		<module>demos-cassandra</module>
 		<module>demos-logback</module>
-
+		<module>demos-flink</module>
 	</modules>
 </project>
