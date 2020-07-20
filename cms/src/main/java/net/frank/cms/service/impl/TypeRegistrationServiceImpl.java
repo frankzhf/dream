@@ -16,7 +16,7 @@ import net.frank.framework.service.ResourceService;
 
 public class TypeRegistrationServiceImpl implements TypeRegistrationService {
 
-	private Object lockor = new Object();
+	private Object locker = new Object();
 
 	private static final String varPath = "/var/TypeRegistratorNextValue";
 
@@ -40,10 +40,10 @@ public class TypeRegistrationServiceImpl implements TypeRegistrationService {
 	@Transactional
 	@Override
 	public void registrationType(String entityClass, String description,
-			String typeKey, Application applciation,Session cs) {
+			String typeKey, Application application,Session cs) {
 		Long rt = null;
 		Long parentId = null;
-		synchronized (lockor) {
+		synchronized (locker) {
 			Resource limitRes = (Resource) queryService
 					.getResourceAsPath(varPath);
 			Limit limit = (Limit) queryService.getBo(limitRes);
@@ -59,10 +59,10 @@ public class TypeRegistrationServiceImpl implements TypeRegistrationService {
 		resource.setId(rt);
 		resource.setAlias(extType.getTypeKey());
 		resource.setTypeId(CommonConstants.TYPE.TYPE);
-		if(applciation == null){
+		if(application == null){
 			parentId = queryService.getResourceAsPath("/resType").getId();
 		}else{
-			Resource appContextRes = applciation.getContext$3();
+			Resource appContextRes = application.getContext$3();
 			parentId = queryService.getResource(appContextRes.getId(), "type").getId();
 		}
 		resource.setParentId(parentId);

@@ -1,0 +1,6 @@
+[
+  {"begin":"13/07/2020 11:12:15.000","end":"13/07/2020 11:12:30.000","beforeReceive":0,"receiveCount":121,"finalReceive":0,"beforeProcess":0,"processCount":0,"finalProcess":0,"beforePush":0,"pushCount":0,"finalPush":0,"beforeAck":0,"ackCount":0,"finalAck":0},
+  {"begin":"13/07/2020 11:12:15.000","end":"13/07/2020 11:12:30.000","beforeReceive":0,"receiveCount":0,"finalReceive":0,"beforeProcess":0,"processCount":121,"finalProcess":0,"beforePush":0,"pushCount":0,"finalPush":0,"beforeAck":0,"ackCount":0,"finalAck":0},
+  {"begin":"13/07/2020 11:12:15.000","end":"13/07/2020 11:12:30.000","beforeReceive":0,"receiveCount":0,"finalReceive":0,"beforeProcess":0,"processCount":0,"finalProcess":0,"beforePush":0,"pushCount":0,"finalPush":0,"beforeAck":0,"ackCount":121,"finalAck":0},
+  {"begin":"13/07/2020 11:12:15.000","end":"13/07/2020 11:12:30.000","beforeReceive":0,"receiveCount":0,"finalReceive":0,"beforeProcess":0,"processCount":0,"finalProcess":0,"beforePush":0,"pushCount":121,"finalPush":0,"beforeAck":0,"ackCount":0,"finalAck":0}
+]
