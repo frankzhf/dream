@@ -168,7 +168,7 @@ public class CmsServiceImpl implements CmsService{
 			}
 		}catch(Exception e){
 			resource.setCode(CommonConstants.CMS_CODE.MESSAGE_UNKNOW);
-			throw new SQLException("Physics delete fialure");
+			throw new SQLException("Physics delete failure");
 		}
 		return resource;
 	}

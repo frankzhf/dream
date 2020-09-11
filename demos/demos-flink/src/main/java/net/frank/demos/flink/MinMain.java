@@ -8,10 +8,10 @@ public class MinMain {
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.createLocalEnvironment();
-        env.fromElements(new Tuple2(1,5),
-                new Tuple2(2,3),
-                new Tuple2(4,5),
-                new Tuple2(4,6))
+        env.fromElements(new Tuple2<>(1,5),
+                new Tuple2<>(2,3),
+                new Tuple2<>(4,5),
+                new Tuple2<>(4,6))
             .keyBy(0)
             .min(1)
             .print();
