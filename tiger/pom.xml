@@ -11,7 +11,7 @@
 		Screen broadcast sender
 	</description>
 	<properties>
-		<netty.version>4.0.53.Final</netty.version>
+		<netty.version>4.1.45.Final</netty.version>
 	</properties>
 	<packaging>jar</packaging>
 	<dependencies>
