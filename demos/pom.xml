@@ -11,6 +11,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>demos-zookeeper</module>
+		<module>demos-jvm</module>
 		<module>demos-concurrent</module>
 		<module>demos-dsps</module>
 		<module>demos-javacore-phase1</module>
