@@ -15,7 +15,7 @@
 		<guava.version>17.0</guava.version>
 		<ehcache.version>2.6.9</ehcache.version>
 		<ehcache-web.version>2.0.4</ehcache-web.version>
-		<commons-beanutils.version>1.9.1</commons-beanutils.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<commons-codec.version>1.9</commons-codec.version>
 		<freemarker.version>2.3.20</freemarker.version>
 		<xstream.version>1.4.7</xstream.version>
