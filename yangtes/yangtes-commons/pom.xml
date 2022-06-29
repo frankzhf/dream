@@ -19,7 +19,7 @@
 		<commons-codec.version>1.9</commons-codec.version>
 		<freemarker.version>2.3.20</freemarker.version>
 		<xstream.version>1.4.7</xstream.version>
-		<poi.version>3.9</poi.version>
+		<poi.version>4.1.1</poi.version>
 	</properties>
 	<dependencies>
 		<dependency>
